@@ -1,0 +1,1701 @@
+## Creación de @context
+
+Sigue estos pasos para crear un contexto:
+
+1. Crea un archivo `model.yaml` similar al esquema.
+2. Utiliza este repositorio. https://github.com/FIWARE/tutorials.Understanding-At-Context/tree/NGSI-LD
+3. Valida tu modelo con el comando: `./services validate model.yaml`
+4. Crea tu modelo con el comando: `./services ngsi model.yaml`
+5. Mueve datamodels.context-ngsi.jsonld a la carpeta data-models.
+
+
+# LegoCity
+
+
+-  `address`: The mailing address
+   -  Attribute type: **Property**. [address](https://schema.org/address)
+   -  Required
+-  `alternateName`: An alternative name for this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `areaServed`: The geographic area where a service or offered item is provided
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `category`: Category of the building. Enum:'apartments, bakehouse, barn, bridge, bungalow, bunker, cathedral, cabin, carport, chapel, church, civic, commercial, conservatory, construction, cowshed, detached, digester, dormitory, farm, farm_auxiliary, garage, garages, garbage_shed, grandstand, greenhouse, hangar, hospital, hotel, house, houseboat, hut, industrial, kindergarten, kiosk, mosque, office, parking, pavilion, public, residential, retail, riding_hall, roof, ruins, school, service, shed, shrine, stable, stadium, static_caravan, sty, synagogue, temple, terrace, train_station, transformer_tower, transportation, university, warehouse, water_tower'
+   -  Attribute type: **Property**. 
+   -  Required
+-  `collapseRisk`: Probability of total collapse of the building
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `containedInPlace`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+   -  Attribute type: **GeoProperty**. 
+   -  Optional
+-  `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `description`: A description of this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `floorsAboveGround`: Floors above the ground level
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `floorsBelowGround`: Floors below the ground level
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `id`: Unique identifier of the entity
+   -  Attribute type: **Property**. 
+   -  Required
+-  `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+   -  Attribute type: **GeoProperty**. 
+   -  Optional
+-  `mapUrl`: Reference to the map containing the building
+   -  Attribute type: **Relationship**. 
+   -  Optional
+-  `name`: The name of this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `occupier`: Person or entity using the building
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `openingHours`: Opening hours of this building
+   -  Attribute type: **Property**. [openingHours](https://schema.org/openingHours)
+   -  Optional
+-  `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `peopleCapacity`: Allowed people present at the building
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `peopleOccupancy`: People present at the building
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `seeAlso`: list of uri pointing to additional resources about the item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `type`: NGSI Entity type. One of : `Building`.
+   -  Attribute type: **Property**. 
+   -  Required
+
+
+
+# LegoBuilding
+
+A LegoBuilging is a structure/building made from lego pieces, which can be a train station, a traffic light, a crane, a weather station, a radar, a railroad switch or a toll booth.  
+
+-  `alternateName`: An alternative name for this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `category`: The category of the LegoBuilding.  Enum:' legoStreetLight, legoTrain, legoRadar, legoRailoadSwitch, legoToll, legoCrane, legoWheaterStation '
+   -  Attribute type: **Property**. 
+   -  Required
+-  `collapseRisk`: Probability of total collapse of the building
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `coordinatesOnLegoCity`: The coordinates of the LegoBuilding in the LegoCity
+   -  Attribute type: **GeoProperty**. 
+   -  Optional
+-  `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `description`: A description of this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `floorsAboveGround`: Floors above the ground level
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `floorsBelowGround`: Floors below the ground level
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `id`: Unique identifier of the entity
+   -  Attribute type: **Property**. 
+   -  Required
+-  `mapUrl`: Reference to the map containing the building
+   -  Attribute type: **Relationship**. 
+   -  Optional
+-  `name`: The name of this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `occupier`: Person or entity using the building
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `openingHours`: Opening hours of this building
+   -  Attribute type: **Property**. [openingHours](https://schema.org/openingHours)
+   -  Optional
+-  `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `peopleCapacity`: Allowed people present at the building
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `peopleOccupancy`: People present at the building
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `seeAlso`: list of uri pointing to additional resources about the item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `type`: NGSI Entity type. One of : `LegoBuilding`.
+   -  Attribute type: **Property**. 
+   -  Required
+
+
+
+# PirSensor
+
+A device that consists of a sensor, has category `saref:Sensor` and is used to detect the presence of a person in a room.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `presence`: Presence of a person in the room, either HIGH or LOW ["unitCode": "none"]
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Required
+
+
+
+# PhotoresistorSensor
+
+A device that consists of a sensor, has category `saref:Sensor` and is used to detect the light intensity.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `lightIntensity`: Light intensity detected by the photoresistor sensor, 0 to 255 ["unitCode": "none"]
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Required
+
+
+
+# PotentiometerSensor
+
+A device that consists of a sensor, has category `saref:Sensor` and is used to detect the position of a switch to select the engine speed, it has values from 0 to 128.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `velocityControl`: Position of the switch to select the engine speed, it has values from 0 to 128 ["unitCode": "none"]
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Required
+
+
+
+# InfraredSensor
+
+A device that consists of a sensor, has category `saref:Sensor` and is used to detect if a train passes by a point.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `presence`: HIGH if pass a train o LOW if not pass a train ["unitCode": "none"]
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Required
+
+
+
+# SwitchSensor
+
+A device that consists of a sensor, has category `saref:Sensor` and is used to detect the state of a switch, on or off.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `state`: State of the switch, either on or off ["unitCode": "none"]
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Required
+
+
+
+# RfidSensor
+
+A device that consists of a sensor is categorized as `saref:Sensor` and is used to detect an object based on a tag.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `uiddcode`: Unique identifier of the object detected by the RFID sensor ["unitCode": "none"]
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Required
+
+
+
+# UltrasondSensor
+
+A device that consists of a sensor, has categor7y `saref:Sensor` and is used to calculate the distance by ultrasound, where the distance to the object can be calculated from a time interval.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `distance`: Location of this device represented by a distance from a starting point. ["unitCode": "CMT" (centimeters) or "MTR" (meters)]
+   -  Attribute type: **Property**. [Distance](https://schema.org/Distance)
+   -  Required
+
+
+
+# TemperatureSensor
+
+A device that consists of a sensor, has category `saref:Sensor` and is used for the purpose of sensing temperature`.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `temperature`: Property related to some measurements that are characterized by a certain value that is measured in a temperature unit (degree_Celsius, degree_Fahrenheit, or degree_kelvin), ["unitCode": "CEL" - {Degree Celsius (°C)}, "FAH" - {Degree Fahrenheit (°F)}, "KEL" - {Kelvin (K)}, "N12" - {Degree Réaumur (°Ré)}, or "A48" - {Degree Rankine (°R)}]
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Required
+
+
+
+# HumiditySensor
+
+A device that consists of a sensor, has category `saref:Sensor` and is used for the purpose of sensing humidity`.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `humidity`: Property related to some measurements that are characterized by a certain value that is measured in a humidity unit (percentage), ["unitCode": "P1" (percentage)]
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Required
+
+
+
+# LedDetection
+
+A device that consists of an actuator, has category `saref:Actuator` and is used to represent the state of a led, on or off.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `stateLed`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value 'on' of type 'Text'. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to 'off'
+   -  Attribute type: **Property**. [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Required
+
+
+
+# Light
+
+A device that consists of an actuator, has category `saref:Actuator` and is used to represent the state of a light, on or off.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `stateLight`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value 'on' of type 'Text'. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to 'off'
+   -  Attribute type: **Property**. [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Required
+
+
+
+# EngineDC
+
+A device that consists of an actuator, has category `saref:Actuator` and is used to represent the velocity of a train engine.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `velocityEngine`: Position of the switch to select the engine speed, it has values from 0 to 128
+   -  Attribute type: **Property**. [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Required
+
+
+
+# Camera
+
+
+-  `address`: The mailing address
+   -  Attribute type: **Property**. [address](https://schema.org/address)
+   -  Optional
+-  `alternateName`: An alternative name for this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `areaServed`: The geographic area where a service or offered item is provided
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `cameraName`: Name of the camera corresponding to this observation
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `cameraNum`: Camera number corresponding to this observation
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `cameraOrientation`: Orientation information for the camera corresponding to this observation
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `cameraType`: Type of the camera corresponding to this observation. Enum:'FIXED, PTZ, DOME, DAY/NIGHT, C-MOUNT, BULLET'. One of : `FIXED`, `PTZ`, `DOME`, `DAY/NIGHT`, `C-MOUNT`, `BULLET`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `cameraUsage`: Purpose of the camera corresponding to this observation. Enum: [SURVEILLANCE, RLVD, ANPR/LPR, TRAFFIC]
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `description`: A description of this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `endDateTime`: Reported end time corresponding to this observation
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `id`: Unique identifier of the entity
+   -  Attribute type: **Property**. 
+   -  Required
+-  `imageSnapshot`: Camera feed snapshot download link for the camera corresponding to this observation
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+   -  Attribute type: **GeoProperty**. 
+   -  Optional
+-  `mediaURL`: URL providing further information of any image(s) or media of the complaint or place
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: The name of this item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `on`: Indicates if the device is on (true) or off (false)
+   -  Attribute type: **Property**. [Boolean](https://schema.org/Boolean)
+   -  Optional
+-  `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `seeAlso`: list of uri pointing to additional resources about the item
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object
+   -  Attribute type: **Property**. 
+   -  Optional
+-  `startDateTime`: Reported start time corresponding to this observation
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `streamName`: Name of the video stream from the camera corresponding to this observation
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `streamURL`: URL providing video streaming information for the camera corresponding to this observation
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `type`: NGSI entity type. It has to be Camera. One of : `Camera`.
+   -  Attribute type: **Property**. 
+   -  Required
+
+
+
+# Servmotor
+
+A device that consists of an actuator, has category `saref:Actuator` and is used to represent the state of a motor, 1 = via service or 2 = via normal.
+
+-  `batteryLevel`: Device's battery level. It must be equal to `1.0` when battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `category`: See attribute `category` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Required
+-  `configuration`: Device's technical configuration. This attribute is intended to be a dictionary of properties which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+   -  Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+   -  Optional
+   -  Meta Data: 
+       -  `dateModified`: Last update timestamp of this attribute
+           -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+-  `controlledAsset`: The asset(s) (building, object, etc.) controlled by the device.
+   -  Attribute type: **Relationship**. [URL](https://schema.org/URL)
+   -  Optional
+-  `controlledProperty`: See attribute `controlledProperty` from [DeviceModel](../../DeviceModel/doc/spec.md). Optional but recommended to optimize queries.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `dataProvider`: Specifies the URL to information about the provider of this information
+   -  Attribute type: **Property**. [URL](https://schema.org/URL)
+   -  Optional
+-  `dateFirstUsed`: A timestamp which denotes when the device was first used.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateInstalled`: A timestamp which denotes when the device was installed
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateLastValueReported`: A timestamp which denotes the last time when the
+ device successfully reported data to the cloud.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `dateManufactured`: A timestamp which denotes when the device was manufactured.
+   -  Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+   -  Optional
+-  `description`: A description of the item
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+   -  Normative References: http://purl.org/dc/elements/1.1/description
+-  `deviceState`: State of this device from an operational point of view. Its
+ value can be vendor dependent.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `firmwareVersion`: The firmware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `hardwareVersion`: The hardware version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `ipAddress`: The IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `location`: The current location of the item
+   -  Attribute type: **GeoProperty**. [Point](https://purl.org/geojson/vocab#Point) or [LineString](https://purl.org/geojson/vocab#LineString) or [Polygon](https://purl.org/geojson/vocab#Polygon) or [MultiPoint](https://purl.org/geojson/vocab#MultiPoint) or [MultiLineString](https://purl.org/geojson/vocab#MultiLineString) or [MultiPolygon](https://purl.org/geojson/vocab#MultiPolygon)
+   -  Optional
+   -  Normative References: http://geojson.org/geojson-spec.html#geometry-objects
+-  `macAddress`: The MAC address of the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mcc`: Mobile Country Code - This property identifies univoquely the country of the mobile network the device is attached to.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a "MCC / MNC tuple") to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `name`: A mnemonic name given to the device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `osVersion`: The version of the host operating system device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `owner`: The owners of a Device.
+   -  Attribute type: **Relationship**. [Person](http://schema.org/Person) or [Organization](https://schema.org/Organization)
+   -  Optional
+-  `provider`: The provider of the device.
+   -  Attribute type: **Property**. [provider](https://schema.org/provider)
+   -  Optional
+-  `refDeviceModel`: The device's model.
+   -  Attribute type: **Relationship**. [DeviceModel](https://uri.fiware.org/ns/data-models#DeviceModel)
+   -  Optional
+-  `rssi`: Received signal strength indicator for a wireless enabled device. It must be equal to `1.0` when the signal strength is maximum. `0.0` when signal is missing. `-1.0` when it cannot be determined.
+-  Allowed values: Interval \[0,1\] and -1
+   -  Attribute type: **Property**. [Number](https://schema.org/Number)
+   -  Optional
+-  `serialNumber`: The serial number assigned by the manufacturer. see [https://schema.org/serialNumber](https://schema.org/serialNumber)
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `softwareVersion`: The software version of this device.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text)
+   -  Optional
+-  `source`: A sequence of characters giving the source of the entity data.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
+   -  Optional
+-  `supportedProtocol`: See attribute `supportedProtocol` from [DeviceModel](../../DeviceModel/doc/spec.md). Needed if due to a software update new protocols are supported. Otherwise it is better to convey it at `DeviceModel` level.
+   -  Attribute type: **EnumProperty**. 
+   -  Optional
+-  `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value `"on"`of type `Text`. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to `"off"`.
+   -  Attribute type: **Property**. [Text](https://schema.org/Text) or [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Optional
+-  `stateMotor`: State of the motor, 1 = via service or 2 = via normal
+   -  Attribute type: **Property**. [QuantitativeValue](https://schema.org/QuantitativeValue)
+   -  Required
+
+
+
+
+
