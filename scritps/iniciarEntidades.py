@@ -25,12 +25,10 @@ dataLegoCity = [
                 "addressLocality": "Madrid - Aravaca",
                 "postalCode": "28040",
                 "streetAddress": "Av. Complutense, 30",
-        }
-    },
+            }
+        },
     }
 ]
-
-
 
 dataLegoBuilding = [
     {
@@ -442,8 +440,21 @@ dataActuators = [
 ]
 
 response = requests.post(url, headers=headers, json=dataSensors)
+print("ini Sensors")
+print(response.status_code)
+print(response.text)
+
 response = requests.post(url, headers=headers, json=dataActuators)
+print("ini Actuators")
+print(response.status_code)
+print(response.text)
+
 response = requests.post(url, headers=headers, json=dataLegoBuilding)
+print("ini Buildings")
+print(response.status_code)
+print(response.text)
+
 response = requests.post(url, headers=headers, json=dataLegoCity)
+print("ini General")
 print(response.status_code)
 print(response.text)

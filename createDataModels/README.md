@@ -8,6 +8,7 @@ Sigue estos pasos para crear un contexto:
 4. Crea tu modelo con el comando: `./services ngsi model.yaml`
 5. Mueve datamodels.context-ngsi.jsonld a la carpeta data-models.
 
+Swagger -> https://app.swaggerhub.com/apis-docs/SergioTejedor/Lego_Models/1.0.0#/
 
 # LegoCity
 
