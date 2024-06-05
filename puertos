@@ -1,0 +1,22 @@
+Todos los puertos
+
+1026 -> Puerto en el que el context broker escucha las actualizaciones del context
+4041 -> Puerto usado para configurar el agent IoT y recibir las actualizaciones del context broker
+27017 -> Puerto en el que escucha mongo db
+7896 -> Puerto en el que el agente IoT escucha el trafico sobre http 
+
+
+
+
+
+draco config:
+	https://localhost:9090/nifi/
+	user: admin - password: pass1234567890
+
+
+
+
+1026 -> Puerto en el que el context broker escucha las actualizaciones del context
+4041 -> Puerto usado para configurar el agent IoT y recibir las actualizaciones del context broker
+27017 -> Puerto en el que escucha mongo db
+7896 -> Puerto en el que el agente IoT escucha el trafico sobre http 

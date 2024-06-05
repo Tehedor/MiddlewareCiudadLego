@@ -1,0 +1,50 @@
+version: '3.1'
+services:
+  draco:
+    labels:
+      org.fiware: 'draco'
+    image: ging/fiware-draco:2.1.0
+    container_name: draco
+    environment:
+      - NIFI_WEB_HTTPS_PORT=9090
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
+    ports:
+      - "9090:9090"
+      - "5050:5050"
+    healthcheck:
+      test: curl -k --fail -s https://draco:9090/nifi/login || exit 1
+      interval: 5s
+
+  mongo-db-draco:
+    labels:
+        org.fiware: 'draco'
+    image: mongodb/mongodb-community-server:latest
+    # image: mongo:3.4
+    container_name: draco-mongo-db
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    healthcheck:
+      test: |
+        host=`hostname --ip-address || echo '127.0.0.1'`; 
+        mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
+      interval: 5s
+
+
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_MONGODB_ENABLE_ADMIN : "true"
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  #     ME_CONFIG_MONGODB_SERVER: mongo-db  
+  #     ME_CONFIG_MONGODB_PORT : 27017
+    # depends_on:
+    #   - mongo-db
