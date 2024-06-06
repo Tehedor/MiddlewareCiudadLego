@@ -179,7 +179,7 @@ dataSensors = [
             "type": "Property",
             "value": "sensor"
         },
-        "velocityControl" : "0",
+        "velocityControl" : 30,
         "controlledAsset": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:LegoTrain:001"
@@ -193,7 +193,7 @@ dataSensors = [
         # ]
     },
     {
-        "id": "urn:ngsi-ld:InfraredSensor:002",
+        "id": "urn:ngsi-ld:InfraredSensor:001",
         "type": "InfraredSensor",
         "category": {
             "type": "Property",
@@ -262,7 +262,7 @@ dataSensors = [
         },
         "distance" : {
             "type": "Property",
-            "value": "20",
+            "value": 20,
             "unitCode": "CMT"
         },
         "controlledAsset": {
@@ -286,7 +286,7 @@ dataSensors = [
         },
         "temperature" : {
             "type": "Property",
-            "value": "20",
+            "value": 20,
             "unitCode": "CEL"
         },
         "controlledAsset": {
@@ -310,7 +310,7 @@ dataSensors = [
         },
         "humidity" : {
             "type": "Property",
-            "value": "0.5",
+            "value": 0.5,
             "unitCode": "P1"
         },
         "controlledAsset": {
@@ -335,7 +335,6 @@ dataSensors = [
 # EngineDC -> velocityEngine
 # Servmotor -> stateMotor 1/2
 # Camera -> 
-
 
 dataActuators = [
     {
@@ -385,7 +384,7 @@ dataActuators = [
             "type": "Property",
             "value": "actuator"
         },
-        "velocityEngine": "0",
+        "velocityEngine": 0,
         "controlledAsset": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:LegoTrain:001"
@@ -405,7 +404,7 @@ dataActuators = [
             "type": "Property",
             "value": "actuator"
         },
-        "stateMotor": "1",
+        "stateMotor": 1,
         "controlledAsset": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:LegoRailoadSwitch:001"
