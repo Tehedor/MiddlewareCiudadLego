@@ -1,0 +1,66 @@
+mixin styles
+    style.
+        li.device {
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            padding-left: 25px;
+            padding-bottom: 2px;
+            font-size: large;
+        }
+        ul.devices {
+            list-style-type: none;
+            padding: 5;
+            margin: 0;
+        }
+
+
+mixin devicesForRadar(id)
+
+    div(class="card m-2")
+        div.card-title
+            div.row
+                .col-xl-9.col-sm-12
+                    strong(style="margin-left:20px") Lego Radar
+                    | &nbsp;
+                    code(style="font-size:large") urn:ngsi-ld:LegoRadar:#{id}
+                //- .col-xl-3.col-sm-12
+                //-     span Modo aleatorio
+                //-     input(type="checkbox" id="pruebas" name="pruebas" value="prueba" style="margin-left:10px")
+        div.card-body
+            ul.devices
+                div.row
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device   
+                            input(type="checkbox" id="simulate_infraredSensor" name="simulate_infraredSensor" value="simulate_infraredSensor" )
+                            | &nbsp;
+                            //- img(src="/img/warehouse-full.svg", alt="alt").device
+                            span.timer_infraredSensor ...
+                            code 
+                                | &nbsp;
+                                strong InfraRedSensor#{id}
+                                | &nbsp;
+                                //- span.device(id=`PirSensor:${id}`) 
+                                span.presence_infraredSensor ...
+                                //-   #{entitiesPirSensor.presence}
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device
+                            code 
+                                strong Camera#{id}
+                                | &nbsp;
+                                //- span.device(id=`LedDetection:${id}`)
+                                span.foto_camera ...
+
+    script.
+        $(function () {
+            const socket = io();
+        
+
+            socket.on('update_infraredSensor', function(presence_infraredSensor) {
+                $('.presence_infraredSensor').text(presence_infraredSensor);
+            });
+
+            socket.on('update_cameraActuator', function(on_camera, medidaURL_camera, startDataTime_camera) {
+                $('.foto_camera').text(on_camera);
+            });
+
+        });

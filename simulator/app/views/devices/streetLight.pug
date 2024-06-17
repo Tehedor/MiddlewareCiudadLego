@@ -1,0 +1,104 @@
+mixin styles
+    style.
+        li.device {
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            padding-left: 25px;
+            padding-bottom: 2px;
+            font-size: large;
+        }
+        ul.devices {
+            list-style-type: none;
+            padding: 5;
+            margin: 0;
+        }
+
+
+mixin devicesForStreetLight(id)
+    //- mixin devicesForStreetLight(id,entitiesPirSensor,entitiesPhotoresistorSensor,entitiesLedDetectionActuator,entitiesLigthActuator)
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js')
+    //- script(src='https://code.jquery.com/jquery-1.11.1.js')
+
+    div(class="card m-2")
+        div.card-title
+            div.row
+                .col-xl-9.col-sm-12
+                    strong(style="margin-left:20px") Street Light 
+                    | &nbsp;
+                    code(style="font-size:large") urn:ngsi-ld:LegoStreetLight:#{id}
+                //- .col-xl-3.col-sm-12
+                //-     span Modo aleatorio
+                //-     input(type="checkbox" id="pruebas" name="pruebas" value="prueba" style="margin-left:10px")
+        div.card-body
+            ul.devices
+                div.row
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device  
+                            input(type="checkbox" id="simulate_pirSensor" name="simulate_pirSensor" value="simulate_pirSensor" )
+                            | &nbsp; 
+                            //- img(src="/img/warehouse-full.svg", alt="alt").device
+                            span.timer_pirSensor ...
+                            code 
+                                | &nbsp;
+                                strong PirSensor#{id}
+                                | &nbsp;
+                                //- span.device(id=`PirSensor:${id}`) 
+                                span.presence ...
+                                //-   #{entitiesPirSensor.presence}
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device
+                            code 
+                                strong LedDetection#{id}
+                                | &nbsp;
+                                //- span.device(id=`LedDetection:${id}`)
+                                span.stateLed ...
+                div.row 
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device
+                            input(type="checkbox" id="simulate_photoresistorSensor" name="simulate_photoresistorSensor" value="simulate_photoresistorSensor" )
+                            | &nbsp;
+                            span.timer_photoresistorSensor ...
+                            code 
+                                | &nbsp;
+                                strong PhotoresistorSensor#{id}
+                                | &nbsp;
+                                //- span.device(id=`PhotoresistorSensor${id}`)
+                                span.intensity ...
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device
+                            code 
+                                strong Light#{id}
+                                | &nbsp;
+                                //- span.device(id=`Light:${id}`)
+                                span.stateLight ...
+
+    
+        form(action="/device/command" method="POST")
+            input(type="text" style="display:none"  name="id" value=`${id}`)
+            select(name="action")
+                option(value="start") Start Tractor
+                option(value="stop") Stop Tractor
+
+            input(type="submit" value=`Send` class="btn btn-primary  btn-sm")
+
+    script.
+        $(function () {
+            const socket = io();
+        
+            socket.on('update_pirSensor', function(presence_pirSensor) {
+                $('.presence').text(presence_pirSensor);
+            });
+            socket.on('update_photoresistorSensor', function(light_potentiometerSensor) {
+                $('.intensity').text(light_potentiometerSensor);
+            });
+
+            socket.on('update_ledDetectionActuator', function(state_ledDetectionActuator) {
+                $('.stateLed').text(state_ledDetectionActuator);
+            });
+
+            socket.on('update_lightActuator', function(state_lightActuator) {
+                $('.stateLight').text(state_lightActuator);
+            });
+
+                //- okas
+        });

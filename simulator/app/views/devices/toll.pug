@@ -1,0 +1,64 @@
+mixin styles
+    style.
+        li.device {
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            padding-left: 25px;
+            padding-bottom: 2px;
+            font-size: large;
+        }
+        ul.devices {
+            list-style-type: none;
+            padding: 5;
+            margin: 0;
+        }
+
+
+mixin devicesForToll(id)
+
+    div(class="card m-2")
+        div.card-title
+            div.row
+                .col-xl-9.col-sm-12
+                    strong(style="margin-left:20px") Lego Toll
+                    | &nbsp;
+                    code(style="font-size:large") urn:ngsi-ld:Toll:#{id}
+                //- .col-xl-3.col-sm-12
+                //-     span Modo aleatorio
+                //-     input(type="checkbox" id="pruebas" name="pruebas" value="prueba" style="margin-left:10px")
+        div.card-body
+            ul.devices
+                div.row
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device   
+                            input(type="checkbox" id="simulate_rfidSensor" name="simulate_rfidSensor" value="simulate_rfidSensor" )
+                            | &nbsp;
+                            //- img(src="/img/warehouse-full.svg", alt="alt").device
+                            span.timer_rfidSensor ...
+                            code 
+                                | &nbsp;
+                                strong RfidSensor#{id}
+                                | &nbsp;
+                                //- span.device(id=`PirSensor:${id}`) 
+                                span.uiddcode_rfidSensor ...
+                                //-   #{entitiesPirSensor.presence}
+                    div.col
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device
+                        //-     code 
+                        //-         strong servMotorActuator#{id}
+                        //-         | &nbsp;
+                        //-         //- span.device(id=`LedDetection:${id}`)
+                        //-         span.state_servmotorAtuator ...
+
+    
+
+    script.
+        $(function () {
+            const socket = io();
+        
+            socket.on('update_rfidSensor', function(uiddcode_rfidSensor) {
+                $('.uiddcode_rfidSensor').text(uiddcode_rfidSensor);
+            });
+
+
+        });

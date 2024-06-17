@@ -1,0 +1,119 @@
+mixin styles
+    style.
+        li.device {
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            padding-left: 25px;
+            padding-bottom: 2px;
+            font-size: large;
+        }
+        ul.devices {
+            list-style-type: none;
+            padding: 5;
+            margin: 0;
+        }
+
+
+mixin devicesForWeatherStation(id)
+    //- mixin devicesForStreetLight(id,entitiesPirSensor,entitiesPhotoresistorSensor,entitiesLedDetectionActuator,entitiesLigthActuator)
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js')
+    //- script(src='https://code.jquery.com/jquery-1.11.1.js')
+
+    div(class="card m-2")
+        div.card-title
+            div.row
+                .col-xl-9.col-sm-12
+                    strong(style="margin-left:20px") Lego Weather Station
+                    | &nbsp;    
+                    code(style="font-size:large") urn:ngsi-ld:LegoWeatherStation:#{id}
+                    //- span.timer_weatherStation ...
+                //- .col-xl-3.col-sm-12
+                //-     span Modo aleatorio
+                //-     input(type="checkbox" id="pruebas" name="pruebas" value="prueba" style="margin-left:10px")
+        div.card-body
+            ul.devices
+                input(type="checkbox" id="simulate_weatherStation" name="simulate_weatherStation" value="simulate_weatherStation" )
+                | &nbsp;
+                span.timer_weatherStation ...
+                div.row
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device   
+                            //- img(src="/img/warehouse-full.svg", alt="alt").device
+                            code 
+                                strong TemperatureSensor#{id}
+                                | &nbsp;
+                                //- span.device(id=`PirSensor:${id}`) 
+                                span.temperature ...
+                                //-   #{entitiesPirSensor.presence}
+                    div.col
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device
+                        //-     code 
+                        //-         strong EngineDC#{id}
+                        //-         | &nbsp;
+                        //-         //- span.device(id=`LedDetection:${id}`)
+                        //-         span.engineVelocity ...
+                .row 
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device
+                            code 
+                                strong HumiditySensor#{id}
+                                | &nbsp;
+                                //- span.device(id=`LedDetection:${id}`)
+                                span.humidity ...
+                    div.col
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device
+                        //-     code 
+                        //-         strong EngineDC#{id}
+                        //-         | &nbsp;
+                        //-         //- span.device(id=`LedDetection:${id}`)
+                        //-         span.engineVelocity ...
+
+    
+        //- form(action="/device/command" method="POST")
+        //-     input(type="text" style="display:none"  name="id" value=`${id}`)
+        //-     select(name="action")
+        //-         option(value="start") Start Tractor
+        //-         option(value="stop") Stop Tractor
+
+            input(type="submit" value=`Send` class="btn btn-primary  btn-sm")
+
+
+    script.
+        $(function () {
+            const socket = io();
+        
+            socket.on('update_temperatureSensor', function(temperature) {
+                $('.temperature').text(temperature);
+            });
+            socket.on('update_humiditySensor', function(humidity) {
+                $('.humidity').text(humidity);
+            });
+
+
+            const checkbox_simulate_weatherStation = document.querySelector('.simulate_weatherStation');
+
+
+            checkbox_simulate_weatherStation.addEventListener('change', function () {
+                // Emite un evento con el estado actual del checkbox
+                socket.emit('change_simulate_weatherStation', { isChecked: this.checked });
+            });
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const checkbox_simulate_weatherStation = document.querySelector('#simulate_weatherStation');
+
+                if (checkbox_simulate_weatherStation) {
+                    checkbox_simulate_weatherStation.addEventListener('change', function () {
+                        // Emite un evento con el estado actual del checkbox
+                        socket.emit('change_simulate_weatherStation', { isChecked: this.checked });
+                    });
+                } else {
+                    console.log('Checkbox no encontrada');
+                }
+            });
+        });
+
+
+
+    //- SOCKET_IO.emit('update_temperatureSensor', temperature);
+    //- SOCKET_IO.emit('update_humiditySensor', humidity);
+        });

@@ -1,0 +1,61 @@
+mixin styles
+    style.
+        li.device {
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            padding-left: 25px;
+            padding-bottom: 2px;
+            font-size: large;
+        }
+        ul.devices {
+            list-style-type: none;
+            padding: 5;
+            margin: 0;
+        }
+
+
+mixin devicesForCrane(id)
+
+    div(class="card m-2")
+        div.card-title
+            div.row
+                .col-xl-9.col-sm-12
+                    strong(style="margin-left:20px") Lego Crane
+                    | &nbsp;
+                    code(style="font-size:large") urn:ngsi-ld:LegoCrane:#{id}
+                //- .col-xl-3.col-sm-12
+                //-     span Modo aleatorio
+                //-     input(type="checkbox" id="pruebas" name="pruebas" value="prueba" style="margin-left:10px")
+        div.card-body
+            ul.devices
+                div.row
+                    div.col
+                        li(style="background-image: url('/img/warehouse-full.svg')").device   
+                            input(type="checkbox" id="simulate_ultrasoundSensor" name="simulate_ultrasoundSensor" value="simulate_ultrasoundSensor" )
+                            | &nbsp;
+                            //- img(src="/img/warehouse-full.svg", alt="alt").device
+                            span.timer_ultrasoundSensor ...
+                            code 
+                                | &nbsp;
+                                strong UltrasoundSensor#{id}
+                                | &nbsp;
+                                //- span.device(id=`PirSensor:${id}`) 
+                                span.distance_ultrasoundSensor ...
+                                //-   #{entitiesPirSensor.presence}
+                    div.col
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device
+                        //-     code 
+                        //-         strong EngineDC#{id}
+                        //-         | &nbsp;
+                        //-         //- span.device(id=`LedDetection:${id}`)
+                        //-         span.engineVelocity ...
+
+    
+    script.
+        $(function () {
+            const socket = io();  
+            socket.on('update_ultrasoundSensor', function(distance_ultrasoundSensor) {
+                $('.distance_ultrasoundSensor').text(distance_ultrasoundSensor);
+            });
+    
+        });

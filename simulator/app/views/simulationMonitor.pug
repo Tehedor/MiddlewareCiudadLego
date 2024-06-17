@@ -1,0 +1,161 @@
+extends layout
+
+include devices/streetLight.pug
+include devices/weatherStation.pug
+include devices/train.pug
+
+include devices/crane.pug
+include devices/radar.pug
+include devices/railroadSwitch.pug
+include devices/toll.pug
+
+block content
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js')
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+
+    +styles
+    //- p
+    //- div.row(style="display: flex; justify-content: center;")
+    //-     div.col
+    //-         div.card(style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 20%; margin: auto;")
+    //-             div.card-title
+    //-                 strong Tiempo simulacion
+    //-             div.card-body
+    //-                 input(type="number" placeholder="Enter time in seconds" name="time" value="3" style="margin-bottom: 10px; width: 80px; margin-right:10px") 
+    //-                 span  s
+    //-                 button.btn.btn-primary.btn-sm(type="button" style="margin-left:10px") Start/Pause                  
+    p
+    div.row
+        div.col-lg-6.col-sm-12
+            +devicesForStreetLight(`${process.env.DEVICE_NUMBER || '002'}`)
+            //- +devicesForStreetLight('002',entitiesPirSensor,entitiesPhotoresistorSensor,entitiesLedDetectionActuator,entitiesLigthActuator)
+        div.col-lg-6.col-sm-12
+            +devicesForTrain(`${process.env.DEVICE_NUMBER || '002'}`)
+            //- +devicesForStreetLight('002')
+    div.row    
+        div.col-lg-6.col-sm-12
+            //- p Street Light Monitor
+            +devicesForWeatherStation(`${process.env.DEVICE_NUMBER || '002'}`)
+        div.col-lg-6.col-sm-12
+            //- p Street Light Monitor
+            +devicesForCrane(`${process.env.DEVICE_NUMBER || '002'}`)
+
+    div.row
+        div.col-lg-6.col-sm-12
+            //- p Street Light Monitor
+            +devicesForRadar(`${process.env.DEVICE_NUMBER || '002'}`)
+        div.col-lg-6.col-sm-12
+            //- p Street Light Monitor
+            +devicesForRailroadSwitch(`${process.env.DEVICE_NUMBER || '002'}`)
+    
+    div.row
+        div.col-lg-6.col-sm-12
+            //- p Street Light Monitor
+            +devicesForToll(`${process.env.DEVICE_NUMBER || '002'}`)
+        div.col-lg-6.col-sm-12
+            //- p Street Light Monitor
+            //- +devicesForToll('002')
+    
+    p 
+    p Pagina de street
+    //- pre= JSON.stringify(entitiesPirSensor, null, 2)
+    //- pre= JSON.stringify(entitiesPhotoresistorSensor, null, 2)
+    //- pre= JSON.stringify(entitiesLedDetectionActuator, null, 2)
+    //- pre= JSON.stringify(entitiesLigthActuator, null, 2)
+
+    //- script(src='/js/streetLight.js')
+
+
+    script.
+        $(function () {
+            const socket = io();
+        
+            socket.on('update_timer', function(timer) {
+                $('.timer_pirSensor').text(timer[0]);
+                $('.timer_photoresistorSensor').text(timer[1]);
+                $('.timer_potentiometerSensor').text(timer[2]);
+                $('.timer_infraredSensor').text(timer[3]);
+                $('.timer_switchSensor').text(timer[4]);
+                $('.timer_rfidSensor').text(timer[5]);
+                $('.timer_ultrasoundSensor').text(timer[6]);
+                $('.timer_weatherStation').text(timer[7]);
+            });
+
+
+            //- socket.on('update_timer', function(timer1) {
+            //-     $('.timer_pirSensor').text(timer1);
+            //- });
+            
+            socket.on('update', function(presence_pirSensor) {
+                $('.presence').text(presence_pirSensor);
+            });
+            socket.on('update_photoresistorSensor', function(light_potentiometerSensor) {
+                $('.intensity').text(light_potentiometerSensor);
+            });
+
+            socket.on('update_ledDetectionActuator', function(state_ledDetectionActuator) {
+                $('.stateLed').text(state_ledDetectionActuator);
+            });
+
+            socket.on('update_lightActuator', function(state_lightActuator) {
+                $('.stateLight').text(state_lightActuator);
+            });
+
+
+
+
+            //- const checkbox_simulate_pirSensor = document.querySelector('.simulate_pirSensor');
+            //- const checkbox_simulate_photoresistorSensor = document.querySelector('.simulate_photoresistorSensor');
+            //- const checkbox_simulate_potentiometerSensor = document.querySelector('.simulate_potentiometerSensor');
+            //- const checkbox_simulate_infraredSensor = document.querySelector('.simulate_infraredSensor');
+            //- const checkbox_simulate_switchSensor = document.querySelector('.simulate_switchSensor');
+            //- const checkbox_simulate_rfidSensor = document.querySelector('.simulate_rfidSensor');
+            //- const checkbox_simulate_ultrasoundSensor = document.querySelector('.simulate_ultrasoundSensor');
+            //- const checkbox_simulate_weatherStation = document.querySelector('.simulate_weatherStation');
+
+            //- // Añade un controlador de eventos 'change'
+            //- checkbox_simulate_pirSensor.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_pirSensor', { isChecked: this.checked });
+            //- });
+
+            //- checkbox_simulate_photoresistorSensor.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_photoresistorSensor', { isChecked: this.checked });
+            //- });
+
+            //- checkbox_simulate_potentiometerSensor.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_potentiometerSensor', { isChecked: this.checked });
+            //- });
+
+            //- checkbox_simulate_infraredSensor.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_infraredSensor', { isChecked: this.checked });
+            //- });
+
+            //- checkbox_simulate_switchSensor.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_switchSensor', { isChecked: this.checked });
+            //- });
+
+            //- checkbox_simulate_rfidSensor.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_rfidSensor', { isChecked: this.checked });
+            //- }); 
+
+            //- checkbox_simulate_ultrasoundSensor.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_ultrasoundSensor', { isChecked: this.checked });
+            //- });
+
+            //- checkbox_simulate_weatherStation.addEventListener('change', function () {
+            //-     // Emite un evento con el estado actual del checkbox
+            //-     socket.emit('change_simulate_weatherStation', { isChecked: this.checked });
+            //- });
+
+
+        });
+
+
