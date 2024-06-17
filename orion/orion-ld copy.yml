@@ -85,7 +85,6 @@ services:
       interval: 5s
 
   
-
 networks:
   default:
     labels:

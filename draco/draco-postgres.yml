@@ -1,6 +1,8 @@
 version: '3.1'
 services:
   # https://localhost:9090/nifi/login
+
+
   draco:
     labels:
       org.fiware: 'draco'
@@ -13,12 +15,15 @@ services:
     ports:
       - "9090:9090"
       - "5050:5050"
+    # networks:
+    #   - default
     # /opt/nifi/nifi-current
     # volumes:
     #   - draco-postgres-state:/opt
     healthcheck:
       test: curl -k --fail -s https://draco:9090/nifi/login || exit 1
       interval: 5s
+  
   
   db-postgres-draco:
     labels:
@@ -30,6 +35,8 @@ services:
       POSTGRES_PASSWORD: example
     ports:
     - "5432:5432"
+    # networks:
+    #   - default
     healthcheck:
       test: ["CMD-SHELL", "pg_isready", "-d", "postgres"]
       interval: 5s
@@ -42,3 +49,11 @@ services:
 #   draco-postgres-state: 
 #     labels:
 #       org.fiware: 'state'
+
+# networks:
+#   default:
+#     labels:
+#       org.fiware: 'orion'
+#     ipam:
+#       config:
+#         - subnet: 172.18.1.0/24

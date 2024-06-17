@@ -2,6 +2,7 @@ import requests
 import random
 import time
 
+start_time = time.time()
 
 # url = 'http://localhost:1026/ngsi-ld/v1/entityOperations/upsert'
 headers = {
@@ -133,6 +134,9 @@ def simulateHumidity(humidity):
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
 while True:
+    
+    elapsed_time = time.time() - start_time
+    print(f"Tiempo transcurrido: {round(elapsed_time, 2)} segundos")
 # urn:ngsi-ld:PirSensor:001
 # urn:ngsi-ld:PhotoresistorSensor:001
 # urn:ngsi-ld:PotentiometerSensor:001
@@ -145,14 +149,14 @@ while True:
 
 
 
-    # urn:ngsi-ld:PirSensor:001
-    url = 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:PirSensor:001/attrs'
-    presence = simulatePresence(presence)
-    dataPirSensor = {
-        "presence" : presence,
-    }
-    # print(presence)
-    requests.patch(url, headers=headers, json=dataPirSensor)
+    # # urn:ngsi-ld:PirSensor:001
+    # url = 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:PirSensor:001/attrs'
+    # presence = simulatePresence(presence)
+    # dataPirSensor = {
+    #     "presence" : presence,
+    # }
+    # # print(presence)
+    # requests.patch(url, headers=headers, json=dataPirSensor)
 
     # urn:ngsi-ld:PhotoresistorSensor:001    
     url = 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:PhotoresistorSensor:001/attrs'
@@ -229,19 +233,18 @@ while True:
     
     # urn:ngsi-ld:HumiditySensor:001
     url = 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:HumiditySensor:001/attrs'
-    humidity = simulateHumidity(humidity)
     dataHumiditySensor = {
         "humidity" : {
             "type": "Property",
-            "value": humidity,
+            "value": "3.14",
             "unitCode": "P1"
         }
     }
     # print(humidity)
-    requests.patch(url, headers=headers, json=dataHumiditySensor)
-    
+    humidity = simulateHumidity(humidity)
+    requests.patch(url, headers=headers, json=dataHumiditySensor)    
 
-    time.sleep(0.2)
+    time.sleep(3)
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
 

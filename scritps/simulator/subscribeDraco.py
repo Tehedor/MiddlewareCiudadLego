@@ -1,19 +1,52 @@
 import requests
+import sys
 
-draco_uri = "http://localhost:5050/v2/notify"
+draco_uri = "http://draco:5050/v2/notify"
+
+Number = sys.argv[1]
+
+formato = "normalized"
+# formato = "x-ngsiv2"
+# formato = "x-ngsiv2-normalized"
+# formato = "normalized"
+
+# urn:ngsi-ld:LegoCity:002
+# urn:ngsi-ld:LegoStreetLight:002
+# urn:ngsi-ld:LegoTrain:002
+# urn:ngsi-ld:LegoRadar:002
+# urn:ngsi-ld:LegoRailoadSwitch:002
+# urn:ngsi-ld:LegoToll:002
+# urn:ngsi-ld:LegoCrane:002
+# urn:ngsi-ld:LegoWheaterStation:002
+
+# urn:ngsi-ld:PirSensor:002
+# urn:ngsi-ld:PhotoresistorSensor:002
+# urn:ngsi-ld:PotentiometerSensor:002
+# urn:ngsi-ld:InfraredSensor:002
+# urn:ngsi-ld:SwitchSensor:002
+# urn:ngsi-ld:RfidSensor:002
+# urn:ngsi-ld:UltrasoundSensor:002
+# urn:ngsi-ld:TemperatureSensor:002
+# urn:ngsi-ld:HumiditySensor:002
+
+# urn:ngsi-ld:LedDetection:002
+# urn:ngsi-ld:Light:002
+# urn:ngsi-ld:EngineDC:002
+# urn:ngsi-ld:Servmotor:002
+# urn:ngsi-ld:Camera:002
 
 ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### #######
 ####### ####### ####### ####### Buildings
 ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### #######
-LegoCityAttr = "type, category, address"
+LegoCityAttr = ["type", "category", "address"]
 LegoCity = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "Building"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoCity:{Number}","type": "Building"}],
     "watchedAttributes": ["address"],
     "notification": {
-        "attributes": [LegoCityAttr],
-        "format": "normalized",
+        "attributes": LegoCityAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -28,15 +61,15 @@ LegoCity = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LegoStreetLightAttr = "type, category, controlledAsset"
+LegoStreetLightAttr = ["type", "category", "controlledAsset"]
 LegoStreetLight = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LegoStreetLight"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoStreetLight:{Number}","type": "LegoStreetLight"}],
     "watchedAttributes": ["controlledAsset"],
     "notification": {
-        "attributes": [LegoStreetLightAttr],
-        "format": "normalized",
+        "attributes": LegoStreetLightAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -51,15 +84,15 @@ LegoStreetLight = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LegoTrainAttr = "type, category, controlledAsset"
+LegoTrainAttr = ["type", "category", "controlledAsset"]
 LegoTrain = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LegoTrain"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoTrain:{Number}","type": "LegoTrain"}],
     "watchedAttributes": ["controlledAsset"],
     "notification": {
-        "attributes": [LegoTrainAttr],
-        "format": "normalized",
+        "attributes": LegoTrainAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -74,15 +107,15 @@ LegoTrain = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LegoRadarAttr = "type, category, controlledAsset"
+LegoRadarAttr = ["type", "category", "controlledAsset"]
 LegoRadar = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LegoRadar"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoRadar:{Number}","type": "LegoRadar"}],
     "watchedAttributes": ["controlledAsset"],
     "notification": {
-        "attributes": [LegoRadarAttr],
-        "format": "normalized",
+        "attributes": LegoRadarAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -97,15 +130,15 @@ LegoRadar = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LegoRailoadSwitchAttr = "type, category, controlledAsset"
+LegoRailoadSwitchAttr = ["type", "category", "controlledAsset"]
 LegoRailoadSwitch = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LegoRailoadSwitch"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoRailoadSwitch:{Number}","type": "LegoRailoadSwitch"}],
     "watchedAttributes": ["controlledAsset"],
     "notification": {
-        "attributes": [LegoRailoadSwitchAttr],
-        "format": "normalized",
+        "attributes": LegoRailoadSwitchAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -120,15 +153,15 @@ LegoRailoadSwitch = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LegoTollAttr = "type, category, controlledAsset"
+LegoTollAttr = ["type", "category", "controlledAsset"]
 LegoToll = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LegoToll"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoToll:{Number}","type": "LegoToll"}],
     "watchedAttributes": ["controlledAsset"],
     "notification": {
-        "attributes": [LegoTollAttr],
-        "format": "normalized",
+        "attributes": LegoTollAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -143,15 +176,15 @@ LegoToll = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LegoCraneAttr = "type, category, controlledAsset"
+LegoCraneAttr = ["type", "category", "controlledAsset"]
 LegoCrane = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LegoCrane"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoCrane:{Number}","type": "LegoCrane"}],
     "watchedAttributes": ["controlledAsset"],
     "notification": {
-        "attributes": [LegoCraneAttr],
-        "format": "normalized",
+        "attributes": LegoCraneAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -166,15 +199,15 @@ LegoCrane = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LegoWheaterStationAttr = "type, category, controlledAsset"
+LegoWheaterStationAttr = ["type", "category", "controlledAsset"]
 LegoWheaterStation = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LegoWheaterStation"}],
+    "entities": [{"id":f"urn:ngsi-ld:LegoWheaterStation:{Number}","type": "LegoWheaterStation"}],
     "watchedAttributes": ["controlledAsset"],
     "notification": {
-        "attributes": [LegoWheaterStationAttr],
-        "format": "normalized",
+        "attributes": LegoWheaterStationAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -198,15 +231,15 @@ buildings = [LegoCity, LegoStreetLight, LegoTrain, LegoRadar, LegoRailoadSwitch,
 ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### #######
 
 
-PirSensorAttr = "type, category, presence, controlledAsset"
+PirSensorAttr = ["type", "category", "presence", "controlledAsset"]
 PirSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "PirSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:PirSensor:{Number}","type": "PirSensor"}],
     "watchedAttributes": ["presence"],
     "notification": {
-        "attributes": [PirSensorAttr],
-        "format": "normalized",
+        "attributes": PirSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -221,15 +254,15 @@ PirSensor = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-PhotoresistorSensorAttr = "type, category, light, controlledAsset"
+PhotoresistorSensorAttr = ["type", "category", "light", "controlledAsset"]
 PhotoresistorSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "PhotoresistorSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:PhotoresistorSensor:{Number}","type": "PhotoresistorSensor"}],
     "watchedAttributes": ["light"],
     "notification": {
-        "attributes": [PhotoresistorSensorAttr],
-        "format": "normalized",
+        "attributes": PhotoresistorSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -244,15 +277,15 @@ PhotoresistorSensor = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-PotentiometerSensorAttr = "type, category, velocityControl, controlledAsset"
+PotentiometerSensorAttr = ["type", "category", "velocityControl", "controlledAsset"]
 PotentiometerSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "PotentiometerSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:PotentiometerSensor:{Number}","type": "PotentiometerSensor"}],
     "watchedAttributes": ["velocityControl"],
     "notification": {
-        "attributes": [PotentiometerSensorAttr],
-        "format": "normalized",
+        "attributes": PotentiometerSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -268,15 +301,15 @@ PotentiometerSensor = {
 }
     
 
-InfraredSensorAttr = "type, category, presence, controlledAsset"
+InfraredSensorAttr = ["type", "category", "presence", "controlledAsset"]
 InfraredSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "InfraredSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:InfraredSensor:{Number}","type": "InfraredSensor"}],
     "watchedAttributes": ["presence"],
     "notification": {
-        "attributes": [InfraredSensorAttr],
-        "format": "normalized",
+        "attributes": InfraredSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -292,15 +325,15 @@ InfraredSensor = {
 }
 
 
-SwitchSensorAttr = "type, category, state, controlledAsset"
+SwitchSensorAttr = ["type", "category", "state", "controlledAsset"]
 SwitchSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "SwitchSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:SwitchSensor:{Number}","type": "SwitchSensor"}],
     "watchedAttributes": ["state"],
     "notification": {
-        "attributes": [SwitchSensorAttr],
-        "format": "normalized",
+        "attributes": SwitchSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -316,15 +349,15 @@ SwitchSensor = {
 }
 
 
-RfidSensorAttr = "type, category, uiddcode, controlledAsset"
+RfidSensorAttr = ["type", "category", "uiddcode", "controlledAsset"]
 RfidSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "RfidSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:RfidSensor:{Number}","type": "RfidSensor"}],
     "watchedAttributes": ["uiddcode"],
     "notification": {
-        "attributes": [RfidSensorAttr],
-        "format": "normalized",
+        "attributes": RfidSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -339,15 +372,15 @@ RfidSensor = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-UltrasoundSensorAttr = "type, category, distance, controlledAsset"
+UltrasoundSensorAttr = ["type", "category", "distance", "controlledAsset"]
 UltrasoundSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "UltrasoundSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:UltrasoundSensor:{Number}","type": "UltrasoundSensor"}],
     "watchedAttributes": ["distance"],
     "notification": {
-        "attributes": [UltrasoundSensorAttr],
-        "format": "normalized",
+        "attributes": UltrasoundSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -362,15 +395,15 @@ UltrasoundSensor = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-TemperatureSensorAttr = "type, category, temperature, controlledAsset"
+TemperatureSensorAttr = ["type", "category", "temperature", "controlledAsset"]
 TemperatureSensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "TemperatureSensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:TemperatureSensor:{Number}","type": "TemperatureSensor"}],
     "watchedAttributes": ["temperature"],
     "notification": {
-        "attributes": [TemperatureSensorAttr],
-        "format": "normalized",
+        "attributes": TemperatureSensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -385,15 +418,15 @@ TemperatureSensor = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-HumiditySensorAttr = "type, category, humidity, controlledAsset"
+HumiditySensorAttr = ["type", "category", "humidity", "controlledAsset"]
 HumiditySensor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "HumiditySensor"}],
+    "entities": [{"id":f"urn:ngsi-ld:HumiditySensor:{Number}","type": "HumiditySensor"}],
     "watchedAttributes": ["humidity"],
     "notification": {
-        "attributes": [HumiditySensorAttr],
-        "format": "normalized",
+        "attributes": HumiditySensorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -417,15 +450,15 @@ sensors = [PirSensor, PhotoresistorSensor, PotentiometerSensor, InfraredSensor, 
 ####### ####### ####### ####### Actuators
 ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### #######
 
-LedDetectionAttr = "type, category, stateLed, controlledAsset"
+LedDetectionAttr = ["type", "category", "stateLed", "controlledAsset"]
 LedDetection = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "LedDetection"}],
+    "entities": [{"id":f"urn:ngsi-ld:LedDetection:{Number}","type": "LedDetection"}],
     "watchedAttributes": ["stateLed"],
     "notification": {
-        "attributes": [LedDetectionAttr],
-        "format": "normalized",
+        "attributes": LedDetectionAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -440,15 +473,15 @@ LedDetection = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-LightAttr = "type, category, stateLight, controlledAsset"
+LightAttr = ["type", "category", "stateLight", "controlledAsset"]
 Light = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "Light"}],
+    "entities": [{"id":f"urn:ngsi-ld:Light:{Number}","type": "Light"}],
     "watchedAttributes": ["stateLight"],
     "notification": {
-        "attributes": [LightAttr],
-        "format": "normalized",
+        "attributes": LightAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -463,15 +496,15 @@ Light = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-EngineDCAttr = "type, category, velocityEngine, controlledAsset"
+EngineDCAttr = ["type", "category", "velocityEngine", "controlledAsset"]
 EngineDC = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "EngineDC"}],
+    "entities": [{"id":f"urn:ngsi-ld:EngineDC:{Number}","type": "EngineDC"}],
     "watchedAttributes": ["velocityEngine"],
     "notification": {
-        "attributes": [EngineDCAttr],
-        "format": "normalized",
+        "attributes": EngineDCAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -486,15 +519,15 @@ EngineDC = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-ServmotorAttr = "type, category, stateMotor, controlledAsset"
+ServmotorAttr = ["type", "category", "stateMotor", "controlledAsset"]
 Servmotor = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "Servmotor"}],
+    "entities": [{"id":f"urn:ngsi-ld:Servmotor:{Number}","type": "Servmotor"}],
     "watchedAttributes": ["stateMotor"],
     "notification": {
-        "attributes": [ServmotorAttr],
-        "format": "normalized",
+        "attributes": ServmotorAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -509,15 +542,15 @@ Servmotor = {
     "@context": "http://context/datamodels.context-ngsi.jsonld"
 }
 
-CameraAttr = "type, mediaURL, on, startDataTime, controlledAsset"
+CameraAttr = ["type", "mediaURL", "on", "startDataTime", "controlledAsset"]
 Camera = {
     "description": "Notify me of all feedstock changes",
     "type": "Subscription",
-    "entities": [{"type": "Camera"}],
+    "entities": [{"id":f"urn:ngsi-ld:Camera:{Number}","type": "Camera"}],
     "watchedAttributes": ["mediaURL","on","startDataTime"],
     "notification": {
-        "attributes": [CameraAttr],
-        "format": "normalized",
+        "attributes": CameraAttr,
+        "format": formato,
         "endpoint": {
             "uri": draco_uri,
             "accept": "application/json",
@@ -543,9 +576,14 @@ actuators = [LedDetection, Light, EngineDC, Servmotor, Camera]
 url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/'
 
 headers = {
-    'Content-Type': 'application/ld+json',
-    'NGSILD-Tenant': 'openiot'
+    'Content-Type': 'application/ld+json'
 }
+    # 'NGSILD-Tenant': 'draco_subscription'
+
+# headers = {
+#     'Content-Type': 'application/ld+json',
+#     'NGSILD-Tenant': 'openiot'
+# }
 
 # Draco notification
 # http://localhost:5050/v2/notify

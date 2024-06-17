@@ -1,4 +1,8 @@
 import requests
+import sys
+from datetime import datetime
+
+Number = sys.argv[1]
 
 # url = 'http://localhost:1026/ngsi-ld/v1/entities/'
 url = 'http://localhost:1026/ngsi-ld/v1/entityOperations/upsert'
@@ -8,12 +12,13 @@ headers = {
 }
 
 
+
 ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### #######
 ####### ####### ####### ####### Room buildings 
 ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### #######
 dataLegoCity = [
     {
-        "id": "urn:ngsi-ld:LegoCity:001",
+        "id": f"urn:ngsi-ld:LegoCity:{Number}",
         "type": "Building",
         "category": {
             "type" :"Property",
@@ -32,7 +37,7 @@ dataLegoCity = [
 
 dataLegoBuilding = [
     {
-        "id": "urn:ngsi-ld:LegoStreetLight:001",
+        "id": f"urn:ngsi-ld:LegoStreetLight:{Number}",
         "type": "LegoBuilding",
         "category": {
             "type" :"Property",
@@ -40,11 +45,11 @@ dataLegoBuilding = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCity:001"
+            "object": f"urn:ngsi-ld:LegoCity:{Number}"
         }
     },
     {
-        "id": "urn:ngsi-ld:LegoTrain:001",
+        "id": f"urn:ngsi-ld:LegoTrain:{Number}",
         "type": "LegoBuilding",
         "category": {
             "type" :"Property",
@@ -52,11 +57,11 @@ dataLegoBuilding = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCity:001"
+            "object": f"urn:ngsi-ld:LegoCity:{Number}"
         }
     },
     {
-        "id": "urn:ngsi-ld:LegoRadar:001",
+        "id": f"urn:ngsi-ld:LegoRadar:{Number}",
         "type": "LegoBuilding",
         "category": {
             "type" :"Property",
@@ -64,11 +69,11 @@ dataLegoBuilding = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCity:001"
+            "object": f"urn:ngsi-ld:LegoCity:{Number}"
         }
     },
     {
-        "id": "urn:ngsi-ld:LegoRailoadSwitch:001",
+        "id": f"urn:ngsi-ld:LegoRailoadSwitch:{Number}",
         "type": "LegoBuilding",
         "category": {
             "type" :"Property",
@@ -76,12 +81,11 @@ dataLegoBuilding = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCity:001"
+            "object": f"urn:ngsi-ld:LegoCity:{Number}"
         }
-        
     },
     {
-        "id": "urn:ngsi-ld:LegoToll:001",
+        "id": f"urn:ngsi-ld:LegoToll:{Number}",
         "type": "LegoBuilding",
         "category": {
             "type" :"Property",
@@ -89,11 +93,11 @@ dataLegoBuilding = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCity:001"
+            "object": f"urn:ngsi-ld:LegoCity:{Number}"
         }
     },
     {
-        "id": "urn:ngsi-ld:LegoCrane:001",
+        "id": f"urn:ngsi-ld:LegoCrane:{Number}",
         "type": "LegoBuilding",
         "category": {
             "type" :"Property",
@@ -101,11 +105,11 @@ dataLegoBuilding = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCity:001"
+            "object": f"urn:ngsi-ld:LegoCity:{Number}"
         }
     },
     {
-        "id": "urn:ngsi-ld:LegoWheaterStation:001",
+        "id": f"urn:ngsi-ld:LegoWheaterStation:{Number}",
         "type": "LegoBuilding",
         "category": {
             "type" :"Property",
@@ -113,7 +117,7 @@ dataLegoBuilding = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCity:001"
+            "object": f"urn:ngsi-ld:LegoCity:{Number}"
         }   
     }
 ]
@@ -133,7 +137,7 @@ dataLegoBuilding = [
     # humiditySensor
 dataSensors = [
     {
-        "id": "urn:ngsi-ld:PirSensor:001",
+        "id": f"urn:ngsi-ld:PirSensor:{Number}",
         "type": "PirSensor",
         "category": {
             "type": "Property",
@@ -142,38 +146,24 @@ dataSensors = [
         "presence" : "LOW",
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoStreetLight:001"
+            "object": f"urn:ngsi-ld:LegoStreetLight:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoStreetLight:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+        "id": f"urn:ngsi-ld:PhotoresistorSensor:{Number}",
         "type": "PhotoresistorSensor",
         "category": {
             "type": "Property",
             "value": "sensor"
         },
-        "light" : "100",
+        "light" : 100,
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoStreetLight:001"
+            "object": f"urn:ngsi-ld:LegoStreetLight:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoStreetLight:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:PotentiometerSensor:001",
+        "id": f"urn:ngsi-ld:PotentiometerSensor:{Number}",
         "type": "PotentiometerSensor",
         "category": {
             "type": "Property",
@@ -182,18 +172,11 @@ dataSensors = [
         "velocityControl" : 30,
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoTrain:001"
+            "object": f"urn:ngsi-ld:LegoTrain:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoTrain:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:InfraredSensor:001",
+        "id": f"urn:ngsi-ld:InfraredSensor:{Number}",
         "type": "InfraredSensor",
         "category": {
             "type": "Property",
@@ -202,18 +185,11 @@ dataSensors = [
         "presence": "LOW",
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoRadar:001"
+            "object": f"urn:ngsi-ld:LegoRadar:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoRadar:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:SwitchSensor:001", 
+        "id": f"urn:ngsi-ld:SwitchSensor:{Number}", 
         "type": "SwitchSensor",
         "category": {
             "type": "Property",
@@ -222,18 +198,11 @@ dataSensors = [
         "state": "OFF",
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoRailoadSwitch:001"
+            "object": f"urn:ngsi-ld:LegoRailoadSwitch:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoRailoadSwitch:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:RfidSensor:001",
+        "id": f"urn:ngsi-ld:RfidSensor:{Number}",
         "type": "RfidSensor",
         "category": {
             "type": "Property",
@@ -242,19 +211,12 @@ dataSensors = [
         "uiddcode" : "4FF32FF4",
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoToll:001"
+            "object": f"urn:ngsi-ld:LegoToll:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoToll:001"
-        #     }
-        # ]
         
     },
     {
-        "id": "urn:ngsi-ld:UltrasoundSensor:001",
+        "id": f"urn:ngsi-ld:UltrasoundSensor:{Number}",
         "type": "UltrasoundSensor",
         "category": {
             "type": "Property",
@@ -267,18 +229,11 @@ dataSensors = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoCrane:001"
+            "object": f"urn:ngsi-ld:LegoCrane:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoCrane:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:TemperatureSensor:001",
+        "id": f"urn:ngsi-ld:TemperatureSensor:{Number}",
         "type": "TemperatureSensor",
         "category": {
             "type": "Property",
@@ -291,18 +246,11 @@ dataSensors = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoWheaterStation:001"
+            "object": f"urn:ngsi-ld:LegoWheaterStation:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoWheaterStation:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:HumiditySensor:001",
+        "id": f"urn:ngsi-ld:HumiditySensor:{Number}",
         "type": "HumiditySensor",
         "category": {
             "type": "Property",
@@ -315,17 +263,21 @@ dataSensors = [
         },
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoWheaterStation:001"
+            "object": f"urn:ngsi-ld:LegoWheaterStation:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoWheaterStation:001"
-        #     }
-        # ]
     }
 ]
+
+# urn:ngsi-ld:PirSensor:002
+# urn:ngsi-ld:PhotoresistorSensor:002
+# urn:ngsi-ld:PotentiometerSensor:002
+# urn:ngsi-ld:InfraredSensor:002
+# urn:ngsi-ld:SwitchSensor:002
+# urn:ngsi-ld:RfidSensor:002
+# urn:ngsi-ld:UltrasoundSensor:002
+# urn:ngsi-ld:TemperatureSensor:002
+# urn:ngsi-ld:HumiditySensor:002
+
 
 ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### ####### #######
 ####### ####### ####### ####### Actuators
@@ -336,9 +288,10 @@ dataSensors = [
 # Servmotor -> stateMotor 1/2
 # Camera -> 
 
+
 dataActuators = [
     {
-        "id": "urn:ngsi-ld:LedDetection:001",
+        "id": f"urn:ngsi-ld:LedDetection:{Number}",
         "type": "LedDetection",
         "category": {
             "type": "Property",
@@ -347,18 +300,11 @@ dataActuators = [
         "stateLed": "OFF",
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoStreetLight:001"
+            "object": f"urn:ngsi-ld:LegoStreetLight:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoStreetLight:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:Light:001",
+        "id": f"urn:ngsi-ld:Light:{Number}",
         "type": "Light",
         "category": {
             "type": "Property",
@@ -367,18 +313,11 @@ dataActuators = [
         "stateLight": "OFF",
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoStreetLight:001"
+            "object": f"urn:ngsi-ld:LegoStreetLight:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoStreetLight:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:EngineDC:001",
+        "id": f"urn:ngsi-ld:EngineDC:{Number}",
         "type": "EngineDC",
         "category": {
             "type": "Property",
@@ -387,56 +326,49 @@ dataActuators = [
         "velocityEngine": 0,
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoTrain:001"
+            "object": f"urn:ngsi-ld:LegoTrain:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoTrain:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:Servmotor:001",
+        "id": f"urn:ngsi-ld:Servmotor:{Number}",
         "type": "Servmotor",
         "category": {
             "type": "Property",
             "value": "actuator"
         },
-        "stateMotor": 1,
+        "stateMotor": 0,
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoRailoadSwitch:001"
+            "object": f"urn:ngsi-ld:LegoRailoadSwitch:{Number}"
         }
-        # "static_attributes": [
-        #     {
-        #     "name": "controlledAsset",
-        #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoRailoadSwitch:001"
-        #     }
-        # ]
     },
     {
-        "id": "urn:ngsi-ld:Camera:001",
+        "id": f"urn:ngsi-ld:Camera:{Number}",
         "type": "Camera",
         "mediaURL": "http://",
-        "on": "false",
-        "startDataTime": "2021-06-01T00:00:00Z",
+        "on": False,
+        "startDataTime": datetime.now().isoformat(),
         "controlledAsset": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:LegoRadar:001"
+            "object": f"urn:ngsi-ld:LegoRadar:{Number}"
         }
         # "static_attributes": [
         #     {
         #     "name": "controlledAsset",
         #     "type": "Relationship",
-        #     "value": "urn:ngsi-ld:LegoRadar:001"
+        #     "value": f"urn:ngsi-ld:LegoRadar:{Number}"
         #     }
         # ]
     }
     
 ]
+
+# urn:ngsi-ld:LedDetection:002
+# urn:ngsi-ld:Light:002
+# urn:ngsi-ld:EngineDC:002
+# urn:ngsi-ld:Servmotor:002
+# urn:ngsi-ld:Camera:002
+
 
 response = requests.post(url, headers=headers, json=dataSensors)
 print("ini Sensors")
