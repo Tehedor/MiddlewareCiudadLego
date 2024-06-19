@@ -73,13 +73,13 @@ mixin devicesForStreetLight(id)
                                 span.stateLight ...
 
     
-        form(action="/device/command" method="POST")
-            input(type="text" style="display:none"  name="id" value=`${id}`)
-            select(name="action")
-                option(value="start") Start Tractor
-                option(value="stop") Stop Tractor
+        //- form(action="/device/command" method="POST")
+        //-     input(type="text" style="display:none"  name="id" value=`${id}`)
+        //-     select(name="action")
+        //-         option(value="start") Start Tractor
+        //-         option(value="stop") Stop Tractor
 
-            input(type="submit" value=`Send` class="btn btn-primary  btn-sm")
+        //-     input(type="submit" value=`Send` class="btn btn-primary  btn-sm")
 
     script.
         $(function () {

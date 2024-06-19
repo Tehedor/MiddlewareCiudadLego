@@ -8,15 +8,25 @@ const Simulator = require('./simulation/simulateSensors');
 const generalController = require('./controllers/generalController');
 
 // const streetLightController = require('./controllers/streetLightController');
+let hostMongoDB = 'localhost';
+if (process.env.MODE_CONTAINERS === 'true') {
+    hostMongoDB = 'mongo-db-orion';
+}   
 
-mongoose.connect('mongodb://localhost:27018/orion')
+// mongoose.connect(`mongodb://${hostMongoDB}:27018/orion`)
+// mongoose.connect(`mongodb://mongo-db-orion:27017/orion`)
+// mongoose.connect('mongodb://localhost:27018/orion')
+console.log(`mongodb://${hostMongoDB}:27017/orion`);
+mongoose.connect(`mongodb://db-mongo-orion:27017/orion`)
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
+
 
 // // // // // // // // // // // // // // // // // // // //
 // Web
 // // // // // // // // // // // // // // // // // // // //
 const app = express();
+
 
 // const http = require('http').createServer(app);
 // const io = require('socket.io')(http);
@@ -31,6 +41,7 @@ app.get('/', (req, res) => {
     // res.render('index.pug', { title: 'Hey', message: 'Hello there!' })
     res.render('index', { title: 'app', message: 'Hello there!' })
 })
+
 
 // getPirSensor,
 // getPhotoresistorSensor,
@@ -78,21 +89,22 @@ const simulationFunctions = ["simulatePirSensor", "simulatePhotoresistorSensor",
 
 const time = process.env.TIME_INTERVAL || 250;
 
-// setInterval(() => {
 
-//     SOCKET_IO.emit('update_timer', timer);
+setInterval(() => {
 
-//     simulationFunctions.forEach((element, index) => {
-//         if (simulate[index] == true) {  
-//             timer[index] = timer[index] - time;
-//             if (timer[index] <= 0) {
-//                 timer[index] = inicial_timer[index] + timer[index];
-//                 Simulator[element](time);
-//             }
-//         }
-//     });
+    SOCKET_IO.emit('update_timer', timer);
 
-// }, time);
+    simulationFunctions.forEach((element, index) => {
+        if (simulate[index] == true) {  
+            timer[index] = timer[index] - time;
+            if (timer[index] <= 0) {
+                timer[index] = inicial_timer[index] + timer[index];
+                Simulator[element](time);
+            }
+        }
+    });
+
+}, time);
 
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
@@ -167,7 +179,11 @@ const time = process.env.TIME_INTERVAL || 250;
 //     }
 // });
 
+
+
 app.get('/monitor', async (req, res) => {
+    console.log('Pasa1');
+
     try {
         res.render('simulationMonitor.pug');
     } catch (err) {

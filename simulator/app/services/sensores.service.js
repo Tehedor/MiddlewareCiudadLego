@@ -1,8 +1,12 @@
 const axios = require('axios');
 
+let host = 'localhost';
+if (process.env.MODE_CONTAINERS === 'true') {
+    host = 'orion';
+}
 
 const app = axios.create({
-    baseURL : 'http://localhost:1026/ngsi-ld/v1/entities',
+    baseURL : `http://${host}:1026/ngsi-ld/v1/entities`,
     headers : {
         'Content-Type': 'application/json',
         'Link': '<http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'

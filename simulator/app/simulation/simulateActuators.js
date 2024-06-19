@@ -147,7 +147,12 @@ async function simulateLightActuator(data) {
             ActuatorsService.lightChange(state_lightAtuator);
             SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
             // console.log('Apagado');
-        } 
+        } else if (ctrl_lightActuator === 'OFF'){
+            state_lightAtuator = 'OFF';
+            ActuatorsService.lightChange(state_lightAtuator);
+            SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
+            // console.log('Apagado');
+        }
     }
     
     

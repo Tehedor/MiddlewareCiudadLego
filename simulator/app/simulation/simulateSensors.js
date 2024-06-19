@@ -78,6 +78,7 @@ async function iniciarSimulacion() {
 
 
 async function simulatePirSensor(time) {
+    console.log('Simulating PIR Sensor');
     if (presence_pirSensor == undefined) {
         await iniciarSimulacion();
     }

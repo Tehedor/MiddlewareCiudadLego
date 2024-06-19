@@ -32,6 +32,9 @@ iot.use(rawBody);
 const iotRouter = express.Router();
 
 iot.use(function (req, res, next) {
+    console.log(`Received ${req.method} request on ${req.path}`);
+    console.log('Headers:', req.headers);
+    console.log('Body:', req.body);
     // debug(`Received ${req.method} request on ${req.path}`);
     // debug('Headers:', req.headers);
     // debug('Body:', req.body);

@@ -9,12 +9,15 @@ require('dotenv').config();
 const app = require('../app');
 const http = require('http');
 
+process.on('SIGINT', function() {});
+process.on('SIGTERM', function() {});
+
 
 /**
  * Get ports from environment and store in Express.
  */
 
-const port = normalizePort(process.env.WEB_APP_PORT || '3000');
+const port = normalizePort(process.env.WEB_APP_PORT || '3030');
 app.set('port', port);
 
 /**
