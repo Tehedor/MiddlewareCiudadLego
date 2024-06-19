@@ -78,7 +78,8 @@ services:
     expose:
       - ${ORION_LD_PORT:-1026} # Quitar si hay red interna/ pruebas para app
     ports:
-      - ${EXPOSED_PORT:-1026}:${ORION_LD_PORT:-1026}
+      # - ${EXPOSED_PORT:-1026}:${ORION_LD_PORT:-1026}
+      - 80:${ORION_LD_PORT:-1026}
     # command: -dbhost mongo-db -logLevel DEBUG -forwarding  -experimental
     command: -dbhost mongo-db-orion -logLevel DEBUG -forwarding  -experimental
     healthcheck:
