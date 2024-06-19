@@ -9,8 +9,24 @@ require('dotenv').config();
 const app = require('../app');
 const http = require('http');
 
-process.on('SIGINT', function() {});
-process.on('SIGTERM', function() {});
+// process.on('SIGINT', function() {});
+// process.on('SIGTERM', function() {});
+
+process.on('SIGINT', function() {
+    console.log("Caught interrupt signal");
+    // Aquí puedes cerrar todas las conexiones, archivos, etc.
+    // ...
+    // Luego, cierra tu aplicación
+    process.exit();
+});
+
+process.on('SIGTERM', function() {
+    console.log("Caught terminate signal");
+    // Aquí puedes cerrar todas las conexiones, archivos, etc.
+    // ...
+    // Luego, cierra tu aplicación
+    process.exit();
+});
 
 
 /**
