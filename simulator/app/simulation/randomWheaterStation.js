@@ -10,12 +10,19 @@ function simulateHumidity() {
 
 
 async function simulateWeatherStation() {
+    try {
+        const data = await apiExterna.getWeather();
 
-    const data = await apiExterna.getWeather();
-
-    return {
-        temperature: data.main.temp,
-        humidity: data.main.humidity
+        return {
+            temperature: data.main.temp,
+            humidity: data.main.humidity
+        }
+    } catch (error) {
+        console.error(error);
+        return {
+            temperature: 0,
+            humidity: 0
+        }
     }
 }
 
