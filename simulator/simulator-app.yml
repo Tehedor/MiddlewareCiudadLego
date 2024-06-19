@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+  # @context file is served from here
+  simulator-app:
+    labels:
+      org.fiware: 'simulator_app'
+    image: simulator_app:latest
+    # hostname: simulator-app
+    container_name: simulator-app
+    networks:
+      - default
+    ports:
+      - "3030:3030"
+      - "3001:3001"
+    expose:
+      - "3030"
+    environment:
+      - DEVICE_NUMBER=001
+      - INTENSITY_THRESHOLD=70
+      - INICIAL_STATE=true
+      - TIME_INTERVAL=125
+      - SIMULATE_PIR_SENSOR=true
+      - SIMULATE_PHOTORESISTOR_SENSOR=true
+      - SIMULATE_POTENTIOMETER_SENSOR=true
+      - SIMULATE_INFRARED_SENSOR=true
+      - SIMULATE_SWITCH_SENSOR=true
+      - SIMULATE_RFID_SENSOR=true
+      - SIMULATE_ULTRASOUND_SENSOR=true
+      - SIMULATE_WEATHER_STATION=true
+      - TIMER_PIR_SENSOR=2125
+      - TIMER_PHOTORESISTOR_SENSOR=10500
+      - TIMER_POTENTIOMETER_SENSOR=20000
+      - TIMER_INFRARED_SENSOR=3750
+      - TIMER_SWITCH_SENSOR=500000
+      - TIMER_RFID_SENSOR=40000
+      - TIMER_ULTRASOUND_SENSOR=200125
+      - TIMER_WEATHER_STATION=600000
+      - WEATHER_API_KEY=d9cde8b16d65f14446e43bd0c7e7dffd
+      - MODE_CONTAINERS=true
+    healthcheck:
+      test: curl -k --fail -s http://simulator-app:3030/ || exit 1
+      interval: 5s
+
+
+networks:
+  default:
+    labels:
+      org.fiware: 'orion'
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
