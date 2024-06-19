@@ -354,8 +354,8 @@ case "${command}" in
 
 		docker build -t simulator_app ./simulator
 		
-		${dockerCmd} -f simulator/simulator-app.yml up -d 
-		# ${dockerCmd} -f simulator/simulator-app.yml up 
+		# ${dockerCmd} -f simulator/simulator-app.yml up -d 
+		${dockerCmd} -f simulator/simulator-app.yml up 
 		displayServices "simulator-app"
 		waitForSimulatorApp		
 		;;
