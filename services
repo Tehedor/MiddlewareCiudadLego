@@ -359,6 +359,20 @@ case "${command}" in
 		displayServices "simulator-app"
 		waitForSimulatorApp		
 		;;
+	"simulator-marta")
+		export $(cat .env | grep "#" -v)
+		python scripts/simulatorDocker/iniciarSimulator.py
+		stoppingContainerAppSimulator
+		echo -e "Starting containers:  \033[1mSimulator app .\033[0m"
+		echo ""
+
+		docker build -t simulator_app ./simulator
+		
+		# ${dockerCmd} -f simulator/simulator-app.yml up -d 
+		${dockerCmd} -f simulator/simulator-app.yml up 
+		displayServices "simulator-app"
+		waitForSimulatorApp		
+		;;
 	*)
 		echo "Command not Found."
 		echo "usage: services [create|start|orion|draco|stop]"
