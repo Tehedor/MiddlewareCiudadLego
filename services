@@ -361,7 +361,7 @@ case "${command}" in
 		;;
 	"simulator-marta")
 		export $(cat .env | grep "#" -v)
-		python scripts/simulatorDocker/iniciarSimulator.py
+		python scripts/simulatorMarta/iniciarSimulator.py
 		stoppingContainerAppSimulator
 		echo -e "Starting containers:  \033[1mSimulator app .\033[0m"
 		echo ""
