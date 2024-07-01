@@ -328,14 +328,14 @@ case "${command}" in
 		;;
 	"start")
 		export $(cat .env | grep "#" -v) 
-		./services orion 
+		./services-v2 orion 
 		
 		if [[ $argument == "mysql" ]]; then
-			./services draco-mysql
+			./services-v2 draco-mysql
 		elif [[ $argument == "postgres" ]]; then
-			./services draco-postgres
+			./services-v2 draco-postgres
 		else
-			./services draco-mongo
+			./services-v2 draco-mongo
 		fi
 
 		;;
