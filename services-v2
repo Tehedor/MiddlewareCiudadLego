@@ -293,8 +293,8 @@ case "${command}" in
 		echo ""
 		${dockerCmd} -f draco/draco-mongo.yml up -d --renew-anon-volumes
 		displayServices "draco"
-		waitForMongoDraco
 		waitForDraco
+		waitForMongoDraco
 		;;
 	"draco-postgres")
 		export $(cat .env | grep "#" -v)
