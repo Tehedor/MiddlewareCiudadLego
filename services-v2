@@ -182,6 +182,16 @@ waitForMongoDraco () {
 	done
 }
 
+
+# waitForMongoOrion () {
+# 	echo -e "\n⏳ Waiting for \033[1mMongoDB Orion\033[0m to be available\n"
+# 	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mongo-orion` == "healthy" ]
+# 	do 
+# 		sleep 1
+# 	done
+# }
+
+
 waitForPostgres () {
 	echo -e "\n⏳ Waiting for \033[1mPostgreSQL\033[0m to be available\n"
 	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-postgres-draco` == "healthy" ]
