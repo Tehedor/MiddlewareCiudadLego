@@ -174,7 +174,7 @@ waitForMysql () {
 }
 
 waitForMongoDraco () {
-	echo -e "\n⏳ Waiting for \033[1mMongoDB\033[0m to be available\n"
+	echo -e "\n⏳ Waiting for \033[1mMongoDB Draco\033[0m to be available\n"
 	# while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mongo` == "healthy" ]
 	while ! [ `docker inspect --format='{{.State.Health.Status}}' draco-mongo-db` == "healthy" ]
 	do 
