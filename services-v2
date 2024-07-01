@@ -246,7 +246,7 @@ case "${command}" in
 		echo ""
 		# ${dockerCmd} -f docker-compose/common.yml -f docker-compose/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
 		# ${dockerCmd} -f orion/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
-		${dockerCmd} -f orion/orion-ld.yml up -d --renew-anon-volumes
+		${dockerCmd} -f orion/orion-ld.ym1l up -d --renew-anon-volumes
 
 		# displayServices "orion|fiware"
 		displayServices "orion|context"
