@@ -29,7 +29,7 @@ dockerCmd="docker compose"
 
 if (( $# < 1 )); then
 	echo "Illegal number of parameters"
-	echo "usage: services [create|orion|scorpio|stellio|stop]"
+	echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
 	exit 1
 fi
 
@@ -182,16 +182,6 @@ waitForMongoDraco () {
 	done
 }
 
-
-# waitForMongoOrion () {
-# 	echo -e "\n⏳ Waiting for \033[1mMongoDB Orion\033[0m to be available\n"
-# 	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mongo-orion` == "healthy" ]
-# 	do 
-# 		sleep 1
-# 	done
-# }
-
-
 waitForPostgres () {
 	echo -e "\n⏳ Waiting for \033[1mPostgreSQL\033[0m to be available\n"
 	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-postgres-draco` == "healthy" ]
@@ -242,7 +232,7 @@ command="$1"
 argument="$2"
 case "${command}" in
 	"help")
-		echo "usage: services [create|start|orion|draco|stop]"
+		echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
 		;;
 	"orion")
 		export $(cat .env | grep "#" -v)
@@ -303,8 +293,8 @@ case "${command}" in
 		echo ""
 		${dockerCmd} -f draco/draco-mongo.yml up -d --renew-anon-volumes
 		displayServices "draco"
-		waitForDraco
 		waitForMongoDraco
+		waitForDraco
 		;;
 	"draco-postgres")
 		export $(cat .env | grep "#" -v)
@@ -385,7 +375,7 @@ case "${command}" in
 		;;
 	*)
 		echo "Command not Found."
-		echo "usage: services [create|start|orion|draco|stop]"
+		echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
 		exit 127;
 		;;
 esac
