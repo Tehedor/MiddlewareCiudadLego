@@ -1,3 +1,4 @@
 simulator/app/node_modules
 simulator/app/package-lock.json
 .vscode
+waste*
