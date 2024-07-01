@@ -1,4 +1,5 @@
-version: '3.1'
+version: '3.8'
+# version: '3.1'
 services:
   draco:
     labels:
@@ -18,7 +19,8 @@ services:
   mongo-db-draco:
     labels:
         org.fiware: 'draco'
-    image: mongodb/mongodb-community-server:latest
+    # image: mongodb/mongodb-community-server:latest
+    image: mongo:${MONGO_DB_VERSION}
     # image: mongo:3.4
     container_name: draco-mongo-db
     restart: always
