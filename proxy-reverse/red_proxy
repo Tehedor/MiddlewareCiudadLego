@@ -32,6 +32,6 @@ docker network connect proxy-reverse-net draco
 
 
 docker compose -f ngsi-reverse.yml up -d
-docker network connect proxy-reverse-net nginx-reverse-container
+# docker network connect proxy-reverse-net nginx-reverse-container
 
 echo "Red y contenedores configurados correctamente."
