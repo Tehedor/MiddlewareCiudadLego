@@ -6,7 +6,7 @@ services:
     image: nginx-reverse 
     container_name: nginx-reverse-container
     networks:
-      - default
+      - fiware_default
     expose:
       - 80
     ports:
@@ -15,7 +15,7 @@ services:
 
 
 networks:
-  default:
+  fiware_default:
     labels:
       org.fiware: 'orion'
     ipam:
