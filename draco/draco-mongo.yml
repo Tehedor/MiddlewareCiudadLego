@@ -11,6 +11,8 @@ services:
       - "9090"
     environment:
       - NIFI_WEB_HTTP_PORT=9090
+    networks:
+      - proxy-reverse-net
     ports:
       - "9090:9090"
       - "5050:5050"
@@ -38,3 +40,9 @@ services:
         mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
       interval: 5s
 
+
+
+networks:
+  proxy-reverse-net:
+    external:
+      name: proxy-reverse-net

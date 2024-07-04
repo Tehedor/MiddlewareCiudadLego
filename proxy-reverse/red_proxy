@@ -1,25 +1,25 @@
 #!/bin/bash
-docker compose -f ngsi-reverse.yml down
+# docker compose -f ngsi-reverse.yml down
 
-# Verificar si la red existe
-network_exists=$(docker network ls --filter name=^proxy-reverse-net$ --format "{{.Name}}")
+# # Verificar si la red existe
+# network_exists=$(docker network ls --filter name=^proxy-reverse-net$ --format "{{.Name}}")
 
 
-if [ "$network_exists" == "proxy-reverse-net" ]; then
-    echo "La red proxy-reverse-net ya existe. Desconectando contenedores y eliminándola..."
+# if [ "$network_exists" == "proxy-reverse-net" ]; then
+#     echo "La red proxy-reverse-net ya existe. Desconectando contenedores y eliminándola..."
 
-    # Obtener todos los contenedores conectados a la red
-    containers=$(docker network inspect proxy-reverse-net --format '{{range .Containers}}{{.Name}} {{end}}')
+#     # Obtener todos los contenedores conectados a la red
+#     containers=$(docker network inspect proxy-reverse-net --format '{{range .Containers}}{{.Name}} {{end}}')
 
-    # Desconectar cada contenedor de la red
-    for container in $containers; do
-        echo "Desconectando el contenedor $container de la red proxy-reverse-net..."
-        docker network disconnect -f proxy-reverse-net $container
-    done
+#     # Desconectar cada contenedor de la red
+#     for container in $containers; do
+#         echo "Desconectando el contenedor $container de la red proxy-reverse-net..."
+#         docker network disconnect -f proxy-reverse-net $container
+#     done
 
-    # Eliminar la red
-    docker network rm proxy-reverse-net
-fi
+#     # Eliminar la red
+#     docker network rm proxy-reverse-net
+# fi
 
 # Comando para crear una red de Docker
 
