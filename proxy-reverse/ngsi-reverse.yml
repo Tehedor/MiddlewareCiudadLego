@@ -5,14 +5,14 @@ services:
   nginx-reverse:
     image: nginx-reverse 
     container_name: nginx-reverse-container
-    networks:
-      - proxy-reverse-net
+    # networks:
+    #   - proxy-reverse-net
     expose:
       - 80
     ports:
       - 80:80
 
-networks:
-  proxy-reverse-net:
-    external:
-      name: proxy-reverse-net
+# networks:
+#   proxy-reverse-net:
+#     external:
+#       name: proxy-reverse-net
