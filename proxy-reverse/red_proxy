@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Comando para crear una red de Docker
+docker network create --driver=bridge --subnet=172.18.1.0/24 proxy-reverse-net

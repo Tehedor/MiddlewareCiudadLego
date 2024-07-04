@@ -75,6 +75,7 @@ services:
       - mongo-db-orion
     networks:
       - default
+      - proxy-reverse-net
     expose:
       - ${ORION_LD_PORT:-1026} # Quitar si hay red interna/ pruebas para app
     ports:
@@ -94,6 +95,10 @@ networks:
     ipam:
       config:
         - subnet: 172.18.1.0/24
+
+  proxy-reverse-net:
+    external:
+      name: proxy-reverse-net
 
 volumes:
   mongo-db-orion: 
