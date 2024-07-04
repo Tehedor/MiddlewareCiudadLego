@@ -1,7 +1,9 @@
 #!/bin/bash
+docker compose -f ngsi-reverse.yml down
 
 # Verificar si la red existe
 network_exists=$(docker network ls --filter name=^proxy-reverse-net$ --format "{{.Name}}")
+
 
 if [ "$network_exists" == "proxy-reverse-net" ]; then
     echo "La red proxy-reverse-net ya existe. Desconectando contenedores y eliminándola..."
@@ -20,12 +22,16 @@ if [ "$network_exists" == "proxy-reverse-net" ]; then
 fi
 
 # Comando para crear una red de Docker
+
 echo "Creando la red proxy-reverse-net..."
 docker network create --driver=bridge --subnet=172.18.2.0/24 proxy-reverse-net
 
 # Conectar contenedores a la red
-docker network connect proxy-reverse-net nginx-reverse-container
 docker network connect proxy-reverse-net fiware-orion 
 docker network connect proxy-reverse-net draco
+
+
+docker compose -f ngsi-reverse.yml up -d
+docker network connect proxy-reverse-net nginx-reverse-container
 
 echo "Red y contenedores configurados correctamente."
