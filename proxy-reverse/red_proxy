@@ -28,7 +28,7 @@ docker network create --driver=bridge --subnet=172.18.2.0/24 proxy-reverse-net
 
 # Conectar contenedores a la red
 docker network connect proxy-reverse-net fiware-orion 
-docker network connect proxy-reverse-net draco
+# docker network connect proxy-reverse-net draco
 
 
 docker compose -f ngsi-reverse.yml up -d
