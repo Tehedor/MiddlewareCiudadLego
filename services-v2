@@ -406,7 +406,7 @@ case "${command}" in
 		stoppingContainerAppSubsControl
 		echo -e "Starting containers:  \033[1mSubs Control app .\033[0m"
 		echo ""
-
+		python3 scripts/simulatorDocker/iniciarSimulator.py
 		docker build -t subs-control-app ./subs-control
 
 		${dockerCmd} -f subs-control/subs-control-app.yml up -d
