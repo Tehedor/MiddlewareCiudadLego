@@ -1,0 +1,35 @@
+extends layout
+
+block content 
+
+    h1 Suscripciones subsDraco
+    if subsDraco.length
+        //- .container
+        .row
+            each entity, index in subsDraco
+                .col-md-6
+                    .card.mb-4
+                        .card-body
+                            h5.card-title ID de Entidad: 
+                                strong #{entity.entities_id}
+                            h5 Referencia: 
+                                strong #{entity.reference}
+                            h5 
+                                | Estado: 
+                                strong  
+                                    span(style=`color: ${entity.status === 'active' ? 'green' : 'red'}`) #{entity.status}
+                            p ID de Suscripción: 
+                                strong #{entity.subs_id}
+                            .row
+                                .col.md-8 
+                                    p Tipo de Entidad: #{entity.entities_type}
+                                    p Condiciones: #{entity.conditions}
+                                    p Fecha de Creación: #{entity.createdAt.toLocaleString()}
+                                    p Fecha de Modificación: #{entity.modifiedAt.toLocaleString()}
+                                .col.md-4
+                                    p Conteo: #{entity.count}
+                                    p Último Fallo: #{entity.lastFailure ? entity.lastFailure.toLocaleString() : 'N/A'}
+                                    p Última Notificación: #{entity.lastNotification ? entity.lastNotification.toLocaleString() : 'N/A'}
+                                    p Veces Fallidas: #{entity.timesFailed}
+    else
+        p No se encontraron suscripciones subsDraco.

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+
 const EntitySchema = new Schema({
     _id: Object,
     attrNames: [String],
@@ -13,5 +14,6 @@ const EntitySchema = new Schema({
 
 
 const Entity = mongoose.model('Entity', EntitySchema, 'entities');
+
 
 module.exports = Entity;

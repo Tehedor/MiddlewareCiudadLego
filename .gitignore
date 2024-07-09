@@ -2,3 +2,5 @@ simulator/app/node_modules
 simulator/app/package-lock.json
 .vscode
 waste*
+subs-control/app_subs-control/node_modules
+subs-control/app_subs-control/package-lock.json

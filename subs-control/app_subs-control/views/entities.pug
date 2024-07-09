@@ -1,0 +1,85 @@
+extends layout
+
+block content 
+    h1 Entidades
+    if entities.length
+        h2(style="text-align: center; font-weight: bold; color: orange;") Sensores
+        .row
+            each entity, index in entities.filter(e => e.type_entity === 'sensor')
+                .col-md-6
+                    .card.mb-4
+                        .card-body
+                            h5.card-title ID: 
+                                strong #{entity.id}
+                            h5 Tipo: 
+                                strong #{entity.type}
+                            h5 Tipo_entidad:
+                                strong #{entity.type_entity}
+                            h5 
+                                | Valor: 
+                                strong #{entity.value}
+                            .row
+                                .col-md-8 
+                                    p Fecha de Creación: #{entity.creDate.toLocaleString()}
+                                    p Fecha de Modificación: #{entity.modDate.toLocaleString()}
+                                    
+        h2(style="text-align: center; font-weight: bold; color: orange;") Actuadores
+        .row
+            each entity, index in entities.filter(e => e.type_entity === 'actuator')
+                .col-md-6
+                    .card.mb-4
+                        .card-body
+                            h5.card-title ID: 
+                                strong #{entity.id}
+                            h5 Tipo: 
+                                strong #{entity.type}
+                            h5 Tipo_entidad:
+                                strong #{entity.type_entity}
+                            h5 
+                                | Valor: 
+                                strong #{entity.value}
+                            .row
+                                .col-md-8 
+                                    p Fecha de Creación: #{entity.creDate.toLocaleString()}
+                                    p Fecha de Modificación: #{entity.modDate.toLocaleString()}
+                                    
+        h2(style="text-align: center; font-weight: bold; color: orange;") Resto
+        .row
+            each entity, index in entities.filter(e => e.type_entity !== 'sensor' && e.type_entity !== 'actuator')
+                .col-md-6
+                    .card.mb-4
+                        .card-body
+                            h5.card-title ID: 
+                                strong #{entity.id}
+                            h5 Tipo: 
+                                strong #{entity.type}
+                            h5 Tipo_entidad:
+                                strong #{entity.type_entity}
+                            h5 
+                                | Valor: 
+                                strong #{entity.value}
+                            .row
+                                .col-md-8 
+                                    p Fecha de Creación: #{entity.creDate.toLocaleString()}
+                                    p Fecha de Modificación: #{entity.modDate.toLocaleString()}
+    else
+        p No se encontraron entidades.
+
+
+//- //- extend layout
+
+//- extends layout
+
+//- block content
+//-     h1 Entidades
+//-     if entities.length
+//-         each entity in entities
+//-             .entity
+//-                 h2(style="text-align: center; font-weight: bold; color: orange;") ID: #{entity.id}
+//-                 h3 Tipo: #{entity.type}
+//-                 h3 Valor: #{entity.value}
+//-                 h3 Fechas
+//-                 p Fecha de Creación: #{entity.creDate.toLocaleString()}
+//-                 p Fecha de Modificación: #{entity.modDate.toLocaleString()}
+//-     else
+//-         p No se encontraron entidades.

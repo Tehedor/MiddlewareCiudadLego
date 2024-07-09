@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  # @context file is served from here
+  subs-control-app:
+    labels:
+      org.fiware: 'subs-control_app'
+    image: subs-control-app:latest
+    # hostname: simulator-app
+    container_name: subs-control-app
+    networks:
+      - default
+    ports:
+      - "4040:4040"
+    expose:
+      - "4040"
+    environment:
+      - WEB_APP_PORT=4040
+      - MODE_CONTAINERS=true
+    healthcheck:
+      test: curl -k --fail -s http://subs-control-app:4040/ || exit 1
+      interval: 5s
+
+
+networks:
+  default:
+    labels:
+      org.fiware: 'orion'
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24

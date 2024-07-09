@@ -1,0 +1,8 @@
+# quitame node_modules, package-lock.json
+app_subs-control/node_modules/
+app_subs-control/package-lock.json
+
+# app_subs-control/.env
+
+build
+subs-control-app.yml

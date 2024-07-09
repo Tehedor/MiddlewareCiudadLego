@@ -215,6 +215,31 @@ waitForSimulatorApp() {
 	done
 }
 
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### subs-control-app
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+
+stoppingContainerAppSubsControl() {
+	CONTAINERS=$(docker ps --filter "name=subs-control-app" -aq)
+	if [[ -n $CONTAINERS ]]; then 
+		echo "Stopping containers"
+		docker rm -f $CONTAINERS || true
+	fi
+}
+
+
+waitForSubsControlApp() {
+
+	echo -e "\n⏳ Waiting for \033[1mSubs Control App\033[0m to be available\n"
+
+	while ! [ `docker inspect --format='{{.State.Health.Status}}' subs-control-app` == "healthy" ]
+	do 
+		sleep 1
+	done
+}
+
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
@@ -372,6 +397,20 @@ case "${command}" in
 		${dockerCmd} -f simulator/simulator-app.yml up 
 		displayServices "simulator-app"
 		waitForSimulatorApp		
+		;;
+	"subs-control-app")
+		export $(cat .env | grep "#" -v)
+		stoppingContainerAppSubsControl
+		echo -e "Starting containers:  \033[1mSubs Control app .\033[0m"
+		echo ""
+
+		docker build -t subs-control-app ./subs-control
+
+		${dockerCmd} -f subs-control/subs-control-app.yml up -d
+		displayServices "subs-control-app"
+		waitForSubsControlApp
+		# echo "Building Docker image"
+		# docker image build -t subs-control-app .
 		;;
 	*)
 		echo "Command not Found."
