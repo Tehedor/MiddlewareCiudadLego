@@ -48,12 +48,14 @@ app.get('/', (req, res) => {
     // res.render('index', { title: 'app', message: 'Hello there!' })
 })
 
+const MODE_CONTAINERS_BOOLEAN = process.env.MODE_CONTAINERS === 'true';
+
 app.get('/entities', async (req, res) => {
     console.log('Pasa1');
 
     try {
         console.log(await generalControllerEntities());
-        res.render('entities.pug', {  MODE_CONTAINERS: process.env.MODE_CONTAINERS, entities: await generalControllerEntities() });
+        res.render('entities.pug', {  MODE_CONTAINERS: MODE_CONTAINERS_BOOLEAN, entities: await generalControllerEntities() });
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
@@ -64,7 +66,7 @@ app.get('/draco', async (req, res) => {
     console.log('Pasa1');
 
     try {
-        res.render('draco.pug', {  MODE_CONTAINERS: process.env.MODE_CONTAINERS, subsDraco: await generalSubsDraco() });
+        res.render('draco.pug', {  MODE_CONTAINERS: MODE_CONTAINERS_BOOLEAN, subsDraco: await generalSubsDraco() });
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
@@ -74,7 +76,7 @@ app.get('/draco', async (req, res) => {
 app.get('/relations', async (req, res) => {
     console.log('Pasa2');
     try {
-        res.render('relations.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS , subsRelations: await generalSubsRelations() });
+        res.render('relations.pug', { MODE_CONTAINERS: MODE_CONTAINERS_BOOLEAN , subsRelations: await generalSubsRelations() });
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
@@ -88,7 +90,7 @@ app.get('/all', async (req, res) => {
     try {
         // console.log(await generalSubsRelations());
         // console.log(await generalSubsDraco());
-        res.render('all.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS ,  subsDraco: await generalSubsDraco(), subsRelations: await generalSubsRelations()});
+        res.render('all.pug', { MODE_CONTAINERS: MODE_CONTAINERS_BOOLEAN ,  subsDraco: await generalSubsDraco(), subsRelations: await generalSubsRelations()});
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
