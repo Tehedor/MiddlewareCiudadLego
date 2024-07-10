@@ -21,7 +21,26 @@ services:
       interval: 5s
 
 
-  # mongo-db-draco:
+    mongo-db-draco:
+      labels:
+          org.fiware: 'draco'
+      # image: mongodb/mongodb-community-server:latest
+      image: mongo:${MONGO_DB_VERSION}
+      # image: mongo:3.4
+      container_name: draco-mongo-db
+      restart: always
+      ports:
+        - "27017:27017"
+      # environment:
+      #   - MONGO_INITDB_ROOT_USERNAME=root
+      #   - MONGO_INITDB_ROOT_PASSWORD=example
+      healthcheck:
+        test: |
+          host=`hostname --ip-address || echo '127.0.0.1'`; 
+          mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
+        interval: 5s
+
+  # mongo-db:
   #   labels:
   #       org.fiware: 'draco'
   #   # image: mongodb/mongodb-community-server:latest
@@ -39,25 +58,6 @@ services:
   #       host=`hostname --ip-address || echo '127.0.0.1'`; 
   #       mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
   #     interval: 5s
-
-  mongo-db:
-    labels:
-        org.fiware: 'draco'
-    # image: mongodb/mongodb-community-server:latest
-    image: mongo:${MONGO_DB_VERSION}
-    # image: mongo:3.4
-    container_name: draco-mongo-db
-    restart: always
-    ports:
-      - "27017:27017"
-    # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=root
-    #   - MONGO_INITDB_ROOT_PASSWORD=example
-    healthcheck:
-      test: |
-        host=`hostname --ip-address || echo '127.0.0.1'`; 
-        mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
-      interval: 5s
 
 networks:
   proxy-reverse-net:
