@@ -1,7 +1,7 @@
 #!/bin/bash
 docker compose -f ngsi-reverse.yml down
 
-docker image build -t subs-control-app .
+docker image build -t nginx-reverse .
 
 # # Verificar si la red existe
 # network_exists=$(docker network ls --filter name=^proxy-reverse-net$ --format "{{.Name}}")
