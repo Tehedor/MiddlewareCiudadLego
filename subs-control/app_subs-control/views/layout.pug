@@ -10,11 +10,10 @@ html
         header(role="banner" class="sticky-top" style="background-color: #e5f5f7;padding:10px;")
             nav(class="navbar navbar-expand-lg")
                 ul.nav.d-flex.flex-row
-                    - var isContainer = MODE_CONTAINERS === 'true'
-                    - var basePath = isContainer ? '/subsControlApp' : ''
+                    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
                     
                     li.nav-item
-                        a.nav-link(href=`/`) #{MODE_CONTAINERS} || #{isContainer} || #{basePath} 
+                        a.nav-link(href=`/`) || #{MODE_CONTAINERS} || #{basePath} 
                     li.nav-item
                         a.nav-link(href=`${basePath}/`) Home
                     li.nav-item

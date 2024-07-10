@@ -38,19 +38,22 @@ const app = express();
 // const io = require('socket.io')(http);
 // const port = 3000; //mirar puerto
 
+const MODE_CONTAINERS_BOOLEAN = process.env.MODE_CONTAINERS === 'true';
+
+const basePath = MODE_CONTAINERS_BOOLEAN ? '/subsControlApp' : '';
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static('public'));
 app.set('view engine', 'pug');
 
-app.get('/', (req, res) => {
+app.get(`/`, (req, res) => {
     res.render('index.pug', { title: 'Hey', message: 'Hello there!' })
     // res.render('index', { title: 'app', message: 'Hello there!' })
 })
 
-const MODE_CONTAINERS_BOOLEAN = process.env.MODE_CONTAINERS === 'true';
 
-app.get('/entities', async (req, res) => {
+app.get(`/entities`, async (req, res) => {
     console.log('Pasa1');
 
     try {
