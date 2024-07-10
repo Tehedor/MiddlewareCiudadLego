@@ -11,9 +11,7 @@ html
             nav(class="navbar navbar-expand-lg")
                 ul.nav.d-flex.flex-row
                     - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
-                    
-                    li.nav-item
-                        a.nav-link(href=`/`) || #{MODE_CONTAINERS} || #{basePath} 
+                     
                     li.nav-item
                         a.nav-link(href=`${basePath}/`) Home
                     li.nav-item
