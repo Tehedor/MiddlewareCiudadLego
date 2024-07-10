@@ -11,9 +11,9 @@ services:
       - default
     hostname: subsControlApp
     ports:
-      - "4040:4040"
+      - "80:4040"
     expose:
-      - "4040"
+      - "80"
     environment:
       - WEB_APP_PORT=4040
       - MODE_CONTAINERS=true
