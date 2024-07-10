@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 
 app.get(`/`, (req, res) => {
-    res.render('index.pug', { title: 'Hey', message: 'Hello there!' })
+    res.render('index.pug', { MODE_CONTAINERS: MODE_CONTAINERS_BOOLEAN, title: 'Hey', message: 'Hello there!' })
     // res.render('index', { title: 'app', message: 'Hello there!' })
 })
 
