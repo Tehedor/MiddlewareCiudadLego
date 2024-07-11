@@ -75,6 +75,7 @@ services:
       - mongo-db-orion
     networks:
       - default
+      - draco-net
     expose:
       - ${ORION_LD_PORT:-1026} # Quitar si hay red interna/ pruebas para app
     ports:
@@ -95,6 +96,13 @@ networks:
       config:
         - subnet: 172.18.1.0/24
 
+  draco-net:
+    labels:
+      org.fiware: 'draco'
+    ipam:
+      config:
+        - subnet: 172.18.3.0/24
+        
 
 volumes:
   mongo-db-orion: 

@@ -31,8 +31,6 @@ fiware-ld-context
 db-mongo-orion
 
 
-
-
 //          //
 //Subs-contr//
 //          //
