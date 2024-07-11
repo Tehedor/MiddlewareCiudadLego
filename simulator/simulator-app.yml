@@ -7,6 +7,7 @@ services:
     image: simulator_app:latest
     # hostname: simulator-app
     container_name: simulator-app
+    hostname: simulatorApp
     networks:
       - default
     ports:
