@@ -5,13 +5,13 @@ services:
     image: nginx-reverse 
     container_name: nginx-reverse-container
     networks:
-      - my_custom_network
+      - proxy-reverse-net
     expose:
       - "80"
     ports:
       - "80:80"
 
 networks:
-  my_custom_network:
+  proxy-reverse-net:
     external:
       name: ${NET_NAME}
