@@ -15,8 +15,8 @@ services:
       - NIFI_WEB_HTTP_PORT=9090
       # - SINGLE_USER_CREDENTIALS_USERNAME=admin
       # - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
-    networks:
-      - proxy-reverse-net
+    # networks:
+      # - proxy-reverse-net
       # - draco-net
     ports:
       - "9090:9090"
@@ -46,12 +46,12 @@ services:
       interval: 5s
 
 networks:
-  # draco-net:
-  #   labels:
-  #     org.fiware: 'draco'
-  #   ipam:
-  #     config:
-  #       - subnet: 172.18.3.0/24
+  draco-net:
+    labels:
+      org.fiware: 'draco'
+    ipam:
+      config:
+        - subnet: 172.18.3.0/24
 
   proxy-reverse-net:
     external:
