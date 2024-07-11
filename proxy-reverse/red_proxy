@@ -31,6 +31,6 @@ echo "Conectando contenedores a la red ${netName}..."
 docker network connect $netName fiware-orion 
 docker network connect $netName subs-control-app
 docker network connect $netName simulator-app
-docker network connect $netName draco
+# docker network connect $netName draco
 
 echo "Red y contenedores configurados correctamente."
