@@ -16,8 +16,8 @@ services:
       # - SINGLE_USER_CREDENTIALS_USERNAME=admin
       # - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
     networks:
-      # - proxy-reverse-net
-      - draco-net
+      - proxy-reverse-net
+      # - draco-net
     ports:
       - "9090:9090"
       - "5050:5050"
@@ -46,13 +46,13 @@ services:
       interval: 5s
 
 networks:
-  draco-net:
-    labels:
-      org.fiware: 'draco'
-    ipam:
-      config:
-        - subnet: 172.18.3.0/24
+  # draco-net:
+  #   labels:
+  #     org.fiware: 'draco'
+  #   ipam:
+  #     config:
+  #       - subnet: 172.18.3.0/24
 
-  # proxy-reverse-net:
-  #   external:
-  #     name: proxy-reverse-net
+  proxy-reverse-net:
+    external:
+      name: proxy-reverse-net
