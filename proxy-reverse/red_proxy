@@ -17,7 +17,7 @@ network_exists=$(docker network ls --filter name=^${netName}$ --format "{{.Name}
 # Si la red no existe, crearla
 if [ -z "$network_exists" ]; then
     echo "La red ${netName} no existe. Creándola..."
-    docker network create --driver=bridge --subnet=172.18.2.0/24 $netName
+    docker network create --driver=bridge --subnet=172.18.8.0/24 $netName
 else
     echo "La red ${netName} ya existe."
 fi
