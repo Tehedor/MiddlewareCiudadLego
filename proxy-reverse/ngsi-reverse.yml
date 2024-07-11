@@ -15,4 +15,4 @@ services:
 networks:
   proxy-reverse-net:
     external:
-      name: proxy-reverse-net
+      name: $NET_NAME
