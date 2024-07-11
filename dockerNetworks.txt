@@ -1,0 +1,57 @@
+//          //
+//  Proxy   //
+//          //
+nginx-reverse-container
+    -> draco
+    -> orion
+    -> subs-control-app
+    -> apis-app
+    -> simulator
+
+//          //
+//  Draco   //
+//          //
+                        depends_on
+draco
+
+draco-mongo-db
+
+
+
+
+
+//          //
+//  Orion   //
+//          //
+                        depends_on
+fiware-orion
+
+fiware-ld-context
+    
+db-mongo-orion
+
+
+
+
+//          //
+//Subs-contr//
+//          //
+subs-control-app
+    -> db-mongo-orion
+    -> orion
+
+
+//          //
+//simulator //
+//          //
+simulator
+    -> db-mongo-orion
+    -> orion
+
+
+//          //
+// apis-app //
+//          //
+apis-app    
+    -> orion
+    -> draco-mongo-db
