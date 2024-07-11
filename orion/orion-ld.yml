@@ -90,15 +90,15 @@ services:
 
 networks:
   default:
-    # labels:
-    #   org.fiware: 'orion'
+    labels:
+      org.fiware: 'orion'
     ipam:
       config:
         - subnet: 172.18.1.0/24
 
   draco-net:
-    # labels:
-    #   org.fiware: 'draco'
+    labels:
+      org.fiware: 'draco'
     ipam:
       config:
         - subnet: 172.18.3.0/24
