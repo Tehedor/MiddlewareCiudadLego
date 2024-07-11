@@ -1,18 +1,17 @@
 version: "3.8"
-services:
 
-  # Orion is the context broker
+services:
   nginx-reverse:
     image: nginx-reverse 
     container_name: nginx-reverse-container
     networks:
-      - proxy-reverse-net
+      - my_custom_network
     expose:
-      - 80
+      - "80"
     ports:
-      - 80:80
+      - "80:80"
 
 networks:
-  proxy-reverse-net:
+  my_custom_network:
     external:
-      name: $NET_NAME
+      name: ${NET_NAME}
