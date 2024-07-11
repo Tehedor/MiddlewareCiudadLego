@@ -23,6 +23,7 @@ else
 fi
 
 # Levantar servicios con Docker Compose
+export NET_NAME=$netName
 docker compose -f ngsi-reverse.yml up -d
 
 # Conectar contenedores a la red
