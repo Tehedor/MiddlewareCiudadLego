@@ -90,8 +90,8 @@ services:
 
 networks:
   default:
-    labels:
-      org.fiware: 'orion'
+    # labels:
+    #   org.fiware: 'orion'
     ipam:
       config:
         - subnet: 172.18.1.0/24
