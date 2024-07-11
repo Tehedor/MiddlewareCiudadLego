@@ -11,6 +11,8 @@ services:
       - "9090"
     environment:
       - NIFI_WEB_HTTP_PORT=9090
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
     networks:
       - proxy-reverse-net
     ports:
