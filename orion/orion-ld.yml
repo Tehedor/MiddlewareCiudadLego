@@ -25,8 +25,10 @@ services:
     image: httpd:alpine
     hostname: context
     container_name: fiware-ld-context
-    ports:
-        - "3004:80"
+    networks:
+      - default
+    # ports:
+    #     - "3004:80"
     volumes:
         - data-models:/usr/local/apache2/htdocs/
         - type: bind
@@ -42,16 +44,11 @@ services:
       org.fiware: 'orion'
     image: mongo:${MONGO_DB_VERSION}
     hostname: mongo-db-orion
-    # container_name: mongo-db-orion
-    container_name: db-mongo-orion  
+    container_name: mongo-db-orion  
     expose:
       - "27017"
     ports:
       - "${MONGO_DB_PORT}:27017" # localhost:27017
-    # expose:
-    #   - "${MONGO_DB_PORT}"
-    # ports:
-    #   - "${MONGO_DB_PORT}:${MONGO_DB_PORT}" # localhost:27017
     networks:
       - default
     volumes:
@@ -75,18 +72,15 @@ services:
       - mongo-db-orion
     networks:
       - default
-      # - draco-net
     expose:
-      - ${ORION_LD_PORT:-1026} # Quitar si hay red interna/ pruebas para app
+      - ${ORION_LD_PORT:-1026} 
     ports:
       - ${EXPOSED_PORT:-1026}:${ORION_LD_PORT:-1026}
-    # command: -dbhost mongo-db -logLevel DEBUG -forwarding  -experimental
     command: -dbhost mongo-db-orion -logLevel DEBUG -forwarding  -experimental
     healthcheck:
       test: curl --fail -s http://orion:${ORION_LD_PORT}/version || exit 1
       interval: 5s
 
-  
 
 networks:
   default:
@@ -94,15 +88,7 @@ networks:
       org.fiware: 'orion'
     ipam:
       config:
-        - subnet: 172.18.1.0/24
-
-  draco-net:
-    labels:
-      org.fiware: 'draco'
-    ipam:
-      config:
-        - subnet: 172.18.3.0/24
-        
+        - subnet: 172.18.1.0/24        
 
 volumes:
   mongo-db-orion: 

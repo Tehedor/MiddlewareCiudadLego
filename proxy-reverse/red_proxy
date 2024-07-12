@@ -8,30 +8,6 @@ docker image build -t nginx-reverse .
 # Establecer el nombre del proyecto
 export COMPOSE_PROJECT_NAME=fiware
 
-# # Definir el nombre de la red
-# netName="${COMPOSE_PROJECT_NAME}_proxy-reverse-net"
-
-# # Verificar si la red existe
-# network_exists=$(docker network ls --filter name=^${netName}$ --format "{{.Name}}")
-
-# # Si la red no existe, crearla
-# if [ -z "$network_exists" ]; then
-#     echo "La red ${netName} no existe. Creándola..."
-#     docker network create --driver=bridge --subnet=172.18.8.0/24 $netName
-# else
-#     echo "La red ${netName} ya existe."
-# fi
-
-# # Levantar servicios con Docker Compose
-# export NET_NAME=$netName
-
 docker compose -f ngsi-reverse.yml up -d
-
-# Conectar contenedores a la red
-# echo "Conectando contenedores a la red ${netName}..."
-# docker network connect $netName fiware-orion 
-# docker network connect $netName subs-control-app
-# docker network connect $netName simulator-app
-# docker network connect $netName draco
 
 echo "Red y contenedores configurados correctamente."

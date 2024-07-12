@@ -1,5 +1,5 @@
 version: '3.8'
-# version: '3.1'
+
 services:
   draco:
     labels:
@@ -7,8 +7,6 @@ services:
     image: apache/nifi
     hostname: draco
     container_name: draco
-    # depends_on:
-    #   - mongo-db-draco
     expose:
       - "9090"
     environment:
@@ -16,8 +14,6 @@ services:
       # - SINGLE_USER_CREDENTIALS_USERNAME=admin
       # - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
     networks:
-      # - draco-net
-      # - proxy-reverse-net
       - default
     ports:
       - "9090:9090"
@@ -30,15 +26,12 @@ services:
   mongo-db-draco:
     labels:
         org.fiware: 'draco'
-    # image: mongodb/mongodb-community-server:latest
     image: mongo:${MONGO_DB_VERSION}
-    # image: mongo:3.4
-    container_name: draco-mongo-db
+    container_name: mongo-db-draco
     restart: always
     ports:
       - "27017:27017"
     networks:
-      # - draco-net
       - default
     # environment:
     #   - MONGO_INITDB_ROOT_USERNAME=root
@@ -50,17 +43,7 @@ services:
       interval: 5s
 
 networks:
-  # draco-net:
-  #   labels:
-  #     org.fiware: 'draco'
-  #   ipam:
-  #     config:
-  #       - subnet: 172.18.3.0/24
 
-  # proxy-reverse-net:
-  #   name: fiware_proxy-reverse-net
-  #   external: true
-  
   default:
     labels:
       org.fiware: 'orion'
