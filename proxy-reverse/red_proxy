@@ -6,7 +6,7 @@ docker compose -f ngsi-reverse.yml down
 docker image build -t nginx-reverse .
 
 # Establecer el nombre del proyecto
-# export COMPOSE_PROJECT_NAME=fiware
+export COMPOSE_PROJECT_NAME=fiware
 
 # # Definir el nombre de la red
 # netName="${COMPOSE_PROJECT_NAME}_proxy-reverse-net"
@@ -24,6 +24,7 @@ docker image build -t nginx-reverse .
 
 # # Levantar servicios con Docker Compose
 # export NET_NAME=$netName
+
 docker compose -f ngsi-reverse.yml up -d
 
 # Conectar contenedores a la red
