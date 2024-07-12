@@ -60,5 +60,5 @@ networks:
   #     name: proxy-reverse-net
 
   proxy-reverse-net:
-    name: proxy-reverse-net
+    name: fiware_proxy-reverse-net
     external: true
