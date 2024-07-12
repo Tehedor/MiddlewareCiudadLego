@@ -55,6 +55,10 @@ networks:
       config:
         - subnet: 172.18.3.0/24
 
+  # proxy-reverse-net:
+  #   external:
+  #     name: proxy-reverse-net
+
   proxy-reverse-net:
-    external:
-      name: proxy-reverse-net
+    name: proxy-reverse-net
+    external: true
