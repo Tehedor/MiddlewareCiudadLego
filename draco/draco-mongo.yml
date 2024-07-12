@@ -18,9 +18,9 @@ services:
     networks:
       # - draco-net
       - proxy-reverse-net
-    ports:
-      - "9090:9090"
-      - "5050:5050"
+    # ports:
+    #   - "9090:9090"
+    #   - "5050:5050"
     healthcheck:
       test: curl -k --fail -s http://draco:9090/nifi/login || exit 1
       interval: 5s
