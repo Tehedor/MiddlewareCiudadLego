@@ -10,11 +10,11 @@ services:
     hostname: simulatorApp
     networks:
       - default
-    ports:
-      - "3030:3030"
-      - "3001:3001"
-    expose:
-      - "3030"
+    # expose:
+    #   - "3030"
+    # ports:
+    #   - "3030:3030"
+    #   - "3001:3001"
     environment:
       - DEVICE_NUMBER=001
       - INTENSITY_THRESHOLD=70

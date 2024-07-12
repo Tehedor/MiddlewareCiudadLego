@@ -45,10 +45,10 @@ services:
     image: mongo:${MONGO_DB_VERSION}
     hostname: mongo-db-orion
     container_name: mongo-db-orion  
-    expose:
-      - "27017"
-    ports:
-      - "${MONGO_DB_PORT}:27017" # localhost:27017
+    # expose:
+    #   - "27017"
+    # ports:
+    #   - "${MONGO_DB_PORT}:27017" # localhost:27017
     networks:
       - default
     volumes:
@@ -72,10 +72,10 @@ services:
       - mongo-db-orion
     networks:
       - default
-    expose:
-      - ${ORION_LD_PORT:-1026} 
-    ports:
-      - ${EXPOSED_PORT:-1026}:${ORION_LD_PORT:-1026}
+    # expose:
+    #   - ${ORION_LD_PORT:-1026} 
+    # ports:
+    #   - ${EXPOSED_PORT:-1026}:${ORION_LD_PORT:-1026}
     command: -dbhost mongo-db-orion -logLevel DEBUG -forwarding  -experimental
     healthcheck:
       test: curl --fail -s http://orion:${ORION_LD_PORT}/version || exit 1
