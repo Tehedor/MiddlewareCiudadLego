@@ -17,10 +17,11 @@ services:
       # - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
     networks:
       # - draco-net
-      - proxy-reverse-net
-    # ports:
-    #   - "9090:9090"
-    #   - "5050:5050"
+      # - proxy-reverse-net
+      - default
+    ports:
+      - "9090:9090"
+      - "5050:5050"
     healthcheck:
       test: curl -k --fail -s http://draco:9090/nifi/login || exit 1
       interval: 5s
@@ -37,7 +38,8 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - draco-net
+      # - draco-net
+      - default
     # environment:
     #   - MONGO_INITDB_ROOT_USERNAME=root
     #   - MONGO_INITDB_ROOT_PASSWORD=example
@@ -48,17 +50,20 @@ services:
       interval: 5s
 
 networks:
-  draco-net:
-    labels:
-      org.fiware: 'draco'
-    ipam:
-      config:
-        - subnet: 172.18.3.0/24
+  # draco-net:
+  #   labels:
+  #     org.fiware: 'draco'
+  #   ipam:
+  #     config:
+  #       - subnet: 172.18.3.0/24
 
   # proxy-reverse-net:
-  #   external:
-  #     name: proxy-reverse-net
-
-  proxy-reverse-net:
-    name: fiware_proxy-reverse-net
-    external: true
+  #   name: fiware_proxy-reverse-net
+  #   external: true
+  
+  default:
+    labels:
+      org.fiware: 'orion'
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24

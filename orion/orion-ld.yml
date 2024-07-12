@@ -75,7 +75,7 @@ services:
       - mongo-db-orion
     networks:
       - default
-      - draco-net
+      # - draco-net
     expose:
       - ${ORION_LD_PORT:-1026} # Quitar si hay red interna/ pruebas para app
     ports:

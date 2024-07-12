@@ -5,13 +5,21 @@ services:
     image: nginx-reverse 
     container_name: nginx-reverse-container
     networks:
-      - proxy-reverse-net
+      # - proxy-reverse-net
+      - default
     expose:
       - "80"
     ports:
       - "80:80"
 
 networks:
-  proxy-reverse-net:
-    external:
-      name: ${NET_NAME}
+  # proxy-reverse-net:
+  #   external:
+  #     name: ${NET_NAME}
+
+  default:
+    labels:
+      org.fiware: 'orion'
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
