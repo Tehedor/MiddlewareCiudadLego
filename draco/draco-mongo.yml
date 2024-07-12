@@ -16,7 +16,7 @@ services:
       # - SINGLE_USER_CREDENTIALS_USERNAME=admin
       # - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
     networks:
-      - draco-net
+      # - draco-net
       - proxy-reverse-net
     ports:
       - "9090:9090"
