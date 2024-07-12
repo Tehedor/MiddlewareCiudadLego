@@ -103,7 +103,7 @@ waitForUserContext () {
 
 waitForMongoOrion () {
 	echo -e "\n⏳ Waiting for \033[1mMongoDB Orion\033[0m to be available\n"
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mongo-orion` == "healthy" ]
+	while ! [ `docker inspect --format='{{.State.Health.Status}}' mongo-db-orion` == "healthy" ]
 	do 
 		sleep 1
 	done
@@ -176,7 +176,7 @@ waitForMysql () {
 waitForMongoDraco () {
 	echo -e "\n⏳ Waiting for \033[1mMongoDB Draco\033[0m to be available\n"
 	# while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mongo` == "healthy" ]
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' draco-mongo-db` == "healthy" ]
+	while ! [ `docker inspect --format='{{.State.Health.Status}}' mongo-db-draco` == "healthy" ]
 	do 
 		sleep 1
 	done
