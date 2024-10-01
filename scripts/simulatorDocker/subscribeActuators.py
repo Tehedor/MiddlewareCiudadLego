@@ -296,7 +296,7 @@ sensors = [PirSensor,PhotoresistorSensor, PirSensor2 , PotentiometerSensor, Infr
 url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/'
 
 headers = {
-    'Content-Type': 'application/ld+json'
+    'Content-Type': 'application/ld+json',
 }
     # 'NGSILD-Tenant': 'openiot'
     # 'NGSILD-Tenant': 'actuators_subscription'

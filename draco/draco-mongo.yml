@@ -29,8 +29,8 @@ services:
     image: mongo:${MONGO_DB_VERSION}
     container_name: mongo-db-draco
     restart: always
-    # ports:
-    #   - "27017:27017"
+    ports:
+      - "27017:27017"
     networks:
       - default
     # environment:

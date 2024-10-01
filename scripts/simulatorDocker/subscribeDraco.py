@@ -577,9 +577,8 @@ actuators = [LedDetection, Light, EngineDC, Servmotor, Camera]
 url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/'
 
 headers = {
-    'Content-Type': 'application/ld+json'
+    'Content-Type': 'application/ld+json',
 }
-    # 'NGSILD-Tenant': 'draco_subscription'
 
 # headers = {
 #     'Content-Type': 'application/ld+json',

@@ -22,8 +22,8 @@ CORE_CONTEXT="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 # https://app.swaggerhub.com/apis-docs/SergioTejedor/Lego_Models/1.0.0
 
 
-# dockerCmd="docker-compose"
-dockerCmd="docker compose"
+dockerCmd="docker-compose"
+# dockerCmd="docker compose"
 # if (( $# == 2 )); then
 # fi
 

@@ -47,8 +47,8 @@ services:
     container_name: mongo-db-orion  
     # expose:
     #   - "27017"
-    # ports:
-    #   - "${MONGO_DB_PORT}:27017" # localhost:27017
+    ports:
+      - "${MONGO_DB_PORT}:27017" # localhost:27017
     networks:
       - default
     volumes:
