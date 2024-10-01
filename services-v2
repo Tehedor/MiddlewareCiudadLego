@@ -24,8 +24,10 @@ CORE_CONTEXT="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 
 dockerCmd="docker-compose"
 # dockerCmd="docker compose"
-# if (( $# == 2 )); then
-# fi
+
+proxyReverse=true
+
+
 
 if (( $# < 1 )); then
 	echo "Illegal number of parameters"
@@ -240,6 +242,35 @@ waitForSubsControlApp() {
 	done
 }
 
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### proxy-reverse
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+
+# stoppingContainerAppSubsControl() {
+# 	CONTAINERS=$(docker ps --filter "name=subs-control-app" -aq)
+# 	if [[ -n $CONTAINERS ]]; then 
+# 		echo "Stopping containers"
+# 		docker rm -f $CONTAINERS || true
+# 	fi
+# }
+stoppingContainerProxyReverse() {
+	${dockerCmd} -f proxy-reverse/ngsi-reverse.yml  down
+	# CONTAINERS=$(docker ps --filter "name=nginx-reverse" -aq)
+	# if [[ -n $CONTAINERS ]]; then 
+	# 	echo "Stopping containers"
+	# 	docker rm -f $CONTAINERS || true
+	# fi
+}
+
+waitForProxyReverse() {
+	echo -e "\n⏳ Waiting for \033[1mProxy Reverse\033[0m to be available\n"
+	while ! [ `docker inspect --format='{{.State.Health.Status}}' nginx-reverse` == "healthy" ]
+	do 
+		sleep 1
+	done
+}
 
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
@@ -247,12 +278,17 @@ waitForSubsControlApp() {
 ##### ##### ##### ##### Run
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-
 displayServices () {
 	echo ""
 	docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" --filter name="$1"
 	echo ""
 }
+
+
+if [[ $proxyReverse == true ]]; then
+	./proxy-reverse/red_proxy down
+fi
+
 
 command="$1"
 argument="$2"
@@ -353,6 +389,7 @@ case "${command}" in
 		stoppingContainersOrion
 		stoppingContainersDraco
 		stoppingContainerAppSimulator
+		stoppingContainerAppSubsControl
 		;;
 	"start")
 		export $(cat .env | grep "#" -v) 
@@ -423,5 +460,16 @@ case "${command}" in
 		;;
 esac
 
+if [[ $proxyReverse == true ]]; then
+	./proxy-reverse/red_proxy up
+fi
 
+
+# Verificar si proxy-reverse/base.conf es igual a default.conf y eliminar el contenedor proxy-reverse si es así
+if cmp -s "./proxy-reverse/base.conf" "./proxy-reverse/default.conf"; then
+	echo "Eliminando el contenedor proxy-reverse."
+	stoppingContainerProxyReverse
+else
+	echo "No se eliminó el contenedor proxy-reverse."
+fi
 

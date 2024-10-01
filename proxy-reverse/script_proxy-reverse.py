@@ -6,8 +6,7 @@ import docker
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
 def nginx_config():
     return \
-"""
-server {
+"""server {
     listen       80;
     listen  [::]:80;
     server_name  138.4.22.12;
@@ -168,7 +167,8 @@ def generate_nginx_config(exclude_containers=None):
     active_services = [service for service in active_containers if exclude_containers is None or service not in exclude_containers]
         
 
-
+    for active_service in active_services:
+        print(f"Servicio activo: {active_service}") 
 
     # Configuración de servicios
     if 'fiware-orion' in active_services:

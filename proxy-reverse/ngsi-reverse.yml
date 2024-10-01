@@ -10,7 +10,11 @@ services:
     expose:
       - "80"
     ports:
-      - "80:80"
+      - "8080:80"
+
+    healthcheck:
+      test: curl -k --fail -s http://nginx-reverse:80/ || exit 1
+      interval: 5s
 
 networks:
   # proxy-reverse-net:

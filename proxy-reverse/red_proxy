@@ -1,13 +1,74 @@
 #!/bin/bash
-# Detener servicios
-docker compose -f ngsi-reverse.yml down
 
-# Construir imagen de nginx reverse proxy
-docker image build -t nginx-reverse .
-
-# Establecer el nombre del proyecto
+# # Establecer el nombre del proyecto
 export COMPOSE_PROJECT_NAME=fiware
 
-docker compose -f ngsi-reverse.yml up -d
 
-echo "Red y contenedores configurados correctamente."
+# Nombre del contenedor de Nginx
+CONTAINER_NAME=nginx-reverse-container
+
+# Nombre de la imagen de Nginx
+IMAGE_NAME=nginx-reverse
+
+# Ruta del archivo de configuración en el host
+CONFIG_FILE_ZERO=base.conf
+CONFIG_FILE=default.conf
+
+# Ruta del archivo de configuración en el contenedor
+CONTAINER_CONFIG_PATH=/etc/nginx/conf.d/default.conf
+
+# Verificar si la imagen existe
+if ! docker images --format '{{.Repository}}' | grep -q "^${IMAGE_NAME}$"; then
+    echo "La imagen ${IMAGE_NAME} no existe. Construyendo la imagen..."
+    docker build -t $IMAGE_NAME .
+    if [ $? -ne 0 ]; then
+        echo "Error al construir la imagen ${IMAGE_NAME}."
+        exit 1
+    fi
+fi
+
+# Verificar si el contenedor está en ejecución
+if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
+    echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker-compose..."
+    # docker compose -f ngsi-reverse.yml up -d
+    docker-compose -f ngsi-reverse.yml up -d
+
+fi
+
+# Verificar el primer argumento
+if [ "$1" == "down" ]; then
+    echo "Ejecutando configuración de cero NGSI Proxy..."
+    # Configuración de cero NGSI Proxy
+    # Copiar el archivo de configuración al contenedor
+    docker cp $CONFIG_FILE_ZERO $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+
+    # Recargar la configuración de Nginx dentro del contenedor
+    docker exec $CONTAINER_NAME nginx -s reload
+
+elif [ "$1" == "up" ]; then
+    echo "Ejecutando nueva configuración..."
+    # Ejecutar el script de Python
+    # python3 ./script_proxy-reverse.py
+    # python3 ./proxy-reverse/script_proxy-reverse.py
+    pushd proxy-reverse > /dev/null
+    python3 ./script_proxy-reverse.py
+    if [ $? -ne 0 ]; then
+        echo "Error al ejecutar el script de Python."
+        popd > /dev/null
+        exit 1
+    fi
+    popd > /dev/null
+
+    # Nueva configuración
+    # Copiar el archivo de configuración al contenedor
+    docker cp $CONFIG_FILE $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+
+    # Recargar la configuración de Nginx dentro del contenedor
+    docker exec $CONTAINER_NAME nginx -s reload
+
+else
+    echo "Uso: $0 {up|down}"
+    exit 1
+fi
+
+echo "Configuración de Nginx actualizada y recargada correctamente."
