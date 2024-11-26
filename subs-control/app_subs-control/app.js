@@ -7,6 +7,7 @@ const generalControllerEntities = require('./controllers/generalControllerEntiti
 const generalSubsDraco = require('./controllers/generalSubsDraco');
 const generalSubsRelations = require('./controllers/generalSubsRelations');
 
+const control_subs = require('./subscriptions_controller/control_subs');
 
 
 let MongoPort = process.env.MONGO_PORT || 27018;
@@ -32,6 +33,7 @@ mongoose.connect(`mongodb://${hostMongoDB}:${MongoPort}/orion`)
 // Web
 // // // // // // // // // // // // // // // // // // // //
 const app = express();
+
 
 
 // const http = require('http').createServer(app);
@@ -100,7 +102,31 @@ app.get('/all', async (req, res) => {
     }
 });
 
+let currentState = 'simulator';
 
+// curl -X POST "http://localhost:3000/changeState?mode=simulator"
+// curl -X POST "http://localhost:3000/changeState?mode=real"
+app.post('/changeState', (req, res) => {
+    const { mode } = req.query;
+
+    if (mode === 'simulator') {
+        if (currentState === 'simulator') {
+            res.send('Already in simulator mode');
+        } else {
+            currentState = 'simulator';
+            res.send(`State changed to ${currentState}`);
+        }
+    } else if (mode === 'real') {
+        if (currentState === 'real') {
+            res.send('Already in real mode');
+        } else {
+            currentState = 'real';
+            res.send(`State changed to ${currentState}`);
+        }
+    } else {
+        res.status(400).send('Invalid mode');
+    }
+});
 
 const time = process.env.TIME_INTERVAL || 2000;
 
@@ -128,6 +154,6 @@ setInterval(() => {
 
 
 
-
+control_subs.start_subscritpions();
 
 module.exports = app;

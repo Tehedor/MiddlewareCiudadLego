@@ -383,7 +383,10 @@ case "${command}" in
 		export $(cat .env | grep "#" -v)
 		stoppingContainerAppSimulator
 		;;
-
+	"stop-subs-control")
+		export $(cat .env | grep "#" -v)
+		stoppingContainerAppSubsControl
+		;;
 	"stop")
 		export $(cat .env | grep "#" -v)
 		stoppingContainersOrion
@@ -424,26 +427,26 @@ case "${command}" in
 		displayServices "simulator-app"
 		waitForSimulatorApp		
 		;;
-	"simulator-marta")
-		export $(cat .env | grep "#" -v)
-		python scripts/simulatorMarta/iniciarSimulator.py
-		stoppingContainerAppSimulator
-		echo -e "Starting containers:  \033[1mSimulator app .\033[0m"
-		echo ""
+	# "simulator-marta")
+	# 	export $(cat .env | grep "#" -v)
+	# 	python scripts/simulatorMarta/iniciarSimulator.py
+	# 	stoppingContainerAppSimulator
+	# 	echo -e "Starting containers:  \033[1mSimulator app .\033[0m"
+	# 	echo ""
 
-		docker build -t simulator_app ./simulator
+	# 	docker build -t simulator_app ./simulator
 		
-		# ${dockerCmd} -f simulator/simulator-app.yml up -d 
-		${dockerCmd} -f simulator/simulator-app.yml up 
-		displayServices "simulator-app"
-		waitForSimulatorApp		
-		;;
+	# 	# ${dockerCmd} -f simulator/simulator-app.yml up -d 
+	# 	${dockerCmd} -f simulator/simulator-app.yml up 
+	# 	displayServices "simulator-app"
+	# 	waitForSimulatorApp		
+	# 	;;
 	"subs-control-app")
 		export $(cat .env | grep "#" -v)
 		stoppingContainerAppSubsControl
 		echo -e "Starting containers:  \033[1mSubs Control app .\033[0m"
 		echo ""
-		python3 scripts/simulatorDocker/iniciarSimulator.py
+		# python3 scripts/simulatorDocker/iniciarSimulator.py
 		docker build -t subs-control-app ./subs-control
 
 		${dockerCmd} -f subs-control/subs-control-app.yml up -d
@@ -469,7 +472,5 @@ fi
 if cmp -s "./proxy-reverse/base.conf" "./proxy-reverse/default.conf"; then
 	echo "Eliminando el contenedor proxy-reverse."
 	stoppingContainerProxyReverse
-else
-	echo "No se eliminó el contenedor proxy-reverse."
 fi
 

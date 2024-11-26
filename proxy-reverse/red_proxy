@@ -31,8 +31,9 @@ fi
 if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker-compose..."
     # docker compose -f ngsi-reverse.yml up -d
+    pushd proxy-reverse > /dev/null
     docker-compose -f ngsi-reverse.yml up -d
-
+    popd > /dev/null
 fi
 
 # Verificar el primer argumento
@@ -57,14 +58,18 @@ elif [ "$1" == "up" ]; then
         popd > /dev/null
         exit 1
     fi
-    popd > /dev/null
 
     # Nueva configuración
     # Copiar el archivo de configuración al contenedor
     docker cp $CONFIG_FILE $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
 
+
     # Recargar la configuración de Nginx dentro del contenedor
     docker exec $CONTAINER_NAME nginx -s reload
+    
+    popd > /dev/null
+
+    echo "Configuración de Nginx actualizada y recargada correctamente."
 
 else
     echo "Uso: $0 {up|down}"
