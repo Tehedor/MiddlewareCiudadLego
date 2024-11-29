@@ -18,7 +18,7 @@ const defaultformat = "normalized";
 const draco_uri = "http://draco:5050/ld/notify";
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-const number = 1;
+const number = process.env.ENTITIES_ID || 1;
 
 // **** **** **** **** **** **** **** **** **** //
 // **** Buildings

@@ -57,29 +57,21 @@ block content
                                 strong #{entity.type_entity}
                             h5 
                                 | Valor: 
-                                strong #{entity.value}
+                                if entity.type === 'Building'
+                                    h6
+                                        | &nbsp;&nbsp;&nbsp;addressLocality: 
+                                        strong #{entity.value.addressLocality}, 
+                                    h6 
+                                        | &nbsp;&nbsp;&nbsp;postalCode: 
+                                        strong #{entity.value.postalCode},
+                                    h6
+                                        | &nbsp;&nbsp;&nbsp;streetAddress: 
+                                        strong #{entity.value.streetAddress}
+                                else
+                                    strong #{entity.value}
                             .row
                                 .col-md-8 
                                     p Fecha de Creación: #{entity.creDate.toLocaleString()}
                                     p Fecha de Modificación: #{entity.modDate.toLocaleString()}
     else
         p No se encontraron entidades.
-
-
-//- //- extend layout
-
-//- extends layout
-
-//- block content
-//-     h1 Entidades
-//-     if entities.length
-//-         each entity in entities
-//-             .entity
-//-                 h2(style="text-align: center; font-weight: bold; color: orange;") ID: #{entity.id}
-//-                 h3 Tipo: #{entity.type}
-//-                 h3 Valor: #{entity.value}
-//-                 h3 Fechas
-//-                 p Fecha de Creación: #{entity.creDate.toLocaleString()}
-//-                 p Fecha de Modificación: #{entity.modDate.toLocaleString()}
-//-     else
-//-         p No se encontraron entidades.

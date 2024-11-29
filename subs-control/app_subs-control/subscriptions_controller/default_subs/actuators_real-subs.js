@@ -1,10 +1,10 @@
 const { notify_template} = require('../notify_template');
 // const { createSubscriptions, deleteSubscriptions } = require('../control_subs');
-const { createSubscriptions, deleteSubscriptions } = require('../create_delete_update_subs');
+const { createSubscriptions, deleteSubscriptions, updateSubscriptions } = require('../create_delete_update_subs');
 
 
 // // // // // // // // // // // // // // // // // // // // // // 
-const host = "138.4.22.50";
+const realhost = process.env.BROKER_IP || 'localhost';
 const headers = {
     'Content-Type': 'application/ld+json',
 };
@@ -15,16 +15,41 @@ const defaultformat = "normalized";
 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-const uri_pirSensor = `http://${host}:3000/ledDetectionActuator`;
-const uri_pirSensor2 = `http://${host}:3000/lightActuator`;
-const uri_photoresistorSensor = `http://${host}:3000/lightActuator`;
-const uri_potentiometerSensor = `http://${host}:3000/engineDCActuator`;
-const uri_switchSensor = `http://${host}:3000/servmotorActuator`;
-const uri_infraredSensor = `http://${host}:3000/cameraActuator`;
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-const number = 1;
+const uri_pirSensor = `http://${realhost}:3000/ledDetectionActuator`;
+const uri_pirSensor2 = `http://${realhost}:3000/lightActuator`;
+const uri_photoresistorSensor = `http://${realhost}:3000/lightActuator`;
+const uri_potentiometerSensor = `http://${realhost}:3000/engineDCActuator`;
+const uri_switchSensor = `http://${realhost}:3000/servmotorActuator`;
+const uri_infraredSensor = `http://${realhost}:3000/cameraActuator`;
+const sensorUrisReal = {
+    pirSensor: `http://${realhost}:3000/ledDetectionActuator`,
+    pirSensor2: `http://${realhost}:3000/lightActuator`,
+    photoresistorSensor: `http://${realhost}:3000/lightActuator`,
+    potentiometerSensor: `http://${realhost}:3000/engineDCActuator`,
+    switchSensor: `http://${realhost}:3000/servmotorActuator`,
+    infraredSensor: `http://${realhost}:3000/cameraActuator`
+};
 
+const simuhost = "simulator-app";
+const sensorUrisToReal = {
+    // Simulator
+    [`http://${simuhost}:3001/ledDetectionActuator`]: `http://${realhost}:3001/ledDetectionActuator`, 
+    [`http://${simuhost}:3001/lightActuator`]: `http://${realhost}:3001/lightActuator`,
+    [`http://${simuhost}:3001/engineDCActuator`]: `http://${realhost}:3001/engineDCActuator`,
+    [`http://${simuhost}:3001/servmotorActuator`]: `http://${realhost}:3001/servmotorActuator`,
+    [`http://${simuhost}:3001/cameraActuator`]: `http://${realhost}:3001/cameraActuator`,
+    // Real
+    [`http://${realhost}:3001/ledDetectionActuator`]: `http://${realhost}:3001/ledDetectionActuator`, 
+    [`http://${realhost}:3001/lightActuator`]: `http://${realhost}:3001/lightActuator`,
+    [`http://${realhost}:3001/engineDCActuator`]: `http://${realhost}:3001/engineDCActuator`,
+    [`http://${realhost}:3001/servmotorActuator`]: `http://${realhost}:3001/servmotorActuator`,
+    [`http://${realhost}:3001/cameraActuator`]: `http://${realhost}:3001/cameraActuator`
+};
+
+
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+const number = process.env.ENTITIES_ID || 1;
 
 // PirSensor
 const PirSensor = notify_template(
@@ -117,5 +142,17 @@ function deleteSubscriptions_real(sensors) {
     deleteSubscriptions(url, subs_sensors, headers);
 }
 
+function changeStateToReal(entities) {
+    const filteredEntities = entities.filter(entity => entity.reference.startsWith('http://simulator-app:3001'));
+    filteredEntities.forEach(async (entity) => {
+        url_withSubsId= `http://localhost:1026/ngsi-ld/v1/subscriptions/${entity.subs_id}`;
+        entity_id= entity.entities_id;
+        reference= entity.reference;
+        newReference = sensorUrisToReal[reference];
+        notify_format = defaultformat;  
+        updateSubscriptions(url_withSubsId, notify_format,newReference, headers);
+    }); 
+}
+
 // Expose
-module.exports = { createSubscriptions_real, deleteSubscriptions_real };
+module.exports = { createSubscriptions_real, deleteSubscriptions_real, changeStateToReal };

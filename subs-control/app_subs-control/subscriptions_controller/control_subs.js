@@ -50,6 +50,11 @@ function start_subscritpions() {
     }
 }
 
+// Crear suscripciones
+function createSubsciption_standar(subscription) {
+
+}
+
 
 module.exports = { changeState, start_subscritpions };
 

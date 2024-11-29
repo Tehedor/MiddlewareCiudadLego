@@ -19,6 +19,8 @@ block content
                                     span(style=`color: ${entity.status === 'active' ? 'green' : 'red'}`) #{entity.status}
                             p ID de Suscripción: 
                                 strong #{entity.subs_id}
+                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
+                            
                         
     else
         p No se encontraron suscripciones subsRelations.
@@ -42,6 +44,32 @@ block content
                                     span(style=`color: ${entity.status === 'active' ? 'green' : 'red'}`) #{entity.status}
                             p ID de Suscripción: 
                                 strong #{entity.subs_id}
+                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
+
 
     else
         p No se encontraron suscripciones subsDraco.
+
+block scripts
+    script.
+        async function deleteSubscription(entity) {
+                console.log('entity:', entity); 
+            try {
+                const response = await fetch('/requests/deleteSubscriptions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(entity )
+                });
+                if (response.ok) {
+                    alert('Subscription deleted successfully');
+                    location.reload(); // Actualiza la pantalla
+                } else {
+                    alert('Error deleting subscription');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error deleting subscription');
+            }
+        }

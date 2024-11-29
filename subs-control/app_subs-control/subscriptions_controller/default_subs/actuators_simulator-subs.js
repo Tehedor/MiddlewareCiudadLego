@@ -1,10 +1,10 @@
 const { notify_template} = require('../notify_template');
 // const { createSubscriptions, deleteSubscriptions } = require('../control_subs');
-const { createSubscriptions, deleteSubscriptions } = require('../create_delete_update_subs');
+const { createSubscriptions, deleteSubscriptions, updateSubscriptions } = require('../create_delete_update_subs');
 
 
 // // // // // // // // // // // // // // // // // // // // // // 
-const host = "simulator-app";
+const simuhost = "simulator-app";
 const headers = {
     'Content-Type': 'application/ld+json',
 };
@@ -15,15 +15,33 @@ const defaultformat = "normalized";
 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-const uri_pirSensor = `http://${host}:3001/ledDetectionActuator`;
-const uri_pirSensor2 = `http://${host}:3001/lightActuator`;
-const uri_photoresistorSensor = `http://${host}:3001/lightActuator`;
-const uri_potentiometerSensor = `http://${host}:3001/engineDCActuator`;
-const uri_switchSensor = `http://${host}:3001/servmotorActuator`;
-const uri_infraredSensor = `http://${host}:3001/cameraActuator`;
+const uri_pirSensor = `http://${simuhost}:3001/ledDetectionActuator`;
+const uri_pirSensor2 = `http://${simuhost}:3001/lightActuator`;
+const uri_photoresistorSensor = `http://${simuhost}:3001/lightActuator`;
+const uri_potentiometerSensor = `http://${simuhost}:3001/engineDCActuator`;
+const uri_switchSensor = `http://${simuhost}:3001/servmotorActuator`;
+const uri_infraredSensor = `http://${simuhost}:3001/cameraActuator`;
+
+
+const realhost = process.env.BROKER_IP || 'localhost';  
+const sensorUrisToSimulator = {
+    // Simulator
+    [`http://${simuhost}:3001/ledDetectionActuator`]: `http://${simuhost}:3001/ledDetectionActuator`, 
+    [`http://${simuhost}:3001/lightActuator`]: `http://${simuhost}:3001/lightActuator`,
+    [`http://${simuhost}:3001/engineDCActuator`]: `http://${simuhost}:3001/engineDCActuator`,
+    [`http://${simuhost}:3001/servmotorActuator`]: `http://${simuhost}:3001/servmotorActuator`,
+    [`http://${simuhost}:3001/cameraActuator`]: `http://${simuhost}:3001/cameraActuator`,
+    // Real
+    [`http://${realhost}:3001/ledDetectionActuator`]: `http://${simuhost}:3001/ledDetectionActuator`, 
+    [`http://${realhost}:3001/lightActuator`]: `http://${simuhost}:3001/lightActuator`,
+    [`http://${realhost}:3001/engineDCActuator`]: `http://${simuhost}:3001/engineDCActuator`,
+    [`http://${realhost}:3001/servmotorActuator`]: `http://${simuhost}:3001/servmotorActuator`,
+    [`http://${realhost}:3001/cameraActuator`]: `http://${simuhost}:3001/cameraActuator`
+};
+
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-const number = 1;
+const number = process.env.ENTITIES_ID || 1;
 
 
 // PirSensor
@@ -131,5 +149,21 @@ function deleteSubscriptions_actuators_simulator(sensors) {
     deleteSubscriptions(url, subs_sensors, headers);
 }
 
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+// Función cambiar estado a modo simulador
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+function changeStateToSimulator(entities) {
+    const filteredEntities = entities.filter(entity => entity.reference.startsWith(`http://${realhost}:3001`));
+    console.log(filteredEntities);
+    filteredEntities.forEach(async (entity) => {
+        url_withSubsId= `http://localhost:1026/ngsi-ld/v1/subscriptions/${entity.subs_id}`;
+        entity_id= entity.entities_id;
+        reference= entity.reference;
+        newReference = sensorUrisToSimulator[reference];
+        notify_format = defaultformat;  
+        updateSubscriptions(url_withSubsId, notify_format,newReference, headers);
+    }); 
+}
+
 // Expose
-module.exports = { createSubscriptions_actuators_simulator, deleteSubscriptions_actuators_simulator };
+module.exports = { createSubscriptions_actuators_simulator, deleteSubscriptions_actuators_simulator, changeStateToSimulator };

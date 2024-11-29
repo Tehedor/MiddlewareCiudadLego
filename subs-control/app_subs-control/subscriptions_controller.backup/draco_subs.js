@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const draco_uri = "http://draco:5050/ld/notify";
 
-const number = 1;
+const number = process.env.ENTITIES_ID || 1;
 // const number = process.argv[2];
 
 const formato = "normalized";

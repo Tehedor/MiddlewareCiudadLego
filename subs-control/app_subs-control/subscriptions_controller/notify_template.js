@@ -30,7 +30,7 @@ function notify_template(entity_id, entity_type, entity_watch_attr, entity_attr,
 //     notify_format= defaultformat,url_context= default_url_context
 // );
 
-function updateSubscriptionTempleate(entity_id, entity_type, entity_watch_attr, entity_attr, notify_format, url_endpoint, url_context) {
+function updateSubscriptionTempleate( notify_format, url_endpoint) {
     return {
         "notification": {
             "format": notify_format,
@@ -41,6 +41,5 @@ function updateSubscriptionTempleate(entity_id, entity_type, entity_watch_attr, 
         } 
     };
 }
-
 // Expose
 module.exports = { notify_template, updateSubscriptionTempleate };

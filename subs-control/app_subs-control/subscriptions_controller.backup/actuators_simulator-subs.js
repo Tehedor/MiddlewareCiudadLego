@@ -15,7 +15,7 @@ const headers = {
 
 const url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/';
 
-const number = 1;
+const number = process.env.ENTITIES_ID || 1;
 
 const PirSensorAttr = ["type", "category", "presence", "controlledAsset"];
 const PirSensor = {
