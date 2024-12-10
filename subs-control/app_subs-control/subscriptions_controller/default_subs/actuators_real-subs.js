@@ -34,17 +34,17 @@ const sensorUrisReal = {
 const simuhost = "simulator-app";
 const sensorUrisToReal = {
     // Simulator
-    [`http://${simuhost}:3001/ledDetectionActuator`]: `http://${realhost}:3001/ledDetectionActuator`, 
-    [`http://${simuhost}:3001/lightActuator`]: `http://${realhost}:3001/lightActuator`,
-    [`http://${simuhost}:3001/engineDCActuator`]: `http://${realhost}:3001/engineDCActuator`,
-    [`http://${simuhost}:3001/servmotorActuator`]: `http://${realhost}:3001/servmotorActuator`,
-    [`http://${simuhost}:3001/cameraActuator`]: `http://${realhost}:3001/cameraActuator`,
+    [`http://${simuhost}:3001/ledDetectionActuator`]: `http://${realhost}:80/ledDetectionActuator`, 
+    [`http://${simuhost}:3001/lightActuator`]: `http://${realhost}:80/lightActuator`,
+    [`http://${simuhost}:3001/engineDCActuator`]: `http://${realhost}:80/engineDCActuator`,
+    [`http://${simuhost}:3001/servmotorActuator`]: `http://${realhost}:80/servmotorActuator`,
+    [`http://${simuhost}:3001/cameraActuator`]: `http://${realhost}:80/cameraActuator`,
     // Real
-    [`http://${realhost}:3001/ledDetectionActuator`]: `http://${realhost}:3001/ledDetectionActuator`, 
-    [`http://${realhost}:3001/lightActuator`]: `http://${realhost}:3001/lightActuator`,
-    [`http://${realhost}:3001/engineDCActuator`]: `http://${realhost}:3001/engineDCActuator`,
-    [`http://${realhost}:3001/servmotorActuator`]: `http://${realhost}:3001/servmotorActuator`,
-    [`http://${realhost}:3001/cameraActuator`]: `http://${realhost}:3001/cameraActuator`
+    [`http://${realhost}:80/ledDetectionActuator`]: `http://${realhost}:80/ledDetectionActuator`, 
+    [`http://${realhost}:80/lightActuator`]: `http://${realhost}:80/lightActuator`,
+    [`http://${realhost}:80/engineDCActuator`]: `http://${realhost}:80/engineDCActuator`,
+    [`http://${realhost}:80/servmotorActuator`]: `http://${realhost}:80/servmotorActuator`,
+    [`http://${realhost}:80/cameraActuator`]: `http://${realhost}:80/cameraActuator`
 };
 
 

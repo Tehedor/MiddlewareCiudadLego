@@ -34,11 +34,11 @@ const sensorUrisToSimulator = {
     [`http://${simuhost}:3001/servmotorActuator`]: `http://${simuhost}:3001/servmotorActuator`,
     [`http://${simuhost}:3001/cameraActuator`]: `http://${simuhost}:3001/cameraActuator`,
     // Real
-    [`http://${realhost}:3001/ledDetectionActuator`]: `http://${simuhost}:3001/ledDetectionActuator`, 
-    [`http://${realhost}:3001/lightActuator`]: `http://${simuhost}:3001/lightActuator`,
-    [`http://${realhost}:3001/engineDCActuator`]: `http://${simuhost}:3001/engineDCActuator`,
-    [`http://${realhost}:3001/servmotorActuator`]: `http://${simuhost}:3001/servmotorActuator`,
-    [`http://${realhost}:3001/cameraActuator`]: `http://${simuhost}:3001/cameraActuator`
+    [`http://${realhost}:80/ledDetectionActuator`]: `http://${simuhost}:3001/ledDetectionActuator`, 
+    [`http://${realhost}:80/lightActuator`]: `http://${simuhost}:3001/lightActuator`,
+    [`http://${realhost}:80/engineDCActuator`]: `http://${simuhost}:3001/engineDCActuator`,
+    [`http://${realhost}:80/servmotorActuator`]: `http://${simuhost}:3001/servmotorActuator`,
+    [`http://${realhost}:80/cameraActuator`]: `http://${simuhost}:3001/cameraActuator`
 };
 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
@@ -157,7 +157,7 @@ function deleteSubscriptions_actuators_simulator(sensors) {
 function changeStateToSimulator(entities) {
     console.log("entities:", entities);
     console.log("realhost:", realhost);
-    const filteredEntities = entities.filter(entity => entity.reference.startsWith(`http://${realhost}:3001`));
+    const filteredEntities = entities.filter(entity => entity.reference.startsWith(`http://${realhost}:80`));
     console.log("filteredEntities:", filteredEntities);
     filteredEntities.forEach(async (entity) => {
         url_withSubsId= `${url}/${entity.subs_id}`;
