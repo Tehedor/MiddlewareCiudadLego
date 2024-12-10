@@ -30,15 +30,14 @@ function changeState(mode) {
 }
 
 // Inicio de la aplicación
-function start_subscritpions() {
-    if (currentState === 'simulator') {
+function start_subscritpions(iniState) {
+    if (iniState === 'simulator') {
         // Draco
         createSubscriptions_buildings_draco('all');
         createSubscriptions_sensors_draco('all');
         createSubscriptions_actuators_draco('all');
         // Simulator
         createSubscriptions_actuators_simulator('all');
-        
 
     } else {
         // Draco

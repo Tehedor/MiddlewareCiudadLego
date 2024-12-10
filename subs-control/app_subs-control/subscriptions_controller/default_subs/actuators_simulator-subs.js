@@ -8,7 +8,9 @@ const simuhost = "simulator-app";
 const headers = {
     'Content-Type': 'application/ld+json',
 };
-const url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/';
+
+const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
+const url = `http://${basePath}:1026/ngsi-ld/v1/subscriptions`;
 const default_url_context = "http://context/datamodels.context-ngsi.jsonld";
 const defaultformat = "normalized";
 // // // // // // // // // // // // // // // // // // // // // // 
@@ -153,10 +155,12 @@ function deleteSubscriptions_actuators_simulator(sensors) {
 // Función cambiar estado a modo simulador
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 function changeStateToSimulator(entities) {
+    console.log("entities:", entities);
+    console.log("realhost:", realhost);
     const filteredEntities = entities.filter(entity => entity.reference.startsWith(`http://${realhost}:3001`));
-    console.log(filteredEntities);
+    console.log("filteredEntities:", filteredEntities);
     filteredEntities.forEach(async (entity) => {
-        url_withSubsId= `http://localhost:1026/ngsi-ld/v1/subscriptions/${entity.subs_id}`;
+        url_withSubsId= `${url}/${entity.subs_id}`;
         entity_id= entity.entities_id;
         reference= entity.reference;
         newReference = sensorUrisToSimulator[reference];

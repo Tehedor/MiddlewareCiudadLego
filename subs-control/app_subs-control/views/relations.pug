@@ -2,6 +2,13 @@ extends layout
 
 block content
     h1 Suscripciones subsRelations
+    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    .row.mb-4
+        .col-md-6
+            button.btn.btn-primary(onclick=`updateSubscriptionsTo('Simulator', '${basePath}')`) Modo: Simulator
+            | 
+            button.btn.btn-primary(onclick=`updateSubscriptionsTo('Real', '${basePath}')`) Modo: Real
+        .col-md-6
     if subsRelations.length
         .row
             each entity in subsRelations
@@ -29,31 +36,12 @@ block content
                                     p Último Fallo: #{entity.lastFailure ? entity.lastFailure.toLocaleString() : 'N/A'}
                                     p Última Notificación: #{entity.lastNotification ? entity.lastNotification.toLocaleString() : 'N/A'}
                                     p Veces Fallidas: #{entity.timesFailed}
-                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
+                                    //- button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
+                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'${basePath}')`) Eliminar   
 
     else
         p No se encontraron suscripciones subsRelations.
 
 block scripts
-    script.
-        async function deleteSubscription(entity) {
-                console.log('entity:', entity); 
-            try {
-                const response = await fetch('/requests/deleteSubscriptions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(entity )
-                });
-                if (response.ok) {
-                    alert('Subscription deleted successfully');
-                    location.reload(); // Actualiza la pantalla
-                } else {
-                    alert('Error deleting subscription');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error deleting subscription');
-            }
-        }
+    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    script(src=`${basePath}/js/controlSubsPublic.js`)

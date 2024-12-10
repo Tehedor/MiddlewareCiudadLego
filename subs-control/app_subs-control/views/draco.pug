@@ -1,7 +1,7 @@
 extends layout
 
 block content 
-
+    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
     h1 Suscripciones subsDraco
     if subsDraco.length
         //- .container
@@ -31,30 +31,10 @@ block content
                                     p Último Fallo: #{entity.lastFailure ? entity.lastFailure.toLocaleString() : 'N/A'}
                                     p Última Notificación: #{entity.lastNotification ? entity.lastNotification.toLocaleString() : 'N/A'}
                                     p Veces Fallidas: #{entity.timesFailed}
-                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
-    else
+                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'${basePath}')`) Eliminar   
+    else                            
         p No se encontraron suscripciones subsDraco.
 
 block scripts
-    script.
-        async function deleteSubscription(entity) {
-                console.log('entity:', entity); 
-            try {
-                const response = await fetch('/requests/deleteSubscriptions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(entity )
-                });
-                if (response.ok) {
-                    alert('Subscription deleted successfully');
-                    location.reload(); // Actualiza la pantalla
-                } else {
-                    alert('Error deleting subscription');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error deleting subscription');
-            }
-        }
+    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    script(src=`${basePath}/js/controlSubsPublic.js`)

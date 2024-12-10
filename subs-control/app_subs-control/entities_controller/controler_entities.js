@@ -5,7 +5,9 @@ const dataActuators = require('./types/actuators');
 const dataSensors = require('./types/sensors');
 
 
-url = 'http://localhost:1026/ngsi-ld/v1/entityOperations/upsert'
+
+const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
+const url = `http://${basePath}:1026/ngsi-ld/v1/entityOperations/upsert`;
 headers = {
     'Content-Type': 'application/json',
     'Link': '<http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'

@@ -3,6 +3,10 @@ const { exists } = require('../models/entidades');
 const {updateSubscriptionTempleate} = require('./notify_template');
 const { json } = require('express');
 
+
+const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
+const url = `http://${basePath}:1026/ngsi-ld/v1/subscriptions`;
+
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // Función para crear las suscripciones
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
@@ -33,7 +37,7 @@ function deleteSubscriptions(entities) {
 
     entities.forEach(async (entity) => {
         try {
-            url_withSubsId= `http://localhost:1026/ngsi-ld/v1/subscriptions/${entity.subs_id}`;
+            url_withSubsId= `${url}/${entity.subs_id}`;
             const response = await axios.delete(url_withSubsId);
             if (response.status === 204) {
                 console.log(`Eliminada suscripcion ${entity.entities[0].type}`);

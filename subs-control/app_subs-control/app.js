@@ -4,31 +4,33 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-
 const routesViews = require('./routes/index');
 const routesRequests = require('./routes/requests');
+
 const control_subs = require('./subscriptions_controller/control_subs');
-
 const control_entities = require('./entities_controller/controler_entities');
-
-// request controller
-// const generalControllerEntities = require('./controllers/generalControllerEntities');
-// const generalSubsDraco = require('./controllers/generalSubsDraco');
-// const generalSubsRelations = require('./controllers/generalSubsRelations');
-// const control_subs = require('./subscriptions_controller/control_subs');
 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // Conexión a la base de datoss
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-let MongoPort = process.env.MONGO_PORT || 27018;
+let MongoPort = process.env.MONGO_DB_PORT || 27018;
 
 let hostMongoDB = 'localhost';
+console.log('process.env.MODE_CONTAINERS', process.env.MODE_CONTAINERS);
+console.log('#########')
+console.log(process.env.MODE_CONTAINERS === 'true')
 if (process.env.MODE_CONTAINERS === 'true') {
     hostMongoDB = 'mongo-db-orion';
-    MongoPort = process.env.MONGO_PORT || 27017;
+    MongoPort = process.env.MONGO_DB_PORT || 27017;
+    console.log('#########')
+    console.log('hostMongoDB', hostMongoDB, 'MongoPort', MongoPort);
+    console.log('#########')
 }   
+console.log('#########')
+console.log('hostMongoDB', hostMongoDB, 'MongoPort', MongoPort);
+console.log('#########')
 
 let mongoURI = `mongodb://${hostMongoDB}:${MongoPort}/orion`;
 
@@ -53,9 +55,6 @@ mongoose.connection.on('error', err => {
     console.log('MongoDB connection error: ', err);
     mongoose.disconnect();
 });
-// mongoose.connect(`mongodb://${hostMongoDB}:${MongoPort}/orion`)
-//     .then(() => console.log('MongoDB Connected...'))
-//     .catch(err => console.log(err));
 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
@@ -71,18 +70,23 @@ const basePath = MODE_CONTAINERS_BOOLEAN ? '/subsControlApp' : '';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use('/public', express.static(__dirname + '/public'));
 // app.use(express.static('public'));
 app.set('view engine', 'pug');
 app.use('/', routesViews);
 app.use('/requests', routesRequests);   
 
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+// Control temporal subs
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
+let relationSubs = process.env.INI_STATE || "simulator" //real;
+// Ini Subs
+control_subs.start_subscritpions(relationSubs);
+control_entities.createEntities();
 
 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 const time = process.env.TIME_INTERVAL || 2000;
 setInterval(() => {
 
@@ -99,18 +103,5 @@ setInterval(() => {
     // });
 
 }, time);
-
-// app.listen(port, () => {
-//     // console.log(`Example app listening at http://localhost:${port}`);
-// })
-
-
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// Iniciar base de datos 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-// control_subs.start_subscritpions();
-// control_entities.createEntities();
 
 module.exports = app;

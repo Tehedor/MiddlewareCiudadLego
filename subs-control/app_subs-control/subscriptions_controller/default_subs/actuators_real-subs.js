@@ -8,7 +8,8 @@ const realhost = process.env.BROKER_IP || 'localhost';
 const headers = {
     'Content-Type': 'application/ld+json',
 };
-const url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/';
+const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
+const url = `http://${basePath}:1026/ngsi-ld/v1/subscriptions`;
 const default_url_context = "http://context/datamodels.context-ngsi.jsonld";
 const defaultformat = "normalized";
 // // // // // // // // // // // // // // // // // // // // // // 
@@ -117,7 +118,7 @@ const allSensors = [PirSensor, PhotoresistorSensor, PirSensor2, PotentiometerSen
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## //
 function createSubscriptions_real(sensors) {
     let subs_sensors = [];
-    if (sensors == all) {
+    if (sensors == 'all') {
         subs_sensors = allSensors;
     } else {
         subs_sensors = sensors;
@@ -143,9 +144,11 @@ function deleteSubscriptions_real(sensors) {
 }
 
 function changeStateToReal(entities) {
+    console.log("entities:", entities);
     const filteredEntities = entities.filter(entity => entity.reference.startsWith('http://simulator-app:3001'));
+    console.log("filteredEntities:", filteredEntities);
     filteredEntities.forEach(async (entity) => {
-        url_withSubsId= `http://localhost:1026/ngsi-ld/v1/subscriptions/${entity.subs_id}`;
+        url_withSubsId= `${url}/${entity.subs_id}`;
         entity_id= entity.entities_id;
         reference= entity.reference;
         newReference = sensorUrisToReal[reference];

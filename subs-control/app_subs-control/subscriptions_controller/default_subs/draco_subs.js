@@ -7,7 +7,9 @@ const { createSubscriptions, deleteSubscriptions } = require('../create_delete_u
 const headers = {
     'Content-Type': 'application/ld+json',
 };
-const url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/';
+const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
+const url = `http://${basePath}:1026/ngsi-ld/v1/subscriptions`;
+// const url = 'http://localhost:1026/ngsi-ld/v1/subscriptions/';
 const default_url_context = "http://context/datamodels.context-ngsi.jsonld";
 const defaultformat = "normalized";
 // // // // // // // // // // // // // // // // // // // // // // 

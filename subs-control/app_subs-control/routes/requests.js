@@ -54,7 +54,7 @@ router.post('/updateSubscriptionsToSimulator', async (req, res) => {
     try {
         const subsRelations = await generalSubsRelations();
         changeStateToSimulator(subsRelations);
-        res.status(200).send('Subscriptions updated successfully');
+        res.status(200).send('Subscriptions updated successfully to Simulator');
     } catch (err) {
         console.log(err);
         res.status(500).send('Error updating subscriptions');
@@ -65,7 +65,7 @@ router.post('/updateSubscriptionsToReal', async (req, res) => {
     try {
         const subsRelations = await generalSubsRelations();
         changeStateToReal(subsRelations);
-        res.status(200).send('Subscriptions updated successfully');
+        res.status(200).send('Subscriptions updated successfully to Real');
     } catch (err) {
         console.log(err);
         res.status(500).send('Error updating subscriptions');

@@ -69,7 +69,9 @@ block content
 
     script.
         $(function () {
-            const socket = io();
+            //- const socket = io();
+            const socket = io('/simulatorApp'); // Asegúrate de que la ruta sea correcta
+
         
             socket.on('update_timer', function(timer) {
                 $('.timer_pirSensor').text(timer[0]);
