@@ -1,16 +1,16 @@
 #!/bin/bash
 #
 #  Command Line Interface to start all services associated with the Tutorial
-#  For this tutorial the commands are merely a convenience script to run docker or docker-compose
+#  For this tutorial the commands are merely a convenience script to run docker or docker compose
 #
-#  Each services script can be run using either docker-compose (the external tool with the hyphen -) 
+#  Each services script can be run using either docker compose (the external tool with the hyphen -) 
 #  or docker compose (the newer version directly bundled with Docker with a space )
 #
 #  if you start up with the following command:
 #
 #  ./services start legacy
 #
-# This will force the script to use docker-compose which may be more reliable in 
+# This will force the script to use docker compose which may be more reliable in 
 # some cases (or if an older version of Docker is being used)
 
 set -e
@@ -22,8 +22,8 @@ CORE_CONTEXT="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 # https://app.swaggerhub.com/apis-docs/SergioTejedor/Lego_Models/1.0.0
 
 
-dockerCmd="docker-compose"
 # dockerCmd="docker compose"
+dockerCmd="docker compose"
 
 proxyReverse=true
 
@@ -244,6 +244,31 @@ waitForSubsControlApp() {
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### miniobucket
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+
+stoppingContainerMinioBucket() {
+	CONTAINERS=$(docker ps --filter "name=minio-bucket" -aq)
+	if [[ -n $CONTAINERS ]]; then 
+		echo "Stopping containers"
+		docker rm -f $CONTAINERS || true
+	fi
+}
+
+
+waitForMinioBucket() {
+
+	echo -e "\n⏳ Waiting for \033[1mMinio Bucket \033[0m to be available\n"
+
+	while ! [ `docker inspect --format='{{.State.Health.Status}}' minio-bucket` == "healthy" ]
+	do 
+		sleep 1
+	done
+}
+
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### proxy-reverse
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
@@ -302,11 +327,9 @@ case "${command}" in
 		waitForCoreContext
 		echo -e "Starting containers:  \033[1;34mOrion\033[0m, \033[1;36mIoT-Agent\033[0m, \033[1mTutorial\033[0m, a linked data \033[1mContext\033[0m and a \033[1mMongoDB\033[0m database."
 		echo -e "- \033[1;34mOrion\033[0m is the context broker"
-		# echo -e "- \033[1;36mIoT-Agent\033[0m is configured for the UltraLight Protocol"
-		# echo -e "- \033[1mTutorial\033[0m acts as a series of dummy IoT Sensors over HTTP"
 		echo -e "- Data models \033[1m@context\033[0m (Smart Lego City) is supplied externally"
 		echo ""
-		# ${dockerCmd} -f docker-compose/common.yml -f docker-compose/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
+		# ${dockerCmd} -f docker compose/common.yml -f docker compose/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
 		# ${dockerCmd} -f orion/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
 		${dockerCmd} -f orion/orion-ld.yml up -d --renew-anon-volumes
 
@@ -406,6 +429,8 @@ case "${command}" in
 			./services-v2 draco-mongo
 		fi
 
+		./services-v2 minio-bucket
+
 		;;
 	"create")
 		export $(cat .env | grep "#" -v)
@@ -455,7 +480,14 @@ case "${command}" in
 		# echo "Building Docker image"
 		# docker image build -t subs-control-app .
 		;;
-	
+	"minio-bucket")
+		export $(cat .env | grep "#" -v)
+		echo "Starting Minio"
+		echo ""
+		bash ./bucket_minio/start_bucket.sh service
+		displayServices "minio-bucket"
+		waitForMinioBucket
+		;;
 	*)
 		echo "Command not Found."
 		echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
@@ -465,6 +497,7 @@ esac
 
 if [[ $proxyReverse == true ]]; then
 	./proxy-reverse/red_proxy up
+	# ./proxy-reverse/red_proxy default
 fi
 
 

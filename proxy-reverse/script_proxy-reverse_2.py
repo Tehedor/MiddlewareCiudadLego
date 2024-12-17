@@ -1,6 +1,7 @@
 import sys
-import docker
-import subprocess
+# import docker
+import subprocess   
+import json 
 
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
 ## ----- # Inicial
@@ -14,10 +15,10 @@ def nginx_config():
 
     resolver 127.0.0.11 valid=30s;
 
-    # location / {
-    #     root   /usr/share/nginx/html;
-    #     index  index.html index.htm;
-    # }
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
 """
 
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
@@ -237,13 +238,26 @@ def append_minioBucket():
 def get_active_containers():
     # client = docker.from_env()
     # containers = client.containers.list()
-        
+    # result = subprocess.run(['docker', 'ps', '--format', '{{json .}}'], stdout=subprocess.PIPE)
+    
+    # result = subprocess.run(['docker', 'ps', '--format', '{{json .}}'], stdout=subprocess.PIPE)
+
+    # Parsear la salida JSON
+    # containers = result.stdout.decode().splitlines()
+
     result = subprocess.run(['docker', 'ps', '-a', '--format', '{{.Names}}'], stdout=subprocess.PIPE)
+
+    # Decodificar la salida y dividirla en líneas
     containers = result.stdout.decode('utf-8').strip().split('\n')
+
+    # Imprimir los nombres de los contenedores
+    print(containers)
+
+    # Crear una lista de contenedores activos
+    
     active_services = []
     
     for container in containers:
-        # container_name = container.name.lower()
         container_name = container.lower()
         if "fiware-orion" == container_name:
             active_services.append("fiware-orion")
@@ -263,7 +277,6 @@ def generate_nginx_config(exclude_containers=None):
     # Inicializar configuración
     config = nginx_config()
     active_containers = get_active_containers()
-
     
     active_services = [service for service in active_containers if exclude_containers is None or service not in exclude_containers]
         
@@ -298,12 +311,14 @@ def generate_nginx_config(exclude_containers=None):
 def write_nginx_config():
     exclude_containers = [arg.lower() for arg in sys.argv[1:]] if len(sys.argv) > 1 else None
     config = generate_nginx_config(exclude_containers)
+    print("3")
     if config is not None:
         with open("./default.conf", "w") as f:
             f.write(config)
         print("Archivo default.conf generado correctamente.")
     else:
         print("Error: La configuración de Nginx no se generó correctamente.")
+    print("4")
 
 if __name__ == "__main__":
     write_nginx_config()

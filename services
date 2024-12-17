@@ -1,16 +1,16 @@
 #!/bin/bash
 #
 #  Command Line Interface to start all services associated with the Tutorial
-#  For this tutorial the commands are merely a convenience script to run docker or docker-compose
+#  For this tutorial the commands are merely a convenience script to run docker or docker compose
 #
-#  Each services script can be run using either docker-compose (the external tool with the hyphen -) 
+#  Each services script can be run using either docker compose (the external tool with the hyphen -) 
 #  or docker compose (the newer version directly bundled with Docker with a space )
 #
 #  if you start up with the following command:
 #
 #  ./services start legacy
 #
-# This will force the script to use docker-compose which may be more reliable in 
+# This will force the script to use docker compose which may be more reliable in 
 # some cases (or if an older version of Docker is being used)
 
 set -e
@@ -22,8 +22,8 @@ CORE_CONTEXT="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 # https://app.swaggerhub.com/apis-docs/SergioTejedor/Lego_Models/1.0.0
 
 
-# dockerCmd="docker-compose"
-dockerCmd="docker-compose"
+# dockerCmd="docker compose"
+dockerCmd="docker compose"
 # if (( $# == 2 )); then
 # fi
 
@@ -269,7 +269,7 @@ case "${command}" in
 		# echo -e "- \033[1mTutorial\033[0m acts as a series of dummy IoT Sensors over HTTP"
 		echo -e "- Data models \033[1m@context\033[0m (Smart Lego City) is supplied externally"
 		echo ""
-		# ${dockerCmd} -f docker-compose/common.yml -f docker-compose/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
+		# ${dockerCmd} -f docker compose/common.yml -f docker compose/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
 		# ${dockerCmd} -f orion/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
 		${dockerCmd} -f orion/orion-ld.yml up -d --renew-anon-volumes
 

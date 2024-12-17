@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  minio:
+    build: ./config_minio
+    container_name: minio-bucket
+    hostname: minioBucket
+    networks:
+      - default
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: admin123
+      MINIO_BROWSER_REDIRECT_URL: http://localhost:8080/minioConsole/
+    volumes:
+      - minio-data:/data
+    # ports:
+    #   - "9000:9000"
+    #   - "9001:9001"
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+
+networks:
+  default:
+    labels:
+      org.fiware: 'orion'
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
+
+volumes:
+  minio-data:

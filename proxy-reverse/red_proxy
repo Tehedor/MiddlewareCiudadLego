@@ -29,10 +29,10 @@ fi
 
 # Verificar si el contenedor está en ejecución
 if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
-    echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker-compose..."
+    echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker compose..."
     # docker compose -f ngsi-reverse.yml up -d
     pushd proxy-reverse > /dev/null
-    docker-compose -f ngsi-reverse.yml up -d
+    docker compose -f ngsi-reverse.yml up -d
     popd > /dev/null
 fi
 
@@ -66,14 +66,23 @@ elif [ "$1" == "up" ]; then
 
     # Recargar la configuración de Nginx dentro del contenedor
     docker exec $CONTAINER_NAME nginx -s reload
-    
     popd > /dev/null
 
     echo "Configuración de Nginx actualizada y recargada correctamente."
 
+elif [ "$1" == "default" ]; then
+
+    
+    pushd proxy-reverse > /dev/null
+        # docker cp default_minio-bucket.conf $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+        docker cp default_completo.conf $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+        # Recargar la configuración de Nginx dentro del contenedor
+        docker exec $CONTAINER_NAME nginx -s reload
+    popd > /dev/null
+    echo "Configuración de Nginx actualizada y recargada correctamente."
+    echo "#### Default ####"
+    
 else
     echo "Uso: $0 {up|down}"
     exit 1
 fi
-
-echo "Configuración de Nginx actualizada y recargada correctamente."

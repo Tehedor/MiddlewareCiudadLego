@@ -4,3 +4,4 @@ simulator/app/package-lock.json
 waste*
 subs-control/app_subs-control/node_modules
 subs-control/app_subs-control/package-lock.json
+.venv
