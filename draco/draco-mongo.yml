@@ -19,7 +19,8 @@ services:
     #   - "9090:9090"
     #   - "5050:5050"
     healthcheck:
-      test: curl -k --fail -s http://draco:9090/nifi/login || exit 1
+      test: curl -k --fail -s http://127.0.0.1:9090/nifi/login || exit 1
+      # test: curl -k --fail -s http://draco:9090/nifi/login || exit 1
       interval: 5s
 
 
