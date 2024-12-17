@@ -5,3 +5,5 @@ waste*
 subs-control/app_subs-control/node_modules
 subs-control/app_subs-control/package-lock.json
 .venv
+
+default.conf
