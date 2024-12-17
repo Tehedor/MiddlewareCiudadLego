@@ -4,7 +4,7 @@ const { createSubscriptions, deleteSubscriptions, updateSubscriptions } = requir
 
 
 // // // // // // // // // // // // // // // // // // // // // // 
-const realhost = process.env.BROKER_IP || 'localhost';
+const realhost = process.env.ACTUATORS_IP || 'localhost';
 const headers = {
     'Content-Type': 'application/ld+json',
 };

@@ -25,7 +25,7 @@ const uri_switchSensor = `http://${simuhost}:3001/servmotorActuator`;
 const uri_infraredSensor = `http://${simuhost}:3001/cameraActuator`;
 
 
-const realhost = process.env.BROKER_IP || 'localhost';  
+const realhost = process.env.ACTUATORS_IP || 'localhost';  
 const sensorUrisToSimulator = {
     // Simulator
     [`http://${simuhost}:3001/ledDetectionActuator`]: `http://${simuhost}:3001/ledDetectionActuator`, 
