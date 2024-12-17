@@ -35,6 +35,7 @@ if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker compose..."
     # docker compose -f ngsi-reverse.yml up -d
     pushd proxy-reverse > /dev/null
+    docker compose -f ngsi-reverse.yml build
     docker compose -f ngsi-reverse.yml up -d
     popd > /dev/null
 fi
