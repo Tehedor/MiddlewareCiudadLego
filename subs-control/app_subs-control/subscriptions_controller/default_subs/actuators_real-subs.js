@@ -16,19 +16,19 @@ const defaultformat = "normalized";
 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-const uri_pirSensor = `http://${realhost}:3000/ledDetectionActuator`;
-const uri_pirSensor2 = `http://${realhost}:3000/lightActuator`;
-const uri_photoresistorSensor = `http://${realhost}:3000/lightActuator`;
-const uri_potentiometerSensor = `http://${realhost}:3000/engineDCActuator`;
-const uri_switchSensor = `http://${realhost}:3000/servmotorActuator`;
-const uri_infraredSensor = `http://${realhost}:3000/cameraActuator`;
+const uri_pirSensor = `http://${realhost}:80/ledDetectionActuator`;
+const uri_pirSensor2 = `http://${realhost}:80/lightActuator`;
+const uri_photoresistorSensor = `http://${realhost}:80/lightActuator`;
+const uri_potentiometerSensor = `http://${realhost}:80/engineDCActuator`;
+const uri_switchSensor = `http://${realhost}:80/servmotorActuator`;
+const uri_infraredSensor = `http://${realhost}:80/cameraActuator`;
 const sensorUrisReal = {
-    pirSensor: `http://${realhost}:3000/ledDetectionActuator`,
-    pirSensor2: `http://${realhost}:3000/lightActuator`,
-    photoresistorSensor: `http://${realhost}:3000/lightActuator`,
-    potentiometerSensor: `http://${realhost}:3000/engineDCActuator`,
-    switchSensor: `http://${realhost}:3000/servmotorActuator`,
-    infraredSensor: `http://${realhost}:3000/cameraActuator`
+    pirSensor: `http://${realhost}:80/ledDetectionActuator`,
+    pirSensor2: `http://${realhost}:80/lightActuator`,
+    photoresistorSensor: `http://${realhost}:80/lightActuator`,
+    potentiometerSensor: `http://${realhost}:80/engineDCActuator`,
+    switchSensor: `http://${realhost}:80/servmotorActuator`,
+    infraredSensor: `http://${realhost}:80/cameraActuator`
 };
 
 const simuhost = "simulator-app";

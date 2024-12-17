@@ -81,7 +81,7 @@ app.use('/requests', routesRequests);
 // Control temporal subs
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
-let relationSubs = process.env.INI_STATE || "simulator" //real;
+let relationSubs = process.env.INI_STATE || "real" //real;
 // Ini Subs
 control_subs.start_subscritpions(relationSubs);
 control_entities.createEntities();
