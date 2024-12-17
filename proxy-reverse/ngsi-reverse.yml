@@ -2,7 +2,8 @@ version: "3.8"
 
 services:
   nginx-reverse:
-    image: nginx-reverse 
+    # image: nginx-reverse 
+    image: nginx:latest 
     container_name: nginx-reverse-container
     networks:
       # - proxy-reverse-net
