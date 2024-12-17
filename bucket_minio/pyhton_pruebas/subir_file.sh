@@ -16,6 +16,6 @@ fi
 chmod +x $HOME/minio-binaries/mc
 export PATH=$PATH:$HOME/minio-binaries/
 
-mc alias set pruebasBQ http://127.0.0.1:8080/minioBucket admin admin123
+mc alias set pruebasBQ http://127.0.0.1:80/minioBucket admin admin123
 
 mc cp train.png pruebasBQ/bucketfotos/photostrain/
