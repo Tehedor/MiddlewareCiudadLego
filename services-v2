@@ -159,11 +159,12 @@ stoppingContainersDraco () {
 
 waitForDraco () {
 	echo -e "\n⏳ Waiting for \033[1;34mDraco\033[0m to be available\n"
+	sleep 40
 	
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' draco` == "healthy" ]
-	do
-		sleep 1
-	done
+	# while ! [ `docker inspect --format='{{.State.Health.Status}}' draco` == "healthy" ]
+	# do
+	# 	sleep 1
+	# done
 }
 
 # BD
