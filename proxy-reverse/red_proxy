@@ -21,11 +21,13 @@ CONTAINER_CONFIG_PATH=/etc/nginx/conf.d/default.conf
 if ! docker images --format '{{.Repository}}' | grep -q "^${IMAGE_NAME}$"; then
     echo "La imagen ${IMAGE_NAME} no existe. Construyendo la imagen..."
     # docker build -t $IMAGE_NAME .
+    pushd proxy-reverse > /dev/null
     docker compose -f ngsi-reverse.yml build
     if [ $? -ne 0 ]; then
         echo "Error al construir la imagen ${IMAGE_NAME}."
         exit 1
     fi
+    popd > /dev/null
 fi
 
 # Verificar si el contenedor está en ejecución
