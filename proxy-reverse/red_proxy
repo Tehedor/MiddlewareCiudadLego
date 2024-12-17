@@ -44,10 +44,12 @@ if [ "$1" == "down" ]; then
     echo "Ejecutando configuración de cero NGSI Proxy..."
     # Configuración de cero NGSI Proxy
     # Copiar el archivo de configuración al contenedor
+    pushd proxy-reverse > /dev/null
     docker cp $CONFIG_FILE_ZERO $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
 
     # Recargar la configuración de Nginx dentro del contenedor
     docker exec $CONTAINER_NAME nginx -s reload
+    popd > /dev/null
 
 elif [ "$1" == "up" ]; then
     echo "Ejecutando nueva configuración..."
