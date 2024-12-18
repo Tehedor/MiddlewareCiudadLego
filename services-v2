@@ -93,15 +93,7 @@ waitForUserContext () {
 	done
 }
 
-# waitForIoTAgent () {
-# 	echo -e "\n⏳ Waiting for \033[1;36mIoT-Agent\033[0m to be available\n"
-# 	while ! [ `docker inspect --format='{{.State.Health.Status}}' fiware-iot-agent` == "healthy" ]
-# 	do
-# 		echo -e "\nIoT Agent HTTP state: ${response} (waiting for 200)"
-# 		pause 3
-# 		getHeartbeat "${IOT_AGENT}"
-# 	done
-# }
+
 
 waitForMongoOrion () {
 	echo -e "\n⏳ Waiting for \033[1mMongoDB Orion\033[0m to be available\n"
@@ -159,12 +151,11 @@ stoppingContainersDraco () {
 
 waitForDraco () {
 	echo -e "\n⏳ Waiting for \033[1;34mDraco\033[0m to be available\n"
-	sleep 40
-	
-	# while ! [ `docker inspect --format='{{.State.Health.Status}}' draco` == "healthy" ]
-	# do
-	# 	sleep 1
-	# done
+
+	while ! [ `docker inspect --format='{{.State.Health.Status}}' draco` == "healthy" ]
+	do
+		sleep 1
+	done
 }
 
 # BD
