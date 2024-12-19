@@ -35,21 +35,41 @@ services:
   mongo-db-draco:
     labels:
         org.fiware: 'draco'
-    image: mongo:${MONGO_DB_VERSION}
+    # image: mongo:${MONGO_DB_VERSION}
+    image: mongo:4.4
     container_name: mongo-db-draco
     restart: always
-    ports:
-      - "27017:27017"
+    # ports:
+    #   - "27017:27017"
     networks:
       - default
     # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=root
-    #   - MONGO_INITDB_ROOT_PASSWORD=example
+      # - MONGO_INITDB_ROOT_USERNAME=root
+      # - MONGO_INITDB_ROOT_PASSWORD=example
     healthcheck:
       test: |
         host=`hostname --ip-address || echo '127.0.0.1'`; 
         mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
       interval: 5s
+
+
+  mongo-express-draco:
+    image: mongo-express
+    container_name: mongo-express-draco
+    restart: always
+    # ports:
+    #   - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      # - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      # - ME_CONFIG_MONGODB_ADMINPASSWORD=example
+      - ME_CONFIG_MONGODB_SERVER=mongo-db-draco
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-draco:27017/
+    depends_on:
+      - mongo-db-draco
+
+
 
 networks:
 

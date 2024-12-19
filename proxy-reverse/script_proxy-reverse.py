@@ -49,6 +49,20 @@ def append_orion():
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
+    
+    location /mongoOrion/ {
+        rewrite ^/mongoOrion/(.*)$ /$1 break;
+        proxy_pass http://mongo-express-orion:8081/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # Reescrirbr las URLs en el contenido del HTML
+        sub_filter 'href="/' 'href="/mongoOrion/';
+        sub_filter 'src="/' 'src="/mongoOrion/';
+        sub_filter_once off;
+    }
 """
 
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
@@ -93,6 +107,24 @@ def append_draco():
     location ~* ^/draco/?$ {
         return 301 $scheme://$host/draco/nifi/;
     }
+    
+    
+    location /mongoDraco/ {
+        rewrite ^/mongoDraco/(.*)$ /$1 break;
+        proxy_pass http://mongo-express-draco:8081/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # Reescrirbr las URLs en el contenido del HTML
+        sub_filter 'href="/' 'href="/mongoDraco/';
+        sub_filter 'src="/' 'src="/mongoDraco/';
+        sub_filter_once off;
+    }
+    
+    
+
 """
     
     

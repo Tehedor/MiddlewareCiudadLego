@@ -60,6 +60,36 @@ services:
         mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
       interval: 5s
 
+    
+  # mongo-express:
+  #   image: mongo-express
+  #   container_name: mongo-express
+  #   restart: always
+  #   # ports:
+  #   #   - 8081:8081
+  #   environment:
+  #     - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+  #     # - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+  #     # - ME_CONFIG_MONGODB_ADMINPASSWORD=example
+  #     - ME_CONFIG_MONGODB_SERVER=mongo-db-draco
+  #     - ME_CONFIG_MONGODB_PORT=27017
+  #     - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-draco:27017/
+  #   depends_on:
+  #     - mongo-db-draco
+
+  mongo-express-orion:
+    image: mongo-express
+    container_name: mongo-express-orion
+    restart: always
+    environment:
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      # - ME_CONFIG_BASICAUTH_USERNAME=admin
+      # - ME_CONFIG_BASICAUTH_PASSWORD=changeme
+      - ME_CONFIG_MONGODB_SERVER=mongo-db-orion
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-orion:27017/
+    depends_on:
+      - mongo-db-orion
 
   # Orion is the context broker
   orion:
