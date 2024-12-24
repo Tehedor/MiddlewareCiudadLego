@@ -1,0 +1,26 @@
+{
+  "name": "cityapi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "axios": "^1.7.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "faker": "^6.6.6",
+    "http-errors": "~1.6.3",
+    "moment": "^2.30.1",
+    "mongoose": "^5.13.7",
+    "morgan": "~1.9.1",
+    "mqtt": "^5.6.1",
+    "socket.io": "^4.7.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
+}

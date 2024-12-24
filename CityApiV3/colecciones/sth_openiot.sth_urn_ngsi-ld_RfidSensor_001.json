@@ -1,0 +1,1026 @@
+[{
+  "_id": {
+    "$oid": "66813faf5d7e992175532bc6"
+  },
+  "id": "urn:ngsi-ld:Notification:deebb954-36d2-11ef-9c45-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:18.257Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "109ceadb"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fd75d7e992175532be2"
+  },
+  "id": "urn:ngsi-ld:Notification:f7934300-36d2-11ef-8fde-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:59.639Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "31b53f6e"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fff5d7e992175532c03"
+  },
+  "id": "urn:ngsi-ld:Notification:0f7cc9c8-36d3-11ef-90d3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:39.759Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "cd100fec"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140275d7e992175532c26"
+  },
+  "id": "urn:ngsi-ld:Notification:276d1fc4-36d3-11ef-8349-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:19.920Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "824bc6da"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140505d7e992175532c42"
+  },
+  "id": "urn:ngsi-ld:Notification:3f5de1d6-36d3-11ef-9a15-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:00.087Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "b4904920"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140785d7e992175532c64"
+  },
+  "id": "urn:ngsi-ld:Notification:574d49da-36d3-11ef-85c0-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:40.240Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "544bb31e"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140a05d7e992175532c7f"
+  },
+  "id": "urn:ngsi-ld:Notification:6f35e9ee-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:20.355Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "c4d422d0"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140c85d7e992175532ca0"
+  },
+  "id": "urn:ngsi-ld:Notification:871eaf78-36d3-11ef-be2d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:00.468Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "7087a954"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140f05d7e992175532cc7"
+  },
+  "id": "urn:ngsi-ld:Notification:9f0936a8-36d3-11ef-ade2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:40.593Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "4a22fc70"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141185d7e992175532cda"
+  },
+  "id": "urn:ngsi-ld:Notification:b6f2108c-36d3-11ef-b175-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:20.705Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "a2bfe210"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141405d7e992175532d09"
+  },
+  "id": "urn:ngsi-ld:Notification:cedc81f0-36d3-11ef-857a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:00.831Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "9c59fdad"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141685d7e992175532d32"
+  },
+  "id": "urn:ngsi-ld:Notification:e6c64fd0-36d3-11ef-927b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:40.950Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "e2baae02"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141915d7e992175532d50"
+  },
+  "id": "urn:ngsi-ld:Notification:feb16486-36d3-11ef-9253-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:21.077Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "8cf43057"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141e15d7e992175532d99"
+  },
+  "id": "urn:ngsi-ld:Notification:2e828f6e-36d4-11ef-8a99-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:41.303Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "d32cb829"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142095d7e992175532dbd"
+  },
+  "id": "urn:ngsi-ld:Notification:467aaa8e-36d4-11ef-9eb5-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:21.516Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "2cdb4a11"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142315d7e992175532ddf"
+  },
+  "id": "urn:ngsi-ld:Notification:5e5b041e-36d4-11ef-9530-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:01.570Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "3a1565"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142595d7e992175532e02"
+  },
+  "id": "urn:ngsi-ld:Notification:766bf70c-36d4-11ef-bc44-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:41.949Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "f5b991c2"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142825d7e992175532e24"
+  },
+  "id": "urn:ngsi-ld:Notification:8e61bca2-36d4-11ef-95eb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:22.147Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "98dfa305"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142aa5d7e992175532e3b"
+  },
+  "id": "urn:ngsi-ld:Notification:a64e46b4-36d4-11ef-8560-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:02.286Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "3c0f402d"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142d25d7e992175532e48"
+  },
+  "id": "urn:ngsi-ld:Notification:be365eba-36d4-11ef-aaa3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:42.395Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "11c0eca6"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142fa5d7e992175532e6d"
+  },
+  "id": "urn:ngsi-ld:Notification:d61d6370-36d4-11ef-9af7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:22.494Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "e207582"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143225d7e992175532e90"
+  },
+  "id": "urn:ngsi-ld:Notification:ee063a98-36d4-11ef-9467-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:02.608Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "4aba473a"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681434a5d7e992175532eb0"
+  },
+  "id": "urn:ngsi-ld:Notification:05f3a0aa-36d5-11ef-8557-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:42.754Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "bc8a5b63"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143725d7e992175532ed7"
+  },
+  "id": "urn:ngsi-ld:Notification:1dde9878-36d5-11ef-b066-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:22.880Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "29005950"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681439b5d7e992175532efb"
+  },
+  "id": "urn:ngsi-ld:Notification:35c67f28-36d5-11ef-9921-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:02.988Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "b9240960"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143c35d7e992175532f25"
+  },
+  "id": "urn:ngsi-ld:Notification:4db0afbe-36d5-11ef-9873-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:43.110Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "7d1c09b"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143eb5d7e992175532f41"
+  },
+  "id": "urn:ngsi-ld:Notification:659a3f96-36d5-11ef-b5c4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:23.229Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "5dd87bdd"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144135d7e992175532f63"
+  },
+  "id": "urn:ngsi-ld:Notification:7d829626-36d5-11ef-9db3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:03.339Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "14ef8318"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681443b5d7e992175532f78"
+  },
+  "id": "urn:ngsi-ld:Notification:95664e68-36d5-11ef-9a9c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:43.420Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "b17169"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144635d7e992175532f97"
+  },
+  "id": "urn:ngsi-ld:Notification:ad5853d6-36d5-11ef-ac20-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:23.593Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "9ebe0d6d"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681448b5d7e992175532fc0"
+  },
+  "id": "urn:ngsi-ld:Notification:c5388a3e-36d5-11ef-b406-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:03.649Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "3921efc"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144b35d7e992175532fe6"
+  },
+  "id": "urn:ngsi-ld:Notification:dd23cf00-36d5-11ef-909d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:43.779Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "92e48df0"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144db5d7e992175533012"
+  },
+  "id": "urn:ngsi-ld:Notification:f50fff58-36d5-11ef-b2d8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:23.915Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "3cca7412"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145045d7e992175533035"
+  },
+  "id": "urn:ngsi-ld:Notification:0cfc9950-36d6-11ef-b859-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:04.053Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "10771c91"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681452c5d7e992175533066"
+  },
+  "id": "urn:ngsi-ld:Notification:24e6a060-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:44.174Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "269fa70c"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145545d7e99217553308a"
+  },
+  "id": "urn:ngsi-ld:Notification:3cd095c8-36d6-11ef-8058-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:24.295Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "3365a7bb"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681457c5d7e9921755330b1"
+  },
+  "id": "urn:ngsi-ld:Notification:54b74aba-36d6-11ef-828e-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:04.395Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "79769233"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145a45d7e9921755330cd"
+  },
+  "id": "urn:ngsi-ld:Notification:6ca2611e-36d6-11ef-a3e3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72facac-36d2-11ef-a980-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:44.523Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoToll:001"
+      },
+      "uiddcode": {
+        "type": "Property",
+        "value": "fac7ed9f"
+      }
+    }
+  ]
+}]

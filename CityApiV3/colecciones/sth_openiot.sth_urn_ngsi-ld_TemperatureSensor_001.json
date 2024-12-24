@@ -1,0 +1,84 @@
+[{
+  "_id": {
+    "$oid": "66813fb15d7e992175532bcf"
+  },
+  "id": "urn:ngsi-ld:Notification:dfcc5d92-36d2-11ef-b8a2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d733ac1c-36d2-11ef-aafd-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:19.745Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:TemperatureSensor:001",
+      "type": "TemperatureSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoWheaterStation:001"
+      },
+      "temperature": {
+        "type": "Property",
+        "value": 21.39,
+        "unitCode": "CEL"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142095d7e992175532dc0"
+  },
+  "id": "urn:ngsi-ld:Notification:46a5f6ee-36d4-11ef-9eb5-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d733ac1c-36d2-11ef-aafd-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:21.799Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:TemperatureSensor:001",
+      "type": "TemperatureSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoWheaterStation:001"
+      },
+      "temperature": {
+        "type": "Property",
+        "value": 21.41,
+        "unitCode": "CEL"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144645d7e992175532f9b"
+  },
+  "id": "urn:ngsi-ld:Notification:ad9f21ee-36d5-11ef-ac20-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d733ac1c-36d2-11ef-aafd-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:24.056Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:TemperatureSensor:001",
+      "type": "TemperatureSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoWheaterStation:001"
+      },
+      "temperature": {
+        "type": "Property",
+        "value": 21.68,
+        "unitCode": "CEL"
+      }
+    }
+  ]
+}]

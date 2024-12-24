@@ -1,0 +1,351 @@
+[{
+  "_id": {
+    "$oid": "66813fb05d7e992175532bc9"
+  },
+  "id": "urn:ngsi-ld:Notification:deed1efc-36d2-11ef-9d59-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:18.257Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 5
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140185d7e992175532c16"
+  },
+  "id": "urn:ngsi-ld:Notification:1e72903e-36d3-11ef-bcd8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:04.857Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 87
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681415f5d7e992175532d22"
+  },
+  "id": "urn:ngsi-ld:Notification:e11899ee-36d3-11ef-927b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:31.424Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 6
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141695d7e992175532d34"
+  },
+  "id": "urn:ngsi-ld:Notification:e75f3fb0-36d3-11ef-927b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:41.952Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 98
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142e55d7e992175532e58"
+  },
+  "id": "urn:ngsi-ld:Notification:c990ab9e-36d4-11ef-9f96-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:01.441Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 4
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681436e5d7e992175532ece"
+  },
+  "id": "urn:ngsi-ld:Notification:1b2daa56-36d5-11ef-a8e2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:18.366Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 88
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143a35d7e992175532efd"
+  },
+  "id": "urn:ngsi-ld:Notification:3a8fba42-36d5-11ef-9873-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:11.018Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 9
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143c25d7e992175532f21"
+  },
+  "id": "urn:ngsi-ld:Notification:4d6419ec-36d5-11ef-963b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:42.609Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 91
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144605d7e992175532f96"
+  },
+  "id": "urn:ngsi-ld:Notification:ab803cea-36d5-11ef-8a73-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:20.499Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 1
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681448a5d7e992175532fbe"
+  },
+  "id": "urn:ngsi-ld:Notification:c49ecb06-36d5-11ef-ac14-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:02.642Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 83
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144e95d7e99217553301e"
+  },
+  "id": "urn:ngsi-ld:Notification:fd23da02-36d5-11ef-b2d8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:37.466Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 1
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681451e5d7e992175533053"
+  },
+  "id": "urn:ngsi-ld:Notification:1c88b52a-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:30.137Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 95
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681457c5d7e9921755330b2"
+  },
+  "id": "urn:ngsi-ld:Notification:5503b8f0-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72826a8-36d2-11ef-a6dc-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:04.894Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoStreetLight:001"
+      },
+      "light": {
+        "type": "Property",
+        "value": 0
+      }
+    }
+  ]
+}]

@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "66813fb05d7e992175532bc8"
+  },
+  "id": "urn:ngsi-ld:Notification:dfc070c2-36d2-11ef-a6bb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73d803e-36d2-11ef-b847-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:19.670Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:Servmotor:001",
+      "type": "Servmotor",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRailoadSwitch:001"
+      },
+      "stateMotor": {
+        "type": "Property",
+        "value": 1
+      }
+    }
+  ]
+}]

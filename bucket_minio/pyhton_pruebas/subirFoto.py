@@ -4,7 +4,7 @@ from minio.error import S3Error  # Importar S3Error para manejar los errores
 # Configuración de MinIO
 minio_client = Minio(
     # "localhost:8080/minioBucket",  # Dirección de tu servidor MinIO
-    "localhost:8080",  # Dirección de tu servidor MinIO
+    "138.4.22.12:80",  # Dirección de tu servidor MinIO
     # "127.0.0.1:9000",  # Dirección de tu servidor MinIO
     access_key="admin",  # Tu access key
     secret_key="admin123",  # Tu secret key
@@ -14,7 +14,7 @@ minio_client = Minio(
 # Nombre del bucket y la carpeta
 bucket_name = "bucketfotos"
 folder_name = "photostrain"
-file_path = "./train.png"  # Ruta de la imagen en tu máquina local
+file_path = "./train1.png"  # Ruta de la imagen en tu máquina local
 object_name = f"{folder_name}/" + file_path.split("/")[-1]  # Nombre del archivo en el bucket
 
 # Subir la imagen al bucket

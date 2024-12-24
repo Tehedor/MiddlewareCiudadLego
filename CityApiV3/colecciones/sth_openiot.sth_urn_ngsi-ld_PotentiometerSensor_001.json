@@ -1,0 +1,1971 @@
+[{
+  "_id": {
+    "$oid": "66813fb15d7e992175532bcb"
+  },
+  "id": "urn:ngsi-ld:Notification:deed2014-36d2-11ef-a6bb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:18.280Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 38
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fc35d7e992175532bda"
+  },
+  "id": "urn:ngsi-ld:Notification:eb9a7302-36d2-11ef-9e8f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:39.555Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 35
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fd75d7e992175532be3"
+  },
+  "id": "urn:ngsi-ld:Notification:f79292de-36d2-11ef-8e8b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:59.631Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 33
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813feb5d7e992175532bf4"
+  },
+  "id": "urn:ngsi-ld:Notification:0384b81a-36d3-11ef-9d33-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:19.677Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 34
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fff5d7e992175532c04"
+  },
+  "id": "urn:ngsi-ld:Notification:0f7cccca-36d3-11ef-8f57-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:39.759Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 41
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140135d7e992175532c13"
+  },
+  "id": "urn:ngsi-ld:Notification:1b724ea6-36d3-11ef-bcd8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:59.822Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 48
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681403c5d7e992175532c33"
+  },
+  "id": "urn:ngsi-ld:Notification:336b31a8-36d3-11ef-b652-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:40.040Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 57
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140505d7e992175532c40"
+  },
+  "id": "urn:ngsi-ld:Notification:3f5de2d0-36d3-11ef-a4d2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:00.087Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140645d7e992175532c4d"
+  },
+  "id": "urn:ngsi-ld:Notification:4b571868-36d3-11ef-8d93-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:20.175Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140785d7e992175532c65"
+  },
+  "id": "urn:ngsi-ld:Notification:574d49d0-36d3-11ef-b37c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:40.240Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 75
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681408c5d7e992175532c73"
+  },
+  "id": "urn:ngsi-ld:Notification:633fa5f8-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:00.286Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140a05d7e992175532c7e"
+  },
+  "id": "urn:ngsi-ld:Notification:6f35ea02-36d3-11ef-a879-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:20.355Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140c85d7e992175532ca2"
+  },
+  "id": "urn:ngsi-ld:Notification:871e8d36-36d3-11ef-a47a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:00.467Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 66
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140dc5d7e992175532cb3"
+  },
+  "id": "urn:ngsi-ld:Notification:9314475c-36d3-11ef-bced-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:20.533Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140f05d7e992175532cc6"
+  },
+  "id": "urn:ngsi-ld:Notification:9f093676-36d3-11ef-95fa-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:40.593Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 72
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141045d7e992175532cd4"
+  },
+  "id": "urn:ngsi-ld:Notification:aafd5912-36d3-11ef-a0a0-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:00.647Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 77
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141185d7e992175532cd9"
+  },
+  "id": "urn:ngsi-ld:Notification:b6f16312-36d3-11ef-9879-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:20.702Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 72
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681412c5d7e992175532cea"
+  },
+  "id": "urn:ngsi-ld:Notification:c2e5e3e6-36d3-11ef-bd89-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:40.760Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 75
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141405d7e992175532d0a"
+  },
+  "id": "urn:ngsi-ld:Notification:cedc831c-36d3-11ef-bd89-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:00.831Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141545d7e992175532d1d"
+  },
+  "id": "urn:ngsi-ld:Notification:dad0a284-36d3-11ef-80c4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:20.885Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141685d7e992175532d31"
+  },
+  "id": "urn:ngsi-ld:Notification:e6c64fd0-36d3-11ef-94dd-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:40.950Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681417d5d7e992175532d47"
+  },
+  "id": "urn:ngsi-ld:Notification:f2ba7faa-36d3-11ef-b818-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:01.005Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 59
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141915d7e992175532d52"
+  },
+  "id": "urn:ngsi-ld:Notification:feb11260-36d3-11ef-bf6b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:21.075Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 57
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141a55d7e992175532d6c"
+  },
+  "id": "urn:ngsi-ld:Notification:0aa49614-36d4-11ef-9dc4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:41.127Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141b95d7e992175532d79"
+  },
+  "id": "urn:ngsi-ld:Notification:169a4d42-36d4-11ef-8c2f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:01.192Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141cd5d7e992175532d8a"
+  },
+  "id": "urn:ngsi-ld:Notification:228f575a-36d4-11ef-abaa-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:21.252Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 71
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141e15d7e992175532d97"
+  },
+  "id": "urn:ngsi-ld:Notification:2e828ff0-36d4-11ef-94cf-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:41.303Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141f55d7e992175532dad"
+  },
+  "id": "urn:ngsi-ld:Notification:3a78676c-36d4-11ef-9ce2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:01.368Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681421d5d7e992175532dcc"
+  },
+  "id": "urn:ngsi-ld:Notification:5262bf44-36d4-11ef-a1eb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:41.492Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 75
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142315d7e992175532dde"
+  },
+  "id": "urn:ngsi-ld:Notification:5e58f5ca-36d4-11ef-9318-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:01.559Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681426e5d7e992175532e11"
+  },
+  "id": "urn:ngsi-ld:Notification:826222a2-36d4-11ef-8e4e-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:02.019Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142825d7e992175532e22"
+  },
+  "id": "urn:ngsi-ld:Notification:8e61631a-36d4-11ef-a92e-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:22.146Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 72
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142965d7e992175532e30"
+  },
+  "id": "urn:ngsi-ld:Notification:9a53b218-36d4-11ef-98e9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:42.189Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 73
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142aa5d7e992175532e39"
+  },
+  "id": "urn:ngsi-ld:Notification:a64e394e-36d4-11ef-8ed2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:02.285Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142be5d7e992175532e44"
+  },
+  "id": "urn:ngsi-ld:Notification:b240c17c-36d4-11ef-9f48-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:22.328Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142d25d7e992175532e49"
+  },
+  "id": "urn:ngsi-ld:Notification:be364d4e-36d4-11ef-96f1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:42.394Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 63
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142e65d7e992175532e59"
+  },
+  "id": "urn:ngsi-ld:Notification:ca29624e-36d4-11ef-9f96-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:02.441Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 60
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142fa5d7e992175532e6e"
+  },
+  "id": "urn:ngsi-ld:Notification:d61cd23e-36d4-11ef-bdaf-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:22.493Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 54
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681430e5d7e992175532e7b"
+  },
+  "id": "urn:ngsi-ld:Notification:e210b588-36d4-11ef-af43-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:42.546Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 51
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143225d7e992175532e8e"
+  },
+  "id": "urn:ngsi-ld:Notification:ee05f33a-36d4-11ef-9c22-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:02.607Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 56
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143365d7e992175532e9f"
+  },
+  "id": "urn:ngsi-ld:Notification:f9fcde74-36d4-11ef-b2f8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:22.681Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 53
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681434a5d7e992175532eaf"
+  },
+  "id": "urn:ngsi-ld:Notification:05f38886-36d5-11ef-ab80-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:42.753Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681435e5d7e992175532ec0"
+  },
+  "id": "urn:ngsi-ld:Notification:11ead766-36d5-11ef-91be-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:02.828Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 60
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143725d7e992175532ed8"
+  },
+  "id": "urn:ngsi-ld:Notification:1dddfa58-36d5-11ef-8072-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:22.877Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 54
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143865d7e992175532eec"
+  },
+  "id": "urn:ngsi-ld:Notification:29d37f18-36d5-11ef-84f7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:42.941Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681439b5d7e992175532efa"
+  },
+  "id": "urn:ngsi-ld:Notification:35c67b36-36d5-11ef-aeed-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:02.988Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143af5d7e992175532f06"
+  },
+  "id": "urn:ngsi-ld:Notification:41baa886-36d5-11ef-a7fd-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:23.044Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143c35d7e992175532f23"
+  },
+  "id": "urn:ngsi-ld:Notification:4db0af78-36d5-11ef-963b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:43.110Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143d75d7e992175532f34"
+  },
+  "id": "urn:ngsi-ld:Notification:59a6d28a-36d5-11ef-a78c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:03.178Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 71
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143eb5d7e992175532f43"
+  },
+  "id": "urn:ngsi-ld:Notification:659a402c-36d5-11ef-b342-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:23.228Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143ff5d7e992175532f4f"
+  },
+  "id": "urn:ngsi-ld:Notification:718e9c0c-36d5-11ef-bb8f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:43.286Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 78
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144135d7e992175532f62"
+  },
+  "id": "urn:ngsi-ld:Notification:7d82972a-36d5-11ef-bf5b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:03.339Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 76
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144275d7e992175532f6d"
+  },
+  "id": "urn:ngsi-ld:Notification:89742e18-36d5-11ef-8224-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:23.377Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 77
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681443b5d7e992175532f77"
+  },
+  "id": "urn:ngsi-ld:Notification:95664bd4-36d5-11ef-9aa7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:43.419Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681444f5d7e992175532f8e"
+  },
+  "id": "urn:ngsi-ld:Notification:a1591520-36d5-11ef-9aa7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:03.465Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144635d7e992175532f99"
+  },
+  "id": "urn:ngsi-ld:Notification:ad58223a-36d5-11ef-8a73-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:23.591Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144775d7e992175532fab"
+  },
+  "id": "urn:ngsi-ld:Notification:b945545a-36d5-11ef-b49b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:43.601Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681448b5d7e992175532fbf"
+  },
+  "id": "urn:ngsi-ld:Notification:c538765c-36d5-11ef-ac14-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:03.649Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681449f5d7e992175532fca"
+  },
+  "id": "urn:ngsi-ld:Notification:d12d2c64-36d5-11ef-b6b9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:23.707Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144b35d7e992175532fe4"
+  },
+  "id": "urn:ngsi-ld:Notification:dd23aac0-36d5-11ef-9d81-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:43.779Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144c75d7e992175532ff9"
+  },
+  "id": "urn:ngsi-ld:Notification:e91b51a2-36d5-11ef-9d81-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:03.855Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144db5d7e99217553300f"
+  },
+  "id": "urn:ngsi-ld:Notification:f50fd460-36d5-11ef-b9ac-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:23.914Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144f05d7e992175533024"
+  },
+  "id": "urn:ngsi-ld:Notification:010715ee-36d6-11ef-a12f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:43.989Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 67
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145045d7e992175533034"
+  },
+  "id": "urn:ngsi-ld:Notification:0cfcb2c8-36d6-11ef-99e1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:04.052Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 71
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145185d7e99217553304a"
+  },
+  "id": "urn:ngsi-ld:Notification:18f31158-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:24.122Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681452c5d7e992175533065"
+  },
+  "id": "urn:ngsi-ld:Notification:24e6a34e-36d6-11ef-b263-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:44.174Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 76
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145405d7e99217553307a"
+  },
+  "id": "urn:ngsi-ld:Notification:30dabe60-36d6-11ef-a30a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:04.229Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145545d7e99217553308c"
+  },
+  "id": "urn:ngsi-ld:Notification:3cd07ae8-36d6-11ef-98ed-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:24.295Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145685d7e99217553309f"
+  },
+  "id": "urn:ngsi-ld:Notification:48c3edf8-36d6-11ef-a77d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:44.345Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 63
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681457c5d7e9921755330b0"
+  },
+  "id": "urn:ngsi-ld:Notification:54b74aba-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:04.395Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145905d7e9921755330c2"
+  },
+  "id": "urn:ngsi-ld:Notification:60ae4170-36d6-11ef-a095-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:24.468Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145a45d7e9921755330ce"
+  },
+  "id": "urn:ngsi-ld:Notification:6ca23694-36d6-11ef-b439-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:44.522Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 67
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145b85d7e9921755330d7"
+  },
+  "id": "urn:ngsi-ld:Notification:78958ff0-36d6-11ef-8ffc-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72a861e-36d2-11ef-97d6-0242ac120104",
+  "notifiedAt": "2024-06-30T11:47:04.572Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityControl": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+}]
