@@ -290,6 +290,30 @@ waitForProxyReverse() {
 }
 
 
+
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ApisApp
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+
+stopContainerApisApp() {
+	CONTAINERS=$(docker ps --filter "name=apis-app" -aq)
+	if [[ -n $CONTAINERS ]]; then 
+		echo "Stopping containers"
+		docker rm -f $CONTAINERS || true
+	fi
+}
+
+waitForApisApp() {
+	echo -e "\n⏳ Waiting for \033[1mApis App\033[0m to be available\n"
+
+	while ! [ `docker inspect --format='{{.State.Health.Status}}' apis-app` == "healthy" ]
+	do 
+		sleep 1
+	done
+}
+
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### Run
@@ -402,6 +426,11 @@ case "${command}" in
 		export $(cat .env | grep "#" -v)
 		stoppingContainerAppSubsControl
 		;;
+	"stop-apis-app")
+		export $(cat .env | grep "#" -v)
+		${dockerCmd} -f apis_app/apis-app.yml down
+		stopContainerApisApp
+		;;
 	"stop")
 		export $(cat .env | grep "#" -v)
 		stoppingContainersOrion
@@ -479,6 +508,14 @@ case "${command}" in
 		bash ./bucket_minio/start_bucket.sh service
 		displayServices "minio-bucket"
 		waitForMinioBucket
+		;;
+	"apis-app")
+		export $(cat .env | grep "#" -v)
+		echo "Starting Apis App"
+		echo ""
+		${dockerCmd} -f apis_app/apis-app.yml up -d
+		displayServices "apis-app"
+		waitForApisApp
 		;;
 	*)
 		echo "Command not Found."

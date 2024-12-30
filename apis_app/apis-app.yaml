@@ -1,11 +1,15 @@
 version: '3.8'
 
 services:
-  cityapiv3:
+  apis-app:
     build: .
+    container_name: apis-app
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=container
     volumes:
       - ./CityApiV3:/usr/src/app
+    healthcheck:
+      test: curl -k --fail -s http://apis-app:3000/ || exit 1
+      interval: 5s
