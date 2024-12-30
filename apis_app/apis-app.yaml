@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  cityapiv3:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=container
+    volumes:
+      - ./CityApiV3:/usr/src/app

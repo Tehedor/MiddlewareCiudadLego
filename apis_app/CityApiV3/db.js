@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
+const process = require('process');
+
 
 const dbname = "sth_openiot";
-const dbURI = 'mongodb://localhost:27017/' + dbname;
+let dbURI = 'mongodb://localhost:27017/' + dbname;
+
+if (process.env.NODE_ENV == 'container') {
+  dbURI = 'mongodb://mongo-db-draco:27017/' + dbname;
+}
 
 const connectDB = async () => {
   try {
