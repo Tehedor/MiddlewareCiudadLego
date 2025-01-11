@@ -15,64 +15,47 @@ block content
     script(src='https://code.jquery.com/jquery-3.6.0.min.js')
 
     +styles
-    //- p
-    //- div.row(style="display: flex; justify-content: center;")
-    //-     div.col
-    //-         div.card(style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 20%; margin: auto;")
-    //-             div.card-title
-    //-                 strong Tiempo simulacion
-    //-             div.card-body
-    //-                 input(type="number" placeholder="Enter time in seconds" name="time" value="3" style="margin-bottom: 10px; width: 80px; margin-right:10px") 
-    //-                 span  s
-    //-                 button.btn.btn-primary.btn-sm(type="button" style="margin-left:10px") Start/Pause                  
+    p
+    div.row(style="display: flex; justify-content: center;")
+        div.col
+            div.card(style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 40%; margin: auto;")
+                div.card-body
+                    .row
+                        button.btn.btn-primary.btn-sm(id="state_iniStateButton" type="button" style="margin-left:10px") Start/Pause       
+                        span.state_simulator
+                    .row 
+                        span.state_raspberry
     p
     div.row
         div.col-lg-6.col-sm-12
-            +devicesForStreetLight(`${process.env.DEVICE_NUMBER || '002'}`)
-            //- +devicesForStreetLight('002',entitiesPirSensor,entitiesPhotoresistorSensor,entitiesLedDetectionActuator,entitiesLigthActuator)
+            +devicesForStreetLight(`${envConfig.device_number}`)
         div.col-lg-6.col-sm-12
-            +devicesForTrain(`${process.env.DEVICE_NUMBER || '002'}`)
-            //- +devicesForStreetLight('002')
+            +devicesForWeatherStation(`${envConfig.device_number}`)
     div.row    
         div.col-lg-6.col-sm-12
-            //- p Street Light Monitor
-            +devicesForWeatherStation(`${process.env.DEVICE_NUMBER || '002'}`)
+            +devicesForTrain(`${envConfig.device_number}`)
         div.col-lg-6.col-sm-12
-            //- p Street Light Monitor
-            +devicesForCrane(`${process.env.DEVICE_NUMBER || '002'}`)
+            +devicesForCrane(`${envConfig.device_number}`)
 
     div.row
         div.col-lg-6.col-sm-12
-            //- p Street Light Monitor
-            +devicesForRadar(`${process.env.DEVICE_NUMBER || '002'}`)
+            +devicesForRadar(`${envConfig.device_number}`)
         div.col-lg-6.col-sm-12
-            //- p Street Light Monitor
-            +devicesForRailroadSwitch(`${process.env.DEVICE_NUMBER || '002'}`)
+            +devicesForRailroadSwitch(`${envConfig.device_number}`)
     
     div.row
         div.col-lg-6.col-sm-12
-            //- p Street Light Monitor
-            +devicesForToll(`${process.env.DEVICE_NUMBER || '002'}`)
+            +devicesForToll(`${envConfig.device_number}`)
         div.col-lg-6.col-sm-12
-            //- p Street Light Monitor
-            //- +devicesForToll('002')
-    
-    p 
-    p Pagina de street
-    //- pre= JSON.stringify(entitiesPirSensor, null, 2)
-    //- pre= JSON.stringify(entitiesPhotoresistorSensor, null, 2)
-    //- pre= JSON.stringify(entitiesLedDetectionActuator, null, 2)
-    //- pre= JSON.stringify(entitiesLigthActuator, null, 2)
 
-    //- script(src='/js/streetLight.js')
-
+    script.
+        const controlConfigJSON = !{JSON.stringify(controlConfigJSON)};
+    script.
 
     script.
         $(function () {
-            //- const socket = io();
-            const socket = io('/simulatorApp'); // Asegúrate de que la ruta sea correcta
+            const socket = io();
 
-        
             socket.on('update_timer', function(timer) {
                 $('.timer_pirSensor').text(timer[0]);
                 $('.timer_photoresistorSensor').text(timer[1]);
@@ -84,14 +67,10 @@ block content
                 $('.timer_weatherStation').text(timer[7]);
             });
 
-
-            //- socket.on('update_timer', function(timer1) {
-            //-     $('.timer_pirSensor').text(timer1);
-            //- });
-            
             socket.on('update', function(presence_pirSensor) {
                 $('.presence').text(presence_pirSensor);
             });
+
             socket.on('update_photoresistorSensor', function(light_potentiometerSensor) {
                 $('.intensity').text(light_potentiometerSensor);
             });
@@ -104,60 +83,31 @@ block content
                 $('.stateLight').text(state_lightActuator);
             });
 
-
-
-
-            //- const checkbox_simulate_pirSensor = document.querySelector('.simulate_pirSensor');
-            //- const checkbox_simulate_photoresistorSensor = document.querySelector('.simulate_photoresistorSensor');
-            //- const checkbox_simulate_potentiometerSensor = document.querySelector('.simulate_potentiometerSensor');
-            //- const checkbox_simulate_infraredSensor = document.querySelector('.simulate_infraredSensor');
-            //- const checkbox_simulate_switchSensor = document.querySelector('.simulate_switchSensor');
-            //- const checkbox_simulate_rfidSensor = document.querySelector('.simulate_rfidSensor');
-            //- const checkbox_simulate_ultrasoundSensor = document.querySelector('.simulate_ultrasoundSensor');
-            //- const checkbox_simulate_weatherStation = document.querySelector('.simulate_weatherStation');
-
-            //- // Añade un controlador de eventos 'change'
-            //- checkbox_simulate_pirSensor.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_pirSensor', { isChecked: this.checked });
-            //- });
-
-            //- checkbox_simulate_photoresistorSensor.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_photoresistorSensor', { isChecked: this.checked });
-            //- });
-
-            //- checkbox_simulate_potentiometerSensor.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_potentiometerSensor', { isChecked: this.checked });
-            //- });
-
-            //- checkbox_simulate_infraredSensor.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_infraredSensor', { isChecked: this.checked });
-            //- });
-
-            //- checkbox_simulate_switchSensor.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_switchSensor', { isChecked: this.checked });
-            //- });
-
-            //- checkbox_simulate_rfidSensor.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_rfidSensor', { isChecked: this.checked });
-            //- }); 
-
-            //- checkbox_simulate_ultrasoundSensor.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_ultrasoundSensor', { isChecked: this.checked });
-            //- });
-
-            //- checkbox_simulate_weatherStation.addEventListener('change', function () {
-            //-     // Emite un evento con el estado actual del checkbox
-            //-     socket.emit('change_simulate_weatherStation', { isChecked: this.checked });
-            //- });
-
-
+            socket.on('update_iniState', function(simulate) {
+                updateInitState(simulate);
+            });
         });
 
+        function updateInitState(state_iniState) {
+            if (state_iniState) {
+                $('#state_iniStateButton').removeClass('btn-danger').addClass('btn-success').text('ON');
+                $('.state_simulator').text('Simulacion en curso');
+                $('.state_raspberry').removeClass('text-success').addClass('text-danger').text('Rasberry IOT apagada');
+            } else {
+                $('#state_iniStateButton').removeClass('btn-success').addClass('btn-danger').text('OFF');
+                $('.state_simulator').text('Simulacion detenidas');
+                $('.state_raspberry').removeClass('text-danger').addClass('text-success').text('Rasberry IOT encendida');
+            }
+        }
 
+        $(document).ready(function() {
+            $('#state_iniStateButton').click(function() {
+                const currentState = $('#state_iniStateButton').hasClass('btn-success');
+                const newState = !currentState;
+                $.post('/simulation/toggle', { state: newState }, function(response) {
+                    updateInitState(newState);
+                });
+            });
+
+            updateInitState(controlConfigJSON.inicial_state);
+        });

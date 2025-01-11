@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  .row
+    .col
+      .box
+        h3 Formulario de Suscripción
+        form#subscriptionForm
+          .form-group
+            label(for="entity_id") Entity ID
+            input#entity_id.form-control(type="text", placeholder="PirSensor:1")
+          .form-group
+            label(for="entity_type") Entity Type
+            input#entity_type.form-control(type="text", placeholder="PirSensor")
+          .form-group
+            label(for="entity_attr") Entity Attributes
+            input#entity_attr.form-control(type="text", placeholder='["type", "category", "presence", "controlledAsset"]')
+          .form-group
+            label(for="entity_watch_attr") Watched Attributes
+            input#entity_watch_attr.form-control(type="text", placeholder='["presence"]')
+          .form-group
+            label(for="url_endpoint") URL Endpoint
+            input#url_endpoint.form-control(type="text", placeholder="http://${host}:3000/ledDetectionActuator")
+          .form-group
+            label(for="notify_format") Notify Format
+            input#notify_format.form-control(type="text", placeholder="normalized")
+          .form-group
+            label(for="url_context") URL Context
+            input#url_context.form-control(type="text", placeholder="http://context/datamodels.context-ngsi.jsonld")
+          button#submitBtn.btn.btn-primary(type="button") Enviar al Context Broker
+
+    .col
+      .box
+        h3 Muestra del JSON del Request
+        pre#jsonOutput
+          code
+            | {
+            |   "description": "Notify me of all feedstock changes",
+            |   "type": "Subscription",
+            |   "entities": [{"id": "urn:ngsi-ld:PirSensor:1", "type": "PirSensor"}],
+            |   "watchedAttributes": ["presence"],
+            |   "notification": {
+            |     "attributes": ["type", "category", "presence", "controlledAsset"],
+            |     "format": "normalized",
+            |     "endpoint": {
+            |       "uri": "http://localhost:3000/ledDetectionActuator",
+            |       "accept": "application/json",
+            |       "receiverInfo": [
+            |         {
+            |           "key": "fiware-service",
+            |           "value": "openiot"
+            |         }
+            |       ]
+            |     }
+            |   },
+            |   "@context": "http://context/datamodels.context-ngsi.jsonld"
+            | }
+
+block scripts
+  - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+  script(src=`${basePath}/js/jsontemplate.js`)

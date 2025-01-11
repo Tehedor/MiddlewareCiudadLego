@@ -1,0 +1,24 @@
+# @SubID = 146cb284-cbdb-11ef-b77d-0242ac120105
+# @SubID = ac4470ca-cdf6-11ef-98db-0242ac120105
+@SubID = f23f85e6-ce06-11ef-b005-0242ac120105
+### Actualizar suscripción
+
+
+PATCH http://localhost:1026/ngsi-ld/v1/subscriptions/urn:ngsi-ld:subscription:{{SubID}}
+# PATCH http://fiware-orion:1026/ngsi-ld/v1/subscriptions/urn:ngsi-ld:subscription:4bf6f4ea-cd01-11ef-9c6f-0242ac120105
+Content-Type: application/ld+json
+
+{
+    "isActive": true,
+    "@context": "http://context/datamodels.context-ngsi.jsonld"
+}
+
+###
+# PATCH http://localhost:1026/ngsi-ld/v1/subscriptions/urn:ngsi-ld:subscription:2ce6645a-cdfb-11ef-a780-0242ac120105
+PATCH http://localhost:1026/ngsi-ld/v1/subscriptions/urn:ngsi-ld:subscription:2ce6645a-cdfb-11ef-a780-0242ac120105
+Content-Type: application/ld+json
+
+{
+    "isActive": true,
+    "@context": "http://context/datamodels.context-ngsi.jsonld"
+}

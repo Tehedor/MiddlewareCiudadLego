@@ -1,8 +1,12 @@
 const Entity = require('../models/entidades');
 
+const EnvConfig = require('../utils/env.config');
+const { device_number } = EnvConfig();
+
+
 // function getPirSensor() {
 
-//     return Entity.find({'_id.id': 'urn:ngsi-ld:PirSensor:${process.env.DEVICE_NUMBER || '002'}'}, '_id.id _id.type  attrs creDate modDate')
+//     return Entity.find({'_id.id': 'urn:ngsi-ld:PirSensor:${device_number|| '002'}'}, '_id.id _id.type  attrs creDate modDate')
 //         .then(entities => {
 //             return entities.map(entity => {
 //                 const id = entity._id.id;
@@ -21,12 +25,12 @@ const Entity = require('../models/entidades');
 
 async function getStreetLight() {
     try {
-        const entities = await Entity.find({ 'attrs.https://uri=fiware=org/ns/data-models#controlledAsset.value': `urn:ngsi-ld:LegoStreetLight:${process.env.DEVICE_NUMBER || '002'}` }, '_id.id _id.type attrs creDate modDate');
+        const entities = await Entity.find({ 'attrs.https://uri=fiware=org/ns/data-models#controlledAsset.value': `urn:ngsi-ld:LegoStreetLight:${device_number|| '002'}` }, '_id.id _id.type attrs creDate modDate');
         
-        const pirSensor = entities.find(entity => entity._id.id === `urn:ngsi-ld:PirSensor:${process.env.DEVICE_NUMBER || '002'}`);
-        const photoresistorSensor = entities.find(entity => entity._id.id === `urn:ngsi-ld:PhotoresistorSensor:${process.env.DEVICE_NUMBER || '002'}`);
-        const ledDetectionActuator = entities.find(entity => entity._id.id === `urn:ngsi-ld:LedDetection:${process.env.DEVICE_NUMBER || '002'}`);
-        const ligthActuator = entities.find(entity => entity._id.id === `urn:ngsi-ld:Light:${process.env.DEVICE_NUMBER || '002'}`);
+        const pirSensor = entities.find(entity => entity._id.id === `urn:ngsi-ld:PirSensor:${device_number|| '002'}`);
+        const photoresistorSensor = entities.find(entity => entity._id.id === `urn:ngsi-ld:PhotoresistorSensor:${device_number|| '002'}`);
+        const ledDetectionActuator = entities.find(entity => entity._id.id === `urn:ngsi-ld:LedDetection:${device_number|| '002'}`);
+        const ligthActuator = entities.find(entity => entity._id.id === `urn:ngsi-ld:Light:${device_number|| '002'}`);
         return {pirSensor, photoresistorSensor, ledDetectionActuator, ligthActuator}
 
     } catch (err) {
@@ -37,7 +41,7 @@ async function getStreetLight() {
 
 async function getPirSensor() {
     try {
-        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:PirSensor:${process.env.DEVICE_NUMBER || '002'}` }, '_id.id _id.type  attrs creDate modDate');
+        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:PirSensor:${device_number|| '002'}` }, '_id.id _id.type  attrs creDate modDate');
         return entities.map(entity => {
             const id = entity._id.id;
             const rawType = entity._id.type;
@@ -55,7 +59,7 @@ async function getPirSensor() {
 
 async function getPhotoresistorSensor() {
     try {
-        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:PhotoresistorSensor:${process.env.DEVICE_NUMBER || '002'}` }, '_id.id _id.type  attrs creDate modDate');
+        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:PhotoresistorSensor:${device_number|| '002'}` }, '_id.id _id.type  attrs creDate modDate');
         return entities.map(entity => {
             const id = entity._id.id;
             const rawType = entity._id.type;
@@ -73,7 +77,7 @@ async function getPhotoresistorSensor() {
 
 async function getLedDetectionActuator() {
     try {
-        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:LedDetection:${process.env.DEVICE_NUMBER || '002'}` }, '_id.id _id.type  attrs creDate modDate');
+        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:LedDetection:${device_number|| '002'}` }, '_id.id _id.type  attrs creDate modDate');
         return entities.map(entity => {
             const id = entity._id.id;
             const rawType = entity._id.type;
@@ -91,7 +95,7 @@ async function getLedDetectionActuator() {
 
 async function getLigthActuator() {
     try {
-        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:Light:${process.env.DEVICE_NUMBER || '002'}` }, '_id.id _id.type  attrs creDate modDate');
+        const entities = await Entity.find({ '_id.id': `urn:ngsi-ld:Light:${device_number|| '002'}` }, '_id.id _id.type  attrs creDate modDate');
         return entities.map(entity => {
             const id = entity._id.id;
             const rawType = entity._id.type;

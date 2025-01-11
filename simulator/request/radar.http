@@ -1,0 +1,17 @@
+# Radar:
+############## InfraredSensor : 
+### Activar la simulación
+POST http://localhost:3030/radar/toggle
+Content-Type: application/json
+
+{
+  "state": true
+}
+
+### Desactivar la simulación
+POST http://localhost:3030/radar/toggle
+Content-Type: application/json
+
+{
+  "state": false
+}

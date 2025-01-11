@@ -29,12 +29,12 @@ mixin devicesForRailroadSwitch(id)
         div.card-body
             ul.devices
                 div.row
-                    div.col
-                        li(style="background-image: url('/img/warehouse-full.svg')").device   
-                            input(type="checkbox" id="simulate_switchSensor" name="simulate_switchSensor" value="simulate_switchSensor" )
+                    div.col-5
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device   
+                        li.device   
+                            button(id="switchSensorButton" class="btn")
                             | &nbsp;
                             //- img(src="/img/warehouse-full.svg", alt="alt").device
-                            span.timer_switchSensor ...
                             code 
                                 | &nbsp;
                                 strong switchSensor#{id}
@@ -42,7 +42,9 @@ mixin devicesForRailroadSwitch(id)
                                 //- span.device(id=`PirSensor:${id}`) 
                                 span.state_switchSensor ...
                                 //-   #{entitiesPirSensor.presence}
-                    div.col
+                    div.col-2
+                            span.timer_switchSensor ...
+                    div.col-5
                         li(style="background-image: url('/img/warehouse-full.svg')").device
                             code 
                                 strong servMotorActuator#{id}
@@ -63,5 +65,31 @@ mixin devicesForRailroadSwitch(id)
             socket.on('update_servmotorActuator', function(state_servmotorAtuator) {
                 $('.state_servmotorAtuator').text(state_servmotorAtuator);
             });
+
+            socket.on('update_simulate', function(simulate) {
+                state_switchSensor = simulate[4];
+                updateSwitchSensorButton(state_switchSensor);
+            });
         
+        });
+
+        function updateSwitchSensorButton(state_switchSensor) {
+            if (state_switchSensor) {
+                $('#switchSensorButton').removeClass('btn-danger').addClass('btn-success').text('ON');
+            } else {
+                $('#switchSensorButton').removeClass('btn-success').addClass('btn-danger').text('OFF');
+            }
+        }
+
+        $(function () {
+
+            $('#switchSensorButton').click(function() {
+                const currentState = $('#switchSensorButton').hasClass('btn-success');
+                const newState = !currentState;
+                $.post('/railroadSwitch/toggle', { state: newState }, function(response) {
+                    //- updateSwitchSensorButton(newState);
+                });
+            });
+
+            //- updateSwitchSensorButton(controlConfigJSON.switch_sensor.simulate_switch_sensor);
         });

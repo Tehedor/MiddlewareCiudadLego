@@ -1,6 +1,6 @@
 # #!/bin/bash
 # # Detener servicios
-# docker compose -f ngsi-reverse.yml down
+# docker compose -f nginx-reverse.yml down
 
 # # Construir imagen de nginx reverse proxy
 # docker image build -t nginx-reverse .
@@ -8,7 +8,7 @@
 # # Establecer el nombre del proyecto
 # export COMPOSE_PROJECT_NAME=fiware
 
-# docker compose -f ngsi-reverse.yml up -d
+# docker compose -f nginx-reverse.yml up -d
 
 # echo "Red y contenedores configurados correctamente."
 
@@ -27,7 +27,7 @@
 
 # if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
 #     echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker compose..."
-#     docker compose -f ngsi-reverse.yml up -d 
+#     docker compose -f nginx-reverse.yml up -d 
 # fi
 
 # # Configuracion de cero NGSI Proxy
@@ -65,7 +65,7 @@ CONTAINER_CONFIG_PATH=/etc/nginx/conf.d/default.conf
 # Verificar si el contenedor está en ejecución
 if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker compose..."
-    docker compose -f ngsi-reverse.yml up -d 
+    docker compose -f nginx-reverse.yml up -d 
 fi
 
 # Verificar el primer argumento

@@ -7,10 +7,12 @@ services:
     image: subs-control-app:latest
     container_name: subs-control-app
     hostname: subsControlApp
+    volumes:
+      - subs-control-app:/usr/src/app
     networks:
       - default
-    # ports:
-    #   - "4040:4040"
+    ports:
+      - "4040:4040"
     # expose:
     #   - "4040"
     environment:
@@ -19,11 +21,14 @@ services:
       - ACTUATORS_IP=138.4.22.50
       - ENTITIES_ID=001
       - MONGO_DB_PORT=27017
-      - INI_STATE="real"
+      - INI_STATE=real
+      
     healthcheck:
       test: curl -k --fail -s http://subs-control-app:4040/ || exit 1
       interval: 5s
 
+volumes:
+  subs-control-app:
 
 networks:
   default:

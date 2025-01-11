@@ -1,0 +1,13 @@
+@SubID = 146cb284-cbdb-11ef-b77d-0242ac120105
+### Actualizar suscripción
+
+
+PATCH http://localhost:1026/ngsi-ld/v1/subscriptions/urn:ngsi-ld:subscription:{{SubID}}
+# PATCH http://fiware-orion:1026/ngsi-ld/v1/subscriptions/urn:ngsi-ld:subscription:4bf6f4ea-cd01-11ef-9c6f-0242ac120105
+Content-Type: application/ld+json
+
+{
+    "isActive": true,
+    "@context": "http://context/datamodels.context-ngsi.jsonld"
+}
+

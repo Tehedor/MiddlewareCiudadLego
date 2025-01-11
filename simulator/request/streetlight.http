@@ -1,0 +1,37 @@
+# StreetLight:
+############## PirSensor: 
+### Activar la simulación
+POST http://localhost:3030/pirSensor/toggle
+Content-Type: application/json
+
+{
+  "state": true
+}
+w
+### Desactivar la simulación
+POST http://localhost:3030/pirSensor/toggle
+Content-Type: application/json
+
+{
+  "state": false
+}
+
+############## Photoresistor:
+### Activar la simulación
+POST http://localhost:3030/photoresistorSensor/toggle
+Content-Type: application/json
+
+{
+  "state": true
+}
+
+### Desactivar la simulación
+POST http://localhost:3030/photoresistorSensor/toggle
+Content-Type: application/json
+
+{
+  "state": false
+}
+
+
+

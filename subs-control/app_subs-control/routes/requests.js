@@ -12,44 +12,67 @@ const {changeStateToSimulator} = require('../subscriptions_controller/default_su
 const {changeStateToReal} = require('../subscriptions_controller/default_subs/actuators_real-subs'); 
 
 // const {deleteControlSubscriptions} = require('subscriptions_controller/create_delete_update_subs.js');
+const {showState, changeInicialState} = require('../utils/controlJSON');
 
 
 const create_delete_update_subs = require('../subscriptions_controller/create_delete_update_subs');
 
-let currentState = 'simulator';  
+// let currentState = 'simulator';  
 
-router.post('/changeState', (req, res) => {
-    const { mode } = req.query;
-
-    if (mode === 'simulator') {
-        if (currentState === 'simulator') {
-            res.send('Already in simulator mode');
-        } else {
-            currentState = 'simulator';
-            res.send(`State changed to ${currentState}`);
-        }
-    } else if (mode === 'real') {
-        if (currentState === 'real') {
-            res.send('Already in real mode');
-        } else {
-            currentState = 'real';
-            res.send(`State changed to ${currentState}`);
-        }
-    } else {
-        res.status(400).send('Invalid mode');
+const changeState = async (mode) => {
+    const currentState = showState();
+    if (mode !== currentState) {
+        changeInicialState(mode);
     }
-});
-
-router.post('/execute-command', async (req, res) => {
+    return currentState;
+};
+const changeRelationsSubscriptions = async (mode) => {
     try {
-        await yourFunction();
-        res.status(200).send('Command executed successfully');
+        const subsRelations = await generalSubsRelations();
+        if (mode === 'simulator') {
+            await changeStateToSimulator(subsRelations);
+        } else {
+            await changeStateToReal(subsRelations);
+        }
+    } catch (error) {
+        console.error("Error changing relations subscriptions:", error);
+    }
+};
+// Petición cambiar estado de las suscripciones
+router.post('/changeState', (req, res) => {
+    try {
+        const { mode } = req.query;
+        const currentState = showState();
+        changeRelationsSubscriptions(mode);
+        if (mode === 'simulator' || mode === 'real') {
+            if (mode !== currentState) {
+                changeState(mode);
+                res.send(`State changed to ${currentState}`);
+            } else {
+                res.status(200).send(`Already in ${currentState} mode`);
+            }
+        } else {
+            res.status(400).send('Invalid mode');
+        }
     } catch (err) {
         console.log(err);
-        res.status(500).send('Error executing command');
+        res.status(500).send('Error changing state');
     }
 });
 
+
+router.get('/getSubsRelationsState', (req, res) => {
+    try {
+        const currentState = showState();
+        console.log('currentState', currentState);
+        res.status(200).send(currentState);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error getting subscriptions');
+    }
+});
+
+// Petición para actualizar las suscripciones a 'Simulator'
 router.post('/updateSubscriptionsToSimulator', async (req, res) => {
     try {
         const subsRelations = await generalSubsRelations();
@@ -61,6 +84,7 @@ router.post('/updateSubscriptionsToSimulator', async (req, res) => {
     }
 });
 
+// Petición para actualizar las suscripciones a 'Real'
 router.post('/updateSubscriptionsToReal', async (req, res) => {
     try {
         const subsRelations = await generalSubsRelations();
@@ -72,10 +96,8 @@ router.post('/updateSubscriptionsToReal', async (req, res) => {
     }
 });
 
+// Petición para eliminar las suscripciones
 router.post('/deleteSubscriptions', async (req, res) => {
-    // const entity = req.body;
-    // console.log(entity);
-    // console.log(JSON.stringify(entities, null, 2));
     try {
         let entities = req.body;
         if (!Array.isArray(entities)) {
@@ -90,5 +112,21 @@ router.post('/deleteSubscriptions', async (req, res) => {
     }
 });
 
-// module.exports = routesRequests;
+// Petición para reactivar la suscripción
+router.post('/reactivateSubscription', async (req, res) => {
+    // Petición para eliminar las suscripciones
+    try {
+        let entities = req.body;
+        if (!Array.isArray(entities)) {
+            entities = [entities]; 
+        }
+        // console.log(JSON.stringify(entities, null, 2));
+        create_delete_update_subs.reactivateSubscription(entities);
+        res.status(200).send('Subscriptions reactivated successfully');
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error reactivating subscriptions');
+    }
+});
+
 module.exports = router;

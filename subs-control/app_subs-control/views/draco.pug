@@ -1,7 +1,7 @@
 extends layout
 
 block content 
-    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    //- - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
     h1 Suscripciones subsDraco
     if subsDraco.length
         //- .container
@@ -11,7 +11,13 @@ block content
                     .card.mb-4
                         .card-body
                             h5.card-title ID de Entidad: 
-                                strong #{entity.entities_id}
+                                .row
+                                    .col-10
+                                        strong #{entity.entities_id}
+                                    .col-1
+                                        button.btn.btn-warning(onclick=`reactivateSubscription(${JSON.stringify(entity)},'draco')`) Reset
+                                    .col-1
+
                             h5 Referencia: 
                                 strong #{entity.reference}
                             h5 
@@ -31,10 +37,10 @@ block content
                                     p Último Fallo: #{entity.lastFailure ? entity.lastFailure.toLocaleString() : 'N/A'}
                                     p Última Notificación: #{entity.lastNotification ? entity.lastNotification.toLocaleString() : 'N/A'}
                                     p Veces Fallidas: #{entity.timesFailed}
-                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'${basePath}')`) Eliminar   
+                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'draco')`) Eliminar   
     else                            
         p No se encontraron suscripciones subsDraco.
 
 block scripts
-    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
-    script(src=`${basePath}/js/controlSubsPublic.js`)
+    //- - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    script(src=`/js/controlSubsPublic.js`)

@@ -1,3 +1,8 @@
+const EnvConfig = require('../utils/env.config');
+const { device_number } = EnvConfig();
+
+
+
 const SensorService = require('../services/sensores.service.js');
 const ActuatorsService = require('../services/actuators.service.js');
 
@@ -60,22 +65,21 @@ async function iniciarSimulacion() {
         // urn:ngsi-ld:TemperatureSensor:002
         // urn:ngsi-ld:HumiditySensor:002
 
-        presence_pirSensor = entitiesById[`urn:ngsi-ld:PirSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        light_potentiometerSensor = entitiesById[`urn:ngsi-ld:PhotoresistorSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        velocityControl_potentiometerSensor = entitiesById[`urn:ngsi-ld:PotentiometerSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        presence_infraredSensor = entitiesById[`urn:ngsi-ld:InfraredSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        state_switchSensor = entitiesById[`urn:ngsi-ld:SwitchSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        uiddcode_rfidSensor = entitiesById[`urn:ngsi-ld:RfidSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        distance_ultrasoundSensor = entitiesById[`urn:ngsi-ld:UltrasoundSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        temperature_temperatureSensor = entitiesById[`urn:ngsi-ld:TemperatureSensor:${process.env.DEVICE_NUMBER || '002'}`].value;
-        humidity_humiditySensor = entitiesById[`urn:ngsi-ld:HumiditySensor:${process.env.DEVICE_NUMBER || '002'}`].value;
+        presence_pirSensor = entitiesById[`urn:ngsi-ld:PirSensor:${device_number}`].value;
+        light_potentiometerSensor = entitiesById[`urn:ngsi-ld:PhotoresistorSensor:${device_number}`].value;
+        velocityControl_potentiometerSensor = entitiesById[`urn:ngsi-ld:PotentiometerSensor:${device_number}`].value;
+        presence_infraredSensor = entitiesById[`urn:ngsi-ld:InfraredSensor:${device_number}`].value;
+        state_switchSensor = entitiesById[`urn:ngsi-ld:SwitchSensor:${device_number}`].value;
+        uiddcode_rfidSensor = entitiesById[`urn:ngsi-ld:RfidSensor:${device_number}`].value;
+        distance_ultrasoundSensor = entitiesById[`urn:ngsi-ld:UltrasoundSensor:${device_number}`].value;
+        temperature_temperatureSensor = entitiesById[`urn:ngsi-ld:TemperatureSensor:${device_number}`].value;
+        humidity_humiditySensor = entitiesById[`urn:ngsi-ld:HumiditySensor:${device_number}`].value;
 
     } catch (err) {
         console.error(err);
         // res.status(500).send(err);
     }
 }
-
 
 async function simulatePirSensor(time) {
     // console.log('Simulating PIR Sensor');

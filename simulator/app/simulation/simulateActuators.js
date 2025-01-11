@@ -1,3 +1,9 @@
+const EnvConfig = require('../utils/env.config.js');
+const { device_number, intensity_threshold } = EnvConfig();
+
+
+
+
 const ActuatorsService = require('../services/actuators.service.js');
 
 const actuatorsController = require('../controllers/actuatorsController.js');   
@@ -22,11 +28,11 @@ async function iniciarActuadores() {
             entitiesById[entity.id] = entity;
         });
 
-        state_ledDetectionActuator = entitiesById[`urn:ngsi-ld:LedDetection:${process.env.DEVICE_NUMBER || '002'}`].value;
-        ctrl_lightActuator = entitiesById[`urn:ngsi-ld:LedDetection:${process.env.DEVICE_NUMBER || '002'}`].value;
-        state_lightAtuator = entitiesById[`urn:ngsi-ld:Light:${process.env.DEVICE_NUMBER || '002'}`].value;
-        velocityEngine_engineDCAtuator = entitiesById[`urn:ngsi-ld:EngineDC:${process.env.DEVICE_NUMBER || '002'}`].value;
-        state_servmotorAtuator = entitiesById[`urn:ngsi-ld:Servmotor:${process.env.DEVICE_NUMBER || '002'}`].value;
+        state_ledDetectionActuator = entitiesById[`urn:ngsi-ld:LedDetection:${device_number}`].value;
+        ctrl_lightActuator = entitiesById[`urn:ngsi-ld:LedDetection:${device_number}`].value;
+        state_lightAtuator = entitiesById[`urn:ngsi-ld:Light:${device_number}`].value;
+        velocityEngine_engineDCAtuator = entitiesById[`urn:ngsi-ld:EngineDC:${device_number}`].value;
+        state_servmotorAtuator = entitiesById[`urn:ngsi-ld:Servmotor:${device_number}`].value;
 
     } catch (err) {
         console.error(err);
@@ -56,9 +62,9 @@ async function iniciarCamera() {
             entitiesById[entity.id] = entity;
         });
 
-        medidaURL_camera = entitiesById[`urn:ngsi-ld:Camera:${process.env.DEVICE_NUMBER || '002'}`].mediaURL;
-        on_camera = entitiesById[`urn:ngsi-ld:Camera:${process.env.DEVICE_NUMBER || '002'}`].on;
-        startDataTime_camera = entitiesById[`urn:ngsi-ld:Camera:${process.env.DEVICE_NUMBER || '002'}`].startDataTime;
+        medidaURL_camera = entitiesById[`urn:ngsi-ld:Camera:${device_number}`].mediaURL;
+        on_camera = entitiesById[`urn:ngsi-ld:Camera:${device_number}`].on;
+        startDataTime_camera = entitiesById[`urn:ngsi-ld:Camera:${device_number}`].startDataTime;
 
 
         // state_cameraAtuator = entitiesById['urn:ngsi-ld:Camera:002'].value;
@@ -84,7 +90,7 @@ async function simulateLedDetectionActuator(data) {
     if (state_ledDetectionActuator == undefined) {
         iniciarActuadores();
     }
-    if (data.id === `urn:ngsi-ld:PirSensor:${process.env.DEVICE_NUMBER || '002'}`) {
+    if (data.id === `urn:ngsi-ld:PirSensor:${device_number}`) {
         // state_ledDetectionActuator
         if (data.presence.value === 'HIGH' && state_ledDetectionActuator === 'OFF') {
             state_ledDetectionActuator = 'ON';
@@ -105,13 +111,13 @@ async function simulateLedDetectionActuator(data) {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // urn:ngsi-ld:Light:002
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-const intensityThreshold = Number(process.env.INTENSITY_THRESHOLD) || 70;
+const intensityThreshold = Number(intensity_threshold) || 70;
 async function simulateLightActuator(data) {
     if (state_lightAtuator == undefined || ctrl_lightActuator == undefined) {
         iniciarActuadores();
     }
 
-    if (data.id === `urn:ngsi-ld:PhotoresistorSensor:${process.env.DEVICE_NUMBER || '002'}`) {
+    if (data.id === `urn:ngsi-ld:PhotoresistorSensor:${device_number}`) {
         console.log(data.light.value);
         if (data.light.value > intensityThreshold) {
             ctrl_lightActuator = 'ON';
@@ -136,7 +142,7 @@ async function simulateLightActuator(data) {
     }
     
        // state_lightAtuator
-    if (data.id === `urn:ngsi-ld:PirSensor:${process.env.DEVICE_NUMBER || '002'}`) {
+    if (data.id === `urn:ngsi-ld:PirSensor:${device_number}`) {
         if (data.presence.value === 'HIGH' && ctrl_lightActuator === 'ON' && state_lightAtuator === 'OFF') {
             state_lightAtuator = 'ON';
             ActuatorsService.lightChange(state_lightAtuator);
@@ -171,7 +177,7 @@ async function simulateEngineDCActuator(data) {
         iniciarActuadores();
     }
 
-    if (data.id === `urn:ngsi-ld:PotentiometerSensor:${process.env.DEVICE_NUMBER || '002'}`){
+    if (data.id === `urn:ngsi-ld:PotentiometerSensor:${device_number}`){
         if (velocityEngine_engineDCAtuator !== data.velocityControl.value){
             velocityEngine_engineDCAtuator = data.velocityControl.value;
             ActuatorsService.engineDCChange(velocityEngine_engineDCAtuator);
@@ -190,7 +196,7 @@ async function simulateServmotorActuator(data) {
     }
     
 
-    if (data.id === `urn:ngsi-ld:SwitchSensor:${process.env.DEVICE_NUMBER || '002'}`){
+    if (data.id === `urn:ngsi-ld:SwitchSensor:${device_number}`){
         const aux = data.state.value === 'ON' ? 1 : 0;
         // console.log("cocitas",aux);
         if (state_servmotorAtuator !== aux){

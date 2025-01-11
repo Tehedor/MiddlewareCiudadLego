@@ -23,7 +23,7 @@ if ! docker images --format '{{.Repository}}' | grep -q "^${IMAGE_NAME}$"; then
     # docker build -t $IMAGE_NAME .
     pushd proxy-reverse > /dev/null
     docker build -t $IMAGE_NAME .
-    # docker compose -f ngsi-reverse.yml build
+    # docker compose -f nginx-reverse.yml build
     if [ $? -ne 0 ]; then
         echo "Error al construir la imagen ${IMAGE_NAME}."
         exit 1
@@ -34,9 +34,9 @@ fi
 # Verificar si el contenedor está en ejecución
 if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo "El contenedor ${CONTAINER_NAME} no está en ejecución. Iniciando con docker compose..."
-    # docker compose -f ngsi-reverse.yml up -d
+    # docker compose -f nginx-reverse.yml up -d
     pushd proxy-reverse > /dev/null
-    docker compose -f ngsi-reverse.yml up -d
+    docker compose -f nginx-reverse.yml up -d
     popd > /dev/null
 fi
 

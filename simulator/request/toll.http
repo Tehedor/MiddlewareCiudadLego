@@ -1,0 +1,17 @@
+# toll
+### Activar la simulación changeRfidSensor
+POST http://localhost:3030/toll/toggle
+Content-Type: application/json
+
+{
+  "state": true
+}
+
+### Desactivar la simulación
+POST http://localhost:3030/toll/toggle
+Content-Type: application/json
+
+{
+  "state": false
+}
+

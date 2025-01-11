@@ -1,10 +1,13 @@
 const axios = require('axios');
 
+const EnvConfig = require('../utils/env.config');
+const { wather_api_key } = EnvConfig();
+
 
 
 coords = `lat=40.453029668993466&lon=-3.726161408178773`
 // apikey = process.env.WEATHER_API_KEY || `d9cde8b16d65f14446e43bd0c7e7dffd`; 
-apikey = process.env.WEATHER_API_KEY ; 
+apikey = wather_api_key ; 
 url = `https://api.openweathermap.org/data/2.5/weather?${coords}&units=metric&appid=${apikey}`
 
 const app = axios.create({

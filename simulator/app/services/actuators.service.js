@@ -1,10 +1,16 @@
 const axios = require('axios');
 
+const EnvConfig = require('../utils/env.config');
+const { device_number, mode_containers } = EnvConfig();
+
 
 let host = 'localhost';
-if (process.env.MODE_CONTAINERS === 'true') {
+// console.log('mode_containers', mode_containers);
+if (mode_containers=== true) {
     host = 'orion';
+    // console.log('host', host);
 }
+
 
 const app = axios.create({
     baseURL : `http://${host}:1026/ngsi-ld/v1/entities`,
@@ -23,7 +29,7 @@ const app = axios.create({
 
 // LedDetection
 const ledDetectionChange = (stateLed) => {
-    const ledDetection = `urn:ngsi-ld:LedDetection:${process.env.DEVICE_NUMBER || '002'}`
+    const ledDetection = `urn:ngsi-ld:LedDetection:${device_number|| '002'}`
     return app.patch(`/${ledDetection}/attrs`,{
         "stateLed" : stateLed
     })
@@ -36,7 +42,7 @@ const ledDetectionChange = (stateLed) => {
 // Light
 // "stateLight": "OFF",
 const lightChange = (stateLight) => {
-    const light = `urn:ngsi-ld:Light:${process.env.DEVICE_NUMBER || '002'}`
+    const light = `urn:ngsi-ld:Light:${device_number|| '002'}`
     return app.patch(`/${light}/attrs`,{
         "stateLight" : stateLight
     })
@@ -50,10 +56,10 @@ const lightChange = (stateLight) => {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // EngineDC
-// "id": `urn:ngsi-ld:EngineDC:${process.env.DEVICE_NUMBER || '002'}`,
+// "id": `urn:ngsi-ld:EngineDC:${device_number|| '002'}`,
 
 const engineDCChange = (velocityEngine_engineDCAtuator) => {
-    const engineId = `urn:ngsi-ld:EngineDC:${process.env.DEVICE_NUMBER || '002'}`
+    const engineId = `urn:ngsi-ld:EngineDC:${device_number|| '002'}`
     return app.patch(`/${engineId}/attrs`,{
         "velocityEngine" : velocityEngine_engineDCAtuator
     })
@@ -69,10 +75,10 @@ const engineDCChange = (velocityEngine_engineDCAtuator) => {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // ServoMotor 
-// "id": `urn:ngsi-ld:Servmotor:${process.env.DEVICE_NUMBER || '002'}`,
+// "id": `urn:ngsi-ld:Servmotor:${device_number|| '002'}`,
 
 const servmotorChange = (stateServmotor) => {
-    const servmotor = `urn:ngsi-ld:Servmotor:${process.env.DEVICE_NUMBER || '002'}`
+    const servmotor = `urn:ngsi-ld:Servmotor:${device_number|| '002'}`
     return app.patch(`/${servmotor}/attrs`,{
         "stateMotor" : stateServmotor
     })
@@ -87,10 +93,10 @@ const servmotorChange = (stateServmotor) => {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 // Camera
-// "id": `urn:ngsi-ld:Camera:${process.env.DEVICE_NUMBER || '002'}`,
+// "id": `urn:ngsi-ld:Camera:${device_number|| '002'}`,
 
 const cameraChange = (stateCamera) => {
-    const camera = `urn:ngsi-ld:Camera:${process.env.DEVICE_NUMBER || '002'}`
+    const camera = `urn:ngsi-ld:Camera:${device_number|| '002'}`
     return app.patch(`/${camera}/attrs`,{
         "stateCamera" : stateCamera
     })

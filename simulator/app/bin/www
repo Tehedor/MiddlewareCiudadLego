@@ -9,6 +9,7 @@ require('dotenv').config();
 const app = require('../app');
 const http = require('http');
 
+
 // process.on('SIGINT', function() {});
 // process.on('SIGTERM', function() {});
 
@@ -191,10 +192,14 @@ function onListeningIoT() {
 const SimulatorSensors = require('../simulation/simulateSensors');
 const SimulatorActuators = require('../simulation/simulateActuators');
 
+const {emitSimulationState} = require('../utils/simulatorLoop');	
+
 SOCKET_IO.on('connection', (socket) => {
     console.log('Nuevo cliente conectado');
     SimulatorSensors.iniSensorsClient();	
 	SimulatorActuators.iniActuatorsClient();
+
+	emitSimulationState(socket);
 
     socket.on('disconnect', () => {
         console.log('Cliente desconectado');

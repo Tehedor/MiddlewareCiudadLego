@@ -30,11 +30,12 @@ mixin devicesForToll(id)
             ul.devices
                 div.row
                     div.col
-                        li(style="background-image: url('/img/warehouse-full.svg')").device   
-                            input(type="checkbox" id="simulate_rfidSensor" name="simulate_rfidSensor" value="simulate_rfidSensor" )
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device   
+                        li.device
+                            //- input(type="checkbox" id="simulate_rfidSensor" name="simulate_rfidSensor" value="simulate_rfidSensor" )
+                            button(id="rfidSensorButton" class="btn")
                             | &nbsp;
                             //- img(src="/img/warehouse-full.svg", alt="alt").device
-                            span.timer_rfidSensor ...
                             code 
                                 | &nbsp;
                                 strong RfidSensor#{id}
@@ -43,14 +44,7 @@ mixin devicesForToll(id)
                                 span.uiddcode_rfidSensor ...
                                 //-   #{entitiesPirSensor.presence}
                     div.col
-                        //- li(style="background-image: url('/img/warehouse-full.svg')").device
-                        //-     code 
-                        //-         strong servMotorActuator#{id}
-                        //-         | &nbsp;
-                        //-         //- span.device(id=`LedDetection:${id}`)
-                        //-         span.state_servmotorAtuator ...
-
-    
+                        span.timer_rfidSensor ...
 
     script.
         $(function () {
@@ -60,5 +54,36 @@ mixin devicesForToll(id)
                 $('.uiddcode_rfidSensor').text(uiddcode_rfidSensor);
             });
 
+
+            socket.on('update_simulate', function(simulate) {
+                //- $('.state_rfidSensor').text(simulate[5]);
+                state_rfidSensor = simulate[5];
+                updateRfidSensor(state_rfidSensor);
+            });
+
+        });
+
+        function updateRfidSensor(state_rfidSensor) {
+            if (state_rfidSensor) {
+                $('#rfidSensorButton').removeClass('btn-danger').addClass('btn-success').text('ON');
+            } else {
+                $('#rfidSensorButton').removeClass('btn-success').addClass('btn-danger').text('OFF');
+            }
+        }
+
+
+        $(document).ready(function() {
+
+            $('#rfidSensorButton').click(function() {
+                const currentState = $('#rfidSensorButton').hasClass('btn-success');
+                const newState = !currentState;
+                // Enviar la solicitud POST para cambiar el estado
+                $.post('/toll/toggle', { state: newState }, function(response) {
+                    // Actualizar el estado del botón basado en la respuesta
+                    //- updateRfidSensor(newState);
+                });
+            });
+
+            //- updateRfidSensor(controlConfigJSON.rfid_sensor.simulate_rfid_sensor);
 
         });

@@ -13,8 +13,10 @@ async function generalSubsDraco() {
             const entities_type = entity.entities?.[0]?.type;
             const conditions = entity.conditions;
             // Convertir createdAt y modifiedAt a objetos Date válidos
-            const createdAt = new Date(entity.createdAt * 1000);
-            const modifiedAt = new Date(entity.modifiedAt * 1000);
+            // const createdAt = new Date(entity.createdAt * 1000);
+            // const modifiedAt = new Date(entity.modifiedAt * 1000);
+            const createdAt = new Date(entity.createdAt * 1000).toISOString();
+            const modifiedAt = new Date(entity.modifiedAt * 1000).toISOString();
             const reference = entity.reference;
             const status = entity.status;
             const count = entity.count || 0;

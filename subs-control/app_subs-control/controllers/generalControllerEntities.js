@@ -12,8 +12,8 @@ async function generalControllerEntities() {
             const attrKeys = Object.keys(entity.attrs);
             const type_entity = entity.attrs[attrKeys[0]].value;
             const value = entity.attrs[attrKeys[1]].value;
-            const creDate = new Date(entity.creDate * 1000);
-            const modDate = new Date(entity.modDate * 1000);
+            const creDate = new Date(entity.creDate * 1000).toISOString();
+            const modDate = new Date(entity.modDate * 1000).toISOString();
             return { id, type, type_entity, value, creDate, modDate };
         });
     } catch (err) {

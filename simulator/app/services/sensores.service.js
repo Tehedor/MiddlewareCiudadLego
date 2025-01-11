@@ -1,8 +1,15 @@
 const axios = require('axios');
 
+const EnvConfig = require('../utils/env.config');
+const { device_number, mode_containers } = EnvConfig();
+
+
+
 let host = 'localhost';
-if (process.env.MODE_CONTAINERS === 'true') {
+// console.log('mode_containers', mode_containers);
+if (mode_containers === true) {
     host = 'fiware-orion';
+    // console.log('host', host);  
 }
 let baseURL = `http://${host}:1026/ngsi-ld/v1/entities`;
 
@@ -30,7 +37,8 @@ const app = axios.create({
 
 // PirSensor
 const pirSensorChange = (presence) => {
-    const pirSensor = `urn:ngsi-ld:PirSensor:${process.env.DEVICE_NUMBER || '002'}`
+    console.log("aaaaaaaaaaa");
+    const pirSensor = `urn:ngsi-ld:PirSensor:${device_number}`
     // const pirSensor = "urn:ngsi-ld:PirSensor:002"
     // console.log(pirSensor);
     // console.log(presence);
@@ -39,7 +47,7 @@ const pirSensorChange = (presence) => {
         "presence" : presence,
     })
     .then(response => {
-        // console.log(response.data);
+        console.log(response.data);
         // return response.data;
     })
     .catch(error => {
@@ -49,7 +57,7 @@ const pirSensorChange = (presence) => {
 
 // PhotoresistorSensor
 const photoresistorSensorChange = (intensity) => {
-    const photoresistorSensor = `urn:ngsi-ld:PhotoresistorSensor:${process.env.DEVICE_NUMBER || '002'}`
+    const photoresistorSensor = `urn:ngsi-ld:PhotoresistorSensor:${device_number}`
     
     return app.patch(`/${photoresistorSensor}/attrs`,{
         "light" : intensity
@@ -68,7 +76,7 @@ const photoresistorSensorChange = (intensity) => {
 // PotentiometerSensor
 const potentiometerSensorChange = (velocityControl) => {
     // console.log("velocidad: ", velocityControl);
-    const potentiometerSensor = `urn:ngsi-ld:PotentiometerSensor:${process.env.DEVICE_NUMBER || '002'}`
+    const potentiometerSensor = `urn:ngsi-ld:PotentiometerSensor:${device_number}`
     return app.patch(`/${potentiometerSensor}/attrs`,{
         "velocityControl" : velocityControl
     })
@@ -84,7 +92,7 @@ const potentiometerSensorChange = (velocityControl) => {
 
 // InfraRedSensor
 const infraredSensorChange = (presence) => {
-    const infraredSensor = `urn:ngsi-ld:InfraredSensor:${process.env.DEVICE_NUMBER || '002'}`
+    const infraredSensor = `urn:ngsi-ld:InfraredSensor:${device_number}`
     return app.patch(`/${infraredSensor}/attrs`,{
         "presence" : presence
     })
@@ -100,7 +108,7 @@ const infraredSensorChange = (presence) => {
 
 // SwitchSensor
 const switchSensorChange = (state) => {
-    const switchSensor = `urn:ngsi-ld:SwitchSensor:${process.env.DEVICE_NUMBER || '002'}`
+    const switchSensor = `urn:ngsi-ld:SwitchSensor:${device_number}`
     return app.patch(`/${switchSensor}/attrs`,{
         "state" : state
     })
@@ -118,7 +126,7 @@ const switchSensorChange = (state) => {
 // RfidSensor
 const rfidSensorChange = (uid) => {
     // console.log("uid: ", uid);
-    const rfidSensor = `urn:ngsi-ld:RfidSensor:${process.env.DEVICE_NUMBER || '002'}`
+    const rfidSensor = `urn:ngsi-ld:RfidSensor:${device_number}`
     return app.patch(`/${rfidSensor}/attrs`,{
         "uiddcode" : uid
     })
@@ -134,7 +142,7 @@ const rfidSensorChange = (uid) => {
 
 // UltrasonicSensor
 const ultrasoundSensorChange = (distance) => {
-    const ultrasoundSensor = `urn:ngsi-ld:UltrasoundSensor:${process.env.DEVICE_NUMBER || '002'}`
+    const ultrasoundSensor = `urn:ngsi-ld:UltrasoundSensor:${device_number}`
     
     return app.patch(`/${ultrasoundSensor}/attrs`,{
         "distance" : {
@@ -155,7 +163,7 @@ const ultrasoundSensorChange = (distance) => {
 
 // TemperatureSensor
 const temperatureSensorChange = (temperature) => {
-    const temperatureSensor = `urn:ngsi-ld:TemperatureSensor:${process.env.DEVICE_NUMBER || '002'}`
+    const temperatureSensor = `urn:ngsi-ld:TemperatureSensor:${device_number}`
     // console.log("aaaaaaaaaaaaaaaaa")
     return app.patch(`/${temperatureSensor}/attrs`,{
         "temperature" : {
@@ -173,7 +181,7 @@ const temperatureSensorChange = (temperature) => {
 // HumiditySensor
 const humiditySensorChange = (humidity) => {
     // console.log("bbbbbbbbbbbbbbb")
-    const humiditySensor = `urn:ngsi-ld:HumiditySensor:${process.env.DEVICE_NUMBER || '002'}`
+    const humiditySensor = `urn:ngsi-ld:HumiditySensor:${device_number}`
     return app.patch(`/${humiditySensor}/attrs`,{
         "humidity" : {
             "type": "Property",

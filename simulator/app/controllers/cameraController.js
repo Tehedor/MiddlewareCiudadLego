@@ -47,9 +47,12 @@ const Entity = require('../models/entidades');
 //     "lastCorrelator": ""
 //   }
 
+const EnvConfig = require('../utils/env.config');
+const { device_number } = EnvConfig();
+
 async function getCamera() {
     try {
-        const entities = await Entity.find({ '_id.id' : `urn:ngsi-ld:Camera:${process.env.DEVICE_NUMBER || '002'}` }, '_id.id _id.type attrs creDate modDate');
+        const entities = await Entity.find({ '_id.id' : `urn:ngsi-ld:Camera:${device_number}` }, '_id.id _id.type attrs creDate modDate');
         // console.log(entities);
         return entities.map(entity => {
             const id = entity._id.id;

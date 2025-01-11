@@ -1,12 +1,27 @@
 // const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
 // const url = `http://${basePath}:1026/ngsi-ld/v1/subscriptions/`;
 
-async function deleteSubscription(entity,basePath) {
-  console.log("entity:", entity);
+
+const getQuery = (viewPage) => {
+  const url = window.location.href;
+  const urlParts = url.split('/');
+  const index = urlParts.findIndex(part => part === viewPage);
+  if (index > 0) {
+    return urlParts.slice(0, index).join('/');
+  }
+  return '';
+};
+
+
+// Petición para obtener el estado actual de las suscripciones
+async function deleteSubscription(entity, viewPage) { 
   try {
-    const response = await fetch(`${basePath}/requests/deleteSubscriptions`, {
-    // const response = await fetch(`/subsControlApp/requests/deleteSubscriptions`, {
-      method: "POST",
+    console.log("entity:", entity);
+    const query = getQuery(viewPage);
+    console.log("query:", query);
+    const response = await fetch(`${query}/requests/deleteSubscriptions`, {
+      // const response = await fetch(`/subsControlApp/requests/deleteSubscriptions`, {
+        method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -24,11 +39,20 @@ async function deleteSubscription(entity,basePath) {
   }
 }
 
-async function updateSubscriptionsTo(state,basePath) {
+// Petición para actualizar las suscripciones a 'Simulator'
+async function updateSubscriptionsTo(state, viewPage) {
+  const query = getQuery(viewPage);
+  console.log("query:", query);
+  
   try {
     // const response = await fetch(`/subsControlApp/requests/updateSubscriptionsTo${state}`, {
-    console.log(`${basePath}/requests/updateSubscriptionsTo${state}`);
-    const response = await fetch(`${basePath}/requests/updateSubscriptionsTo${state}`, {
+    console.log(`/requests/changeState?mode=${state}`);
+    // const response = await fetch(`${basePath}/requests/updateSubscriptionsTo${state}`, {
+    console.log('aaaaaaas')
+    console.log(state)
+    console.log('aaaaaaas')
+    // const response = await fetch(`http://localhost/subsControlApp/requests/changeState?mode=${state}`, {
+    const response = await fetch(`${query}/requests/changeState?mode=${state}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,47 +69,40 @@ async function updateSubscriptionsTo(state,basePath) {
     alert(`Error updating subscriptions to ${state}`);
   }
 }
+    
+    
+    // @SubID = 146cb284-cbdb-11ef-b77d-0242ac120105
+    // ### Actualizar suscripción
+    // PATCH http://localhost:1026/ngsi-ld/v1/subscriptions/urn:ngsi-ld:subscription:{{SubID}}
+    // Content-Type: application/ld+json
+    
+    // {
+      //     "isActive": true,
+      //     "@context": "http://context/datamodels.context-ngsi.jsonld"
+      // }
 
-//- block scripts
-//-     script.
-//-         async function deleteSubscription(entity) {
-//-                 console.log('entity:', entity);
-//-             try {
-//-                 const response = await fetch('/requests/deleteSubscriptions', {
-//-                     method: 'POST',
-//-                     headers: {
-//-                         'Content-Type': 'application/json'
-//-                     },
-//-                     body: JSON.stringify(entity )
-//-                 });
-//-                 if (response.ok) {
-//-                     alert('Subscription changed successfully');
-//-                     location.reload(); // Actualiza la pantalla
-//-                 } else {
-//-                     alert('Error changing subscription');
-//-                 }
-//-             } catch (error) {
-//-                 console.error('Error:', error);
-//-                 alert('Error changing subscription');
-//-             }
-//-         }
+      // Petición para reactivar la suscripción
+async function reactivateSubscription(entity,viewPage) {
+  try {
+    console.log("entity:", entity);
+    const query = getQuery(viewPage);
+    console.log("query:", query);
+    const response = await fetch(`${query}/requests/reactivateSubscription`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(entity),
+    });
+    if (response.ok) {
+      alert("Subscription reactivated successfully");
+      location.reload(); // Actualiza la pantalla
+    } else {
+      alert("Error changing subscription");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error changing subscription");
+  }
+}
 
-//-         async function updateSubscriptionsTo(state) {
-//-             try {
-//-                 const response = await fetch(`/requests/updateSubscriptionsTo${state}`, {
-//-                     method: 'POST',
-//-                     headers: {
-//-                         'Content-Type': 'application/json'
-//-                     }
-//-                 });
-//-                 if (response.ok) {
-//-                     alert(`Subscriptions updated to ${state} successfully`);
-//-                     location.reload(); // Actualiza la pantalla
-//-                 } else {
-//-                     alert(`Error updating subscriptions to ${state}`);
-//-                 }
-//-             } catch (error) {
-//-                 console.error('Error:', error);
-//-                 alert(`Error updating subscriptions to ${state}`);
-//-             }
-//-         }

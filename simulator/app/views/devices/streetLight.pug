@@ -13,7 +13,6 @@ mixin styles
             margin: 0;
         }
 
-
 mixin devicesForStreetLight(id)
     //- mixin devicesForStreetLight(id,entitiesPirSensor,entitiesPhotoresistorSensor,entitiesLedDetectionActuator,entitiesLigthActuator)
     //- script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js')
@@ -32,12 +31,14 @@ mixin devicesForStreetLight(id)
         div.card-body
             ul.devices
                 div.row
-                    div.col
-                        li(style="background-image: url('/img/warehouse-full.svg')").device  
-                            input(type="checkbox" id="simulate_pirSensor" name="simulate_pirSensor" value="simulate_pirSensor" )
+                    div.col-5
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device  
+                        li.device  
+                            //- input(type="checkbox" id="simulate_pirSensor" name="simulate_pirSensor" value="simulate_pirSensor" )
+                            //- input(type="checkbox" id="simulate_pirSensor" name="simulate_pirSensor" value="simulate_pirSensor" )
+                            button(id="pirSensorButton" class="btn")
                             | &nbsp; 
                             //- img(src="/img/warehouse-full.svg", alt="alt").device
-                            span.timer_pirSensor ...
                             code 
                                 | &nbsp;
                                 strong PirSensor#{id}
@@ -45,7 +46,10 @@ mixin devicesForStreetLight(id)
                                 //- span.device(id=`PirSensor:${id}`) 
                                 span.presence ...
                                 //-   #{entitiesPirSensor.presence}
-                    div.col
+                                | &nbsp;
+                    div.col-1
+                            span.timer_pirSensor ...
+                    div.col-6
                         li(style="background-image: url('/img/warehouse-full.svg')").device
                             code 
                                 strong LedDetection#{id}
@@ -53,18 +57,21 @@ mixin devicesForStreetLight(id)
                                 //- span.device(id=`LedDetection:${id}`)
                                 span.stateLed ...
                 div.row 
-                    div.col
-                        li(style="background-image: url('/img/warehouse-full.svg')").device
-                            input(type="checkbox" id="simulate_photoresistorSensor" name="simulate_photoresistorSensor" value="simulate_photoresistorSensor" )
+                    div.col-5
+                        //- li(style="background-image: url('/img/warehouse-full.svg')").device
+                        li.device  
+                            button(id="photoresistorSensorButton" class="btn").
                             | &nbsp;
-                            span.timer_photoresistorSensor ...
                             code 
                                 | &nbsp;
                                 strong PhotoresistorSensor#{id}
                                 | &nbsp;
                                 //- span.device(id=`PhotoresistorSensor${id}`)
                                 span.intensity ...
-                    div.col
+                            | &nbsp; &nbsp; &nbsp;
+                    div.col-1
+                            span.timer_photoresistorSensor ...
+                    div.col-6
                         li(style="background-image: url('/img/warehouse-full.svg')").device
                             code 
                                 strong Light#{id}
@@ -72,16 +79,9 @@ mixin devicesForStreetLight(id)
                                 //- span.device(id=`Light:${id}`)
                                 span.stateLight ...
 
-    
-        //- form(action="/device/command" method="POST")
-        //-     input(type="text" style="display:none"  name="id" value=`${id}`)
-        //-     select(name="action")
-        //-         option(value="start") Start Tractor
-        //-         option(value="stop") Stop Tractor
-
-        //-     input(type="submit" value=`Send` class="btn btn-primary  btn-sm")
 
     script.
+
         $(function () {
             const socket = io();
         
@@ -100,5 +100,63 @@ mixin devicesForStreetLight(id)
                 $('.stateLight').text(state_lightActuator);
             });
 
-                //- okas
+            socket.on('update_simulate', function(simulate) {
+                state_pirSensor = simulate[0];
+                state_photoresistorSensor = simulate[1];
+                updatePirSensorButton(state_pirSensor);
+                updatePhotoresistorSensorButton(state_photoresistorSensor);
+                //- $('.state_photoresistorSensor').text(simulate[1]);
+                //- $('.state_potentiometerSensor').text(simulate[2]);
+                //- $('.state_infraredSensor').text(simulate[3]);
+                //- $('.state_switchSensor').text(simulate[4]);
+                //- $('.state_rfidSensor').text(simulate[5]);
+                //- $('.state_ultrasoundSensor').text(simulate[6]);
+                //- $('.state_weatherStation').text(simulate[7]);
+            });
+
+        });
+
+        function updatePirSensorButton(state_pirSensor) {
+            if (state_pirSensor) {
+                $('#pirSensorButton').removeClass('btn-danger').addClass('btn-success').text('ON');
+            } else {
+                $('#pirSensorButton').removeClass('btn-success').addClass('btn-danger').text('OFF');
+            }
+        }
+
+        function updatePhotoresistorSensorButton(state_photoresistorSensor) {
+            if (state_photoresistorSensor) {
+                $('#photoresistorSensorButton').removeClass('btn-danger').addClass('btn-success').text('ON');
+            } else {
+                $('#photoresistorSensorButton').removeClass('btn-success').addClass('btn-danger').text('OFF');
+            }
+        }
+
+
+        $(document).ready(function() {
+            // Inicializar el estado del botón
+            // Manejar el clic en el botón
+            $('#pirSensorButton').click(function() {
+                const currentState = $('#pirSensorButton').hasClass('btn-success');
+                const newState = !currentState;
+                // Enviar la solicitud POST para cambiar el estado
+                $.post('/pirSensor/toggle', { state: newState }, function(response) {
+                    // Actualizar el estado del botón basado en la respuesta
+                    //- updatePirSensorButton(newState);
+                });
+            });
+
+            $('#photoresistorSensorButton').click(function() {
+                const currentState = $('#photoresistorSensorButton').hasClass('btn-success');
+                const newState = !currentState;
+                // Enviar la solicitud POST para cambiar el estado
+                $.post('/photoresistorSensor/toggle', { state: newState }, function(response) {
+                    // Actualizar el estado del botón basado en la respuesta
+                    //- updatePhotoresistorSensorButton(newState);
+                });
+            });
+
+            //- updatePirSensorButton(controlConfigJSON.photoresistor_sensor.simulate_photoresistor_sensor);
+            //- updatePhotoresistorSensorButton(controlConfigJSON.photoresistor_sensor.simulate_photoresistor_sensor);
+
         });

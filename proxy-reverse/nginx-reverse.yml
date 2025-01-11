@@ -2,11 +2,9 @@ version: "3.8"
 
 services:
   nginx-reverse:
-    # image: nginx-reverse 
     image: nginx-reverse 
     container_name: nginx-reverse-container
     networks:
-      # - proxy-reverse-net
       - default
     expose:
       - "80"
@@ -18,10 +16,6 @@ services:
       interval: 5s
 
 networks:
-  # proxy-reverse-net:
-  #   external:
-  #     name: ${NET_NAME}
-
   default:
     labels:
       org.fiware: 'orion'

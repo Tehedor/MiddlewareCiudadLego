@@ -1,0 +1,66 @@
+extends layout
+
+block content
+    h1(style="color: orange; text-align: center;")  
+        strong Suscripciones subsRelations
+    if subsRelations.length
+        .row
+            each entity in subsRelations
+                .col-md-6
+                    .card.mb-4
+                        .card-body
+                            h5.card-title ID de Entidad: 
+                                .row
+                                    .col-10
+                                        strong #{entity.entities_id}
+                                    .col-1
+                                        button.btn.btn-warning(onclick=`reactivateSubscription(${JSON.stringify(entity)},'${basePath}')`) Reset
+                                    .col-1
+                            h5 Referencia: 
+                                strong #{entity.reference}
+                            h5 
+                                | Estado: 
+                                strong  
+                                    span(style=`color: ${entity.status === 'active' ? 'green' : 'red'}`) #{entity.status}
+                            p ID de Suscripción: 
+                                strong #{entity.subs_id}
+                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'${basePath}')`) Eliminar   
+
+                            
+                        
+    else
+        p No se encontraron suscripciones subsRelations.
+
+    h1(style="color: orange; text-align: center;")  
+        strong Suscripciones subsDraco
+    if subsDraco.length
+        //- .container
+        .row
+            each entity, index in subsDraco
+                .col-md-6
+                    .card.mb-4
+                        .card-body
+                            h5.card-title ID de Entidad: 
+                                .row
+                                    .col-10
+                                        strong #{entity.entities_id}
+                                    .col-1
+                                        button.btn.btn-warning(onclick=`reactivateSubscription(${JSON.stringify(entity)},'${basePath}')`) Reset
+                                    .col-1
+                            h5 Referencia: 
+                                strong #{entity.reference}
+                            h5 
+                                | Estado: 
+                                strong  
+                                    span(style=`color: ${entity.status === 'active' ? 'green' : 'red'}`) #{entity.status}
+                            p ID de Suscripción: 
+                                strong #{entity.subs_id}
+                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
+
+
+    else
+        p No se encontraron suscripciones subsDraco.
+
+block scripts
+    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    script(src=`${basePath}/js/controlSubsPublic.js`)

@@ -2,12 +2,12 @@ extends layout
 
 block content
     h1 Suscripciones subsRelations
-    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    //- - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
     .row.mb-4
         .col-md-6
-            button.btn.btn-primary(onclick=`updateSubscriptionsTo('Simulator', '${basePath}')`) Modo: Simulator
+            button.btn.btn-primary(onclick=`updateSubscriptionsTo('simulator','relations')`) Modo: Simulator
             | 
-            button.btn.btn-primary(onclick=`updateSubscriptionsTo('Real', '${basePath}')`) Modo: Real
+            button.btn.btn-primary(onclick=`updateSubscriptionsTo('real','relations')`) Modo: Real
         .col-md-6
     if subsRelations.length
         .row
@@ -16,7 +16,12 @@ block content
                     .card.mb-4
                         .card-body
                             h5.card-title ID de Entidad: 
-                                strong #{entity.entities_id}
+                                .row
+                                    .col-10
+                                        strong #{entity.entities_id}
+                                    .col-1
+                                        button.btn.btn-warning(onclick=`reactivateSubscription(${JSON.stringify(entity)},'relations')`) Reset
+                                    .col-1
                             h5 Referencia: 
                                 strong #{entity.reference}
                             h5 
@@ -37,11 +42,11 @@ block content
                                     p Última Notificación: #{entity.lastNotification ? entity.lastNotification.toLocaleString() : 'N/A'}
                                     p Veces Fallidas: #{entity.timesFailed}
                                     //- button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
-                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'${basePath}')`) Eliminar   
+                                    button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'relations')`) Eliminar   
 
     else
         p No se encontraron suscripciones subsRelations.
 
 block scripts
-    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
-    script(src=`${basePath}/js/controlSubsPublic.js`)
+    //- - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    script(src=`/js/controlSubsPublic.js`)

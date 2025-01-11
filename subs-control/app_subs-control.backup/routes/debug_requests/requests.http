@@ -1,0 +1,22 @@
+
+
+# router.get('/getSubsRelationsState', (req, res) => {
+#     try {
+#         res.status(200).send(currentState);
+#     } catch (err) {
+#         console.log(err);
+#         res.status(500).send('Error getting subscriptions');
+#     }
+# });
+
+@host=localhost
+@port=4040
+
+
+GET http://{{host}}:{{port}}/requests/getSubsRelationsState
+
+###
+POST http://{{host}}:{{port}}/requests/changeState?mode=simulator
+
+###
+POST http://{{host}}:{{port}}/requests/changeState?mode=real

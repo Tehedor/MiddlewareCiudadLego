@@ -27,12 +27,6 @@ const requestEntities = async (url, headers, data, description) => {
 
 const createEntities = async () => {
     console.log('Creating entities...');
-    // console.log(dataSensors()); 
-    // console.log(dataActuators());
-    // console.log(dataBuildings());
-    // console.log(JSON.stringify(dataSensors(), null, 2));
-    // console.log(JSON.stringify(dataActuators(), null, 2));
-    // console.log(JSON.stringify(dataBuildings(), null, 2));
     await requestEntities(url, headers, JSON.stringify(dataSensors()));
     await requestEntities(url, headers, JSON.stringify(dataActuators()));
     await requestEntities(url, headers, JSON.stringify(dataBuildings()));

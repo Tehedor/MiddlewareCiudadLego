@@ -18,15 +18,13 @@ const control_entities = require('./entities_controller/controler_entities');
 let MongoPort = process.env.MONGO_DB_PORT || 27018;
 
 let hostMongoDB = 'localhost';
+console.log('#########')
 console.log('process.env.MODE_CONTAINERS', process.env.MODE_CONTAINERS);
 console.log('#########')
 console.log(process.env.MODE_CONTAINERS === 'true')
 if (process.env.MODE_CONTAINERS === 'true') {
     hostMongoDB = 'mongo-db-orion';
     MongoPort = process.env.MONGO_DB_PORT || 27017;
-    console.log('#########')
-    console.log('hostMongoDB', hostMongoDB, 'MongoPort', MongoPort);
-    console.log('#########')
 }   
 console.log('#########')
 console.log('hostMongoDB', hostMongoDB, 'MongoPort', MongoPort);
@@ -82,26 +80,37 @@ app.use('/requests', routesRequests);
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 // ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## // 
 let relationSubs = process.env.INI_STATE || "real" //real;
+
+const {createJSON, checkIfJSONExists, checkIfJSONWellFormed} = require('./utils/createJSON');
+const {showState} = require('./utils/controlJSON');
+
+
+const primeraVez = !checkIfJSONExists();
+if (checkIfJSONExists()) {
+    createJSON();
+}
+
+const maxAttempts = 3;let attempts = 0;
+while (attempts < maxAttempts) {
+    if (checkIfJSONWellFormed()) {
+        console.log('control.json file is well-formed.');
+        break;
+    } else {
+        console.log(`Error in control.json file, attempting to recreate... (Attempt ${attempts + 1}/${maxAttempts})`);
+        createJSON();
+        attempts++;
+    }
+}
+if (attempts === maxAttempts) {
+    console.log('Failed to create a well-formed control.json file after 3 attempts');
+    process.exit(1);
+}
+
 // Ini Subs
-control_subs.start_subscritpions(relationSubs);
-control_entities.createEntities();
+if (primeraVez){
+    control_subs.start_subscritpions(showState());
+    control_entities.createEntities();
+}
 
-
-const time = process.env.TIME_INTERVAL || 2000;
-setInterval(() => {
-
-    // console.log('Intervalo');
-
-    // simulationFunctions.forEach((element, index) => {
-    //     if (simulate[index] == true) {
-    //         timer[index] = timer[index] - time;
-    //         if (timer[index] <= 0) {
-    //             timer[index] = inicial_timer[index] + timer[index];
-    //             Simulator[element](time);
-    //         }
-    //     }
-    // });
-
-}, time);
 
 module.exports = app;

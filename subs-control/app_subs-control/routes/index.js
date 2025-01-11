@@ -8,7 +8,8 @@ const generalSubsRelations = require('../controllers/generalSubsRelations');
 
 router.get('/', async (req, res) => {
     try {
-        res.render('index.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS === 'true' });
+        // res.render('index.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS === 'true' });
+        res.render('index.pug');
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
@@ -19,7 +20,7 @@ router.get('/entities', async (req, res) => {
     console.log('Pasa1');
     try {
         console.log(await generalControllerEntities());
-        res.render('entities.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS === 'true', entities: await generalControllerEntities() });
+        res.render('entities.pug', { entities: await generalControllerEntities() });
     } catch (err) {
         console.log(err);
         res.status(500).send(err);

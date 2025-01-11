@@ -10,7 +10,12 @@ block content
                     .card.mb-4
                         .card-body
                             h5.card-title ID de Entidad: 
-                                strong #{entity.entities_id}
+                                .row
+                                    .col-10
+                                        strong #{entity.entities_id}
+                                    .col-1
+                                        button.btn.btn-warning(onclick=`reactivateSubscription(${JSON.stringify(entity)},'all')`) Reset
+                                    .col-1
                             h5 Referencia: 
                                 strong #{entity.reference}
                             h5 
@@ -19,7 +24,7 @@ block content
                                     span(style=`color: ${entity.status === 'active' ? 'green' : 'red'}`) #{entity.status}
                             p ID de Suscripción: 
                                 strong #{entity.subs_id}
-                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'${basePath}')`) Eliminar   
+                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'all')`) Eliminar   
 
                             
                         
@@ -36,7 +41,12 @@ block content
                     .card.mb-4
                         .card-body
                             h5.card-title ID de Entidad: 
-                                strong #{entity.entities_id}
+                                .row
+                                    .col-10
+                                        strong #{entity.entities_id}
+                                    .col-1
+                                        button.btn.btn-warning(onclick=`reactivateSubscription(${JSON.stringify(entity)},'all')`) Reset
+                                    .col-1
                             h5 Referencia: 
                                 strong #{entity.reference}
                             h5 
@@ -45,12 +55,12 @@ block content
                                     span(style=`color: ${entity.status === 'active' ? 'green' : 'red'}`) #{entity.status}
                             p ID de Suscripción: 
                                 strong #{entity.subs_id}
-                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)})`) Eliminar   
+                            button.btn.btn-danger(onclick=`deleteSubscription(${JSON.stringify(entity)},'all')`) Eliminar   
 
 
     else
         p No se encontraron suscripciones subsDraco.
 
 block scripts
-    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
-    script(src=`${basePath}/js/controlSubsPublic.js`)
+    //- - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+    script(src=`/js/controlSubsPublic.js`)

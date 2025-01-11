@@ -10,20 +10,20 @@ html
         header(role="banner" class="sticky-top" style="background-color: #e5f5f7;padding:10px;")
             nav(class="navbar navbar-expand-lg")
                 ul.nav.d-flex.flex-row
-                    - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
+                    //- - var basePath = MODE_CONTAINERS ? '/subsControlApp' : ''
 
                     li.nav-item
-                        a.nav-link(href=`${basePath}/`) Home
+                        a.nav-link(href=`/`) Home
                     li.nav-item
-                        a.nav-link(href=`${basePath}/entities`) Entidades
+                        a.nav-link(href=`/entities`) Entidades
                     li.nav-item
-                        a.nav-link(href=`${basePath}/draco`) Draco Subs
+                        a.nav-link(href=`/draco`) Draco Subs
                     li.nav-item
-                        a.nav-link(href=`${basePath}/relations`) Relations Subs
+                        a.nav-link(href=`/relations`) Relations Subs
                     li.nav-item
-                        a.nav-link(href=`${basePath}/all`) General Subs
+                        a.nav-link(href=`/all`) General Subs
                     li.nav-item
-                        a.nav-link(href=`${basePath}/addSub`) Add Subs
+                        a.nav-link(href=`/addSub`) Add Subs
 
         block content
             p Pagina de inicio 

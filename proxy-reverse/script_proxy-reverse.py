@@ -138,16 +138,43 @@ def append_subscontrolapp():
     # ### ### SubsControlApp 
     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
     location /subsControlApp/ {
+        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
+        rewrite ^/subsControlApp/(.*)$ /$1 break;
+
+        # Redirige la solicitud al backend
         proxy_pass http://subsControlApp:4040/;
+
+        # Encabezados para la solicitud al backend
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
 
-        # Remove /service from the forwarded request
-        rewrite ^/subsControlApp/(.*)$ /$1 break;
+        # Ajustar las rutas en las respuestas del backend
+        # Asegura que las rutas devueltas sean relativas a /subsControlApp
+        sub_filter 'href="/' 'href="/subsControlApp/';
+        sub_filter 'src="/' 'src="/subsControlApp/';
+        sub_filter_once off;
     }
+
 """
+# def append_subscontrolapp():
+#     return \
+# """
+#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+#     # ### ### SubsControlApp 
+#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+#     location /subsControlApp/ {
+#         proxy_pass http://subsControlApp:4040/;
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+
+#         # Remove /service from the forwarded request
+#         rewrite ^/subsControlApp/(.*)$ /$1 break;
+#     }
+# """
         
 
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
@@ -267,9 +294,6 @@ def append_minioBucket():
 
 # Buscar contenedores activos
 def get_active_containers():
-    # client = docker.from_env()
-    # containers = client.containers.list()
-        
     result = subprocess.run(['docker', 'ps', '-a', '--format', '{{.Names}}'], stdout=subprocess.PIPE)
     containers = result.stdout.decode('utf-8').strip().split('\n')
     active_services = []
