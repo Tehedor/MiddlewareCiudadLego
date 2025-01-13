@@ -9,3 +9,5 @@ subs-control/app_subs-control/package-lock.json
 proxy-reverse/default.conf
 
 apis_app/CityApiV3/.env
+
+node_modules/
