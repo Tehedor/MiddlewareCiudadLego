@@ -1,7 +1,7 @@
 const createError = require('http-errors');
-const Led = require('../models/LED');
-const Infrarrojo = require('../models/Infrarrojos');
-const Luz = require('../models/Luz');
+const Led = require('../models/actuators/LED');
+const Infrarrojo = require('../models/sensors/Infrarrojos');
+const Luz = require('../models/actuators/Luz');
 
 exports.filterByEstado = async function (collectionName, estado) {
 

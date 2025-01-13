@@ -1,9 +1,9 @@
-const Temperatura = require('../models/Temperatura');
-const Humedad = require('../models/Humedad');
-const MotorDC = require('../models/MotorDC');
-const Ultrasonido = require('../models/Ultrasonido');
-const Fotorresistor = require('../models/Fotorresistor');
-const Potenciometro = require('../models/Potenciometro');
+const Temperatura = require('../models/sensors/Temperatura');
+const Humedad = require('../models/sensors/Humedad');
+const MotorDC = require('../models/actuators/MotorDC');
+const Ultrasonido = require('../models/sensors/Ultrasonido');
+const Fotorresistor = require('../models/sensors/Fotorresistor');
+const Potenciometro = require('../models/sensors/Potenciometro');
 const createError = require('http-errors');
 
 exports.filterByOrden = async function (collectionName, orden) {

@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/entities', async (req, res) => {
-    console.log('Pasa1');
     try {
         console.log(await generalControllerEntities());
         res.render('entities.pug', { entities: await generalControllerEntities() });
@@ -28,7 +27,6 @@ router.get('/entities', async (req, res) => {
 });
 
 router.get('/draco', async (req, res) => {
-    console.log('Pasa1');
     try {
         res.render('draco.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS === 'true', subsDraco: await generalSubsDraco() });
     } catch (err) {
@@ -38,7 +36,6 @@ router.get('/draco', async (req, res) => {
 });
 
 router.get('/relations', async (req, res) => {
-    console.log('Pasa2');
     try {
         res.render('relations.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS === 'true', subsRelations: await generalSubsRelations() });
     } catch (err) {
@@ -48,7 +45,6 @@ router.get('/relations', async (req, res) => {
 });
 
 router.get('/all', async (req, res) => {
-    console.log('Pasa1');
     try {
         res.render('all.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS === 'true', subsDraco: await generalSubsDraco(), subsRelations: await generalSubsRelations() });
     } catch (err) {
@@ -58,7 +54,6 @@ router.get('/all', async (req, res) => {
 });
 
 router.get('/addSub', async (req, res) => {
-    console.log('Pasa1');
     try {
         res.render('newSub.pug', { MODE_CONTAINERS: process.env.MODE_CONTAINERS === 'true' });
     } catch (err) {

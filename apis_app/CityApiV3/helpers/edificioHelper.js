@@ -1,14 +1,14 @@
-const Temperatura = require('../models/Temperatura');
-const Humedad = require('../models/Humedad');
-const MotorDC = require('../models/MotorDC');
-const Ultrasonido = require('../models/Ultrasonido');
-const Fotorresistor = require('../models/Fotorresistor');
-const Led = require('../models/LED');
-const Infrarrojo = require('../models/Infrarrojos');
-const Luz = require('../models/Luz');
-const Rfid = require('../models/Rfid');
-const Pir = require('../models/Pir');
-const Potenciometro = require('../models/Potenciometro');
+const Temperatura = require('../models/sensors/Temperatura');
+const Humedad = require('../models/sensors/Humedad');
+const MotorDC = require('../models/actuators/MotorDC');
+const Ultrasonido = require('../models/sensors/Ultrasonido');
+const Fotorresistor = require('../models/sensors/Fotorresistor');
+const Led = require('../models/actuators/LED');
+const Infrarrojo = require('../models/sensors/Infrarrojos');
+const Luz = require('../models/actuators/Luz');
+const Rfid = require('../models/sensors/Rfid');
+const Pir = require('../models/sensors/Pir');
+const Potenciometro = require('../models/sensors/Potenciometro');
 
 const createError = require('http-errors');
 

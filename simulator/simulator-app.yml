@@ -12,9 +12,9 @@ services:
       - default
     # expose:
     #   - "3030"
-    ports:
-      - "3030:3030"
-      - "3001:3001"
+    # ports:
+    #   - "3030:3030"
+    #   - "3001:3001"
     environment:
       - DEVICE_NUMBER=001
       - INTENSITY_THRESHOLD=70

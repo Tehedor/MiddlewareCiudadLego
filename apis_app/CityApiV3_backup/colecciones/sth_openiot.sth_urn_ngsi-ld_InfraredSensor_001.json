@@ -1,0 +1,5292 @@
+[{
+  "_id": {
+    "$oid": "66813fb15d7e992175532bce"
+  },
+  "id": "urn:ngsi-ld:Notification:def08128-36d2-11ef-b8a2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:18.297Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fb35d7e992175532bd0"
+  },
+  "id": "urn:ngsi-ld:Notification:e1c4c0bc-36d2-11ef-b8a2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:23.053Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fba5d7e992175532bd5"
+  },
+  "id": "urn:ngsi-ld:Notification:e65e1c7c-36d2-11ef-b8a2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:30.769Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fbe5d7e992175532bd6"
+  },
+  "id": "urn:ngsi-ld:Notification:e89d5fca-36d2-11ef-b8a2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:34.541Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fc95d7e992175532bdf"
+  },
+  "id": "urn:ngsi-ld:Notification:ef56aa24-36d2-11ef-8e30-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:45.822Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fcd5d7e992175532be0"
+  },
+  "id": "urn:ngsi-ld:Notification:f195476e-36d2-11ef-8e30-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:49.587Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fd15d7e992175532be1"
+  },
+  "id": "urn:ngsi-ld:Notification:f3d39cec-36d2-11ef-8e30-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:53.351Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fdc5d7e992175532beb"
+  },
+  "id": "urn:ngsi-ld:Notification:fa8ee9c4-36d2-11ef-8e8b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:04.645Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fe05d7e992175532bec"
+  },
+  "id": "urn:ngsi-ld:Notification:fccc6de2-36d2-11ef-8e8b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:08.402Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fe45d7e992175532bf3"
+  },
+  "id": "urn:ngsi-ld:Notification:ff0a35da-36d2-11ef-b648-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:12.161Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813ffe5d7e992175532c02"
+  },
+  "id": "urn:ngsi-ld:Notification:0ebd7d02-36d3-11ef-8f57-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:38.503Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140095d7e992175532c0c"
+  },
+  "id": "urn:ngsi-ld:Notification:157817c4-36d3-11ef-90d3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:49.795Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140155d7e992175532c15"
+  },
+  "id": "urn:ngsi-ld:Notification:1c3144a0-36d3-11ef-bcd8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:01.073Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140185d7e992175532c18"
+  },
+  "id": "urn:ngsi-ld:Notification:1e72c8ce-36d3-11ef-9137-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:04.858Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140205d7e992175532c1e"
+  },
+  "id": "urn:ngsi-ld:Notification:22f045d4-36d3-11ef-bcd8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:12.391Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140275d7e992175532c25"
+  },
+  "id": "urn:ngsi-ld:Notification:276cdf50-36d3-11ef-ba8e-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:19.919Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140465d7e992175532c3b"
+  },
+  "id": "urn:ngsi-ld:Notification:396408dc-36d3-11ef-83f2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:50.060Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681404d5d7e992175532c3c"
+  },
+  "id": "urn:ngsi-ld:Notification:3ddffcd6-36d3-11ef-9a15-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:57.583Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681405c5d7e992175532c46"
+  },
+  "id": "urn:ngsi-ld:Notification:46d5395a-36d3-11ef-a4c1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:12.611Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140645d7e992175532c4e"
+  },
+  "id": "urn:ngsi-ld:Notification:4b571868-36d3-11ef-a4c1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:20.175Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140735d7e992175532c5c"
+  },
+  "id": "urn:ngsi-ld:Notification:544fe058-36d3-11ef-b37c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:35.226Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140775d7e992175532c60"
+  },
+  "id": "urn:ngsi-ld:Notification:568ce302-36d3-11ef-85c0-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:38.982Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681407a5d7e992175532c68"
+  },
+  "id": "urn:ngsi-ld:Notification:58ca8462-36d3-11ef-b37c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:42.740Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681407e5d7e992175532c69"
+  },
+  "id": "urn:ngsi-ld:Notification:5b08718a-36d3-11ef-b37c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:46.502Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140825d7e992175532c6a"
+  },
+  "id": "urn:ngsi-ld:Notification:5d4641fc-36d3-11ef-b37c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:50.263Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140895d7e992175532c6e"
+  },
+  "id": "urn:ngsi-ld:Notification:61c143ee-36d3-11ef-b760-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:57.780Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681408d5d7e992175532c74"
+  },
+  "id": "urn:ngsi-ld:Notification:63ffe962-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:01.543Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140915d7e992175532c75"
+  },
+  "id": "urn:ngsi-ld:Notification:663d7096-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:05.304Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140955d7e992175532c76"
+  },
+  "id": "urn:ngsi-ld:Notification:687b94c8-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:09.067Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140985d7e992175532c77"
+  },
+  "id": "urn:ngsi-ld:Notification:6ab8b806-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:12.824Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140a45d7e992175532c81"
+  },
+  "id": "urn:ngsi-ld:Notification:7173e6ac-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:24.116Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140a75d7e992175532c88"
+  },
+  "id": "urn:ngsi-ld:Notification:73b25124-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:27.881Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140ab5d7e992175532c8f"
+  },
+  "id": "urn:ngsi-ld:Notification:75f003e6-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:31.640Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140af5d7e992175532c92"
+  },
+  "id": "urn:ngsi-ld:Notification:782e6bca-36d3-11ef-a879-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:35.405Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140b35d7e992175532c97"
+  },
+  "id": "urn:ngsi-ld:Notification:7a6c5bf4-36d3-11ef-a879-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:39.166Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140ba5d7e992175532c98"
+  },
+  "id": "urn:ngsi-ld:Notification:7ee79f2c-36d3-11ef-b8b2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:46.685Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140c55d7e992175532c9f"
+  },
+  "id": "urn:ngsi-ld:Notification:85a085c2-36d3-11ef-a47a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:57.964Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140c95d7e992175532ca3"
+  },
+  "id": "urn:ngsi-ld:Notification:87e02194-36d3-11ef-be2d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:01.735Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140d55d7e992175532caa"
+  },
+  "id": "urn:ngsi-ld:Notification:8e996a5e-36d3-11ef-bced-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:13.017Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140d85d7e992175532cab"
+  },
+  "id": "urn:ngsi-ld:Notification:90d6b268-36d3-11ef-bced-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:16.773Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140e75d7e992175532cb7"
+  },
+  "id": "urn:ngsi-ld:Notification:99ce06d2-36d3-11ef-95fa-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:31.816Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140eb5d7e992175532cbe"
+  },
+  "id": "urn:ngsi-ld:Notification:9c0bb142-36d3-11ef-ade2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:35.576Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140ef5d7e992175532cc2"
+  },
+  "id": "urn:ngsi-ld:Notification:9e49e7f8-36d3-11ef-ade2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:39.340Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140f35d7e992175532ccc"
+  },
+  "id": "urn:ngsi-ld:Notification:a08743e4-36d3-11ef-95fa-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:43.097Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141025d7e992175532cd3"
+  },
+  "id": "urn:ngsi-ld:Notification:a97e3070-36d3-11ef-a0a0-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:58.137Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141095d7e992175532cd6"
+  },
+  "id": "urn:ngsi-ld:Notification:adfa7762-36d3-11ef-a0a0-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:05.661Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141115d7e992175532cd7"
+  },
+  "id": "urn:ngsi-ld:Notification:b2761f9e-36d3-11ef-9879-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:13.184Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141145d7e992175532cd8"
+  },
+  "id": "urn:ngsi-ld:Notification:b4b3f34e-36d3-11ef-9879-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:16.943Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141185d7e992175532cdb"
+  },
+  "id": "urn:ngsi-ld:Notification:b6f188c4-36d3-11ef-82a8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:20.703Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681411c5d7e992175532cdd"
+  },
+  "id": "urn:ngsi-ld:Notification:b92e414a-36d3-11ef-82a8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:24.456Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681412f5d7e992175532cf0"
+  },
+  "id": "urn:ngsi-ld:Notification:c464f7d4-36d3-11ef-bd89-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:43.270Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141365d7e992175532cfc"
+  },
+  "id": "urn:ngsi-ld:Notification:c8e2b828-36d3-11ef-bd89-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:50.804Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681413a5d7e992175532d00"
+  },
+  "id": "urn:ngsi-ld:Notification:cb205b4a-36d3-11ef-bd89-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:54.564Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681413e5d7e992175532d07"
+  },
+  "id": "urn:ngsi-ld:Notification:cd5d5f52-36d3-11ef-bd89-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:58.319Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141425d7e992175532d0c"
+  },
+  "id": "urn:ngsi-ld:Notification:cf9be8ba-36d3-11ef-857a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:02.084Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141455d7e992175532d0d"
+  },
+  "id": "urn:ngsi-ld:Notification:d1d9f0fe-36d3-11ef-857a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:05.847Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141605d7e992175532d23"
+  },
+  "id": "urn:ngsi-ld:Notification:e18b3454-36d3-11ef-927b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:32.174Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141635d7e992175532d2a"
+  },
+  "id": "urn:ngsi-ld:Notification:e3c98fcc-36d3-11ef-94dd-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:35.937Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141725d7e992175532d38"
+  },
+  "id": "urn:ngsi-ld:Notification:ecc05674-36d3-11ef-b818-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:50.977Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141765d7e992175532d3f"
+  },
+  "id": "urn:ngsi-ld:Notification:eefecbb4-36d3-11ef-b818-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:54.741Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681417a5d7e992175532d43"
+  },
+  "id": "urn:ngsi-ld:Notification:f13c144a-36d3-11ef-996d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:58.499Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681417e5d7e992175532d4c"
+  },
+  "id": "urn:ngsi-ld:Notification:f379e714-36d3-11ef-996d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:02.258Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141855d7e992175532d4d"
+  },
+  "id": "urn:ngsi-ld:Notification:f7f73f58-36d3-11ef-bf6b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:09.793Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141895d7e992175532d4e"
+  },
+  "id": "urn:ngsi-ld:Notification:fa3497fc-36d3-11ef-bf6b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:13.550Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681418d5d7e992175532d4f"
+  },
+  "id": "urn:ngsi-ld:Notification:fc727ae8-36d3-11ef-bf6b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:17.311Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141915d7e992175532d51"
+  },
+  "id": "urn:ngsi-ld:Notification:feb140c8-36d3-11ef-9dc4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:21.076Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141985d7e992175532d5d"
+  },
+  "id": "urn:ngsi-ld:Notification:032ca2c8-36d4-11ef-9253-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:28.597Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681419c5d7e992175532d64"
+  },
+  "id": "urn:ngsi-ld:Notification:056a04fe-36d4-11ef-9dc4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:32.353Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141a35d7e992175532d6a"
+  },
+  "id": "urn:ngsi-ld:Notification:09e5d97c-36d4-11ef-9dc4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:39.874Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141a75d7e992175532d70"
+  },
+  "id": "urn:ngsi-ld:Notification:0c237a64-36d4-11ef-9253-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:43.636Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141b25d7e992175532d71"
+  },
+  "id": "urn:ngsi-ld:Notification:12de3d26-36d4-11ef-8c2f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:54.925Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141b65d7e992175532d75"
+  },
+  "id": "urn:ngsi-ld:Notification:151b4d04-36d4-11ef-b5da-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:58.682Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141be5d7e992175532d81"
+  },
+  "id": "urn:ngsi-ld:Notification:1998078c-36d4-11ef-8c2f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:06.209Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141c55d7e992175532d88"
+  },
+  "id": "urn:ngsi-ld:Notification:1e136360-36d4-11ef-9682-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:13.730Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141e35d7e992175532d9a"
+  },
+  "id": "urn:ngsi-ld:Notification:300166ee-36d4-11ef-94cf-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:43.810Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141e75d7e992175532d9e"
+  },
+  "id": "urn:ngsi-ld:Notification:323f462e-36d4-11ef-b7a5-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:47.570Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141ef5d7e992175532da2"
+  },
+  "id": "urn:ngsi-ld:Notification:36bb180e-36d4-11ef-8d80-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:55.094Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141f25d7e992175532da9"
+  },
+  "id": "urn:ngsi-ld:Notification:38f8e2d6-36d4-11ef-9ce2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:58.851Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141f65d7e992175532db2"
+  },
+  "id": "urn:ngsi-ld:Notification:3b380180-36d4-11ef-8d80-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:02.622Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141fa5d7e992175532db3"
+  },
+  "id": "urn:ngsi-ld:Notification:3d760da2-36d4-11ef-8d80-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:06.385Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142095d7e992175532dbe"
+  },
+  "id": "urn:ngsi-ld:Notification:467a2050-36d4-11ef-b014-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:21.513Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681420d5d7e992175532dc5"
+  },
+  "id": "urn:ngsi-ld:Notification:48ab216c-36d4-11ef-9eb5-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:25.189Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142235d7e992175532dd4"
+  },
+  "id": "urn:ngsi-ld:Notification:561eb9a8-36d4-11ef-9530-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:47.757Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142275d7e992175532dd5"
+  },
+  "id": "urn:ngsi-ld:Notification:585cebb8-36d4-11ef-9530-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:51.519Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681422b5d7e992175532dd6"
+  },
+  "id": "urn:ngsi-ld:Notification:5a9b5ec8-36d4-11ef-9530-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:55.283Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681422f5d7e992175532dd7"
+  },
+  "id": "urn:ngsi-ld:Notification:5cd969c8-36d4-11ef-9318-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:59.047Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142365d7e992175532de7"
+  },
+  "id": "urn:ngsi-ld:Notification:61547376-36d4-11ef-9318-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:06.564Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681423a5d7e992175532deb"
+  },
+  "id": "urn:ngsi-ld:Notification:6392b0f8-36d4-11ef-9530-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:10.327Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142585d7e992175532e01"
+  },
+  "id": "urn:ngsi-ld:Notification:75ad496a-36d4-11ef-bc44-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:40.700Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142605d7e992175532e06"
+  },
+  "id": "urn:ngsi-ld:Notification:7a28c000-36d4-11ef-8f78-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:48.220Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142675d7e992175532e0d"
+  },
+  "id": "urn:ngsi-ld:Notification:7ea5a1fc-36d4-11ef-aac7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:55.750Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681426f5d7e992175532e13"
+  },
+  "id": "urn:ngsi-ld:Notification:8321224c-36d4-11ef-8e4e-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:03.269Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142735d7e992175532e17"
+  },
+  "id": "urn:ngsi-ld:Notification:855fd63e-36d4-11ef-b7c7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:07.036Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681427e5d7e992175532e1e"
+  },
+  "id": "urn:ngsi-ld:Notification:8c22b428-36d4-11ef-b6c8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:18.379Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142825d7e992175532e23"
+  },
+  "id": "urn:ngsi-ld:Notification:8e61631a-36d4-11ef-b6c8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:22.146Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142855d7e992175532e26"
+  },
+  "id": "urn:ngsi-ld:Notification:909e4b3e-36d4-11ef-95eb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:25.900Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681428d5d7e992175532e2a"
+  },
+  "id": "urn:ngsi-ld:Notification:9518f380-36d4-11ef-ba4f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:33.415Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142915d7e992175532e2e"
+  },
+  "id": "urn:ngsi-ld:Notification:97574e08-36d4-11ef-ba4f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:37.180Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142985d7e992175532e31"
+  },
+  "id": "urn:ngsi-ld:Notification:9bd2b22e-36d4-11ef-98e9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:44.699Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142a45d7e992175532e35"
+  },
+  "id": "urn:ngsi-ld:Notification:a28fe596-36d4-11ef-8df1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:56.003Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142af5d7e992175532e3c"
+  },
+  "id": "urn:ngsi-ld:Notification:a94970aa-36d4-11ef-8560-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:07.287Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142b65d7e992175532e3d"
+  },
+  "id": "urn:ngsi-ld:Notification:adc54de8-36d4-11ef-9f48-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:14.810Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142cd5d7e992175532e46"
+  },
+  "id": "urn:ngsi-ld:Notification:bb3910cc-36d4-11ef-96f1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:37.380Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142d15d7e992175532e47"
+  },
+  "id": "urn:ngsi-ld:Notification:bd7745f2-36d4-11ef-96f1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:41.142Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142d85d7e992175532e4c"
+  },
+  "id": "urn:ngsi-ld:Notification:c1f2302e-36d4-11ef-9f96-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:48.659Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142dc5d7e992175532e50"
+  },
+  "id": "urn:ngsi-ld:Notification:c42f5ca4-36d4-11ef-9f30-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:52.415Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142e75d7e992175532e5b"
+  },
+  "id": "urn:ngsi-ld:Notification:caed5cbc-36d4-11ef-9f96-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:03.725Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142eb5d7e992175532e5f"
+  },
+  "id": "urn:ngsi-ld:Notification:cd2683a0-36d4-11ef-9f96-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:07.457Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142fa5d7e992175532e6c"
+  },
+  "id": "urn:ngsi-ld:Notification:d61cd2c0-36d4-11ef-9a73-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:22.493Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143025d7e992175532e75"
+  },
+  "id": "urn:ngsi-ld:Notification:da99ad46-36d4-11ef-9af7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:30.021Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143095d7e992175532e76"
+  },
+  "id": "urn:ngsi-ld:Notification:df15edd0-36d4-11ef-ab52-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:37.546Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681430d5d7e992175532e7a"
+  },
+  "id": "urn:ngsi-ld:Notification:e152474c-36d4-11ef-af43-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:41.299Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143145d7e992175532e80"
+  },
+  "id": "urn:ngsi-ld:Notification:e5ccc95a-36d4-11ef-bc8a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:48.812Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143185d7e992175532e84"
+  },
+  "id": "urn:ngsi-ld:Notification:e80a69de-36d4-11ef-b730-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:52.571Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681432f5d7e992175532e95"
+  },
+  "id": "urn:ngsi-ld:Notification:f57f7f14-36d4-11ef-959d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:15.149Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143325d7e992175532e9b"
+  },
+  "id": "urn:ngsi-ld:Notification:f7bec334-36d4-11ef-959d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:18.919Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143455d7e992175532ead"
+  },
+  "id": "urn:ngsi-ld:Notification:02f5970a-36d5-11ef-ab80-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:37.733Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143495d7e992175532eae"
+  },
+  "id": "urn:ngsi-ld:Notification:0533df40-36d5-11ef-ab80-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:41.496Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143545d7e992175532eb2"
+  },
+  "id": "urn:ngsi-ld:Notification:0bf22896-36d5-11ef-91be-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:52.811Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143585d7e992175532eb6"
+  },
+  "id": "urn:ngsi-ld:Notification:0e2e0fee-36d5-11ef-adeb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:56.557Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681436f5d7e992175532ed2"
+  },
+  "id": "urn:ngsi-ld:Notification:1ba0ce28-36d5-11ef-8072-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:19.121Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143725d7e992175532ed6"
+  },
+  "id": "urn:ngsi-ld:Notification:1dddf9a4-36d5-11ef-a8e2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:22.877Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681437a5d7e992175532ee0"
+  },
+  "id": "urn:ngsi-ld:Notification:2259f820-36d5-11ef-b066-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:30.400Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681437e5d7e992175532ee4"
+  },
+  "id": "urn:ngsi-ld:Notification:249816e4-36d5-11ef-84f7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:34.161Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143855d7e992175532eeb"
+  },
+  "id": "urn:ngsi-ld:Notification:29146704-36d5-11ef-84f7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:41.689Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143895d7e992175532ef1"
+  },
+  "id": "urn:ngsi-ld:Notification:2b524ab8-36d5-11ef-84f7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:45.449Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143905d7e992175532ef2"
+  },
+  "id": "urn:ngsi-ld:Notification:2fcd5bd2-36d5-11ef-9921-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:52.965Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143945d7e992175532ef3"
+  },
+  "id": "urn:ngsi-ld:Notification:320a512a-36d5-11ef-9921-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:56.722Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143a75d7e992175532f04"
+  },
+  "id": "urn:ngsi-ld:Notification:3d3f2cdc-36d5-11ef-9873-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:15.523Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143ab5d7e992175532f05"
+  },
+  "id": "urn:ngsi-ld:Notification:3f7cee26-36d5-11ef-9873-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:19.283Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143c15d7e992175532f20"
+  },
+  "id": "urn:ngsi-ld:Notification:4cf13f76-36d5-11ef-963b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:41.856Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143c55d7e992175532f26"
+  },
+  "id": "urn:ngsi-ld:Notification:4f2ede74-36d5-11ef-9873-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:45.615Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143d05d7e992175532f2c"
+  },
+  "id": "urn:ngsi-ld:Notification:55eaf662-36d5-11ef-a47a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:56.914Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143d45d7e992175532f30"
+  },
+  "id": "urn:ngsi-ld:Notification:582816bc-36d5-11ef-a78c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:00.671Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143dc5d7e992175532f36"
+  },
+  "id": "urn:ngsi-ld:Notification:5ca34c84-36d5-11ef-a78c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:08.189Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143df5d7e992175532f37"
+  },
+  "id": "urn:ngsi-ld:Notification:5ee0925e-36d5-11ef-a78c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:11.945Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143ef5d7e992175532f47"
+  },
+  "id": "urn:ngsi-ld:Notification:67d733b8-36d5-11ef-b342-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:26.983Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143f25d7e992175532f48"
+  },
+  "id": "urn:ngsi-ld:Notification:6a152ae0-36d5-11ef-b342-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:30.745Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144015d7e992175532f51"
+  },
+  "id": "urn:ngsi-ld:Notification:730d3714-36d5-11ef-bb8f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:45.793Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144095d7e992175532f5e"
+  },
+  "id": "urn:ngsi-ld:Notification:7788bb2e-36d5-11ef-bb8f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:53.313Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144365d7e992175532f75"
+  },
+  "id": "urn:ngsi-ld:Notification:9269eabc-36d5-11ef-9aa7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:38.410Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681443a5d7e992175532f76"
+  },
+  "id": "urn:ngsi-ld:Notification:94a74c5c-36d5-11ef-9aa7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:42.166Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681443d5d7e992175532f7a"
+  },
+  "id": "urn:ngsi-ld:Notification:96e4a438-36d5-11ef-9a9c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:45.925Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144415d7e992175532f7e"
+  },
+  "id": "urn:ngsi-ld:Notification:9922803a-36d5-11ef-9a9c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:49.685Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144675d7e992175532f9c"
+  },
+  "id": "urn:ngsi-ld:Notification:af8e1b54-36d5-11ef-8a73-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:27.300Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681446b5d7e992175532fa0"
+  },
+  "id": "urn:ngsi-ld:Notification:b1cb3b86-36d5-11ef-87a1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:31.057Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144765d7e992175532faa"
+  },
+  "id": "urn:ngsi-ld:Notification:b885a952-36d5-11ef-b49b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:42.344Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681447a5d7e992175532fb0"
+  },
+  "id": "urn:ngsi-ld:Notification:bac3fc1e-36d5-11ef-9cc4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:46.108Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681447d5d7e992175532fb4"
+  },
+  "id": "urn:ngsi-ld:Notification:bd00af36-36d5-11ef-b49b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:49.862Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144815d7e992175532fb8"
+  },
+  "id": "urn:ngsi-ld:Notification:bf3e3890-36d5-11ef-9cc4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:53.620Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144895d7e992175532fbc"
+  },
+  "id": "urn:ngsi-ld:Notification:c3b9931a-36d5-11ef-ac14-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:01.139Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681448c5d7e992175532fc2"
+  },
+  "id": "urn:ngsi-ld:Notification:c5f753c4-36d5-11ef-b406-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:04.900Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144985d7e992175532fc5"
+  },
+  "id": "urn:ngsi-ld:Notification:ccb079a2-36d5-11ef-b6b9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:16.180Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681449b5d7e992175532fc9"
+  },
+  "id": "urn:ngsi-ld:Notification:ceeeaf54-36d5-11ef-b6b9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:19.942Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144a75d7e992175532fd8"
+  },
+  "id": "urn:ngsi-ld:Notification:d5aa3cf0-36d5-11ef-9d81-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:31.238Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144ab5d7e992175532fdc"
+  },
+  "id": "urn:ngsi-ld:Notification:d7e8b4ce-36d5-11ef-b6b9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:35.003Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144b25d7e992175532fe3"
+  },
+  "id": "urn:ngsi-ld:Notification:dc63d290-36d5-11ef-9d81-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:42.522Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144b65d7e992175532fea"
+  },
+  "id": "urn:ngsi-ld:Notification:dea42f3c-36d5-11ef-909d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:46.298Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144c15d7e992175532ff7"
+  },
+  "id": "urn:ngsi-ld:Notification:e55df362-36d5-11ef-9d81-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:57.582Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144c55d7e992175532ff8"
+  },
+  "id": "urn:ngsi-ld:Notification:e79cde54-36d5-11ef-9d81-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:01.349Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144d05d7e992175532ffe"
+  },
+  "id": "urn:ngsi-ld:Notification:ee55fd02-36d5-11ef-aff9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:12.629Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144d45d7e992175533005"
+  },
+  "id": "urn:ngsi-ld:Notification:f093b5e6-36d5-11ef-aff9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:16.389Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144db5d7e992175533010"
+  },
+  "id": "urn:ngsi-ld:Notification:f50fd460-36d5-11ef-aff9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:23.914Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144df5d7e992175533013"
+  },
+  "id": "urn:ngsi-ld:Notification:f74d8fb0-36d5-11ef-b2d8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:27.673Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144e35d7e992175533017"
+  },
+  "id": "urn:ngsi-ld:Notification:f98dc100-36d5-11ef-a763-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:31.450Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144eb5d7e992175533023"
+  },
+  "id": "urn:ngsi-ld:Notification:fe09715c-36d5-11ef-a763-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:38.970Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144fa5d7e99217553302c"
+  },
+  "id": "urn:ngsi-ld:Notification:07010e96-36d6-11ef-94fa-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:54.015Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144fd5d7e992175533030"
+  },
+  "id": "urn:ngsi-ld:Notification:093f4dc6-36d6-11ef-9f7c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:57.778Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145015d7e992175533031"
+  },
+  "id": "urn:ngsi-ld:Notification:0b7c71ea-36d6-11ef-9f7c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:01.535Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145095d7e99217553303e"
+  },
+  "id": "urn:ngsi-ld:Notification:0ff7fe10-36d6-11ef-9f7c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:09.056Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681450c5d7e99217553303f"
+  },
+  "id": "urn:ngsi-ld:Notification:1234fd5e-36d6-11ef-9f7c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:12.811Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145145d7e992175533046"
+  },
+  "id": "urn:ngsi-ld:Notification:16b131d6-36d6-11ef-b263-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:20.335Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681451b5d7e99217553304f"
+  },
+  "id": "urn:ngsi-ld:Notification:1b300034-36d6-11ef-b263-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:27.879Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145235d7e99217553305b"
+  },
+  "id": "urn:ngsi-ld:Notification:1faca338-36d6-11ef-b263-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:35.404Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681452e5d7e992175533068"
+  },
+  "id": "urn:ngsi-ld:Notification:2664a036-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:46.678Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145325d7e992175533069"
+  },
+  "id": "urn:ngsi-ld:Notification:28a256e0-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:50.438Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681453d5d7e992175533076"
+  },
+  "id": "urn:ngsi-ld:Notification:2f5c78ee-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:01.724Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145415d7e99217553307c"
+  },
+  "id": "urn:ngsi-ld:Notification:3199ce7c-36d6-11ef-a30a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:05.481Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145505d7e992175533086"
+  },
+  "id": "urn:ngsi-ld:Notification:3a929360-36d6-11ef-a77d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:20.533Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145545d7e99217553308d"
+  },
+  "id": "urn:ngsi-ld:Notification:3cd07ae8-36d6-11ef-a77d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:24.295Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681455b5d7e992175533097"
+  },
+  "id": "urn:ngsi-ld:Notification:414c197e-36d6-11ef-a77d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:31.816Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681455f5d7e992175533098"
+  },
+  "id": "urn:ngsi-ld:Notification:438986c2-36d6-11ef-a77d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:35.574Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145765d7e9921755330a4"
+  },
+  "id": "urn:ngsi-ld:Notification:50fa9f08-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:58.125Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145795d7e9921755330ab"
+  },
+  "id": "urn:ngsi-ld:Notification:5338955e-36d6-11ef-828e-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:01.885Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145815d7e9921755330b3"
+  },
+  "id": "urn:ngsi-ld:Notification:57b484e4-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:09.410Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145885d7e9921755330ba"
+  },
+  "id": "urn:ngsi-ld:Notification:5c30a32c-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:16.934Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681458c5d7e9921755330be"
+  },
+  "id": "urn:ngsi-ld:Notification:5e6eec52-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:20.697Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145905d7e9921755330c3"
+  },
+  "id": "urn:ngsi-ld:Notification:60ae3f5e-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:24.469Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681459f5d7e9921755330cb"
+  },
+  "id": "urn:ngsi-ld:Notification:69a4f0f8-36d6-11ef-b439-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:39.507Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145a35d7e9921755330cc"
+  },
+  "id": "urn:ngsi-ld:Notification:6be305f8-36d6-11ef-b439-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:43.268Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145b25d7e9921755330d5"
+  },
+  "id": "urn:ngsi-ld:Notification:74da283a-36d6-11ef-8ffc-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:58.309Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145b65d7e9921755330d6"
+  },
+  "id": "urn:ngsi-ld:Notification:7716f63c-36d6-11ef-8ffc-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:47:02.064Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145bd5d7e9921755330df"
+  },
+  "id": "urn:ngsi-ld:Notification:7b92fe2c-36d6-11ef-8ffc-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:47:09.588Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145c15d7e9921755330e0"
+  },
+  "id": "urn:ngsi-ld:Notification:7dd0d786-36d6-11ef-8ffc-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:47:13.348Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145c55d7e9921755330e4"
+  },
+  "id": "urn:ngsi-ld:Notification:800e7e9a-36d6-11ef-baf9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:47:17.109Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145c85d7e9921755330e8"
+  },
+  "id": "urn:ngsi-ld:Notification:824ceaca-36d6-11ef-8ffc-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72c3bda-36d2-11ef-9d20-0242ac120104",
+  "notifiedAt": "2024-06-30T11:47:20.873Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRadar:001"
+      },
+      "presence": {
+        "type": "Property",
+        "value": "LOW"
+      }
+    }
+  ]
+}]

@@ -63,7 +63,12 @@ mixin devicesForWeatherStation(id)
     script.
 
         $(function () {
-            const socket = io();
+
+            const isBehindProxy = window.location.port === "80" || window.location.port === "";
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
+
         
             socket.on('update_temperatureSensor', function(temperature) {
                 $('.temperature').text(temperature);
@@ -97,7 +102,7 @@ mixin devicesForWeatherStation(id)
                 const currentState = $('#weatherStationButton').hasClass('btn-success');
                 const newState = !currentState;
                 // Enviar la solicitud POST para cambiar el estado
-                $.post('/weatherStation/toggle', { state: newState }, function(response) {
+                $.post(`${route}/weatherStation/toggle`, { state: newState }, function(response) {
                     // Actualizar el estado del botón basado en la respuesta
                     //- updateWeatherStationButton(newState);
                 });

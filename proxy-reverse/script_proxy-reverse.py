@@ -158,24 +158,6 @@ def append_subscontrolapp():
     }
 
 """
-# def append_subscontrolapp():
-#     return \
-# """
-#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
-#     # ### ### SubsControlApp 
-#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
-#     location /subsControlApp/ {
-#         proxy_pass http://subsControlApp:4040/;
-#         proxy_set_header Host $host;
-#         proxy_set_header X-Real-IP $remote_addr;
-#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-#         proxy_set_header X-Forwarded-Proto $scheme;
-
-#         # Remove /service from the forwarded request
-#         rewrite ^/subsControlApp/(.*)$ /$1 break;
-#     }
-# """
-        
 
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
 ## ----- # Simulator Config
@@ -188,11 +170,46 @@ def append_simulator():
     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
     location /simulatorApp/ {
         rewrite ^/simulatorApp/(.*)$ /$1 break;
+        
         proxy_pass http://simulatorApp:3030/;
+        
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Ajustar las rutas en las respuestas del backend
+        # Asegura que las rutas devueltas sean relativas a /subsControlApp
+        sub_filter 'href="/' 'href="/simulatorApp/';
+        sub_filter 'src="/' 'src="/simulatorApp/';
+        sub_filter_once off;
+    }
+    
+    location /socket.io/ {
+        rewrite ^/socket.io/(.*)$ /$1 break;
+        proxy_pass http://simulatorApp:3030/socket.io/;
+
+        # Configuraciones para WebSocket
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        # Encabezados adicionales
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Tiempo de espera (ajustar según las necesidades del WebSocket)
+        proxy_read_timeout 60s;
+        proxy_send_timeout 60s;
+
+        # Evitar compresión para evitar problemas con WebSocket
+        proxy_buffering off;
     }
 """
 

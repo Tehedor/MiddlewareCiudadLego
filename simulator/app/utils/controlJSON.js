@@ -5,8 +5,32 @@ const path = require('path');
 const controlJSONPath = path.join(__dirname, 'control.json');
 
 // const { state_simulator_true, state_simulator_false } = require('./checkSimulationStatus');
-const { state_simulator_true, state_simulator_false } = require('./submodules/simulationState');
+const { state_simulator_true, state_simulator_false, mode_simulator_false, mode_simulator_true } = require('./submodules/simulationState');
 
+
+const changeModeState = async (state) => {
+    if (state) {
+        modifyJSONModeState(state);
+        await mode_simulator_true();
+    } else {
+        modifyJSONModeState(state);
+        await mode_simulator_false();
+    }
+};
+
+// const modifyJSON = () => {
+const modifyJSONModeState = (state) => {
+
+    const fileContent = fs.readFileSync(controlJSONPath, 'utf8').trim();
+    const controlJSON = JSON.parse(fileContent);
+    if (controlJSON.mode_state !== state) {
+        controlJSON.mode_state = state;
+        fs.writeFileSync(controlJSONPath, JSON.stringify(controlJSON, null, 2), 'utf8');
+        return true; 
+    } else {
+        return false; 
+    }
+}
 
 const changeInicialState = async (state) => {
     if (state) {
@@ -288,6 +312,7 @@ const changeTimerWeatherStation = (time) => {
 }
 
 module.exports = {
+    changeModeState,
     changeInicialState, changeTimeInterval, 
     changePirSensor, changeTimerPirSensor, 
     changePhotoresistorSensor, changeTimerPhotoresistorSensor, 

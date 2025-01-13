@@ -1,4 +1,4 @@
-var Infrarrojos = require('../models/Infrarrojos.js');
+var Infrarrojos = require('../models/sensors/Infrarrojos.js');
 
 //función para obtener todos los datos de los trenes
 exports.getInfrarrojos = async function (req, res, next) {

@@ -16,6 +16,7 @@ const {
     INTENSITY_THRESHOLD             :intensity_threshold= 70,
 
     INICIAL_STATE                   :inicial_state= true,
+    MODE_STATE                      :mode_state= false,
     TIME_INTERVAL                   :time_interval= 250,
 
     SIMULATE_PIR_SENSOR             :simulate_pir_sensor= true,
@@ -58,6 +59,7 @@ const EnvConfig = () => ({
 
     intensity_threshold             :Number(intensity_threshold),
     inicial_state                   :convertToBoolean(inicial_state),
+    mode_state                      :convertToBoolean(mode_state),
     time_interval                   :Number(time_interval),
 
     simulate_pir_sensor             :convertToBoolean(simulate_pir_sensor),

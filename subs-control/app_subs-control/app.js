@@ -85,7 +85,6 @@ const {createJSON, checkIfJSONExists, checkIfJSONWellFormed} = require('./utils/
 const {showState} = require('./utils/controlJSON');
 
 
-const primeraVez = !checkIfJSONExists();
 if (checkIfJSONExists()) {
     createJSON();
 }
@@ -107,10 +106,58 @@ if (attempts === maxAttempts) {
 }
 
 // Ini Subs
-if (primeraVez){
-    control_subs.start_subscritpions(showState());
-    control_entities.createEntities();
-}
+// Existen las entidades?
+const generalControllerEntities = require('./controllers/generalControllerEntities');    
+(async () => {
+    const entities = await generalControllerEntities();
+    if (entities.length === 0) {
+        console.log('No se encontraron entidades en la base de datos.');
+        control_entities.createEntities();
+    } else {
+        console.log(`Se encontraron ${entities.length} entidades en la base de datos.`);
+    }
+})();
+
+
+
+// Existen las subscripciones draco
+const generalSubsDraco = require('./controllers/generalSubsDraco');
+(async () => {
+    const subsDraco = await generalSubsDraco();
+    if (subsDraco.length === 0) {
+        console.log('No se encontraron subscripciones Draco en la base de datos.');
+        control_subs.start_subscritpions_Draco();
+    } else {
+        console.log(`Se encontraron ${subsDraco.length} subscripciones Draco en la base de datos.`);
+    }
+})();
+
+// Existen las subscripciones relations
+const generalSubsRelations = require('./controllers/generalSubsRelations');
+(async () => {
+    const subsRelations = await generalSubsRelations();
+    if (subsRelations.length === 0) {
+        console.log('No se encontraron subscripciones Relations en la base de datos.');
+        if (showState() === 'real') {
+            control_subs.start_subscritpions_Real();
+            console.log('Real');
+        }else {
+            control_subs.start_subscritpions_Simulator();
+            console.log('Simulator');
+        }
+
+    } else {
+        console.log(`Se encontraron ${subsRelations.length} subscripciones Relations en la base de datos.`);
+    }
+})();
+
+
+
+
+// const primeraVez = !checkIfJSONExists();
+// if (primeraVez){
+//     control_subs.start_subscritpions(showState());
+// }
 
 
 module.exports = app;

@@ -7,7 +7,7 @@ const { device_number, mode_containers } = EnvConfig();
 let host = 'localhost';
 // console.log('mode_containers', mode_containers);
 if (mode_containers=== true) {
-    host = 'orion';
+    host = 'fiware-orion';
     // console.log('host', host);
 }
 

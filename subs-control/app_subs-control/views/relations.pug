@@ -9,6 +9,9 @@ block content
             | 
             button.btn.btn-primary(onclick=`updateSubscriptionsTo('real','relations')`) Modo: Real
         .col-md-6
+            button.btn.btn-primary(onclick=`createSubsReal('relations')`) Crear Subs. Real
+            | 
+            button.btn.btn-primary(onclick=`createSubsSimulator('relations')`) Crear Subs: Simulator 
     if subsRelations.length
         .row
             each entity in subsRelations

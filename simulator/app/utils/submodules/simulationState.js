@@ -2,6 +2,7 @@
 
 const { getInitialStateWithRetry_Raspberry, changeState_Raspberry, getInitialStateWithRetry_SubsController, changeState_SubsController } = require('./checkSimulationStatus');
 
+// State
 const state_simulator_true = async () => {
     const raspberry_state = await getInitialStateWithRetry_Raspberry();
     if (raspberry_state === 'running') {
@@ -26,6 +27,29 @@ const state_simulator_false = async () => {
     }
 };
 
+// Mode
+const mode_simulator_true = async () => {
+    
+    const sub_control_Sub = await getInitialStateWithRetry_SubsController();
+    if (sub_control_Sub === 'real') {
+        const raspberry_state = await getInitialStateWithRetry_Raspberry();
+        if (raspberry_state === 'stopped') {
+            await changeState_Raspberry('start');
+        }
+    }
+
+};
+
+const mode_simulator_false = async () => {
+
+    const raspberry_state = await getInitialStateWithRetry_Raspberry();
+    if (raspberry_state === 'running') {
+        await changeState_Raspberry('stop');
+    }
+
+};
+
+
 
 const startCheckState = async (ini_state = true) => {
     try {
@@ -41,6 +65,8 @@ const startCheckState = async (ini_state = true) => {
 
 
 module.exports = {
+    mode_simulator_true,
+    mode_simulator_false,
     state_simulator_true,
     state_simulator_false,
     startCheckState

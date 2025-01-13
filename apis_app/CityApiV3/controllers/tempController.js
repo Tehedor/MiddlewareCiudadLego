@@ -1,4 +1,4 @@
-var Temperatura = require('../models/Temperatura.js')
+var Temperatura = require('../models/sensors/Temperatura.js')
 
 //función para obtener la temperatura de la zona norte
 exports.getTemperatura = async function (req, res, next) {

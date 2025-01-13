@@ -48,7 +48,11 @@ mixin devicesForToll(id)
 
     script.
         $(function () {
-            const socket = io();
+
+            const isBehindProxy = window.location.port === "80" || window.location.port === "";
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
         
             socket.on('update_rfidSensor', function(uiddcode_rfidSensor) {
                 $('.uiddcode_rfidSensor').text(uiddcode_rfidSensor);
@@ -78,7 +82,7 @@ mixin devicesForToll(id)
                 const currentState = $('#rfidSensorButton').hasClass('btn-success');
                 const newState = !currentState;
                 // Enviar la solicitud POST para cambiar el estado
-                $.post('/toll/toggle', { state: newState }, function(response) {
+                $.post(`${route}/toll/toggle`, { state: newState }, function(response) {
                     // Actualizar el estado del botón basado en la respuesta
                     //- updateRfidSensor(newState);
                 });

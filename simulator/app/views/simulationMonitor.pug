@@ -21,7 +21,10 @@ block content
             div.card(style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 40%; margin: auto;")
                 div.card-body
                     .row
-                        button.btn.btn-primary.btn-sm(id="state_iniStateButton" type="button" style="margin-left:10px") Start/Pause       
+                        button.btn.btn-primary.btn-sm(id="state_iniMode" type="button" style="margin-left:10px") Mode     
+                    .row
+                        button.btn.btn-primary.btn-sm(id="state_iniStateButton" type="button" style="margin-left:10px; margin-top:4px") Start/Pause     
+                    .row  
                         span.state_simulator
                     .row 
                         span.state_raspberry
@@ -50,11 +53,18 @@ block content
 
     script.
         const controlConfigJSON = !{JSON.stringify(controlConfigJSON)};
-    script.
+        const isBehindProxy = window.location.port === "80" || window.location.port === "";
+        const route = isBehindProxy ? '/simulatorApp' : '';
 
     script.
         $(function () {
-            const socket = io();
+            //- const socket = io(controlConfigJSON.mode_containers ? '/simulatorApp' : '/');
+            //- const socket = io(controlConfigJSON.mode_containers ? '/simulatorApp' : '/');
+            //- const socket = io(true ? '/simulatorApp' : '/');
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
+
 
             socket.on('update_timer', function(timer) {
                 $('.timer_pirSensor').text(timer[0]);
@@ -86,17 +96,40 @@ block content
             socket.on('update_iniState', function(simulate) {
                 updateInitState(simulate);
             });
+
+            socket.on('update_modeState', function(simulate) {
+                //- updateInitState(simulate);
+                updateStartPause(simulate);
+            });
         });
 
         function updateInitState(state_iniState) {
             if (state_iniState) {
-                $('#state_iniStateButton').removeClass('btn-danger').addClass('btn-success').text('ON');
-                $('.state_simulator').text('Simulacion en curso');
+                $('#state_iniStateButton').removeClass('btn-danger').addClass('btn-success').text('Simulator');
+                $('.state_simulator').removeClass('text-danger').addClass('text-success').text('Simulacion en curso');
                 $('.state_raspberry').removeClass('text-success').addClass('text-danger').text('Rasberry IOT apagada');
             } else {
-                $('#state_iniStateButton').removeClass('btn-success').addClass('btn-danger').text('OFF');
-                $('.state_simulator').text('Simulacion detenidas');
+                $('#state_iniStateButton').removeClass('btn-success').addClass('btn-danger').text('Rasberry');
+                $('.state_simulator').removeClass('text-success').addClass('text-danger').text('Simulacion detenidas');
                 $('.state_raspberry').removeClass('text-danger').addClass('text-success').text('Rasberry IOT encendida');
+            }
+        }
+
+        //- function updateStartPause(state_mode) {
+        //-     if (state_mode) {
+        //-         $('#state_iniMode').removeClass('btn-danger').addClass('btn-success').text('ON');
+        //-     } else {
+        //-         $('#state_iniMode').removeClass('btn-success').addClass('btn-danger').text('OFF');
+        //-     }
+        //- }
+
+        function updateStartPause(state_mode) {
+            if (state_mode) {
+                $('#state_iniMode').removeClass('btn-danger').addClass('btn-success').text('ON');
+                $('#state_iniStateButton').prop('disabled', false); // Habilitar el botón
+            } else {
+                $('#state_iniMode').removeClass('btn-success').addClass('btn-danger').text('OFF');
+                $('#state_iniStateButton').prop('disabled', true); // Deshabilitar el botón
             }
         }
 
@@ -104,10 +137,18 @@ block content
             $('#state_iniStateButton').click(function() {
                 const currentState = $('#state_iniStateButton').hasClass('btn-success');
                 const newState = !currentState;
-                $.post('/simulation/toggle', { state: newState }, function(response) {
-                    updateInitState(newState);
+                $.post(`${route}/simulation/toggle`, { state: newState }, function(response) {
+                    //- updateInitState(newState);
                 });
             });
 
-            updateInitState(controlConfigJSON.inicial_state);
+            $('#state_iniMode').click(function() {
+                const currentState = $('#state_iniMode').hasClass('btn-success');
+                const newState = !currentState;
+                $.post(`${route}/simulator/toggle`, { state: newState }, function(response) {
+                    //- updateStartPause(newState);
+                });
+            });
+
+            //- updateInitState(JSON.inicial_state);
         });

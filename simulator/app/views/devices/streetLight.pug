@@ -83,7 +83,13 @@ mixin devicesForStreetLight(id)
     script.
 
         $(function () {
-            const socket = io();
+            //- const socket = io(controlConfigJSON.mode_containers ? '/simulatorApp' : '/');
+            const isBehindProxy = window.location.port === "80" || window.location.port === "";
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
+
+
         
             socket.on('update_pirSensor', function(presence_pirSensor) {
                 $('.presence').text(presence_pirSensor);
@@ -140,7 +146,7 @@ mixin devicesForStreetLight(id)
                 const currentState = $('#pirSensorButton').hasClass('btn-success');
                 const newState = !currentState;
                 // Enviar la solicitud POST para cambiar el estado
-                $.post('/pirSensor/toggle', { state: newState }, function(response) {
+                $.post(`${route}/pirSensor/toggle`, { state: newState }, function(response) {
                     // Actualizar el estado del botón basado en la respuesta
                     //- updatePirSensorButton(newState);
                 });
@@ -150,7 +156,7 @@ mixin devicesForStreetLight(id)
                 const currentState = $('#photoresistorSensorButton').hasClass('btn-success');
                 const newState = !currentState;
                 // Enviar la solicitud POST para cambiar el estado
-                $.post('/photoresistorSensor/toggle', { state: newState }, function(response) {
+                $.post(`${route}/photoresistorSensor/toggle`, { state: newState }, function(response) {
                     // Actualizar el estado del botón basado en la respuesta
                     //- updatePhotoresistorSensorButton(newState);
                 });

@@ -2,15 +2,7 @@ const express = require('express');
 const debug = require('debug')('tutorial:iot-device');
 const createError = require('http-errors');
 
-const ActuatorsService = require('./services/actuators.service.js');
-
-// const streetLightController = require('./controllers/streetLightController.js');
-
-
 const SimulateActuators = require('./simulation/simulateActuators.js');
-
-/* global MQTT_CLIENT */
-const DEVICE_TRANSPORT = process.env.DUMMY_DEVICES_TRANSPORT || 'HTTP';
 
 // The motion sensor offers no commands, hence it does not need an endpoint.
 
@@ -38,13 +30,7 @@ iot.use(function (req, res, next) {
     next();
 });
 
-
 iot.use('/', iotRouter);
-
-// Degault route
-// iotRouter.post('/*', function(req, res) {
-//     res.send('Este es el nuevo endpoint');
-// });
 
 // // // // // // // // // // // // // // // // // // // //
 // // Actuators
@@ -125,60 +111,11 @@ iotRouter.post('/cameraActuator', function (req, res) {
     res.status(201).send('Camera ta bien ');
 });
 
-
-
-// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-// Control simulation
-// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-// const fs = require('fs');
-// const path = require('path');
-// const controlJSONPath = path.join(__dirname, './utils/control.json');
-
-// {
-//     "inicial_state": true,
-//     "time_interval": 200,
-//     "pir_sensor": {
-//       "simulate_pir_sensor": true,
-//       "timer_pir_sensor": 2125
-//     },
-//     "photoresistor_sensor": {
-//       "simulate_photoresistor_sensor": true,
-//       "timer_photoresistor_sensor": 10500
-//     },
-//     "potentiometer_sensor": {
-//       "simulate_potentiometer_sensor": false,
-//       "timer_potentiometer_sensor": 20000
-//     },
-//     "infra_red_sensor": {
-//       "simulate_infrared_sensor": false,
-//       "timer_infrared_sensor": 3750
-//     },
-//     "switch_sensor": {
-//       "simulate_switch_sensor": false,
-//       "timer_switch_sensor": 500000
-//     },
-//     "rfid_sensor": {
-//       "simulate_rfid_sensor": false,
-//       "timer_rfid_sensor": 40000
-//     },
-//     "ultrasound_sensor": {
-//       "simulate_ultrasound_sensor": false,
-//       "timer_ultrasound_sensor": 200125
-//     },
-//     "wather_station": {
-//       "simulate_weather_station": false,
-//       "timer_weather_station": 600000,
-//       "wather_api_key": "d9cde8b16d65f14446e43bd0c7e7dffd"
-//     }
-//   }
-
-
 // // // // // // // // // // // // // // // // // // // //
 // catch 404 and forward to error handler
 // // // // // // // // // // // // // // // // // // // //
 iot.use(function (req, res) {
     res.status(404).send(new createError.NotFound());
 });
-
 
 module.exports = iot;

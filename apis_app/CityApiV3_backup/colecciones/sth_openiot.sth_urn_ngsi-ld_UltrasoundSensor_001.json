@@ -1,0 +1,112 @@
+[{
+  "_id": {
+    "$oid": "66813fb05d7e992175532bc7"
+  },
+  "id": "urn:ngsi-ld:Notification:deebb8dc-36d2-11ef-8718-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d731532c-36d2-11ef-8523-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:18.257Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:UltrasoundSensor:001",
+      "type": "UltrasoundSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoCrane:001"
+      },
+      "distance": {
+        "type": "Property",
+        "value": 27,
+        "unitCode": "CMT"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140785d7e992175532c67"
+  },
+  "id": "urn:ngsi-ld:Notification:57633646-36d3-11ef-b37c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d731532c-36d2-11ef-8523-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:40.368Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:UltrasoundSensor:001",
+      "type": "UltrasoundSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoCrane:001"
+      },
+      "distance": {
+        "type": "Property",
+        "value": 25,
+        "unitCode": "CMT"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141415d7e992175532d0b"
+  },
+  "id": "urn:ngsi-ld:Notification:cf02c32e-36d3-11ef-857a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d731532c-36d2-11ef-8523-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:01.080Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:UltrasoundSensor:001",
+      "type": "UltrasoundSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoCrane:001"
+      },
+      "distance": {
+        "type": "Property",
+        "value": 31,
+        "unitCode": "CMT"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142d25d7e992175532e4b"
+  },
+  "id": "urn:ngsi-ld:Notification:be836020-36d4-11ef-aaa3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d731532c-36d2-11ef-8523-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:42.897Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:UltrasoundSensor:001",
+      "type": "UltrasoundSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoCrane:001"
+      },
+      "distance": {
+        "type": "Property",
+        "value": 34,
+        "unitCode": "CMT"
+      }
+    }
+  ]
+}]

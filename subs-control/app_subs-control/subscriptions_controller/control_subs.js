@@ -49,13 +49,29 @@ function start_subscritpions(iniState) {
     }
 }
 
+
+const start_subscritpions_Draco = () => {
+    createSubscriptions_buildings_draco('all');
+    createSubscriptions_sensors_draco('all');
+    createSubscriptions_actuators_draco('all');
+}
+
+const start_subscritpions_Real = () => {
+    createSubscriptions_real('all');
+}
+
+const start_subscritpions_Simulator = () => {
+    createSubscriptions_actuators_simulator('all');
+}
+
+
 // Crear suscripciones
 function createSubsciption_standar(subscription) {
 
 }
 
 
-module.exports = { changeState, start_subscritpions };
+module.exports = { changeState, start_subscritpions, start_subscritpions_Draco, start_subscritpions_Real, start_subscritpions_Simulator};
 
 
 

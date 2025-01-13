@@ -1,0 +1,84 @@
+[{
+  "_id": {
+    "$oid": "66813fb15d7e992175532bcd"
+  },
+  "id": "urn:ngsi-ld:Notification:dfa59a54-36d2-11ef-9d59-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d735ba16-36d2-11ef-b512-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:19.494Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:HumiditySensor:001",
+      "type": "HumiditySensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoWheaterStation:001"
+      },
+      "humidity": {
+        "type": "Property",
+        "value": 60,
+        "unitCode": "P1"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142095d7e992175532dc1"
+  },
+  "id": "urn:ngsi-ld:Notification:46a5ffcc-36d4-11ef-b014-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d735ba16-36d2-11ef-b512-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:21.799Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:HumiditySensor:001",
+      "type": "HumiditySensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoWheaterStation:001"
+      },
+      "humidity": {
+        "type": "Property",
+        "value": 60,
+        "unitCode": "P1"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144645d7e992175532f9a"
+  },
+  "id": "urn:ngsi-ld:Notification:ad9f4b42-36d5-11ef-8a73-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d735ba16-36d2-11ef-b512-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:24.057Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:HumiditySensor:001",
+      "type": "HumiditySensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoWheaterStation:001"
+      },
+      "humidity": {
+        "type": "Property",
+        "value": 59,
+        "unitCode": "P1"
+      }
+    }
+  ]
+}]

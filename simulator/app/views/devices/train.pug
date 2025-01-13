@@ -55,7 +55,15 @@ mixin devicesForTrain(id)
 
     script.
         $(function () {
-            const socket = io();
+            //- const socket = io(controlConfigJSON.mode_containers ? '/simulatorApp' : '/');
+
+            //- const socket = io('/simulatorApp');
+
+            const isBehindProxy = window.location.port === "80" || window.location.port === "";
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
+
         
             socket.on('update_potentiometerSensor', function(controlVelocity_potentiometerSensor) {
                 $('.potentiometer').text(controlVelocity_potentiometerSensor);
@@ -87,8 +95,7 @@ mixin devicesForTrain(id)
                 const currentState = $('#potentiometerSensorButton').hasClass('btn-success');
                 const newState = !currentState;
                 // Enviar la solicitud POST para cambiar el estado
-                $.post('/train/toggle', { state: newState }, function(response) {
-                    // Actualizar el estado del botón basado en la respuesta
+                $.post(`${route}/train/toggle`, { state: newState }, function(response) {
                     //- updatePotentiometerSensorButton(newState);
                 });
             });

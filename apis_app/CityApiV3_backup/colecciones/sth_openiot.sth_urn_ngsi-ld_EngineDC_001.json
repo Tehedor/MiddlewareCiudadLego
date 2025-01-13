@@ -1,0 +1,1971 @@
+[{
+  "_id": {
+    "$oid": "66813fb05d7e992175532bca"
+  },
+  "id": "urn:ngsi-ld:Notification:dfc0fcae-36d2-11ef-9d59-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:19.671Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 38
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fc35d7e992175532bdb"
+  },
+  "id": "urn:ngsi-ld:Notification:eb9d7b38-36d2-11ef-9e8f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:39.572Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 35
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fd75d7e992175532be4"
+  },
+  "id": "urn:ngsi-ld:Notification:f795bc70-36d2-11ef-8e8b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:59.657Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 33
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813feb5d7e992175532bf5"
+  },
+  "id": "urn:ngsi-ld:Notification:0386888e-36d3-11ef-9d33-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:19.689Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 34
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66813fff5d7e992175532c05"
+  },
+  "id": "urn:ngsi-ld:Notification:0f7ee0c8-36d3-11ef-90d3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:39.772Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 41
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140135d7e992175532c14"
+  },
+  "id": "urn:ngsi-ld:Notification:1b7464de-36d3-11ef-bcd8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:22:59.835Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 48
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681403c5d7e992175532c34"
+  },
+  "id": "urn:ngsi-ld:Notification:336d3656-36d3-11ef-b652-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:23:40.054Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 57
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140505d7e992175532c41"
+  },
+  "id": "urn:ngsi-ld:Notification:3f5f9ce2-36d3-11ef-9a15-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:00.096Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140645d7e992175532c4f"
+  },
+  "id": "urn:ngsi-ld:Notification:4b591212-36d3-11ef-8d93-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:20.186Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140785d7e992175532c66"
+  },
+  "id": "urn:ngsi-ld:Notification:57531586-36d3-11ef-b37c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:24:40.277Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 75
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681408c5d7e992175532c72"
+  },
+  "id": "urn:ngsi-ld:Notification:6340d950-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:00.294Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140a05d7e992175532c80"
+  },
+  "id": "urn:ngsi-ld:Notification:6f382326-36d3-11ef-a635-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:25:20.368Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140c85d7e992175532ca1"
+  },
+  "id": "urn:ngsi-ld:Notification:87203424-36d3-11ef-be2d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:00.476Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 66
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140dc5d7e992175532cb2"
+  },
+  "id": "urn:ngsi-ld:Notification:93163cec-36d3-11ef-bced-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:20.545Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668140f05d7e992175532cc8"
+  },
+  "id": "urn:ngsi-ld:Notification:9f0abc76-36d3-11ef-ade2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:26:40.603Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 72
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141045d7e992175532cd5"
+  },
+  "id": "urn:ngsi-ld:Notification:aafee14c-36d3-11ef-a0a0-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:00.658Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 77
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141185d7e992175532cdc"
+  },
+  "id": "urn:ngsi-ld:Notification:b6f507c4-36d3-11ef-82a8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:20.726Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 72
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681412c5d7e992175532ceb"
+  },
+  "id": "urn:ngsi-ld:Notification:c2e790ba-36d3-11ef-bd89-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:27:40.770Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 75
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141405d7e992175532d08"
+  },
+  "id": "urn:ngsi-ld:Notification:cedda4e0-36d3-11ef-857a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:00.838Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141545d7e992175532d1e"
+  },
+  "id": "urn:ngsi-ld:Notification:dad1e824-36d3-11ef-80c4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:20.894Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141685d7e992175532d33"
+  },
+  "id": "urn:ngsi-ld:Notification:e6c874a4-36d3-11ef-927b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:28:40.964Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681417d5d7e992175532d48"
+  },
+  "id": "urn:ngsi-ld:Notification:f2bd2872-36d3-11ef-b818-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:01.023Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 59
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141915d7e992175532d53"
+  },
+  "id": "urn:ngsi-ld:Notification:feb38b08-36d3-11ef-9253-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:21.092Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 57
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141a55d7e992175532d6b"
+  },
+  "id": "urn:ngsi-ld:Notification:0aa5c200-36d4-11ef-9dc4-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:29:41.135Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141b95d7e992175532d7a"
+  },
+  "id": "urn:ngsi-ld:Notification:169ba840-36d4-11ef-b5da-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:01.201Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141cd5d7e992175532d89"
+  },
+  "id": "urn:ngsi-ld:Notification:22923646-36d4-11ef-abaa-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:21.271Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 71
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141e15d7e992175532d98"
+  },
+  "id": "urn:ngsi-ld:Notification:2e83f9e4-36d4-11ef-94cf-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:30:41.311Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668141f55d7e992175532dae"
+  },
+  "id": "urn:ngsi-ld:Notification:3a7aaf72-36d4-11ef-9ce2-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:01.380Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142095d7e992175532dbf"
+  },
+  "id": "urn:ngsi-ld:Notification:467c9a9c-36d4-11ef-9eb5-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:21.528Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 73
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681421d5d7e992175532dcd"
+  },
+  "id": "urn:ngsi-ld:Notification:526416dc-36d4-11ef-a1eb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:31:41.501Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 75
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142315d7e992175532de0"
+  },
+  "id": "urn:ngsi-ld:Notification:5e5bf0d6-36d4-11ef-9318-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:32:01.578Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681426e5d7e992175532e12"
+  },
+  "id": "urn:ngsi-ld:Notification:82641166-36d4-11ef-8e4e-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:02.030Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142825d7e992175532e25"
+  },
+  "id": "urn:ngsi-ld:Notification:8e66d066-36d4-11ef-95eb-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:22.181Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 72
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142965d7e992175532e2f"
+  },
+  "id": "urn:ngsi-ld:Notification:9a55ba90-36d4-11ef-98e9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:33:42.202Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 73
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142aa5d7e992175532e3a"
+  },
+  "id": "urn:ngsi-ld:Notification:a6562316-36d4-11ef-8560-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:02.335Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142be5d7e992175532e45"
+  },
+  "id": "urn:ngsi-ld:Notification:b242cc42-36d4-11ef-9f48-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:22.343Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142d25d7e992175532e4a"
+  },
+  "id": "urn:ngsi-ld:Notification:be390aca-36d4-11ef-aaa3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:34:42.412Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 63
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668142e65d7e992175532e5a"
+  },
+  "id": "urn:ngsi-ld:Notification:ca2b9a5a-36d4-11ef-9f96-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:02.453Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 60
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681430e5d7e992175532e7c"
+  },
+  "id": "urn:ngsi-ld:Notification:e2124ccc-36d4-11ef-af43-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:35:42.556Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 51
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143225d7e992175532e8f"
+  },
+  "id": "urn:ngsi-ld:Notification:ee07da92-36d4-11ef-9467-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:02.620Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 56
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143365d7e992175532ea0"
+  },
+  "id": "urn:ngsi-ld:Notification:f9fde030-36d4-11ef-b2f8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:22.688Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 53
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681434a5d7e992175532eb1"
+  },
+  "id": "urn:ngsi-ld:Notification:05f4db0a-36d5-11ef-8557-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:36:42.761Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681435e5d7e992175532ec1"
+  },
+  "id": "urn:ngsi-ld:Notification:11ebff2e-36d5-11ef-91be-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:02.836Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 60
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143725d7e992175532ed9"
+  },
+  "id": "urn:ngsi-ld:Notification:1ddfcfc2-36d5-11ef-b066-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:22.889Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 54
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143865d7e992175532eed"
+  },
+  "id": "urn:ngsi-ld:Notification:29d479ea-36d5-11ef-84f7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:37:42.948Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681439b5d7e992175532efc"
+  },
+  "id": "urn:ngsi-ld:Notification:35c7a39e-36d5-11ef-9921-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:02.996Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143af5d7e992175532f07"
+  },
+  "id": "urn:ngsi-ld:Notification:41bd7674-36d5-11ef-9873-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:23.061Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143c35d7e992175532f24"
+  },
+  "id": "urn:ngsi-ld:Notification:4db1ec94-36d5-11ef-9873-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:38:43.119Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143d75d7e992175532f35"
+  },
+  "id": "urn:ngsi-ld:Notification:59a80fba-36d5-11ef-a78c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:03.187Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 71
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143eb5d7e992175532f42"
+  },
+  "id": "urn:ngsi-ld:Notification:659bc0e6-36d5-11ef-b342-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:23.239Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668143ff5d7e992175532f50"
+  },
+  "id": "urn:ngsi-ld:Notification:718f868a-36d5-11ef-bb8f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:39:43.292Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 78
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144135d7e992175532f64"
+  },
+  "id": "urn:ngsi-ld:Notification:7d856a04-36d5-11ef-9db3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:03.356Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 76
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144275d7e992175532f6e"
+  },
+  "id": "urn:ngsi-ld:Notification:8975de66-36d5-11ef-8224-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:23.388Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 77
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681443b5d7e992175532f79"
+  },
+  "id": "urn:ngsi-ld:Notification:95679c00-36d5-11ef-9a9c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:40:43.427Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681444f5d7e992175532f8f"
+  },
+  "id": "urn:ngsi-ld:Notification:a15a93f0-36d5-11ef-9aa7-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:03.475Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144635d7e992175532f98"
+  },
+  "id": "urn:ngsi-ld:Notification:ad5cc0ba-36d5-11ef-ac20-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:23.622Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 65
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144775d7e992175532fac"
+  },
+  "id": "urn:ngsi-ld:Notification:b946932e-36d5-11ef-b49b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:41:43.609Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 61
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681448b5d7e992175532fc1"
+  },
+  "id": "urn:ngsi-ld:Notification:c53ee51e-36d5-11ef-b406-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:03.690Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681449f5d7e992175532fcb"
+  },
+  "id": "urn:ngsi-ld:Notification:d12efc60-36d5-11ef-b6b9-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:23.720Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144b35d7e992175532fe5"
+  },
+  "id": "urn:ngsi-ld:Notification:dd24f970-36d5-11ef-909d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:42:43.787Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144c75d7e992175532ffa"
+  },
+  "id": "urn:ngsi-ld:Notification:e91cbad8-36d5-11ef-9d81-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:03.866Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 64
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144db5d7e992175533011"
+  },
+  "id": "urn:ngsi-ld:Notification:f5127f58-36d5-11ef-b2d8-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:23.931Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668144f05d7e992175533025"
+  },
+  "id": "urn:ngsi-ld:Notification:010899a0-36d6-11ef-a12f-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:43:43.999Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 67
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145045d7e992175533037"
+  },
+  "id": "urn:ngsi-ld:Notification:0d00e7c6-36d6-11ef-9f7c-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:04.081Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 71
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145185d7e99217553304b"
+  },
+  "id": "urn:ngsi-ld:Notification:18f42eee-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:24.130Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 74
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681452c5d7e992175533067"
+  },
+  "id": "urn:ngsi-ld:Notification:24e97362-36d6-11ef-a658-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:44:44.192Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 76
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145405d7e99217553307b"
+  },
+  "id": "urn:ngsi-ld:Notification:30de5b56-36d6-11ef-a30a-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:04.251Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145545d7e99217553308b"
+  },
+  "id": "urn:ngsi-ld:Notification:3cd2ef58-36d6-11ef-8058-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:24.310Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145685d7e9921755330a0"
+  },
+  "id": "urn:ngsi-ld:Notification:48c4f8d8-36d6-11ef-a77d-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:45:44.352Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 63
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681457c5d7e9921755330af"
+  },
+  "id": "urn:ngsi-ld:Notification:54b83a24-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:04.402Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 69
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145905d7e9921755330c4"
+  },
+  "id": "urn:ngsi-ld:Notification:60afc6da-36d6-11ef-aec1-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:24.478Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 70
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145a45d7e9921755330cf"
+  },
+  "id": "urn:ngsi-ld:Notification:6ca33260-36d6-11ef-a3e3-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:46:44.529Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 67
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668145b85d7e9921755330d8"
+  },
+  "id": "urn:ngsi-ld:Notification:78967eb0-36d6-11ef-8ffc-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d73b3446-36d2-11ef-a3b9-0242ac120104",
+  "notifiedAt": "2024-06-30T11:47:04.578Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "category": {
+        "type": "Property",
+        "value": "actuator"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoTrain:001"
+      },
+      "velocityEngine": {
+        "type": "Property",
+        "value": 68
+      }
+    }
+  ]
+}]

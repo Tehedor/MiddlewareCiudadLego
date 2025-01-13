@@ -106,3 +106,83 @@ async function reactivateSubscription(entity,viewPage) {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function createSubsDraco(viewPage) {
+  try {
+    console.log("createSubsReal");
+    const query = getQuery(viewPage);
+    console.log("query:", query);
+    const response = await fetch(`${query}/requests/createSubscriptionsDraco`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      alert("Subscription real created successfully");
+      location.reload(); // Actualiza la pantalla
+    } else {
+      alert("Error creating subscription");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error creating subscription");
+  }
+}
+async function createSubsReal(viewPage) {
+  try {
+    console.log("createSubsReal");
+    const query = getQuery(viewPage);
+    console.log("query:", query);
+    const response = await fetch(`${query}/requests/createSubscriptionsReal`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      alert("Subscription real created successfully");
+      location.reload(); // Actualiza la pantalla
+    } else {
+      alert("Error creating subscription");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error creating subscription");
+  }
+}
+
+async function createSubsSimulator(viewPage) {
+  try {
+    const query = getQuery(viewPage);
+    console.log("query:", query);
+    const response = await fetch(`${query}/requests/createSubscriptionsSimulator`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      alert("Subscription Simulator created successfully");
+      location.reload(); // Actualiza la pantalla
+    } else {
+      alert("Error creating subscription");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error creating subscription");
+  }
+}

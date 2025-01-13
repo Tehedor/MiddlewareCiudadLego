@@ -1,4 +1,4 @@
-var Ultrasonido = require('../models/Ultrasonido.js');
+var Ultrasonido = require('../models/sensors/Ultrasonido.js');
 
 exports.getUltrasonido = async function (req, res, next) {
     try {

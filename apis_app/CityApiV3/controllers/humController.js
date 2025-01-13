@@ -1,4 +1,4 @@
-var Humedad = require('../models/Humedad');
+var Humedad = require('../models/sensors/Humedad');
 
 //función para obtener la temperatura de la zona norte
 exports.getHumedad = async function (req, res, next) {

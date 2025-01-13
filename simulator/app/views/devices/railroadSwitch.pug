@@ -56,7 +56,11 @@ mixin devicesForRailroadSwitch(id)
 
     script.
         $(function () {
-            const socket = io();
+            //- const socket = io(controlConfigJSON.mode_containers ? '/simulatorApp' : '/');
+            const isBehindProxy = window.location.port === "80" || window.location.port === "";
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
 
             socket.on('update_switchSensor', function(state_switchSensor) {
                 $('.state_switchSensor').text(state_switchSensor);
@@ -86,7 +90,7 @@ mixin devicesForRailroadSwitch(id)
             $('#switchSensorButton').click(function() {
                 const currentState = $('#switchSensorButton').hasClass('btn-success');
                 const newState = !currentState;
-                $.post('/railroadSwitch/toggle', { state: newState }, function(response) {
+                $.post(`${route}/railroadSwitch/toggle`, { state: newState }, function(response) {
                     //- updateSwitchSensorButton(newState);
                 });
             });

@@ -4,7 +4,7 @@ const controlJSONPath = path.join(__dirname, 'control.json');
 
 let currentControlJSON = require(controlJSONPath);
 
-const compareJSON = (simulate, inicial_timer, inicial_state) => {
+const compareJSON = (simulate, inicial_timer, inicial_state, mode_state) => {
     fs.readFile(controlJSONPath, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading control.json:', err);
@@ -18,6 +18,7 @@ const compareJSON = (simulate, inicial_timer, inicial_state) => {
             currentControlJSON = newControlJSON;
             
             inicial_state[0] = newControlJSON.inicial_state;
+            mode_state[0] = newControlJSON.mode_state;
             console.log('Updated inicial_state based on control.json');
             console.log('Updated inicial_state based on control.json');
             console.log(inicial_state);

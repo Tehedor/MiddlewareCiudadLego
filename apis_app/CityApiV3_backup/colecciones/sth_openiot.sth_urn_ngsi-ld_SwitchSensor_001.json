@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "66813fb15d7e992175532bcc"
+  },
+  "id": "urn:ngsi-ld:Notification:deec2358-36d2-11ef-9c4b-0242ac120104",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d72e1fc2-36d2-11ef-b65b-0242ac120104",
+  "notifiedAt": "2024-06-30T11:21:18.253Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:SwitchSensor:001",
+      "type": "SwitchSensor",
+      "category": {
+        "type": "Property",
+        "value": "sensor"
+      },
+      "controlledAsset": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:LegoRailoadSwitch:001"
+      },
+      "state": {
+        "type": "Property",
+        "value": "ON"
+      }
+    }
+  ]
+}]

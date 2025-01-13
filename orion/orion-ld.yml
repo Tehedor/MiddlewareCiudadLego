@@ -83,13 +83,19 @@ services:
     restart: always
     environment:
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      # - ME_CONFIG_BASICAUTH_USERNAME=admin
-      # - ME_CONFIG_BASICAUTH_PASSWORD=changeme
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=pass123
       - ME_CONFIG_MONGODB_SERVER=mongo-db-orion
       - ME_CONFIG_MONGODB_PORT=27017
       - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-orion:27017/
+      # - ME_CONFIG_MONGODB_AUTH_USERNAME = admin123
+      # - ME_CONFIG_MONGODB_AUTH_PASSWORD = admin123
     depends_on:
       - mongo-db-orion
+
+# ME_CONFIG_MONGODB_AUTH_USERNAME | 'admin'         | Database username
+# ME_CONFIG_MONGODB_AUTH_PASSWORD | 'pass'          | Database password
+
 
   # Orion is the context broker
   orion:

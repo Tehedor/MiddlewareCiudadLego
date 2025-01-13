@@ -6,6 +6,7 @@ const controlJSONPath = path.join(__dirname, 'control.json');
 const envConfig = EnvConfig();
 const content = {
     inicial_state: envConfig.inicial_state,
+    mode_state: envConfig.mode_state,
     time_interval: envConfig.time_interval,
     pir_sensor: {
         simulate_pir_sensor: envConfig.simulate_pir_sensor,

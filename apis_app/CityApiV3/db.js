@@ -12,11 +12,9 @@ if (process.env.NODE_ENV === 'container') {
 const connectDB = async () => {
   while (true) {
     try {
-      await mongoose.connect(dbURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      });
-      console.log("Conectado a MongoDB");
+      await mongoose.connect(dbURI)
+        .then(() => console.log('MongoDB Connected...'))
+        .catch(err => console.log(err));
       break; // Salir del bucle si la conexión es exitosa
     } catch (err) {
       console.error('Error de conexión:', err);

@@ -1,0 +1,132 @@
+[
+        {
+        "numid": "urn:ngsi-ld:TemperatureSensor:001",
+        "índice": 1,
+        "name": "TemperatureSensor",
+        "collectionName": "sth_urn_ngsi-ld_TemperatureSensor_001",
+        "allowed_params": [],
+        "uso": "Medir la temperatura en la ciudad LEGO, con datos tomados de la API de Madrid.",
+        "exampleQueryDateRange": "/sensores/1?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"           
+    },
+    { 
+        "numid": "urn:ngsi-ld:HumiditySensor:001",
+        "índice": 2,
+        "name": "HumiditySensor", 
+        "collectionName": "sth_urn_ngsi-ld_HumiditySensor_001", 
+        "allowed_params": [], 
+        "uso": "Medir la humedad en la ciudad LEGO, con datos tomados de la API de Madrid.",
+        "exampleQueryDateRange": "/sensores/2?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    },
+    { 
+        "numid": "urn:ngsi-ld:EngineDC:001",
+        "índice": 3,
+        "name": "EngineDC", 
+        "collectionName": "sth_urn_ngsi-ld_EngineDC_001", 
+        "allowed_params": [], 
+        "uso": "Se utilizará para medir la distancia de ciertos objetos. En primera instancia sería la altura de la grúa", 
+        "exampleQueryDateRange": "/sensores/3?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z", 
+        "visible": "true"
+    },
+    { 
+        "numid": "urn:ngsi-ld:UltrasoundSensor:001",
+        "índice": 4,
+        "name": "UltrasoundSensor", 
+        "collectionName": "sth_urn_ngsi-ld_UltrasoundSensor_001", 
+        "allowed_params": [], 
+        "uso": "Este sensor va a simular el encendido y apagado de farolas, representadas por luces LED. Debe trabajar en conjunto con el PIR Sensor y con las siguientes condiciones. Encender el LED si PIR  y el Fotorresistor <=0. Esto se conseguiría tapando totalmente el sensor de luminosidad.", 
+        "exampleQueryDateRange": "/sensores/4?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z", 
+        "visible": "true"
+    },
+    {
+        "numid": "urn:ngsi-ld:PhotoresistorSensor:001",
+        "índice": 5,
+        "name": "PhotoresistorSensor", 
+        "collectionName": "sth_urn_ngsi-ld_PhotoresistorSensor_001", 
+        "allowed_params": [], 
+        "uso": "", 
+        "exampleQueryDateRange": "/sensores/5?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z", 
+        "visible": "true"
+    }, 
+    {
+        "numid": "urn:ngsi-ld:PirSensor:001",
+        "índice": 6,
+        "name": "PirSensor",
+        "collectionName": "sth_urn_ngsi-ld_PirSensor_001",
+        "allowed_params": [],
+        "uso": "Este sensor lo utilizaremos para detectar cuando alguien entra en la sala y va a tener dos objetivos.\n\n1. Encender un LED indicando que el sensor ha detectado la presencia.\n2. Funcionamiento en conjunto con un Sensor de luminosidad para que si el PIR envía una señal de que hay presencia y cuando se cubra el sensor de luminosidad se enciendan ciertas luces LED (Simularía el encendido de farolas siempre y cuando haya alguien en la sala).",
+        "exampleQueryDateRange": "/sensores/6?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    },
+    {
+        "numid": "urn:ngsi-ld:PotentiometerSensor:001",
+        "índice": 7,
+        "name": "PotentiometerSensor",
+        "collectionName": "sth_urn_ngsi-ld_PotentiometerSensor_001",
+        "allowed_params": [],
+        "uso": "",
+        "exampleQueryDateRange": "/sensores/7?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    },
+    {
+        "numid": "urn:ngsi-ld:InfraredSensor:001",
+        "índice": 8,
+        "name": "InfraredSensor",
+        "collectionName": "sth_urn_ngsi-ld_InfraredSensor_001",
+        "allowed_params": [],
+        "uso": "",
+        "exampleQueryDateRange": "/sensores/8?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    },
+    {
+        "numid": "urn:ngsi-ld:Light:001",
+        "índice": 9,
+        "name": "LightSensor",
+        "collectionName": "sth_urn_ngsi-ld_Light_001",
+        "allowed_params": [],
+        "uso": "",
+        "exampleQueryDateRange": "/sensores/9?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    },
+    {
+        "numid": "urn:ngsi-ld:RfidSensor:001",
+        "índice": 10,
+        "name": "RfidSensor",
+        "collectionName": "sth_urn_ngsi-ld_RfidSensor_001",
+        "allowed_params": [],
+        "uso": "",
+        "exampleQueryDateRange": "/sensores/10?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    },
+    {
+        "numid": "urn:ngsi-ld:LedDetection:001",
+        "índice": 11,
+        "name": "LedDetectionSensor",
+        "collectionName": "sth_urn_ngsi-ld_LedDetection_001",
+        "allowed_params": [],
+        "uso": "",
+        "exampleQueryDateRange": "/sensores/11?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    },
+    {
+    "numid": "urn:ngsi-ld:Servmotor:001",
+    "índice": 12,
+    "name": "RfidSensor",
+    "collectionName": "sth_urn_ngsi-ld_Servmotor_001",
+    "allowed_params": [],
+    "uso": "",
+    "exampleQueryDateRange": "/sensores/12?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+    "visible": "true"
+    },
+    {
+        "numid": "urn:ngsi-ld:SwitchSensor:001",
+        "índice": 13,
+        "name": "LedDetectionSensor",
+        "collectionName": "sth_urn_ngsi-ld_SwitchSensor_001",
+        "allowed_params": [],
+        "uso": "",
+        "exampleQueryDateRange": "/sensores/13?desde=2024-05-06T22:53:14.205Z&hasta=2024-05-07T01:12:15.758Z",
+        "visible": "true"
+    }
+]

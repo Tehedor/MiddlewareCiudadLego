@@ -46,7 +46,14 @@ mixin devicesForCrane(id)
     
     script.
         $(function () {
-            const socket = io();  
+
+            //- const socket = io(controlConfigJSON.mode_containers ? '/simulatorApp' : '/');
+            const isBehindProxy = window.location.port === "80" || window.location.port === "";
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
+
+
             socket.on('update_ultrasoundSensor', function(distance_ultrasoundSensor) {
                 $('.distance_ultrasoundSensor').text(distance_ultrasoundSensor);
             });
@@ -73,7 +80,7 @@ mixin devicesForCrane(id)
                 const currentState = $('#ultrasoundSensorButton').hasClass('btn-success');
                 const newState = !currentState;
                 // Enviar la solicitud POST para cambiar el estado
-                $.post('/crane/toggle', { state: newState }, function(response) {
+                $.post(`${route}/crane/toggle`, { state: newState }, function(response) {
                     // Actualizar el estado del botón basado en la respuesta
                     //- ultrasoundSensorButton(newState);
                 });

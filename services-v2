@@ -451,9 +451,14 @@ case "${command}" in
 		else
 			./services-v2 draco-mongo
 		fi
-
+		
 		./services-v2 minio-bucket
 
+		;;
+	"start2")
+		./services-v2 subs-control-app
+		
+		./services-v2 simulator
 		;;
 	"create")
 		export $(cat .env | grep "#" -v)

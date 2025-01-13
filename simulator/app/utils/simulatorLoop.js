@@ -20,6 +20,7 @@ const controlJSONPath = path.join(__dirname, './control.json');
 let controlConfigJSON = require(controlJSONPath);
 
 let inicial_state = [controlConfigJSON.inicial_state];    
+let mode_state = [controlConfigJSON.mode_state];
 
 let simulate = [
     controlConfigJSON.pir_sensor.simulate_pir_sensor, controlConfigJSON.photoresistor_sensor.simulate_photoresistor_sensor, 
@@ -48,7 +49,7 @@ createJSON();
 
 startCheckState(inicial_state);
 setInterval(() => {
-    compareJSON(simulate, inicial_timer, inicial_state);
+    compareJSON(simulate, inicial_timer, inicial_state, mode_state);
 }, 500); // Verificar cambios cada 5 segundos
 
 
@@ -59,19 +60,22 @@ const simulateLoop = () => {
         SOCKET_IO.emit('update_simulate', simulate);
 
         SOCKET_IO.emit('update_iniState', inicial_state[0]);
-
-        if (inicial_state[0] !== false) {
-            simulationFunctions.forEach((element, index) => {
-                if (simulate[index] == true) {  
-                    timer[index] = timer[index] - time;
-                    if (timer[index] <= 0) {
-                        timer[index] = inicial_timer[index] + timer[index];
-                        Simulator[element](time);
-                    }
-                }
-            });
-        }   
+        SOCKET_IO.emit('update_modeState', mode_state[0]);
         
+        console.log(mode_state[0]);
+        if (mode_state[0] !== false) {
+            if (inicial_state[0] !== false) {
+                simulationFunctions.forEach((element, index) => {
+                    if (simulate[index] == true) {  
+                        timer[index] = timer[index] - time;
+                        if (timer[index] <= 0) {
+                            timer[index] = inicial_timer[index] + timer[index];
+                            Simulator[element](time);
+                        }
+                    }
+                });
+            }   
+        }
     }, time);
 
 };

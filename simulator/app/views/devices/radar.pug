@@ -54,8 +54,11 @@ mixin devicesForRadar(id)
 
     script.
         $(function () {
-            const socket = io();
-        
+            //- const socket = io(controlConfigJSON.mode_containers ? '/simulatorApp' : '/');
+            const isBehindProxy = window.location.port === "80" || window.location.port === "";
+            const socket = isBehindProxy 
+                ? io('', { path: '/simulatorApp/socket.io' }) 
+                : io();
 
             socket.on('update_infraredSensor', function(presence_infraredSensor) {
                 $('.presence_infraredSensor').text(presence_infraredSensor);
@@ -86,7 +89,7 @@ mixin devicesForRadar(id)
                 const currentState = $('#infraredSensorButton').hasClass('btn-success');
                 const newState = !currentState;
                 // Enviar la solicitud POST para cambiar el estado
-                $.post('/radar/toggle', { state: newState }, function(response) {
+                $.post(`${route}/radar/toggle`, { state: newState }, function(response) {
                     // Actualizar el estado del botón basado en la respuesta
                     //- updateInfraredSensorButton(newState);
                 });

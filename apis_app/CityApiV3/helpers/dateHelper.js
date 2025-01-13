@@ -1,15 +1,15 @@
 const moment = require('moment');
-const Temperatura = require('../models/Temperatura');
-const Humedad = require('../models/Humedad');
-const MotorDC = require('../models/MotorDC');
-const Ultrasonido = require('../models/Ultrasonido');
-const Fotorresistor = require('../models/Fotorresistor');
-const Pir = require('../models/Pir');
-const Potenciometro = require('../models/Potenciometro');
-const Infrarrojo = require('../models/Infrarrojos');
-const Luz = require('../models/Luz');
-const Rfid = require('../models/Rfid');
-const Led = require('../models/LED');
+const Temperatura = require('../models/sensors/Temperatura');
+const Humedad = require('../models/sensors/Humedad');
+const MotorDC = require('../models/actuators/MotorDC');
+const Ultrasonido = require('../models/sensors/Ultrasonido');
+const Fotorresistor = require('../models/sensors/Fotorresistor');
+const Pir = require('../models/sensors/Pir');
+const Potenciometro = require('../models/sensors/Potenciometro');
+const Infrarrojo = require('../models/sensors/Infrarrojos');
+const Luz = require('../models/actuators/Luz');
+const Rfid = require('../models/sensors/Rfid');
+const Led = require('../models/actuators/LED');
 
 exports.filterByDate = async function (collectionName, desde, hasta) {
     let fromDate = moment(desde);

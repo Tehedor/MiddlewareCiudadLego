@@ -129,4 +129,40 @@ router.post('/reactivateSubscription', async (req, res) => {
     }
 });
 
+// Crear Subscripciones de Draco
+router.post('/createSubscriptionsDraco', async (req, res) => {
+    try {
+        control_subs.start_subscritpions_Draco();
+        res.status(200).send('Subscriptions created successfully');
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error creating subscriptions');
+    }
+});
+
+// Crear Subscripciones relaciones real
+router.post('/createSubscriptionsReal', async (req, res) => {
+    try {
+        control_subs.start_subscritpions_Real();
+        res.status(200).send('Subscriptions created successfully');
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error creating subscriptions');
+    }
+});
+
+
+// Crear Subscripciones relaciones simulator
+router.post('/createSubscriptionsSimulator', async (req, res) => {
+    try {
+        control_subs.start_subscritpions_Simulator();
+        res.status(200).send('Subscriptions created successfully');
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error creating subscriptions');
+    }
+});
+
+
+
 module.exports = router;
