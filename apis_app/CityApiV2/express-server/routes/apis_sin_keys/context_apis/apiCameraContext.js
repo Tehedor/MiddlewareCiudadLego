@@ -7,7 +7,7 @@ const formatNgsiID = require("../../utils/formatNgsiID");
 
 const { remapDataModeID,remapDataModeInfo, remapDataModeDetails} = require("../../utils/remapModes");
 
-const {checkIfIsSensor, checkIfIsLegoBuilding, checkIfIsActuator} = require("../../utils/checkIfIsXXX");
+const {checkIfIsCamera} = require("../../utils/checkIfIsXXX");
 
 
 const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
@@ -18,28 +18,14 @@ const headers = {
 };
 
 
-
 /**
  * @swagger
- * /api/sensors:
+ * /api/cameras:
  *   get:
  *     tags:
- *       - Sensors
+ *       - Cameras
  *     summary: Devuelve todas las "Buildings".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Buildings".
@@ -57,38 +43,25 @@ const headers = {
  *                     type: string
  *                     example: "LegoStreetLight001"
  */
-router.get("/sensors", async (req, res) => {
+router.get("/cameras", async (req, res) => {
   try {
-    const response = await axios.get(`${url}?q=category==%22sensor%22`, {headers: headers});
+    const response = await axios.get(`${url}?type=Camera`, {headers: headers});
     const filteredData = remapDataModeID(response.data);
     res.json(filteredData);
   } catch (error) {
-    console.error("Error fetching sensors:", error);
-    res.status(500).send("Error fetching sensors");
+    console.error("Error fetching cameras:", error);
+    res.status(500).send("Error fetching cameras");
   }
 });
 
 /**
  * @swagger
- * /api/sensors/info:
+ * /api/cameras/info:
  *   get:
  *     tags:
- *       - Sensors
+ *       - Cameras
  *     summary: Devuelve todas las "Buildings".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Buildings".
@@ -115,38 +88,25 @@ router.get("/sensors", async (req, res) => {
  *                     type: string
  *                     example: "LegoStreetLight001"
  */
-router.get("/sensors/info", async (req, res) => {
+router.get("/cameras/info", async (req, res) => {
   try {
-    const response = await axios.get(`${url}?q=category==%22sensor%22&options=keyValues`, {headers: headers});
+    const response = await axios.get(`${url}?type=Camera&options=keyValues`, {headers: headers});
     const remappedData = remapDataModeInfo(response.data);
     res.json(remappedData);
   } catch (error) {
-    console.error("Error fetching sensors:", error);
-    res.status(500).send("Error fetching sensors");
+    console.error("Error fetching cameras:", error);
+    res.status(500).send("Error fetching cameras");
   }
 });
 
 /**
  * @swagger
- * /api/sensors/details:
+ * /api/cameras/details:
  *   get:
  *     tags:
- *       - Sensors
+ *       - Cameras
  *     summary: Devuelve todos los datos de los sensores.
  *     description: Obtiene todos los datos de los sensores desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todos los sensores.
@@ -191,39 +151,27 @@ router.get("/sensors/info", async (req, res) => {
  *                         type: string
  *                         example: "LegoStreetLight001"
  */
-router.get("/sensors/details", async (req, res) => {
+router.get("/cameras/details", async (req, res) => {
   try {
-    const response = await axios.get(`${url}?q=category==%22sensor%22`, 
+    const response = await axios.get(`${url}?type=Camera`, 
       {headers: headers});
     const remappedData = remapDataModeDetails(response.data);
     res.json(remappedData);
   } catch (error) {
-    console.error("Error fetching sensors:", error);
-    res.status(500).send("Error fetching sensors");
+    console.error("Error fetching cameras:", error);
+    res.status(500).send("Error fetching cameras");
   }
 });
 
 /**
  * @swagger
- * /api/sensors/{ngsiID}:
+ * /api/cameras/{ngsiID}:
  *   get:
  *     tags:
- *       - Sensors
+ *       - Cameras
  *     summary: Devuelve una "Building" específica.
  *     description: Obtiene una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -242,14 +190,14 @@ router.get("/sensors/details", async (req, res) => {
  *                   type: string
  *                   example: "urn:ngsi-ld:PirSensor:001"
  */
-router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
+router.get("/cameras/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
     const ngsiID = formatNgsiID(req.params.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, 
       {headers: headers});
 
-    if (!checkIfIsSensor(response.data)) {
-      return res.status(404).send("No is a sensor");
+    if (!checkIfIsCamera(response.data)) {
+      return res.status(404).send("No is a camera");
     }
 
     const filteredData = remapDataModeID(response.data);
@@ -263,25 +211,13 @@ router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
 
 /**
  * @swagger
- * /api/sensors/{ngsiID}/info:
+ * /api/cameras/{ngsiID}/info:
  *   get:
  *     tags:
- *       - Sensors
+ *       - Cameras
  *     summary: Devuelve una "Building" específica.
  *     description: Obtiene una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -300,14 +236,14 @@ router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
  *                   type: string
  *                   example: "urn:ngsi-ld:PirSensor:001"
  */
-router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
+router.get("/cameras/:ngsiID([\\w:-]+)/info", async (req, res) => {
   try {
     const ngsiID = formatNgsiID(req.params.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}?options=keyValues`, 
       {headers: headers});
 
-    if (!checkIfIsSensor(response.data)) {
-      return res.status(404).send("No is a sensor");
+    if (!checkIfIsCamera(response.data)) {
+      return res.status(404).send("No is a camera");
     }
 
     const remappedData = remapDataModeInfo(response.data);
@@ -321,25 +257,13 @@ router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
 
 /**
  * @swagger
- * /api/sensors/{ngsiID}/details:
+ * /api/cameras/{ngsiID}/details:
  *   get:
  *     tags:
- *       - Sensors
+ *       - Cameras
  *     summary: Devuelve los detalles de una "Building" específica.
  *     description: Obtiene los detalles de una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -388,15 +312,15 @@ router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *                       type: string
  *                       example: "urn:ngsi-ld:LegoStreetLight:001"
  */
-router.get("/sensors/:ngsiID([\\w:-]+)/details", async (req, res) => {
+router.get("/cameras/:ngsiID([\\w:-]+)/details", async (req, res) => {
   try {
     const ngsiID = formatNgsiID(req.params.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, {
       headers: headers
     });
 
-    if (!checkIfIsSensor(response.data)) {
-      return res.status(404).send("No is a sensor");
+    if (!checkIfIsCamera(response.data)) {
+      return res.status(404).send("No is a camera");
     }
 
     const remappedData = remapDataModeDetails(response.data);

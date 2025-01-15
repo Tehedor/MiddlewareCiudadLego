@@ -23,6 +23,19 @@ const headers = {
  *       - Cities
  *     summary: Devuelve todas las "Cities".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
+ *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Cities".
@@ -80,6 +93,19 @@ router.get("/cities", async (req, res) => {
  *       - Cities
  *     summary: Devuelve todas las "Cities".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
+ *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Cities".
@@ -140,6 +166,19 @@ router.get("/cities/info", async (req, res) => {
  *       - Cities
  *     summary: Devuelve todas las "Cities".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
+ *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Cities".
@@ -202,6 +241,18 @@ router.get("/cities/details", async (req, res) => {
  *     summary: Devuelve una "Entity" específica.
  *     description: Obtiene "id" y "ralations" de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -252,6 +303,18 @@ router.get("/cities/:ngsiID([\\w:-]+)", async (req, res) => {
  *     summary: Devuelve datos de una "Entity".
  *     description: Obtiene datos de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -307,6 +370,18 @@ router.get("/cities/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *     summary: Devuelve todos los datos de una "Entity".
  *     description: Obtiene todos los datos de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -375,6 +450,18 @@ router.get("/cities/:ngsiID([\\w:-]+)/details", async (req, res) => {
  *     summary: Devuelve componentes de un "Entity" .
  *     description: Obtiene todos los componentes de una "Entity" desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -431,6 +518,18 @@ router.get("/cities/:ngsiID([\\w:-]+)/components", async (req, res) => {
  *     summary: Devuelve datos de los componenetes de una "Entity".
  *     description: Obtiene datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -504,6 +603,18 @@ router.get("/cities/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
  *     summary: Devuelve todos los datos de los componenetes de una "Entity".
  *     description: Obtiene todos los datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true

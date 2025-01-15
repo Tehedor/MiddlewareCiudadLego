@@ -27,19 +27,6 @@ const headers = {
  *       - Sensors
  *     summary: Devuelve todas las "Buildings".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Buildings".
@@ -76,19 +63,6 @@ router.get("/sensors", async (req, res) => {
  *       - Sensors
  *     summary: Devuelve todas las "Buildings".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Buildings".
@@ -134,19 +108,6 @@ router.get("/sensors/info", async (req, res) => {
  *       - Sensors
  *     summary: Devuelve todos los datos de los sensores.
  *     description: Obtiene todos los datos de los sensores desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
  *         description: Una lista de todos los sensores.
@@ -212,18 +173,6 @@ router.get("/sensors/details", async (req, res) => {
  *     summary: Devuelve una "Building" específica.
  *     description: Obtiene una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -270,18 +219,6 @@ router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
  *     summary: Devuelve una "Building" específica.
  *     description: Obtiene una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -328,18 +265,6 @@ router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *     summary: Devuelve los detalles de una "Building" específica.
  *     description: Obtiene los detalles de una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true

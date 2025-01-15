@@ -5,7 +5,7 @@ const axios = require("axios");
 const formatNgsiID = require("../../utils/formatNgsiID");
 
 const { remapDataModeID,remapDataModeInfo, remapDataModeDetails} = require("../../utils/remapModes");
-const {checkIfIsSensor, checkIfIsLegoBuilding, checkIfIsActuator} = require("../../utils/checkIfIsXXX");
+const { checkIfIsLegoCity} = require("../../utils/checkIfIsXXX");
 
 
 const basePath = process.env.MODE_CONTAINERS === 'true' ? 'fiware-orion' : 'localhost';
@@ -17,28 +17,15 @@ const headers = {
 
 /**
  * @swagger
- * /api/buildings:
+ * /api/cities:
  *   get:
  *     tags:
- *       - Buildings
- *     summary: Devuelve todas las "Buildings".
+ *       - Cities
+ *     summary: Devuelve todas las "Cities".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
- *         description: Una lista de todas las "Buildings".
+ *         description: Una lista de todas las "Cities".
  *         content:
  *           application/json:
  *             schema:
@@ -59,17 +46,18 @@ const headers = {
  *                         type: string
  *                         example: "urn:ngsi-ld:LegoCity:001"
  */
-router.get("/buildings", async (req, res) => {
+router.get("/cities", async (req, res) => {
   try {
-    const response = await axios.get(`${url}?type=fiware:LegoBuilding`, 
+    const response = await axios.get(`${url}?type=Building`, 
       {headers: headers});
             
+    console.log("Response:", response.data);
     const filteredData = remapDataModeID(response.data);
 
     res.json(filteredData);
   } catch (error) {
-    console.error("Error fetching buildings:", error);
-    res.status(500).send("Error fetching buildings");
+    console.error("Error fetching cities:", error);
+    res.status(500).send("Error fetching cities");
   }
 });
 // [
@@ -86,28 +74,15 @@ router.get("/buildings", async (req, res) => {
 
 /**
  * @swagger
- * /api/buildings/info:
+ * /api/cities/info:
  *   get:
  *     tags:
- *       - Buildings
- *     summary: Devuelve todas las "Buildings".
+ *       - Cities
+ *     summary: Devuelve todas las "Cities".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
- *         description: Una lista de todas las "Buildings".
+ *         description: Una lista de todas las "Cities".
  *         content:
  *           application/json:
  *             schema:
@@ -143,44 +118,31 @@ router.get("/buildings", async (req, res) => {
  *                         type: string
  *                         example: "urn:ngsi-ld:LegoCity:001"
  */
-router.get("/buildings/info", async (req, res) => {
+router.get("/cities/info", async (req, res) => {
   try {
-    const response = await axios.get(`${url}?type=fiware:LegoBuilding&options=keyValues`, {
+    const response = await axios.get(`${url}?type=Building&options=keyValues`, {
       headers: headers
     });
 
     const remappedData = remapDataModeInfo(response.data);
     res.json(remappedData);
   } catch (error) {
-    console.error("Error fetching buildings:", error);
-    res.status(500).send("Error fetching buildings");
+    console.error("Error fetching cities:", error);
+    res.status(500).send("Error fetching cities");
   }
 });
 
 /**
  * @swagger
- * /api/buildings/details:
+ * /api/cities/details:
  *   get:
  *     tags:
- *       - Buildings
- *     summary: Devuelve todas las "Buildings".
+ *       - Cities
+ *     summary: Devuelve todas las "Cities".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *     responses:
  *       200:
- *         description: Una lista de todas las "Buildings".
+ *         description: Una lista de todas las "Cities".
  *         content:
  *           application/json:
  *             schema:
@@ -216,42 +178,30 @@ router.get("/buildings/info", async (req, res) => {
  *                         type: string
  *                         example: "urn:ngsi-ld:LegoCity:001"
  */
-router.get("/buildings/details", async (req, res) => {
+router.get("/cities/details", async (req, res) => {
   try {
-    const response = await axios.get(`${url}?type=fiware:LegoBuilding`, {
+    const response = await axios.get(`${url}?type=Building`, {
       headers: headers
     });
     const remappedData = remapDataModeDetails(response.data);
 
     res.json(remappedData);
   } catch (error) {
-    console.error("Error fetching buildings:", error);
-    res.status(500).send("Error fetching buildings");
+    console.error("Error fetching cities:", error);
+    res.status(500).send("Error fetching cities");
   }
 });
 
 
 /**
  * @swagger
- * /api/buildings/{ngsiID}:
+ * /api/cities/{ngsiID}:
  *   get:
  *     tags:
- *       - Buildings
+ *       - Cities
  *     summary: Devuelve una "Entity" específica.
  *     description: Obtiene "id" y "ralations" de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -273,15 +223,15 @@ router.get("/buildings/details", async (req, res) => {
  *                   type: string
  *                   example: "LegoCity001"
  */
-router.get("/buildings/:ngsiID([\\w:-]+)", async (req, res) => {
+router.get("/cities/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
     // Reformatear el ngsiID
     const ngsiID = formatNgsiID(req.params.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, 
       {headers: headers});
 
-    if (!checkIfIsLegoBuilding(response.data)) {
-      return res.status(404).send("Not a LegoBuilding");
+    if (!checkIfIsLegoCity(response.data)) {
+      return res.status(404).send("Not a LegoCity");
     }
 
     const filteredData = remapDataModeID(response.data);
@@ -295,25 +245,13 @@ router.get("/buildings/:ngsiID([\\w:-]+)", async (req, res) => {
 
 /**
  * @swagger
- * /api/buildings/{ngsiID}/info:
+ * /api/cities/{ngsiID}/info:
  *   get:
  *     tags:
- *       - Buildings
+ *       - Cities
  *     summary: Devuelve datos de una "Entity".
  *     description: Obtiene datos de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -341,15 +279,15 @@ router.get("/buildings/:ngsiID([\\w:-]+)", async (req, res) => {
  *                   type: string
  *                   example: "LegoCity001"
  */
-router.get("/buildings/:ngsiID([\\w:-]+)/info", async (req, res) => {
+router.get("/cities/:ngsiID([\\w:-]+)/info", async (req, res) => {
   try {
 
     const ngsiID = formatNgsiID(req.params.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}?options=keyValues`, 
       {headers: headers});
 
-    if (!checkIfIsLegoBuilding(response.data)) {
-      return res.status(404).send("Not a LegoBuilding");
+    if (!checkIfIsLegoCity(response.data)) {
+      return res.status(404).send("Not a LegoCity");
     }
     
     const remappedData = remapDataModeInfo(response.data);
@@ -362,25 +300,13 @@ router.get("/buildings/:ngsiID([\\w:-]+)/info", async (req, res) => {
 
 /**
  * @swagger
- * /api/buildings/{ngsiID}/details:
+ * /api/cities/{ngsiID}/details:
  *   get:
  *     tags:
- *       - Buildings
+ *       - Cities
  *     summary: Devuelve todos los datos de una "Entity".
  *     description: Obtiene todos los datos de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -420,7 +346,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *                       type: string
  *                       example: "LegoCity001"
  */
-router.get("/buildings/:ngsiID([\\w:-]+)/details", async (req, res) => {
+router.get("/cities/:ngsiID([\\w:-]+)/details", async (req, res) => {
   try {
     const ngsiID = formatNgsiID(req.params.ngsiID);
     console.log("Reformatted ngsiID:", ngsiID);
@@ -428,8 +354,8 @@ router.get("/buildings/:ngsiID([\\w:-]+)/details", async (req, res) => {
     const response = await axios.get(`${url}/${ngsiID}`, 
       {headers: headers});
 
-    if (!checkIfIsLegoBuilding(response.data)) { 
-      return res.status(404).send("Not a LegoBuilding");
+    if (!checkIfIsLegoCity(response.data)) { 
+      return res.status(404).send("Not a LegoCity");
     }
 
     const remappedData = remapDataModeDetails(response.data);
@@ -442,25 +368,13 @@ router.get("/buildings/:ngsiID([\\w:-]+)/details", async (req, res) => {
 
 /**
  * @swagger
- * /api/buildings/{ngsiID}/components:
+ * /api/cities/{ngsiID}/components:
  *   get:
  *     tags:
- *       - Buildings
+ *       - Cities
  *     summary: Devuelve componentes de un "Entity" .
  *     description: Obtiene todos los componentes de una "Entity" desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -469,7 +383,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/details", async (req, res) => {
  *         description: Identificador NGSI de la "Entity".
  *     responses:
  *       200:
- *         description: Una lista de "Buildings" específicas.
+ *         description: Una lista de "Cities" específicas.
  *         content:
  *           application/json:
  *             schema:
@@ -484,7 +398,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/details", async (req, res) => {
  *                     type: string
  *                     example: "LegoStreetLight001"
  */
-router.get("/buildings/:ngsiID([\\w:-]+)/components", async (req, res) => {
+router.get("/cities/:ngsiID([\\w:-]+)/components", async (req, res) => {
   try {
     // Reformatear el ngsiID
     const ngsiID = formatNgsiID(req.params.ngsiID);
@@ -510,25 +424,13 @@ router.get("/buildings/:ngsiID([\\w:-]+)/components", async (req, res) => {
 
 /**
  * @swagger
- * /api/buildings/{ngsiID}/components/info:
+ * /api/cities/{ngsiID}/components/info:
  *   get:
  *     tags:
- *       - Buildings
+ *       - Cities
  *     summary: Devuelve datos de los componenetes de una "Entity".
  *     description: Obtiene datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -537,7 +439,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/components", async (req, res) => {
  *         description: Identificador NGSI de la "Entity".
  *     responses:
  *       200:
- *         description: Una lista de "Buildings" específicas.
+ *         description: Una lista de "Cities" específicas.
  *         content:
  *           application/json:
  *             schema:
@@ -570,7 +472,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/components", async (req, res) => {
  *                     type: string
  *                     example: "LegoStreetLight001"
  */
-router.get("/buildings/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
+router.get("/cities/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
   try {
     const ngsiID = formatNgsiID(req.params.ngsiID);
 
@@ -595,25 +497,13 @@ router.get("/buildings/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
 
 /**
  * @swagger
- * /api/buildings/{ngsiID}/components/details:
+ * /api/cities/{ngsiID}/components/details:
  *   get:
  *     tags:
- *       - Buildings
+ *       - Cities
  *     summary: Devuelve todos los datos de los componenetes de una "Entity".
  *     description: Obtiene todos los datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -665,7 +555,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
  *                         example: "LegoStreetLight001"
  */
 router.get(
-  "/buildings/:ngsiID([\\w:-]+)/components/details",
+  "/cities/:ngsiID([\\w:-]+)/components/details",
   async (req, res) => {
     try {
       const ngsiID = formatNgsiID(req.params.ngsiID);

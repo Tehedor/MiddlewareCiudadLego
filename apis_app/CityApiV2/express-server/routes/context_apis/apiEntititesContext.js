@@ -124,6 +124,18 @@ router.get("/entities/:ngsiID([\\w:-]+)", async (req, res) => {
  *     summary: Devuelve datos de una "Entity".
  *     description: Obtiene datos de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -180,6 +192,18 @@ router.get("/entities/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *     summary: Devuelve todos los datos de una "Entity".
  *     description: Obtiene todos los datos de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -246,6 +270,18 @@ router.get("/entities/:ngsiID([\\w:-]+)/details", async (req, res) => {
  *     summary: Devuelve componentes de un "Entity" .
  *     description: Obtiene todos los componentes de una "Entity" desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -302,6 +338,18 @@ router.get("/entities/:ngsiID([\\w:-]+)/components", async (req, res) => {
  *     summary: Devuelve datos de los componenetes de una "Entity".
  *     description: Obtiene datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true
@@ -375,6 +423,18 @@ router.get("/entities/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
  *     summary: Devuelve todos los datos de los componenetes de una "Entity".
  *     description: Obtiene todos los datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
+ *       - in: header
+ *         name: x-api-key
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición.
  *       - in: path
  *         name: ngsiID
  *         required: true

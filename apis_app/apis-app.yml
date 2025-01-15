@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  apis-app:
+    build: .
+    container_name: apis-app
+    networks:
+      - default
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    environment:
+      SERVER_PORT: 3001
+      JWT_SECRET_KEY: ypb7SBzJ+3E6wXVy0dXQvAsyj7EYzFAhLBZ+CVmpdsCFK90OmwrU1VMykEl5hjHnKg/fjnjAsUCiQ+FMyYCkeg==
+      ADMIN_EMAIL: admin@pass.es
+      ADMIN_PASSWORD: admin1234
+      DB_HOST: myql_apis-app
+      DB_USER: root
+      DB_PASSWORD: 12345678
+      REDIS_HOST: redis_apis-app
+      REDIS_PORT: 6379
+      LIMIT_API_KEY: 10
+      TIME_LIMIT_API_KEY_M: 1
+      NODE_ENV: container
+    # volumes:
+    #   - ./CityApiV3:/usr/src/app
+    healthcheck:
+      test: curl -k --fail -s http://apis-app:3000/ || exit 1
+      interval: 5s
+    depends_on:
+      - mysql
+      - redis
+
+
+  mysql:
+    image: mysql:latest
+    container_name: myql_apis-app
+    networks:
+      - default
+    # ports:
+    #   - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: app_apis_database
+
+  redis:
+    image: redis:latest
+    networks:
+      - default
+    container_name: redis_apis-app
+    # ports:
+    #   - "6379:6379"
+    # volumes:
+    #   - redis-data:/data
+
+
+
+
+volumes:
+  db-data:
+
+
+
+networks:
+  default:
+    labels:
+      org.fiware: 'orion'
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
