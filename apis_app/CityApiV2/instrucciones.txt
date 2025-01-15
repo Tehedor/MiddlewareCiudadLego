@@ -1,0 +1,8 @@
+Para desarrollador 
+
+npm run dev-all
+
+
+Para produccion
+npm run build
+npm start

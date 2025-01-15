@@ -1,0 +1,69 @@
+
+@host = http://localhost:1026
+@url = /ngsi-ld/v1/entities
+
+##### Para redurcir el contenido  se puede poner "options=keyValues"
+##### Para mostar tiempo en que se ha modigicaido "options=sysAttrs"
+##### Para mostar el contenido de un atributo "attrs=temperature"
+##### Para leer multiples atributos "attrs=category,temperature"
+
+
+### Peticioens para LegoBuilding
+GET {{host}}{{url}}?type=fiware:LegoBuilding
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+
+### Peticioens para Camera
+GET {{host}}{{url}}?type=fiware:Camera
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+### Peticioens para Sensores
+GET {{host}}{{url}}?q=category==%22sensor%22
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+### Peticioens para Actuators
+GET {{host}}{{url}}?q=category==%22actuator%22
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+### Peticioens para Actuators
+GET {{host}}{{url}}?type=Camera
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+#### Mostrar a partir de relacioens
+### Mostar relaciones
+# curl -iX GET 'http://localhost:1026/ngsi-ld/v1/entities/?type=TemperatureSensor&limit=0&count=true&q=controlledAsset==%22urn:ngsi-ld:Building:barn002%22' \
+# -H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+# -H 'Accept: application/json'
+GET {{host}}{{url}}?q=controlledAsset==%22urn:ngsi-ld:LegoStreetLight:001%22
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+#### Mostrar Todas las cosntrucciones dependientes de LegoCity1
+### Mostar relaciones
+# curl -iX GET 'http://localhost:1026/ngsi-ld/v1/entities/?type=TemperatureSensor&limit=0&count=true&q=controlledAsset==%22urn:ngsi-ld:Building:barn002%22' \
+# -H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+# -H 'Accept: application/json'
+GET {{host}}{{url}}?q=controlledAsset==%22urn:ngsi-ld:LegoCity:001%22
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+
+
+
+
+
+###Buscar varios parametros
+
+GET {{host}}{{url}}?q=type==%22Camera%22|category==%22actuator%22
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"

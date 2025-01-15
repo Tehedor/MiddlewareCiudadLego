@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-var temperaturaController = require('../controllers/tempController.js');
+var humController = require('../../controllers/humController.js');
 
 /**
  * @swagger
- * /sensores/{numid}/temperatura:
+ * /sensores/{numid}/humedad:
  *   get:
  *     tags:
- *       - Temperatura
- *     summary: Devuelve las temperaturas registradas.
- *     description: "Ejemplo de uso: /sensores/1/temperatura"
+ *       - Humedad
+ *     summary: Devuelve las humedades registradas.
+ *     description: "Ejemplo de uso: /sensores/2/humedad"
  *     parameters:
  *       - in: path
  *         name: numid
@@ -20,12 +20,12 @@ var temperaturaController = require('../controllers/tempController.js');
  *         description: Identificador numérico del sensor.
  *     responses:
  *       200:
- *         description: La temperatura de la ciudad.
+ *         description: La humedad de la ciudad.
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Temperatura'
+ *               $ref: '#/components/schemas/Humedad'
  */
-router.get('/sensores/:numid(\\d+)/temperatura', temperaturaController.getTemperatura);
+router.get('/sensores/:numid(\\d+)/humedad', humController.getHumedad);
 
 module.exports = router;

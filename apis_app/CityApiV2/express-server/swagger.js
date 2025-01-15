@@ -407,8 +407,11 @@ const options = {
         },
       },
     },
-    apis: ['./routes/*.js'],
+    // apis: ['./rutes/*.js'],
+    // apis: ['./routes/context_apis/*.js'],
+    apis: ['./express-server/routes/context_apis/*.js'],
   };
+  // apis: ['./routes/*.js'],
   
   const specs = swaggerJsdoc(options);
 
