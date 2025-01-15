@@ -25,7 +25,8 @@ block content
                                     
         h2(style="text-align: center; font-weight: bold; color: orange;") Actuadores
         .row
-            each entity, index in entities.filter(e => e.type_entity === 'actuator')
+            //- each entity, index in entities.filter(e => e.type_entity === 'actuator')
+            each entity, index in entities.filter(e => e.type_entity === 'actuator' || e.type === 'Camera')
                 .col-md-6
                     .card.mb-4
                         .card-body
@@ -45,7 +46,7 @@ block content
                                     
         h2(style="text-align: center; font-weight: bold; color: orange;") Resto
         .row
-            each entity, index in entities.filter(e => e.type_entity !== 'sensor' && e.type_entity !== 'actuator')
+            each entity, index in entities.filter(e => e.type_entity !== 'sensor' && e.type_entity !== 'actuator' && e.type !== 'Camera')
                 .col-md-6
                     .card.mb-4
                         .card-body

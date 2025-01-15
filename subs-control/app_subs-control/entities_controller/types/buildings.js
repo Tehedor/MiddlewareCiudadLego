@@ -126,4 +126,4 @@ const dataLegoBuilding = () => [
 //     address: { type: 'Property', value: [Object] }
 //   }
 
-module.exports = dataBuildings;
+module.exports = {dataBuildings, dataLegoBuilding};

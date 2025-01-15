@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const dataBuildings = require('./types/buildings');
+const {dataBuildings, dataLegoBuilding} = require('./types/buildings');
 const dataActuators = require('./types/actuators');
 const dataSensors = require('./types/sensors');
 
@@ -30,6 +30,7 @@ const createEntities = async () => {
     await requestEntities(url, headers, JSON.stringify(dataSensors()));
     await requestEntities(url, headers, JSON.stringify(dataActuators()));
     await requestEntities(url, headers, JSON.stringify(dataBuildings()));
+    await requestEntities(url, headers, JSON.stringify(dataLegoBuilding()));
 };
 
 module.exports = { createEntities };    

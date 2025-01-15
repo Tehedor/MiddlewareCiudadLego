@@ -18,7 +18,8 @@ const app = axios.create({
     headers : {
         'Content-Type': 'application/json',
         'Link': '<http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
-    }
+    },
+    timeout: 5000
 });
 
 
@@ -35,38 +36,37 @@ const app = axios.create({
 // requests.patch(url, headers=headers, json=dataPirSensor)
 
 
+
 // PirSensor
-const pirSensorChange = (presence) => {
+const pirSensorChange = async (presence) => {
     console.log("aaaaaaaaaaa");
-    const pirSensor = `urn:ngsi-ld:PirSensor:${device_number}`
-    // const pirSensor = "urn:ngsi-ld:PirSensor:002"
-    // console.log(pirSensor);
-    // console.log(presence);
-    // app.patch(`/${pirSensor}/attrs`,{
-    app.patch(`/${pirSensor}/attrs`,{
-        "presence" : presence,
-    })
-    .then(response => {
+    const pirSensor = `urn:ngsi-ld:PirSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${pirSensor}/attrs`, {
+            "presence": presence,
+        });
         console.log(response.data);
-        // return response.data;
-    })
-    .catch(error => {
-        console.log(error);
-    });
+        return response.data;
+    } catch (error) {
+        console.error('Error in pirSensorChange:', error.message);
+        throw error;
+    }
 };
 
 // PhotoresistorSensor
-const photoresistorSensorChange = (intensity) => {
-    const photoresistorSensor = `urn:ngsi-ld:PhotoresistorSensor:${device_number}`
-    
-    return app.patch(`/${photoresistorSensor}/attrs`,{
-        "light" : intensity
-    })
-    .then(response => {
-        // console.log(response.data);
-        // return response.data;
-    });
-}
+const photoresistorSensorChange = async (intensity) => {
+    const photoresistorSensor = `urn:ngsi-ld:PhotoresistorSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${photoresistorSensor}/attrs`, {
+            "light": intensity
+        });
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error in photoresistorSensorChange:', error.message);
+        throw error;
+    }
+};
 
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -74,49 +74,57 @@ const photoresistorSensorChange = (intensity) => {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // PotentiometerSensor
-const potentiometerSensorChange = (velocityControl) => {
-    // console.log("velocidad: ", velocityControl);
-    const potentiometerSensor = `urn:ngsi-ld:PotentiometerSensor:${device_number}`
-    return app.patch(`/${potentiometerSensor}/attrs`,{
-        "velocityControl" : velocityControl
-    })
-    .then(response => {
-        // console.log(response.data);
-        // return response.data;
-    });
-}
+const potentiometerSensorChange = async (velocityControl) => {
+    const potentiometerSensor = `urn:ngsi-ld:PotentiometerSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${potentiometerSensor}/attrs`, {
+            "velocityControl": velocityControl
+        });
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error in potentiometerSensorChange:', error.message);
+        throw error;
+    }
+};
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Radar
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 // InfraRedSensor
-const infraredSensorChange = (presence) => {
-    const infraredSensor = `urn:ngsi-ld:InfraredSensor:${device_number}`
-    return app.patch(`/${infraredSensor}/attrs`,{
-        "presence" : presence
-    })
-    .then(response => {
+const infraredSensorChange = async (presence) => {
+    const infraredSensor = `urn:ngsi-ld:InfraredSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${infraredSensor}/attrs`, {
+            "presence": presence
+        });
         console.log(response.data);
         return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in infraredSensorChange:', error.message);
+        throw error;
+    }
+};
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Railroad Switch
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // SwitchSensor
-const switchSensorChange = (state) => {
-    const switchSensor = `urn:ngsi-ld:SwitchSensor:${device_number}`
-    return app.patch(`/${switchSensor}/attrs`,{
-        "state" : state
-    })
-    .then(response => {
+const switchSensorChange = async (state) => {
+    const switchSensor = `urn:ngsi-ld:SwitchSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${switchSensor}/attrs`, {
+            "state": state
+        });
         console.log(response.data);
         return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in switchSensorChange:', error.message);
+        throw error;
+    }
+};
 
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -124,76 +132,84 @@ const switchSensorChange = (state) => {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // RfidSensor
-const rfidSensorChange = (uid) => {
-    // console.log("uid: ", uid);
-    const rfidSensor = `urn:ngsi-ld:RfidSensor:${device_number}`
-    return app.patch(`/${rfidSensor}/attrs`,{
-        "uiddcode" : uid
-    })
-    .then(response => {
+const rfidSensorChange = async (uid) => {
+    const rfidSensor = `urn:ngsi-ld:RfidSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${rfidSensor}/attrs`, {
+            "uiddcode": uid
+        });
         console.log(response.data);
         return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in rfidSensorChange:', error.message);
+        throw error;
+    }
+};
+
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Crane
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // UltrasonicSensor
-const ultrasoundSensorChange = (distance) => {
-    const ultrasoundSensor = `urn:ngsi-ld:UltrasoundSensor:${device_number}`
-    
-    return app.patch(`/${ultrasoundSensor}/attrs`,{
-        "distance" : {
-            "type": "Property",
-            "value": distance,
-            "unitCode": "CMT"
-        },
-    })
-    .then(response => {
+const ultrasoundSensorChange = async (distance) => {
+    const ultrasoundSensor = `urn:ngsi-ld:UltrasoundSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${ultrasoundSensor}/attrs`, {
+            "distance": {
+                "type": "Property",
+                "value": distance,
+                "unitCode": "CMT"
+            }
+        });
         console.log(response.data);
         return response.data;
-    });
-}
-
+    } catch (error) {
+        console.error('Error in ultrasoundSensorChange:', error.message);
+        throw error;
+    }
+};
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Wheater Station
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // TemperatureSensor
-const temperatureSensorChange = (temperature) => {
-    const temperatureSensor = `urn:ngsi-ld:TemperatureSensor:${device_number}`
-    // console.log("aaaaaaaaaaaaaaaaa")
-    return app.patch(`/${temperatureSensor}/attrs`,{
-        "temperature" : {
-            "type": "Property",
-            "value": temperature,
-            "unitCode": "CEL"
-        }
-    })
-    .then(response => {pirSensorChange
+const temperatureSensorChange = async (temperature) => {
+    const temperatureSensor = `urn:ngsi-ld:TemperatureSensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${temperatureSensor}/attrs`, {
+            "temperature": {
+                "type": "Property",
+                "value": temperature,
+                "unitCode": "CEL"
+            }
+        });
         console.log(response.data);
         return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in temperatureSensorChange:', error.message);
+        throw error;
+    }
+};
 
 // HumiditySensor
-const humiditySensorChange = (humidity) => {
-    // console.log("bbbbbbbbbbbbbbb")
-    const humiditySensor = `urn:ngsi-ld:HumiditySensor:${device_number}`
-    return app.patch(`/${humiditySensor}/attrs`,{
-        "humidity" : {
-            "type": "Property",
-            "value": humidity,
-            "unitCode": "P1"
-        }
-    })
-    .then(response => {
-        // console.log(response.data);
+const humiditySensorChange = async (humidity) => {
+    const humiditySensor = `urn:ngsi-ld:HumiditySensor:${device_number}`;
+    try {
+        const response = await app.patch(`/${humiditySensor}/attrs`, {
+            "humidity": {
+                "type": "Property",
+                "value": humidity,
+                "unitCode": "P1"
+            }
+        });
+        console.log(response.data);
         return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in humiditySensorChange:', error.message);
+        throw error;
+    }
+};
 
 module.exports = {
     pirSensorChange,

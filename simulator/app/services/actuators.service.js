@@ -17,7 +17,8 @@ const app = axios.create({
     headers : {
         'Content-Type': 'application/json',
         'Link': '<http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
-    }
+    },
+    timeout: 5000
 });
 
 
@@ -26,85 +27,91 @@ const app = axios.create({
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // PhotoresistorSensor
 
+// LedDetection
+const ledDetectionChange = async (stateLed) => {
+    const ledDetection = `urn:ngsi-ld:LedDetection:${device_number || '002'}`;
+    try {
+        const response = await app.patch(`/${ledDetection}/attrs`, {
+            "stateLed": stateLed
+        });
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error in ledDetectionChange:', error.message);
+        throw error;
+    }
+};
 
 // LedDetection
-const ledDetectionChange = (stateLed) => {
-    const ledDetection = `urn:ngsi-ld:LedDetection:${device_number|| '002'}`
-    return app.patch(`/${ledDetection}/attrs`,{
-        "stateLed" : stateLed
-    })
-    .then(response => {
-        // console.log(response.data);
+const lightChange = async (stateLight) => {
+    const light = `urn:ngsi-ld:Light:${device_number || '002'}`;
+    try {
+        const response = await app.patch(`/${light}/attrs`, {
+            "stateLight": stateLight
+        });
+        console.log(response.data);
         return response.data;
-    });
-}
-
-// Light
-// "stateLight": "OFF",
-const lightChange = (stateLight) => {
-    const light = `urn:ngsi-ld:Light:${device_number|| '002'}`
-    return app.patch(`/${light}/attrs`,{
-        "stateLight" : stateLight
-    })
-    .then(response => {
-        // console.log(response.data);
-        return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in lightChange:', error.message);
+        throw error;
+    }
+};
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Train 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 // EngineDC
-// "id": `urn:ngsi-ld:EngineDC:${device_number|| '002'}`,
-
-const engineDCChange = (velocityEngine_engineDCAtuator) => {
-    const engineId = `urn:ngsi-ld:EngineDC:${device_number|| '002'}`
-    return app.patch(`/${engineId}/attrs`,{
-        "velocityEngine" : velocityEngine_engineDCAtuator
-    })
-    .then(response => {
-        // console.log(response.data);
+const engineDCChange = async (velocityEngine_engineDCAtuator) => {
+    const engineId = `urn:ngsi-ld:EngineDC:${device_number || '002'}`;
+    try {
+        const response = await app.patch(`/${engineId}/attrs`, {
+            "velocityEngine": velocityEngine_engineDCAtuator
+        });
+        console.log(response.data);
         return response.data;
-    });
-}
-
+    } catch (error) {
+        console.error('Error in engineDCChange:', error.message);
+        throw error;
+    }
+};
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Railroad Switch
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
-// ServoMotor 
-// "id": `urn:ngsi-ld:Servmotor:${device_number|| '002'}`,
-
-const servmotorChange = (stateServmotor) => {
-    const servmotor = `urn:ngsi-ld:Servmotor:${device_number|| '002'}`
-    return app.patch(`/${servmotor}/attrs`,{
-        "stateMotor" : stateServmotor
-    })
-    .then(response => {
-        // console.log(response.data);
+// ServoMotor
+const servmotorChange = async (stateServmotor) => {
+    const servmotor = `urn:ngsi-ld:Servmotor:${device_number || '002'}`;
+    try {
+        const response = await app.patch(`/${servmotor}/attrs`, {
+            "stateMotor": stateServmotor
+        });
+        console.log(response.data);
         return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in servmotorChange:', error.message);
+        throw error;
+    }
+};
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Radar
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 // Camera
-// "id": `urn:ngsi-ld:Camera:${device_number|| '002'}`,
-
-const cameraChange = (stateCamera) => {
-    const camera = `urn:ngsi-ld:Camera:${device_number|| '002'}`
-    return app.patch(`/${camera}/attrs`,{
-        "stateCamera" : stateCamera
-    })
-    .then(response => {
-        // console.log(response.data);
+const cameraChange = async (stateCamera) => {
+    const camera = `urn:ngsi-ld:Camera:${device_number || '002'}`;
+    try {
+        const response = await app.patch(`/${camera}/attrs`, {
+            "stateCamera": stateCamera
+        });
+        console.log(response.data);
         return response.data;
-    });
-}
+    } catch (error) {
+        console.error('Error in cameraChange:', error.message);
+        throw error;
+    }
+};
 
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
