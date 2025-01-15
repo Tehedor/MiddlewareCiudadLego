@@ -92,7 +92,11 @@ async function simulatePirSensor(time) {
     presence_pirSensor = randomStreetLight.simulatePresence(presence_pirSensor);
     // presence_pirSensor = "HIGH";
     if (aux != presence_pirSensor) {
-        SensorService.pirSensorChange(presence_pirSensor);
+        try {
+            await SensorService.pirSensorChange(presence_pirSensor);
+        }catch (err) {
+            console.error('Error in simulatePirSensor:', error.message);
+        }
         SOCKET_IO.emit('update_pirSensor', presence_pirSensor);
     }
 }
@@ -106,15 +110,17 @@ async function simulatePhotoresistorSensor(time) {
     light_potentiometerSensor = randomStreetLight.simulateIntensity(light_potentiometerSensor);
     // SensorService.photoresistorSensorChange(light_potentiometerSensor);
     if (aux != light_potentiometerSensor) {
-        SensorService.photoresistorSensorChange(light_potentiometerSensor);
+        try {
+            await SensorService.photoresistorSensorChange(light_potentiometerSensor);
+        } catch (error) {
+            console.error('Error in simulatePhotoresistorSensor:', error.message);
+        }
         SOCKET_IO.emit('update_photoresistorSensor', light_potentiometerSensor);
     }
-    
 
     // console.log('Simulating Photoresistor Sensor');
     // SOCKET_IO.emit('update_photoresistorSensor', data);
 }
-
 async function simulatePotentiometerSensor(time) {
     if (velocityControl_potentiometerSensor == undefined) {
         await iniciarSimulacion();
@@ -124,11 +130,14 @@ async function simulatePotentiometerSensor(time) {
     velocityControl_potentiometerSensor = randomTrain.simulateVelocityControl(velocityControl_potentiometerSensor);
     
     if (aux != velocityControl_potentiometerSensor) {
-        SensorService.potentiometerSensorChange(velocityControl_potentiometerSensor);
+        try {
+            await SensorService.potentiometerSensorChange(velocityControl_potentiometerSensor);
+        } catch (error) {
+            console.error('Error in simulatePotentiometerSensor:', error.message);
+        }
         SOCKET_IO.emit('update_potentiometerSensor', velocityControl_potentiometerSensor);
     }
 }
-
 async function simulateInfraredSensor(time) {
     if (presence_infraredSensor == undefined) {
         await iniciarSimulacion();
@@ -138,11 +147,14 @@ async function simulateInfraredSensor(time) {
     presence_infraredSensor = randomRadar.simulatePresenceRadar(presence_infraredSensor);
 
     if (aux != presence_infraredSensor) {
-        SensorService.infraredSensorChange(presence_infraredSensor);
+        try {
+            await SensorService.infraredSensorChange(presence_infraredSensor);
+        } catch (error) {
+            console.error('Error in simulateInfraredSensor:', error.message);
+        }
         SOCKET_IO.emit('update_infraredSensor', presence_infraredSensor);
     }
 }
-
 async function simulateSwitchSensor(time) {
     if (state_switchSensor == undefined) {
         await iniciarSimulacion();
@@ -151,7 +163,12 @@ async function simulateSwitchSensor(time) {
     state_switchSensor = randomRailoadSwitch.simulateState(state_switchSensor);
     // console.log(state_switchSensor);
     if (aux != state_switchSensor) {
-        SensorService.switchSensorChange(state_switchSensor);
+        try {
+
+            await SensorService.switchSensorChange(state_switchSensor);
+        } catch (error) {
+            console.error('Error in simulateSwitchSensor:', error.message);
+        }
         SOCKET_IO.emit('update_switchSensor', state_switchSensor);
     }
     
@@ -165,7 +182,12 @@ async function simulateRfidSensor(time) {
     const aux = uiddcode_rfidSensor;
     uiddcode_rfidSensor = randomToll.simulateUIDD(uiddcode_rfidSensor);
     if (aux != uiddcode_rfidSensor) {
-        SensorService.rfidSensorChange(uiddcode_rfidSensor);
+        try {
+            await SensorService.rfidSensorChange(uiddcode_rfidSensor);
+
+        } catch (error) {
+            console.error('Error in simulateRfidSensor:', error.message);
+        }
         SOCKET_IO.emit('update_rfidSensor', uiddcode_rfidSensor);
     }
     // console.log('Simulating RFID Sensor');
@@ -181,7 +203,12 @@ async function simulateUltrasoundSensor(time) {
     distance_ultrasoundSensor = randomCrane.simulateDistance(distance_ultrasoundSensor);
     
     if (aux != distance_ultrasoundSensor) {
-        SensorService.ultrasoundSensorChange(distance_ultrasoundSensor);
+        try {
+            await SensorService.ultrasoundSensorChange(distance_ultrasoundSensor);
+
+        }catch (error) {
+            console.error('Error in simulateUltrasoundSensor:', error.message);
+        }
         SOCKET_IO.emit('update_ultrasoundSensor', distance_ultrasoundSensor);
     }
 }
@@ -196,9 +223,13 @@ async function simulateWeatherStation(time) {
     const auxHumidity = humidity_humiditySensor;
 
     if (auxTemperature != temperature || auxHumidity != humidity) {
-        SensorService.temperatureSensorChange(temperature);
-        SensorService.humiditySensorChange(humidity);
+        try {
+            await SensorService.temperatureSensorChange(temperature);
+            await SensorService.humiditySensorChange(humidity);
 
+        } catch (error) {
+            console.error('Error in simulateTemperatureSensor:', error.message);
+        }
         SOCKET_IO.emit('update_temperatureSensor', temperature);
         SOCKET_IO.emit('update_humiditySensor', humidity);
     }

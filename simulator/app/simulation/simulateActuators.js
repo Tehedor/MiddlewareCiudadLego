@@ -95,13 +95,22 @@ async function simulateLedDetectionActuator(data) {
         if (data.presence.value === 'HIGH' && state_ledDetectionActuator === 'OFF') {
             state_ledDetectionActuator = 'ON';
             // console.log('Gente');
-            ActuatorsService.ledDetectionChange(state_ledDetectionActuator);
+            try {
+                await ActuatorsService.ledDetectionChange(state_ledDetectionActuator);
+
+            }catch (error) {
+                console.error('Error in ledDetectionChange:', error.message);
+            }   
             SOCKET_IO.emit('update_ledDetectionActuator', state_ledDetectionActuator);
             // console.log('Encendido');
         } else if (data.presence.value === 'LOW' && state_ledDetectionActuator === 'ON') {
             state_ledDetectionActuator = 'OFF';
-            ActuatorsService.ledDetectionChange(state_ledDetectionActuator);
-            SOCKET_IO.emit('update_ledDetectionActuator', state_ledDetectionActuator);
+            try {
+                await ActuatorsService.ledDetectionChange(state_ledDetectionActuator);
+            } catch (error) {   
+                console.error('Error in ledDetectionChange:', error.message);
+            }
+                SOCKET_IO.emit('update_ledDetectionActuator', state_ledDetectionActuator);
             // console.log('Apagado');
             // console.log('No hay gente');
         }
@@ -125,8 +134,12 @@ async function simulateLightActuator(data) {
             if (state_lightAtuator === 'OFF') {
                 state_lightAtuator = 'ON';
                 // console.log('Encendido');
-                ActuatorsService.lightChange(state_lightAtuator);
-                SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
+                try {
+                    await ActuatorsService.lightChange(state_lightAtuator);
+                } catch (error) {
+                    console.error('Error in lightChange:', error.message);
+                }
+                    SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
             }
         } else if (data.light.value <= intensityThreshold){
             ctrl_lightActuator = 'OFF';
@@ -134,7 +147,11 @@ async function simulateLightActuator(data) {
             if (state_lightAtuator === 'ON') {
                 state_lightAtuator = 'OFF';
                 // console.log('Apagado'); 
-                ActuatorsService.lightChange(state_lightAtuator);
+                try {
+                    await ActuatorsService.lightChange(state_lightAtuator);
+                }catch (error) {
+                    console.error('Error in lightChange:', error.message);
+                }
                 SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
                 // console.log('Apagado');
             }
@@ -145,17 +162,30 @@ async function simulateLightActuator(data) {
     if (data.id === `urn:ngsi-ld:PirSensor:${device_number}`) {
         if (data.presence.value === 'HIGH' && ctrl_lightActuator === 'ON' && state_lightAtuator === 'OFF') {
             state_lightAtuator = 'ON';
-            ActuatorsService.lightChange(state_lightAtuator);
+            try {
+                await ActuatorsService.lightChange(state_lightAtuator);
+            } catch (error) {
+                console.error('Error in lightChange:', error.message);
+            }
             SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
             // console.log('Encendido');
         } else if (data.presence.value === 'LOW' && state_lightAtuator === 'ON') {
             state_lightAtuator = 'OFF';
-            ActuatorsService.lightChange(state_lightAtuator);
+            try {
+                await ActuatorsService.lightChange(state_lightAtuator);
+            } catch (error) {
+                console.error('Error in lightChange:', error.message);  
+            }
             SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
             // console.log('Apagado');
         } else if (ctrl_lightActuator === 'OFF'){
             state_lightAtuator = 'OFF';
-            ActuatorsService.lightChange(state_lightAtuator);
+            try {
+                await ActuatorsService.lightChange(state_lightAtuator);
+            }catch (error) {
+                console.error('Error in lightChange:', error.message);
+            }
+
             SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
             // console.log('Apagado');
         }
@@ -180,7 +210,11 @@ async function simulateEngineDCActuator(data) {
     if (data.id === `urn:ngsi-ld:PotentiometerSensor:${device_number}`){
         if (velocityEngine_engineDCAtuator !== data.velocityControl.value){
             velocityEngine_engineDCAtuator = data.velocityControl.value;
-            ActuatorsService.engineDCChange(velocityEngine_engineDCAtuator);
+            try {
+                await ActuatorsService.engineDCChange(velocityEngine_engineDCAtuator);
+            } catch (error) {
+                console.error('Error in engineDCChange:', error.message);
+            }
             SOCKET_IO.emit('update_engineDCActuator', velocityEngine_engineDCAtuator);
         }
     }
@@ -202,7 +236,11 @@ async function simulateServmotorActuator(data) {
         if (state_servmotorAtuator !== aux){
             // console.log("pruebas2");
             state_servmotorAtuator = aux;
-            ActuatorsService.servmotorChange(state_servmotorAtuator);
+            try {
+                await ActuatorsService.servmotorChange(state_servmotorAtuator);
+            } catch (error) {
+                console.error('Error in servmotorChange:', error.message);
+            }
             SOCKET_IO.emit('update_servmotorActuator', state_servmotorAtuator);
         }
     }
