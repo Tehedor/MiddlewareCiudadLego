@@ -18,7 +18,7 @@ const app = axios.create({
         'Content-Type': 'application/json',
         'Link': '<http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
     },
-    timeout: 5000
+    timeout: 500
 });
 
 
