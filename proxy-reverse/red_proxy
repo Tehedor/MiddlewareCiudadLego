@@ -58,7 +58,7 @@ elif [ "$1" == "up" ]; then
     # python3 ./script_proxy-reverse.py
     # python3 ./proxy-reverse/script_proxy-reverse.py
     pushd proxy-reverse > /dev/null
-    # python3 ./script_proxy-reverse.py                           ##############################################################################
+    python3 ./script_proxy-reverse.py                           ##############################################################################
     if [ $? -ne 0 ]; then
         echo "Error al ejecutar el script de Python."
         popd > /dev/null
