@@ -261,6 +261,72 @@ def append_minioBucket():
     }
 
 """
+
+
+def append_apisApp():
+    return \
+"""
+    # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+    # ### ### Apis App
+    # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+    location /api/ {
+        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
+        rewrite ^/api/(.*)$ /$1 break;
+
+        # Redirige la solicitud al backend
+        proxy_pass http://apis-app:3001/api/;
+
+        # Encabezados para la solicitud al backend
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        
+        sub_filter 'href="/api-docs' 'href="/api/api-docs';
+        sub_filter 'src="/api-docs' 'src="/api/api-docs';
+        sub_filter_once off;
+
+    }
+
+    location /apisApp/ {
+        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
+        # rewrite ^/apisApp/(.*)$ /$1 break;
+
+        # Redirige la solicitud al backend
+        proxy_pass http://apis-app:3000/apisApp/;
+
+        # Encabezados para la solicitud al backend
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Ajustar las rutas en las respuestas del backend
+        # Asegura que las rutas devueltas sean relativas a /subsControlApp
+        sub_filter 'href="/' 'href="/apisApp/';
+        sub_filter 'src="/' 'src="/apisApp/';
+        sub_filter 'action="/' 'action="/apisApp/';
+        sub_filter 'url="/' 'url="/apisApp/';
+        sub_filter_once off;
+    }
+
+    location /api-docs/ {
+
+        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
+        rewrite ^/api-docs/(.*)$ /$1 break;
+
+        # Redirige la solicitud al backend
+        proxy_pass http://apis-app:3001/api-docs/;
+
+        # Encabezados para la solicitud al backend
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+"""
+    
 # def append_minioBucket():
 #     return \
 # """
@@ -328,6 +394,8 @@ def get_active_containers():
             active_services.append("subs-control-app")
         if "minio-bucket" == container_name:
             active_services.append("minio-bucket")
+        if "apis-app" == container_name:
+            active_services.append("apis-app")
     
     return active_services
 
@@ -360,7 +428,9 @@ def generate_nginx_config(exclude_containers=None):
     if 'minio-bucket' in active_services:
         config += append_minioBucket()
         print("MinioBucket configurado")
-    
+    if 'apis-app' in active_services:
+        config += append_apisApp()
+        print("ApisApp configurado")    
     # Configuracion final
     config += nginx_config_end()
 
