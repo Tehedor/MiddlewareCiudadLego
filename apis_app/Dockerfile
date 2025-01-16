@@ -36,6 +36,7 @@ ENV REDIS_HOST=localhost
 ENV REDIS_PORT=6379
 ENV LIMIT_API_KEY=10
 ENV TIME_LIMIT_API_KEY_M=1
+ENV MODE_CONTAINTER=true
 
 # Expone el puerto en el que la aplicación se ejecutará
 EXPOSE 3000

@@ -21,7 +21,7 @@ services:
       REDIS_PORT: 6379
       LIMIT_API_KEY: 10
       TIME_LIMIT_API_KEY_M: 1
-      NODE_ENV: container
+      MODE_CONTAINTER: true
     # volumes:
     #   - ./CityApiV3:/usr/src/app
     healthcheck:
@@ -37,8 +37,8 @@ services:
     container_name: myql_apis-app
     networks:
       - default
-    # ports:
-    #   - "3306:3306"
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_DATABASE: app_apis_database
@@ -48,8 +48,8 @@ services:
     networks:
       - default
     container_name: redis_apis-app
-    # ports:
-    #   - "6379:6379"
+    ports:
+      - "6379:6379"
     # volumes:
     #   - redis-data:/data
 

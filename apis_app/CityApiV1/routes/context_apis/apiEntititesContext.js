@@ -7,7 +7,7 @@ const formatNgsiID = require("../../utils/formatNgsiID");
 const { remapDataModeID,remapDataModeInfo, remapDataModeDetails} = require("../../utils/remapModes");
 
 const basePath =
-  process.env.MODE_CONTAINERS === "true" ? "fiware-orion" : "localhost";
+  process.env.MODE_CONTAINER === "true" ? "fiware-orion" : "localhost";
 const url = `http://${basePath}:1026/ngsi-ld/v1/entities`;
 const headers = {
   Accept: "application/ld+json",
