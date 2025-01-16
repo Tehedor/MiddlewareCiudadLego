@@ -480,20 +480,6 @@ case "${command}" in
 		displayServices "simulator-app"
 		waitForSimulatorApp		
 		;;
-	# "simulator-marta")
-	# 	export $(cat .env | grep "#" -v)
-	# 	python scripts/simulatorMarta/iniciarSimulator.py
-	# 	stoppingContainerAppSimulator
-	# 	echo -e "Starting containers:  \033[1mSimulator app .\033[0m"
-	# 	echo ""
-
-	# 	docker build -t simulator_app ./simulator
-		
-	# 	# ${dockerCmd} -f simulator/simulator-app.yml up -d 
-	# 	${dockerCmd} -f simulator/simulator-app.yml up 
-	# 	displayServices "simulator-app"
-	# 	waitForSimulatorApp		
-	# 	;;
 	"subs-control-app")
 		export $(cat .env | grep "#" -v)
 		stoppingContainerAppSubsControl
@@ -523,6 +509,11 @@ case "${command}" in
 		${dockerCmd} -f apis_app/apis-app.yml up -d
 		displayServices "apis-app"
 		waitForApisApp
+		;;
+	"stop-apis-app")
+		export $(cat .env | grep "#" -v)
+		${dockerCmd} -f apis_app/apis-app.yml down
+		stopContainerApisApp
 		;;
 	*)
 		echo "Command not Found."
