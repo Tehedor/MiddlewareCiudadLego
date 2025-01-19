@@ -95,7 +95,7 @@ async function simulatePirSensor(time) {
         try {
             await SensorService.pirSensorChange(presence_pirSensor);
         }catch (err) {
-            console.error('Error in simulatePirSensor:', error.message);
+            console.error('Error in simulatePirSensor:', err.message);
         }
         SOCKET_IO.emit('update_pirSensor', presence_pirSensor);
     }
