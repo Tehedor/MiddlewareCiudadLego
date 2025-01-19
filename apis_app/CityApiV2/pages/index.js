@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import EnvConfig from '../utils/env.config';
 
-const {mode_container} = EnvConfig();
+export default function Login() {
 
-
-export default function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        router.push(mode_container === "true" ? '/apisApp/login' : '/login');
+        router.push('/login');
     }, [router]);
-
-    return null;
+    return (
+        <div>
+            <h1>Login Page</h1>
+        </div>
+    );
 }

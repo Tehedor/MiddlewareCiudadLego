@@ -22,10 +22,11 @@ services:
       LIMIT_API_KEY: 10
       TIME_LIMIT_API_KEY_M: 1
       MODE_CONTAINTER: true
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:3000/apisApp
     # volumes:
     #   - ./CityApiV3:/usr/src/app
     healthcheck:
-      test: curl -k --fail -s http://apis-app:3000/ || exit 1
+      test: curl -k --fail -s http://apis-app:3001/ || exit 1
       interval: 5s
     depends_on:
       - mysql

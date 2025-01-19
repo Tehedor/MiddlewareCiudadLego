@@ -7,8 +7,10 @@ const formatNgsiID = require("../../utils/formatNgsiID");
 const { remapDataModeID,remapDataModeInfo, remapDataModeDetails} = require("../../utils/remapModes");
 const { checkIfIsLegoCity} = require("../../utils/checkIfIsXXX");
 
+const EnvConfig = require('../../../../utils/env.config');
+const { mode_container } = EnvConfig();
 
-const basePath = process.env.MODE_CONTAINER === 'true' ? 'fiware-orion' : 'localhost';
+const basePath = mode_container ? 'fiware-orion' : 'localhost';
 const url = `http://${basePath}:1026/ngsi-ld/v1/entities`;
 const headers = {
     'Accept': 'application/ld+json',

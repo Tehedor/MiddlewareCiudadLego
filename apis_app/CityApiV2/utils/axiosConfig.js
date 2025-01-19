@@ -1,15 +1,14 @@
 import axios from 'axios';
 
-import EnvConfig from './env.config';
 
-const {mode_container, next_public_api_base_url} = EnvConfig();
+function convertToBoolean(envVar) {
+  return envVar ? envVar === 'true' : false;
+}
 
-// Configura la URL base dinámicamente
-const baseURL = mode_container === 'true'
-  ? next_public_api_base_url || 'http://localhost/apisApp'
-  : 'http://localhost:3000';
+// const baseURL = convertToBoolean(process.env.MODE_CONTAINER) ? process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost/apisApp'  : 'http://localhost:3000';
 
-// Crea una instancia de Axios con una configuración personalizada
+const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 const instance = axios.create({
   baseURL: baseURL,
 });

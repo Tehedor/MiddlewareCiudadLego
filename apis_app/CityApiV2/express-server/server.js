@@ -9,6 +9,8 @@ const redisClient = require("../utils/redis_config")
 const EnvConfig = require("../utils/env.config");
 const { server_port, next_port } = EnvConfig();
 
+
+
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();

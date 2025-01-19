@@ -274,7 +274,7 @@ def append_apisApp():
         rewrite ^/api/(.*)$ /$1 break;
 
         # Redirige la solicitud al backend
-        proxy_pass http://apis-app:3001/api/;
+        proxy_pass http://apis-app:3001/;
 
         # Encabezados para la solicitud al backend
         proxy_set_header Host $host;
@@ -283,10 +283,11 @@ def append_apisApp():
         proxy_set_header X-Forwarded-Proto $scheme;
         
         
-        sub_filter 'href="/api-docs' 'href="/api/api-docs';
-        sub_filter 'src="/api-docs' 'src="/api/api-docs';
+        sub_filter "href='/" "href='/api/";
+        sub_filter "href='/api-docs" "href='/api/api-docs";
+        sub_filter 'src="/' 'src="/api/';
         sub_filter_once off;
-
+    
     }
 
     location /apisApp/ {
@@ -311,21 +312,21 @@ def append_apisApp():
         sub_filter_once off;
     }
 
-    location /api-docs/ {
-
-        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
-        rewrite ^/api-docs/(.*)$ /$1 break;
-
-        # Redirige la solicitud al backend
-        proxy_pass http://apis-app:3001/api-docs/;
-
-        # Encabezados para la solicitud al backend
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
 """
+    # location /api-docs/ {
+
+    #     # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
+    #     rewrite ^/api-docs/(.*)$ /$1 break;
+
+    #     # Redirige la solicitud al backend
+    #     proxy_pass http://apis-app:3001/api-docs/;
+
+    #     # Encabezados para la solicitud al backend
+    #     proxy_set_header Host $host;
+    #     proxy_set_header X-Real-IP $remote_addr;
+    #     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    #     proxy_set_header X-Forwarded-Proto $scheme;
+    # }
     
 # def append_minioBucket():
 #     return \
@@ -377,7 +378,8 @@ def append_apisApp():
 
 # Buscar contenedores activos
 def get_active_containers():
-    result = subprocess.run(['docker', 'ps', '-a', '--format', '{{.Names}}'], stdout=subprocess.PIPE)
+    # result = subprocess.run(['docker', 'ps', '-a', '--format', '{{.Names}}'], stdout=subprocess.PIPE)
+    result = subprocess.run(['docker', 'ps', '--format', '{{.Names}}'], stdout=subprocess.PIPE)
     containers = result.stdout.decode('utf-8').strip().split('\n')
     active_services = []
     

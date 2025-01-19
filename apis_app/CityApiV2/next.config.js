@@ -1,12 +1,16 @@
 // next.config.js
+// // next.config.js
+// module.exports = {
+//     reactStrictMode: true,
+// };
+
 const EnvConfig = require('./utils/env.config');
 
 const {mode_container} = EnvConfig();
 
 module.exports = {
     reactStrictMode: true,
-    // basePath: mode_container === 'true'  ? '/apisApp' : '',
-    basePath: '/apisApp' ,
+    basePath: mode_container  ? '/apisApp' : '',
     async headers() {
         return [
             {
@@ -21,7 +25,8 @@ module.exports = {
         ]
     }
 };
+// next.config.js
 // // next.config.js
 // module.exports = {
 //     reactStrictMode: true,
-// };s
+// };

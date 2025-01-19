@@ -2,9 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 // import axios from 'axios';
+// import axiosa from 'axios';
 import axios from '../utils/axiosConfig';
-
-
 
 
 import NavBar from '../components/NavBar';
@@ -33,6 +32,7 @@ export default function Login() {
         e.preventDefault();
         try {
             const res = await axios.post('/api/auth/login', { email, password });
+
             localStorage.setItem('token', res.data.token);
             router.push('/dashboard');
         } catch (error) {

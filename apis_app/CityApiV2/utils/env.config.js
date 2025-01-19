@@ -1,5 +1,9 @@
 require('dotenv').config();
 
+function convertToBoolean(envVar) {
+    return envVar ? envVar === 'true' : false;
+}
+
 const {
     // PORT            :app_port = 3001,
     // NEXT_PORT       :next_port = 3000,
@@ -21,7 +25,7 @@ const {
     LIMIT_API_KEY       :limit_api_key = 1000,
     TIME_LIMIT_API_KEY_M:time_limit_api_key = 5, // En minutos
 
-    NODE_ENV     :mode_container = "development",    
+    MODE_CONTAINER     :mode_container = "false",    
     NEXT_PUBLIC_API_BASE_URL :next_public_api_base_url = "http://localhost/apisApp"
 
 } = process.env;
@@ -41,7 +45,7 @@ const EnvConfig = () => ({
     db_password,
     redis_host,
     redis_port,
-    mode_container,
+    mode_container  :   convertToBoolean(mode_container),
     next_public_api_base_url
     
 });

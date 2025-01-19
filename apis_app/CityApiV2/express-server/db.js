@@ -5,7 +5,11 @@ require('dotenv').config();
 const dbname = "sth_openiot";
 let dbURI = 'mongodb://localhost:27017/' + dbname;
 
-if (process.env.NODE_ENV === 'container') {
+
+const EnvConfig = require('../utils/env.config');
+const { mode_container } = EnvConfig();
+
+if (mode_container ) {
   dbURI = 'mongodb://mongo-db-draco:27017/' + dbname;
 }
 
