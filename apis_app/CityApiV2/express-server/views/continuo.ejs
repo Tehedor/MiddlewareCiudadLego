@@ -16,10 +16,12 @@
 
 <body>
 
-    <h3 style="text-align: center;  font-family: Kanit, sans-serif;">Monitor de sensores</h3>
-    <h4 style="text-align: center; font-family: Kanit, sans-serif;"> Datos en iteración del sensor <p
-            style="color: mediumorchid; display: inline;">
-            <%= numid %>
+    <h3 style="text-align: center;  font-family: Kanit, sans-serif;">
+        Monitor de <%= deviceType === 'sensors' ? 'Sensores' : 'Actuadores' %>
+    </h3>
+    <h4 style="text-align: center; font-family: Kanit, sans-serif;">
+        Datos en iteración del <%= deviceType === 'sensors' ? 'sensor' : 'actuador' %> <p style="color: mediumorchid; display: inline;">
+            <%= ngsiID.replace('urn:ngsi-ld:', '').replace(/:/g, '') %>
         </p>
     </h4>
     <table id="sensorDataTable" class="table table-striped">
@@ -27,68 +29,47 @@
             <tr>
                 <th>Momento de la medición</th>
                 <th>Valor</th>
+                <th>Unidad</th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
     <script>
-        var numid = '<%= numid %>'; // Asegúrate de que 'numid' esté disponible en tu plantilla EJS
-
-        // Mapeo de tipos de sensores a propiedades de datos
-        var sensorDataProperties = {
-            'https://uri.fiware.org/ns/data-models#TemperatureSensor': 'https://w3id.org/saref#temperature',
-            'https://uri.fiware.org/ns/data-models#HumiditySensor': 'https://w3id.org/saref#Humidity',
-            'https://uri.fiware.org/ns/data-models#Servmotor': 'https://uri.fiware.org/ns/data-models#stateMotor',
-            'https://uri.etsi.org/ngsi-ld/default-context/UltrasoundSensor': 'https://uri.fiware.org/ns/data-models#distance',
-            'https://uri.fiware.org/ns/data-models#PhotoresistorSensor': 'https://uri.etsi.org/ngsi-ld/default-context/light',
-            'https://uri.fiware.org/ns/data-models#PirSensor': 'https://w3id.org/saref#Occupancy',
-            'https://uri.fiware.org/ns/data-models#PotentiometerSensor': 'https://w3id.org/saref#LevelControlFunction',
-            'https://uri.fiware.org/ns/data-models#InfraredSensor': 'https://w3id.org/saref#Occupancy',
-            'https://uri.fiware.org/ns/data-models#SwitchSensor': 'https://w3id.org/saref#OnOffState',
-            'https://uri.fiware.org/ns/data-models#RfidSensor': 'https://schema.org/leiCode',
-            'https://uri.fiware.org/ns/data-models#LedDetection': 'https://uri.fiware.org/ns/data-models#stateLed',
-            'https://uri.fiware.org/ns/data-models#Light': 'https://uri.fiware.org/ns/data-models#stateLight',
-            'https://uri.fiware.org/ns/data-models#EngineDC': 'https://uri.fiware.org/ns/data-models#velocityEngine',
-            'https://uri.fiware.org/ns/data-models#Camera': 'https://uri.fiware.org/ns/data-models#on'
-        };
-
+        var ngsiID = '<%= ngsiID.replace('urn:ngsi-ld:', '').replace(/:/g, '') %>';
+        var apiKey = '<%= apiKey %>';
+        var style = '<%= style %>';
+        var deviceType = '<%= deviceType %>';
+        var mode_container = '<%= mode_container %>';
+        var url1 = 'localhost:3001/api'
+        var url2 = 'localhost/api'
+        <!-- var url2 = '138.4.22.12/api' -->
+        
         // Función para obtener datos del sensor
-function obtenerDatosSensor(simple = false) {
-    var url = '/tiempoReal/sensores/' + numid;
-    if (simple) {
-        url += '/simple'; // Añade /simple a la URL si se solicita el mensaje simple
-    }
+        function obtenerDatosSensor() {
+            var url = `http://${ mode_container == "true" ? url2: url1}/${deviceType}/${ngsiID}?apiKey=${apiKey}&style=${style}`;
+            
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function (data) {
+                    console.log(data);
 
-    $.ajax({
-        url: url,
-        method: 'GET',
-        success: function (data) {
-            console.log(data);
+                    var tableBody = document.getElementById('sensorDataTable').getElementsByTagName('tbody')[0];
+                    var row = tableBody.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
 
-            var tableBody = document.getElementById('sensorDataTable').getElementsByTagName('tbody')[0];
-            var row = tableBody.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-
-            // Verificar si el tipo de sensor está mapeado
-            var sensorDataProperty = sensorDataProperties[data.type];
-            if (!sensorDataProperty) {
-                console.error('Error: Tipo de sensor no reconocido:', data.type);
-                return;
-            }
-
-            var sensorValue = data[sensorDataProperty] ? data[sensorDataProperty].value : 'Valor no disponible';
-
-            cell1.innerHTML = new Date().toLocaleString();
-            cell2.innerHTML = sensorValue;
-        },
-        error: function (error) {
-            console.error('Error al obtener datos del sensor:', error);
+                    cell1.innerHTML = new Date().toLocaleString();
+                    cell2.innerHTML = data.value;
+                    cell3.innerHTML = data.unitCode;
+                },
+                error: function (error) {
+                    console.error('Error al obtener datos del sensor:', error);
+                }
+            });
         }
-    });
-}
-
 
         // Obtén el intervalo de la URL, o usa un valor predeterminado si no se proporciona
         var urlParams = new URLSearchParams(window.location.search);

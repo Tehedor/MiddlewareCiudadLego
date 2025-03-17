@@ -1,49 +1,65 @@
-import { useState, useEffect } from 'react';
-// import axios from 'axios';
-import axios from '../utils/axiosConfig';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import withAuth from '../utils/withAuth';
+import axios from '../utils/axiosConfig';
 
 import NavBar from '../components/NavBar';
 
-export default function Dashboard() {
+function Dashboard() {
     const [keys, setKeys] = useState([]);
+    const [keyLimit, setKeyLimit] = useState(null); // Límite de API keys
     const [errorMessage, setErrorMessage] = useState('');
     const router = useRouter();
 
     useEffect(() => {
-        const fetchKeys = async () => {
+        const fetchKeysAndLimit = async () => {
             try {
                 const token = localStorage.getItem('token');
+
+                // Obtener las API keys y el límite de claves permitidas
                 const res = await axios.get('/api/keys/keys', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-                setKeys(res.data);
+
+                if (res.data && res.data.keys && res.data.maxKeys !== undefined) {
+                    setKeys(res.data.keys);
+                    setKeyLimit(res.data.maxKeys);
+                } else {
+                    throw new Error('Invalid response format');
+                }
             } catch (error) {
-                console.error('Error fetching keys:', error); // Registro de depuración
+                console.error('Error fetching keys or limit:', error);
                 if (error.response && error.response.status === 401) {
                     router.push('/login');
                 }
             }
         };
 
-        fetchKeys();
-
-        const intervalId = setInterval(fetchKeys, 1000); // Actualiza cada segundo
-
-        return () => clearInterval(intervalId); // Limpia el intervalo al desmontar el componente
+        fetchKeysAndLimit();
     }, [router]);
 
     const handleGenerateKey = async () => {
+        if (keys.length >= keyLimit) {
+            setErrorMessage(`You have reached the maximum number of API keys (${keyLimit}).`);
+            return;
+        }
+
         try {
             const token = localStorage.getItem('token');
             const res = await axios.post('/api/keys/keys', {}, {
                 headers: { Authorization: `Bearer ${token}` },
-                timeout: 10000 // Aumenta el tiempo de espera a 10 segundos
+                timeout: 10000
             });
-            setKeys([...keys, res.data]);
-            setErrorMessage(''); // Limpia el mensaje de error si la solicitud es exitosa
+
+            if (res.data && res.data.newKey && res.data.maxKeys !== undefined) {
+                setKeys([...keys, res.data.newKey]);
+                setKeyLimit(res.data.maxKeys); // Actualiza el límite de API keys
+                setErrorMessage('');
+            } else {
+                throw new Error('Invalid response format');
+            }
         } catch (error) {
-            console.error('Error generating key:', error); // Registro de depuración
+            console.error('Error generating key:', error);
             if (error.response && error.response.status === 403) {
                 setErrorMessage(error.response.data.error);
             } else {
@@ -60,7 +76,7 @@ export default function Dashboard() {
             });
             setKeys(keys.filter(key => key.api_key !== apiKey));
         } catch (error) {
-            console.error('Error deleting key:', error); // Registro de depuración
+            console.error('Error deleting key:', error);
             setErrorMessage('Error deleting API key. Please try again.');
         }
     };
@@ -73,38 +89,19 @@ export default function Dashboard() {
         });
     };
 
-    const resetRemainingRequestsKeyDB = async (apiKey, request_count_limit, nextPeriod) => {
-        console.log('reset_remainingRequests_key_db');
-        const token = localStorage.getItem('token');
-        const res = await axios.post('/api/keys/reset_remainingRequests_key_db', {
-            apiKey: apiKey,
-            request_count_limit: request_count_limit,
-            nextPeriod: nextPeriod
-        }, {
-            headers: { Authorization: `Bearer ${token}` },
-            timeout: 10000 // Aumenta el tiempo de espera a 10 segundos
-        });
-    }
-
-    const calculateTimeToNextPeriod = (lastDatePeriod, timeLimitApiKey, apiKey, request_count_limit, remaining_requests) => {
-        const currentTime = Date.now();
-        const nextPeriod = new Date(lastDatePeriod).getTime() + timeLimitApiKey * 1000; // Assuming timeLimitApiKey is in seconds
-        // console.log(Math.max(0, nextPeriod - currentTime));
-        // console.log(remaining_requests);
-        if (Math.max(0, nextPeriod - currentTime) <= 0 && remaining_requests!= request_count_limit) {
-        // if (Math.max(0, nextPeriod - currentTime) <= 0 && remaining_requests<=0 ) {
-            resetRemainingRequestsKeyDB(apiKey, request_count_limit, nextPeriod);
-        }
-        return Math.max(0, nextPeriod - currentTime);
-    };
-
     return (
-        <div className="dashboard">
+        <div className="dashboard-container">
             <NavBar />
             <div className="container">
                 <h1 className="title">API Keys Dashboard</h1>
                 <div className="generate-container">
-                    <button className="generate-button" onClick={handleGenerateKey}>Generate New API Key</button>
+                    <button 
+                        className="generate-button" 
+                        onClick={handleGenerateKey} 
+                        disabled={keys.length >= keyLimit}
+                    >
+                        Generate New API Key
+                    </button>
                     {errorMessage && <div className="error-message">{errorMessage}</div>}
                 </div>
                 <div className="keys-list">
@@ -124,29 +121,35 @@ export default function Dashboard() {
                                 <p><strong>Period Time:</strong> {key.time_limit_api_key} min</p>
                             </div>
                             <div className='key-info'>
-                                <p style={{ color: key.remaining_requests <= 0 ? 'red' : 'green' }}><strong style={{ color: key.remaining_requests <= 0 ? 'red' : 'green' }}>Remaining Requests:</strong> {key.remaining_requests}</p>
-                                <p><strong>Time to Next Period:</strong> {Math.ceil(calculateTimeToNextPeriod(key.last_date_period, key.time_limit_api_key, key.api_key, key.request_count_limit, key.remaining_requests) / 1000)} seconds</p>
+                                <p style={{ color: key.remaining_requests <= 0 ? 'red' : 'green' }}>
+                                    <strong style={{ color: key.remaining_requests <= 0 ? 'red' : 'green' }}>
+                                        Remaining Requests:
+                                    </strong> {key.remaining_requests}
+                                </p>
                             </div>    
                         </div>
                     ))}
                 </div>
             </div>
-
             <style jsx>{`
-                .dashboard {
+                .dashboard-container {
+                    margin-top: 40px;
                     font-family: Arial, sans-serif;
-                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    min-height: 100vh;
                     background-color: #f4f4f9;
-                    min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
                 }
                 .container {
-                    max-width: 800px;
+                    width: 90%;
+                    max-width: 900px;
                     margin: 0 auto;
                     background: white;
                     padding: 20px;
                     border-radius: 8px;
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                    margin-top: 6   0px;
+                    margin-top: 65px;
                 }
                 .title {
                     text-align: center;
@@ -168,6 +171,10 @@ export default function Dashboard() {
                 .generate-button:hover {
                     background-color: #005bb5;
                 }
+                .generate-button:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
                 .error-message {
                     margin-left: 20px;
                     color: red;
@@ -188,13 +195,6 @@ export default function Dashboard() {
                     margin-bottom: 10px;
                     font-size: 18px;
                     color: #444;
-                }
-                .key-card p {
-                    margin: 5px 0;
-                    font-size: 14px;
-                }
-                .key-card p strong {
-                    color: #555;
                 }
                 .delete-button {
                     position: absolute;
@@ -225,10 +225,9 @@ export default function Dashboard() {
                 .copy-button:hover {
                     background-color: #e0e0e0;
                 }
-                .key-info {
-                    border-top: 1px solid #ddd;
-                }
             `}</style>
         </div>
     );
 }
+
+export default withAuth(Dashboard);

@@ -15,6 +15,7 @@ function simulatePresenceRadar(presence) {
             presence = "LOW";            
         }
     }
+    console.log(presence);
     return presence;
 }
 

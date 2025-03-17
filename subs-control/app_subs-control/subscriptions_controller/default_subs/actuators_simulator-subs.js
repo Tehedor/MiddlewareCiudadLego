@@ -5,6 +5,7 @@ const { createSubscriptions, deleteSubscriptions, updateSubscriptions } = requir
 
 // // // // // // // // // // // // // // // // // // // // // // 
 const simuhost = "simulator-app";
+// const simuhost = "localhost";
 const headers = {
     'Content-Type': 'application/ld+json',
 };

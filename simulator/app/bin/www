@@ -152,6 +152,7 @@ SOCKET_IO.on('connection', (socket) => {
     console.log('Nuevo cliente conectado');
     SimulatorSensors.iniSensorsClient();	
 	SimulatorActuators.iniActuatorsClient();
+	SimulatorActuators.iniciarCamera();
 
 	emitSimulationState(socket);
 

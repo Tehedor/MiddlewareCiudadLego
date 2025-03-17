@@ -4,7 +4,6 @@ const apiKeyMiddleware = require('../middleware/apiKeyMiddelware')
 const router = express.Router();
 
 
-// router.use('/example', apiKeyMiddleware);
 router.use('/example', apiKeyMiddleware);
 
 // Ruta protegida con validación de API key y limitador

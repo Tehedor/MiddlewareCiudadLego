@@ -1,59 +1,31 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
-const axios = require("axios");
 
 const formatNgsiID = require("../../utils/formatNgsiID");
 
-const { remapDataModeID,remapDataModeInfo, remapDataModeDetails} = require("../../utils/remapModes");
+const { 
+  getRemapFunction, 
+  handleAxiosError, 
+  fetchData,
+  fetchDataComponents,
+  fetchDataWithId
+} = require("../../utils/requestUtils");
 
 
-const EnvConfig = require('../../../utils/env.config');
-const { mode_container } = EnvConfig();
+const  {
+  checkType,
+  sendToBlackList,
+  controlCheckIfIsSensor,
+  controlCheckIfIsActuator,
+  controlCheckIfIsCamera,
+  controlCheckIfIsLegoBuilding,
+  controlCheckIfIsLegoCity,
+  controlCheckIfIsEntity
+} = require("../../utils/controlCheckIfIsXXX")
 
+// Styles actuators
+const styles = ["info", "relations", "details"];
 
-const basePath = mode_container ? "fiware-orion" : "localhost";
-const url = `http://${basePath}:1026/ngsi-ld/v1/entities`;
-const headers = {
-  Accept: "application/ld+json",
-  Link: '<http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"',
-};
-
-
-// apiKeys
-const apiKeyMiddleware = require('../../middleware/apiKeyMiddelware')
-router.use('/api', apiKeyMiddleware);
-
-
-// /**
-//  * @swagger
-//  * /api/entities/{ngsiID}:
-//  *   get:
-//  *     tags:
-//  *       - Entities
-//  *     summary: Devuelve una "Entity" específica.
-//  *     description: Obtiene "id" y "ralations" de una "Entity" específica desde el Context Broker usando su ngsiID.
-//  *     parameters:
-//  *       - in: path
-//  *         name: ngsiID
-//  *         required: true
-//  *         schema:
-//  *           type: string
-//  *         description: Identificador NGSI de la "Entity".
-//  *     responses:
-//  *       200:
-//  *         description: Una "Entity" específica.
-//  *         content:
-//  *           application/json:
-//  *             schema:
-//  *               type: object
-//  *               properties:
-//  *                 id:
-//  *                   type: string
-//  *                   example: "LegoStreetLight001"
-//  *                 Relationship:
-//  *                   type: string
-//  *                   example: "LegoCity001"
-//  */
 /**
  * @swagger
  * /api/entities/{ngsiID}:
@@ -68,155 +40,23 @@ router.use('/api', apiKeyMiddleware);
  *         required: false
  *         schema:
  *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
+ *         description: API Key para autenticar la petición. También se puede añadir en body (apiKey) o en headers (['x-api-key']).
  *       - in: path
  *         name: ngsiID
  *         required: true
  *         schema:
  *           type: string
  *         description: Identificador NGSI de la "Entity".
+ *       - in: query
+ *         name: style
+ *         required: false
+ *         schema:
+ *           type: string
+ *           enum: [info, relations, details]
+ *         description: Tipo de formato de respuesta (normal por defecto).
  *     responses:
  *       200:
  *         description: Una "Entity" específica.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: string
- *                   example: "LegoStreetLight001"
- *                 Relationship:
- *                   type: string
- *                   example: "LegoCity001"
- */
-router.get("/entities/:ngsiID([\\w:-]+)", async (req, res) => {
-  try {
-    // Reformatear el ngsiID
-
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-
-    console.log("Reformatted ngsiID:", ngsiID);
-
-    const response = await axios.get(`${url}/${ngsiID}`, {
-      headers: headers,
-    });
-
-    const filteredData = remapDataModeID(response.data);
-
-
-    res.json(filteredData);
-  } catch (error) {
-    console.error("Error fetching building:", error);
-    res.status(500).send("Error fetching building");
-  }
-});
-
-
-/**
- * @swagger
- * /api/entities/{ngsiID}/info:
- *   get:
- *     tags:
- *       - Entities
- *     summary: Devuelve datos de una "Entity".
- *     description: Obtiene datos de una "Entity" específica desde el Context Broker usando su ngsiID.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: path
- *         name: ngsiID
- *         required: true
- *         schema:
- *           type: string
- *         description: Identificador NGSI de la "Enitty".
- *     responses:
- *       200:
- *         description: Una "Entity" específica.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: string
- *                   example: "LegoStreetLight001"
- *                 type:
- *                   type: string
- *                   example: "LegoBuilding"
- *                 category:
- *                   type: string
- *                   example: "legoSteetLight"
- *                 controlledAsset:
- *                   type: string
- *                   example: "LegoCity001"
- */
-router.get("/entities/:ngsiID([\\w:-]+)/info", async (req, res) => {
-  try {
-
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-
-    console.log("Reformatted ngsiID:", ngsiID);
-
-    const response = await axios.get(`${url}/${ngsiID}?options=keyValues`, {
-      headers: headers,
-    });
-
-    const remappedData = remapDataModeInfo(response.data);
-
-    res.json(remappedData);
-  } catch (error) {
-    console.error("Error fetching building:", error);
-    res.status(500).send("Error fetching building");
-  }
-});
-
-/**
- * @swagger
- * /api/entities/{ngsiID}/details:
- *   get:
- *     tags:
- *       - Entities
- *     summary: Devuelve todos los datos de una "Entity".
- *     description: Obtiene todos los datos de una "Entity" específica desde el Context Broker usando su ngsiID.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: path
- *         name: ngsiID
- *         required: true
- *         schema:
- *           type: string
- *         description: Identificador NGSI de la "Entity".
- *     responses:
- *       200:
- *         description: Los detalles de una "Entity" específica.
  *         content:
  *           application/json:
  *             schema:
@@ -247,21 +87,73 @@ router.get("/entities/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *                       type: string
  *                       example: "LegoCity001"
  */
-router.get("/entities/:ngsiID([\\w:-]+)/details", async (req, res) => {
+router.get("/entities/:ngsiID([\\w:-]+)", async (req, res) => {
+  const ngsiID = formatNgsiID(req.params.ngsiID);
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-    console.log("Reformatted ngsiID:", ngsiID);
+    // Reformatear el ngsiID
 
-    const response = await axios.get(`${url}/${ngsiID}`, {
-      headers: headers,
-    });
 
-    const remappedData = remapDataModeDetails(response.data);
+    // console.log("Reformatted ngsiID:", ngsiID);
 
-    res.json(remappedData);
+    // const style = req.query.style || "normal";
+    // let urlQuery = "";
+    // let remapFunction;
+
+    // switch (style) {
+    //   case "relations":
+    //     remapFunction = remapDataModeRelations;
+    //     break;
+    //   case "details":
+    //     remapFunction = remapDataModeDetails;
+    //     break;
+    //   default:
+    //     urlQuery += "?options=keyValues";
+    //     remapFunction = remapDataModeInfo;
+    //     break;
+    // }
+    
+    // const response = await axios.get(`${url}/${ngsiID}${urlQuery}`, { headers });
+
+    // const filteredData = remapFunction(response.data);
+
+    // res.json(filteredData);
+    // Style
+    if (!ngsiID) {
+      return res.status(400).send("Invalid ngsiID format");
+    }
+
+    // Check if is actuator
+    const check = controlCheckIfIsEntity(ngsiID); 
+    
+    if (check == "notEntity") {
+      return res.status(404).send("No is a entity");
+    }
+    
+    // Style
+    const style = req.query.style || "info";
+    if (!styles.includes(style)) {
+      return res.status(400).send("Invalid style");
+    }
+    
+    // Fetch to context
+    const urlQuery = `${style === "info" ? "?options=keyValues" : ""}`;
+    const response = await fetchDataWithId(ngsiID, urlQuery);
+    
+    // No registred
+    if (check == "notRegistred") {
+      checkType(response.data);
+      const check = controlCheckIfIsEntity(ngsiID); 
+      if (check == 'notEntity') {
+        return res.status(404).send("No is a entity");
+      }    
+    }
+
+    // Response
+    const remapFunction = getRemapFunction(style);
+    const filteredData = remapFunction(response.data);
+    res.json(filteredData);
   } catch (error) {
-    console.error("Error fetching building details:", error);
-    res.status(500).send("Error fetching building details");
+    handleAxiosError(error, ngsiID, res);
   }
 });
 
@@ -279,175 +171,23 @@ router.get("/entities/:ngsiID([\\w:-]+)/details", async (req, res) => {
  *         required: false
  *         schema:
  *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
+ *         description: API Key para autenticar la petición. También se puede añadir en body (apiKey) o en headers (['x-api-key']).
  *       - in: path
  *         name: ngsiID
  *         required: true
  *         schema:
  *           type: string
  *         description: Identificador NGSI de la "Entity".
+ *       - in: query
+ *         name: style
+ *         required: false
+ *         schema:
+ *           type: string
+ *           enum: [info, relations, details]
+ *         description: Tipo de formato de respuesta (normal por defecto).
  *     responses:
  *       200:
  *         description: Una lista de "Entities" específicas.
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: string
- *                     example: "PirSensor001"
- *                   Relationship:
- *                     type: string
- *                     example: "LegoStreetLight001"
- */
-router.get("/entities/:ngsiID([\\w:-]+)/components", async (req, res) => {
-  try {
-    // Reformatear el ngsiID
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-
-    console.log("Reformatted ngsiID:", ngsiID);
-
-    const response = await axios.get(
-      `${url}/?q=controlledAsset==%22${ngsiID}%22`,
-      {
-        headers: headers,
-      }
-    );
-
-    const filteredData = remapDataModeID(response.data);
-
-    res.json(filteredData);
-  } catch (error) {
-    console.error("Error fetching building:", error);
-    res.status(500).send("Error fetching building");
-  }
-});
-
-
-/**
- * @swagger
- * /api/entities/{ngsiID}/components/info:
- *   get:
- *     tags:
- *       - Entities
- *     summary: Devuelve datos de los componenetes de una "Entity".
- *     description: Obtiene datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: path
- *         name: ngsiID
- *         required: true
- *         schema:
- *           type: string
- *         description: Identificador NGSI de la "Entity".
- *     responses:
- *       200:
- *         description: Una lista de "Entities" específicas.
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: string
- *                     example: "PirSensor001"
- *                   type:
- *                     type: string
- *                     example: "PirSensor"
- *                   category:
- *                     type: string
- *                     example: "sensor"
- *                   presence:
- *                     type: string
- *                     example: "LOW"
- *                   light:
- *                     type: number
- *                     example: 10
- *                   stateLed:
- *                     type: string
- *                     example: "OFF"
- *                   stateLight:
- *                     type: string
- *                     example: "OFF"
- *                   controlledAsset:
- *                     type: string
- *                     example: "LegoStreetLight001"
- */
-router.get("/entities/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
-  try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-
-    console.log("Reformatted ngsiID:", ngsiID);
-
-    const response = await axios.get(
-      `${url}/?q=controlledAsset==%22${ngsiID}%22&options=keyValues`,
-      {
-        headers: headers,
-      }
-    );
-
-    console.log("Response:", response.data);
-    const remappedData = remapDataModeInfo(response.data);
-
-    res.json(remappedData);
-  } catch (error) {
-    console.error("Error fetching building:", error);
-    res.status(500).send("Error fetching building");
-  }
-});
-
-/**
- * @swagger
- * /api/entities/{ngsiID}/components/details:
- *   get:
- *     tags:
- *       - Entities
- *     summary: Devuelve todos los datos de los componenetes de una "Entity".
- *     description: Obtiene todos los datos de los componentes de una "Entity" específica desde el Context Broker usando su ngsiID.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: path
- *         name: ngsiID
- *         required: true
- *         schema:
- *           type: string
- *         description: Identificador NGSI de la "Entity".
- *     responses:
- *       200:
- *         description: Los componentes detallados de una "Entity" específica.
  *         content:
  *           application/json:
  *             schema:
@@ -489,24 +229,57 @@ router.get("/entities/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
  *                         type: string
  *                         example: "LegoStreetLight001"
  */
-router.get(
-  "/entities/:ngsiID([\\w:-]+)/components/details",
-  async (req, res) => {
-    try {
-      const ngsiID = formatNgsiID(req.params.ngsiID);
-
-      const response = await axios.get(`${url}/?q=controlledAsset==%22${ngsiID}%22`, {
-        headers: headers,
-      });
-
-      const remappedData = remapDataModeDetails(response.data);
-
-      res.json(remappedData);
-    } catch (error) {
-      console.error("Error fetching building details:", error);
-      res.status(500).send("Error fetching building details");
+router.get("/entities/:ngsiID([\\w:-]+)/components", async (req, res) => {
+  const ngsiID = formatNgsiID(req.params.ngsiID);
+  try {
+    // ngsiID
+    if (!ngsiID) {
+      return res.status(400).send("Invalid ngsiID format");
     }
+    console.log("aaaaa");
+    // Check if is sensor
+    const check = controlCheckIfIsEntity(ngsiID); 
+    
+    console.log("bbbb");
+    if (check == "notEntity") {
+      return res.status(404).send("No is a entity");
+    }
+    
+    console.log("cccc");
+    // Style
+    const style = req.query.style || "info";
+    if (!styles.includes(style)) {
+      return res.status(400).send("Invalid style");
+    }
+    
+    console.log("dddd");
+    // No registred
+    if (check == "notRegistred") {
+      const responseCheck = await fetchDataWithId(ngsiID, "");
+      console.log(responseCheck);
+      checkType(responseCheck.data);
+      const check = controlCheckIfIsEntity(ngsiID); 
+      if (check == 'notEntity') {
+        return res.status(404).send("No is a entity");
+      }    
+    }
+    
+    
+    console.log("eeee1");
+    // Fetch to context
+    const urlQuery = `?q=controlledAsset==%22${ngsiID}%22${style === "info" ? "&options=keyValues" : ""}`;
+    console.log("eeeee2");
+    const response = await fetchDataComponents(urlQuery);
+    
+    console.log("fffff");
+    // Response
+    const remapFunction = getRemapFunction(style);
+    const filteredData = remapFunction(response.data);
+    res.json(filteredData);
+
+  } catch (error) {
+    handleAxiosError(error, ngsiID, res);
   }
-);
+});
 
 module.exports = router;

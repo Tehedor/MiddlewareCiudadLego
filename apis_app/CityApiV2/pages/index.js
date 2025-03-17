@@ -9,9 +9,5 @@ export default function Login() {
     useEffect(() => {
         router.push('/login');
     }, [router]);
-    return (
-        <div>
-            <h1>Login Page</h1>
-        </div>
-    );
+    return null;
 }

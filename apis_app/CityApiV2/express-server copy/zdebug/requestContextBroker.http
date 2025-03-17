@@ -1,0 +1,62 @@
+
+@host = http://localhost:1026
+@url = /ngsi-ld/v1/entities
+
+### Peticioens para LegoBuilding
+GET {{host}}{{url}}?type=Building
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+
+### Peticioens para Camera
+GET {{host}}{{url}}?type=Camera
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+####################################################################################################
+
+### Entities
+GET {{host}}{{url}}/urn:ngsi-ld:LegoStreetLight:001
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+### Peticioens para Snensores
+GET {{host}}{{url}}?type=PirSensor
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+### Peticioens para Snensores
+GET {{host}}{{url}}?q=category==%22sensor%22
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+### Peticioens para Snensores
+GET {{host}}{{url}}?category=type=Property
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+### Peticioens para Actuators
+GET {{host}}{{url}}?type=fiware:LegoBuilding
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+### Peticiones para Actuators
+GET {{host}}{{url}}?type=fiware:categorycategory
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+
+
+
+### Mostar relaciones
+# curl -iX GET 'http://localhost:1026/ngsi-ld/v1/entities/?type=TemperatureSensor&limit=0&count=true&q=controlledAsset==%22urn:ngsi-ld:Building:barn002%22' \
+# -H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+# -H 'Accept: application/json'
+GET {{host}}{{url}}?q=controlledAsset==%22urn:ngsi-ld:LegoStreetLight:001%22
+Accept: application/ld+json
+Link: <http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"

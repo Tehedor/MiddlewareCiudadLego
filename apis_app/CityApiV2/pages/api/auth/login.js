@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         try {
             const user = await User_login.findOne({ where: { email } });
             if (user && await bcrypt.compare(password, user.password)) {
-                const token = jwt.sign({ email: user.email }, jwt_secret_key, { expiresIn: '1h' });
+                const token = jwt.sign({ email: user.email, is_admin: user.is_admin }, jwt_secret_key, { expiresIn: '1h' });
                 // localStorage.getItem('token')
                 res.status(200).json({ token });
             } else {

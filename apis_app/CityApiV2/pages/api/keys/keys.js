@@ -12,32 +12,33 @@ export default async function handler(req, res) {
     switch (req.method) {
         case 'GET':
             try {
+                const user = await User_login.findOne({ where: { email: req.user.email } });
                 const keys = await User_keys.findAll({ where: { email: req.user.email } });
-                res.status(200).json(keys);
+                const maxKeys = user.is_admin ? 10 : 4;
+        
+                res.status(200).json({ keys, maxKeys });
             } catch (error) {
-                console.error('Error creating API key:', error); // Registro de depuración
-                res.status(500).json({ error: 'Internal server error', details: error.message });
+                console.error('Error fetching keys:', error);
+                res.status(500).json({ error: 'Internal server error' });
             }
             break;
+        
+        // Controlador para generar una nueva API key
         case 'POST':
             try {
-                // console.log("Generating new API key");
-
-                // Verifica el número de claves existentes para el usuario
                 const user = await User_login.findOne({ where: { email: req.user.email } });
                 const existingKeys = await User_keys.count({ where: { email: req.user.email } });
-                // usuarios normales 4 claves y usuarios admin 10 claves
                 const maxKeys = user.is_admin ? 10 : 4;
-
+        
                 if (existingKeys >= maxKeys) {
                     return res.status(403).json({ error: `You have reached the limit of ${maxKeys} API keys.` });
                 }
-
+        
                 const newApiKey = uuidv4();
                 const newKey = await User_keys.create({ email: req.user.email, api_key: newApiKey });
-                res.status(201).json(newKey);
+                res.status(201).json({ newKey, maxKeys, existingKeys });
             } catch (error) {
-                console.log(error)
+                console.error('Error generating new API key:', error);
                 res.status(500).json({ error: 'Internal server error' });
             }
             break;

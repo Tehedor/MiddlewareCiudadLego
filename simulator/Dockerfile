@@ -46,11 +46,13 @@ ENV WEATHER_API_KEY=d9cde8b16d65f14446e43bd0c7e7dffd
 
 WORKDIR /opt
 
-COPY app ./app
+COPY app/package*.json ./app/
 
 WORKDIR /opt/app
 
 RUN npm install
+
+COPY app .
 
 CMD ["npm", "start"]
 # CMD ["npm", "run", "debug"]

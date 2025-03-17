@@ -1,11 +1,6 @@
-
-
-// pages/register.js
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-// import axios from 'axios';
 import axios from '../utils/axiosConfig';
-
 
 import NavBar from '../components/NavBar';
 
@@ -13,10 +8,12 @@ export default function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         setErrorMessage(''); 
+        setIsLoading(true);
         e.preventDefault();
         try {
             const res = await axios.post('/api/auth/register', { email, password });
@@ -27,6 +24,8 @@ export default function Register() {
             } else {
                 setErrorMessage('An unexpected error occurred. Please try again.');
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -38,7 +37,9 @@ export default function Register() {
                 <form onSubmit={handleSubmit}>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-                    <button type="submit">Register</button>
+                    <button type="submit" disabled={isLoading}>
+                        {isLoading ? 'Loading...' : 'Register'}
+                    </button>
                 </form>
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
             </div>
@@ -61,24 +62,28 @@ export default function Register() {
                     text-align: center;
                 }
                 form input {
-                    display: block;
-                    width: 100%;
+                    width: 95%;
+                    height: 40px;
                     margin-bottom: 15px;
-                    padding: 10px;
                     border: 1px solid #ddd;
                     border-radius: 4px;
                 }
                 form button {
-                    background-color: #0070f3;
+                    background-color: rgb(255, 177, 59);
                     color: white;
                     padding: 10px;
                     border: none;
                     border-radius: 4px;
                     width: 100%;
                     cursor: pointer;
+                    font-weight: bold;
                 }
                 form button:hover {
-                    background-color: #005bb5;
+                    background-color: rgb(255, 156, 7);
+                }
+                form button:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
                 }
                 .error-message {
                     color: red;

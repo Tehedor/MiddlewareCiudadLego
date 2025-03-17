@@ -21,19 +21,37 @@ const headers = {
 
 /**
  * @swagger
- * /buildings:
+ * /actuators/data/{ngsiID}:
  *   get:
  *     tags:
  *       - Buildings
  *     summary: Devuelve todas las "Buildings".
  *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
  *     parameters:
+ *       - in: query
+ *         name: apiKey
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: API Key para autenticar la petición. También se puede añadir en body (apiKey) o en headers (['x-api-key']).
  *       - in: path
- *         name: numid
+ *         name: ngsiID
  *         required: true
  *         schema:
- *           type: integer
- *         description: Identificador numérico del sensor.
+ *           type: string
+ *         description: Identificador NGSI de la "Actuator".
+ *       - in: query
+ *         name: desde
+ *         schema:
+ *           type: string
+ *           format: date-time
+ *         description: La fecha de inicio para filtrar los datos de temperatura del sensor.
+ *       - in: query
+ *         name: hasta
+ *         schema:
+ *           type: string
+ *           format: date-time
+ *         description: La fecha de fin para filtrar los datos de temperatura del sensor.
  *     responses:
  *       200:
  *         description: Una lista de todas las "Buildings".
@@ -72,8 +90,20 @@ const headers = {
  *                         type: string
  *                         example: "urn:ngsi-ld:LegoCity:001"
  */
-router.get("/buildings", async (req, res) => {
+router.get("/actuators/data/:ngsiID([\\w:-]+)", async (req, res) => {
+  const ngsiID = formatNgsiID(req.params.ngsiID);
   try {
+    if (!ngsiID) {
+      return res.status(400).send("Invalid ngsiID format");
+    }
+
+    // Check if is actuator
+    const check = controlCheckIfIsActuator(ngsiID); 
+    
+    if (check == "notActuator") {
+      return res.status(404).send("No is a actuator");
+    }
+    
     const response = await axios.get(`${contextBrokerUrl}?type=fiware:LegoBuilding`, {
         headers: headers
       });

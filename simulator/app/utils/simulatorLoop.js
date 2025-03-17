@@ -62,7 +62,7 @@ const simulateLoop = () => {
         SOCKET_IO.emit('update_iniState', inicial_state[0]);
         SOCKET_IO.emit('update_modeState', mode_state[0]);
         
-        console.log(mode_state[0]);
+        // console.log(mode_state[0]);
         if (mode_state[0] !== false) {
             if (inicial_state[0] !== false) {
                 simulationFunctions.forEach((element, index) => {

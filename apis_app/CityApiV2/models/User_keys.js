@@ -52,7 +52,7 @@ User_keys.init(  {
 }, {
     sequelize,
     modelName: 'User_keys',
-    tableName: 'api_keys',
+    tableName: 'users_keys',
     timestamps: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at'

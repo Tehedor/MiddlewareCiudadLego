@@ -1,10 +1,6 @@
-// // pages/login.js
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-// import axios from 'axios';
-// import axiosa from 'axios';
 import axios from '../utils/axiosConfig';
-
 
 import NavBar from '../components/NavBar';
 
@@ -12,6 +8,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
     useEffect(() => {
@@ -28,7 +25,8 @@ export default function Login() {
     }, [router.query]);
 
     const handleSubmit = async (e) => {
-        setErrorMessage(''); 
+        setErrorMessage('');
+        setIsLoading(true);
         e.preventDefault();
         try {
             const res = await axios.post('/api/auth/login', { email, password });
@@ -41,8 +39,23 @@ export default function Login() {
             } else {
                 setErrorMessage('An unexpected error occurred. Please try again.');
             }
+        } finally {
+            setIsLoading(false);
         }
     };
+
+    useEffect(() => {
+        const handleKeyPress = (event) => {
+            if (event.key === 'Enter') {
+                handleSubmit(event);
+            }
+        };
+
+        window.addEventListener('keypress', handleKeyPress);
+        return () => {
+            window.removeEventListener('keypress', handleKeyPress);
+        };
+    }, [email, password]);
 
     return (
         <div className="auth-container">
@@ -52,11 +65,14 @@ export default function Login() {
                 <form onSubmit={handleSubmit}>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-                    <button type="submit">Login</button>
+                    <button type="submit" disabled={isLoading}>
+                        {isLoading ? 'Loading...' : 'Login'}
+                    </button>
                 </form>
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
             </div>
-            <style jsx>{`
+            <style jsx>
+            {`
                 .auth-container {
                     font-family: Arial, sans-serif;
                     display: flex;
@@ -75,14 +91,14 @@ export default function Login() {
                     text-align: center;
                 }
                 form input {
-                    display: block;
-                    width: 100%;
+                    width: 95%;
+                    height: 40px;
                     margin-bottom: 15px;
-                    padding: 10px;
                     border: 1px solid #ddd;
                     border-radius: 4px;
                 }
                 form button {
+                    font-weight: bold;
                     background-color: #0070f3;
                     color: white;
                     padding: 10px;
@@ -94,11 +110,16 @@ export default function Login() {
                 form button:hover {
                     background-color: #005bb5;
                 }
+                form button:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
                 .error-message {
                     color: red;
                     margin-top: 10px;
                 }
-            `}</style>
+            `}
+            </style>
         </div>
     );
 }

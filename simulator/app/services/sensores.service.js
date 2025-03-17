@@ -39,7 +39,6 @@ const app = axios.create({
 
 // PirSensor
 const pirSensorChange = async (presence) => {
-    console.log("aaaaaaaaaaa");
     const pirSensor = `urn:ngsi-ld:PirSensor:${device_number}`;
     try {
         const response = await app.patch(`/${pirSensor}/attrs`, {

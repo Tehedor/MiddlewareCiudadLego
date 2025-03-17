@@ -269,31 +269,16 @@ def append_apisApp():
     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
     # ### ### Apis App
     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
-    location /api/ {
-        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
-        rewrite ^/api/(.*)$ /$1 break;
-
-        # Redirige la solicitud al backend
-        proxy_pass http://apis-app:3001/;
-
-        # Encabezados para la solicitud al backend
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        
-        
-        sub_filter "href='/" "href='/api/";
-        sub_filter "href='/api-docs" "href='/api/api-docs";
-        sub_filter 'src="/' 'src="/api/';
-        sub_filter_once off;
     
+    # // // // // // // // // // // // // // // // // // // // // // // // 
+    # // ApisApp
+    # // // // // // // // // // // // // // // // // // // // // // // // 
+    location = /apisApp/ {
+        return 301 $scheme://$host/apisApp/login;
     }
 
+    
     location /apisApp/ {
-        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
-        # rewrite ^/apisApp/(.*)$ /$1 break;
-
         # Redirige la solicitud al backend
         proxy_pass http://apis-app:3000/apisApp/;
 
@@ -303,31 +288,137 @@ def append_apisApp():
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
 
-        # Ajustar las rutas en las respuestas del backend
-        # Asegura que las rutas devueltas sean relativas a /subsControlApp
-        sub_filter 'href="/' 'href="/apisApp/';
-        sub_filter 'src="/' 'src="/apisApp/';
-        sub_filter 'action="/' 'action="/apisApp/';
-        sub_filter 'url="/' 'url="/apisApp/';
+        # Ajustar las rutas en las respuestas del backend 
         sub_filter_once off;
+        sub_filter "href='/" "href='/apisApp/";
+        sub_filter "src='/" "src='/apisApp/";
+        sub_filter "action='/" "action='/apisApp/";
+        sub_filter "url='/" "url='/apisApp/";
+    }
+    
+    # // // // // // // // // // // // // // // // // // // // // // // // 
+    # // Api
+    # // // // // // // // // // // // // // // // // // // // // // // // 
+    # Manejo de Swagger UI
+    location /api/api-docs/ {
+        proxy_pass http://apis-app:3001/api-docs/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Ajustar URLs internas de Swagger
+        sub_filter_once off;
+        sub_filter '/api-docs/' '/api/api-docs/';
+        sub_filter 'Swagger UI' 'API Documentation';
     }
 
-"""
-    # location /api-docs/ {
 
-    #     # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
-    #     rewrite ^/api-docs/(.*)$ /$1 break;
+    location /api/images/ {
+        proxy_pass http://apis-app:3001/images/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
 
-    #     # Redirige la solicitud al backend
-    #     proxy_pass http://apis-app:3001/api-docs/;
-
-    #     # Encabezados para la solicitud al backend
-    #     proxy_set_header Host $host;
-    #     proxy_set_header X-Real-IP $remote_addr;
-    #     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    #     proxy_set_header X-Forwarded-Proto $scheme;
-    # }
+        # Ajustar URLs internas de Swagger
+        sub_filter_once off;
+        sub_filter '/images/' '/api/images/';
+    }
     
+    location /api/stylesheets/ {
+        proxy_pass http://apis-app:3001/stylesheets/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Ajustar URLs internas de Swagger
+        sub_filter_once off;
+        sub_filter '/stylesheets/' '/api/stylesheets/';
+    }
+
+    # Redirección de /api/ al índice del backend (indexRouter)
+    location = /api/ {
+        proxy_pass http://apis-app:3001/;  # La barra final es clave aquí
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Reescribir URLs en el HTML para que apunten a /api/
+        sub_filter_once off;
+
+        sub_filter 'src="/' 'src="/api/';
+
+        sub_filter "href='/api/api-docs/'" "href='/api/api/api-docs/'";
+
+        sub_filter "href='/" "href='/api/";
+        sub_filter "src='/" "src='/api/";
+        sub_filter "action='/" "action='/api/";
+        sub_filter "'/api-docs'" "'/api/api-docs'";  # Específico para Swagger
+    }
+
+    # Manejo de los endpoints bajo /api/*
+    location /api/ {
+        proxy_pass http://apis-app:3001/api/;  # Barra final para preservar la ruta
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+"""
+# def append_apisApp():
+#     return \
+# """
+#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+#     # ### ### Apis App
+#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+#     location /api/ {
+#         # Eliminar el prefijo /api/ antes de enviar al backend
+#         rewrite ^/api/(.*) /$1 break;
+
+#         proxy_pass http://apis-app:3001;
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+
+#         # Reescribir todas las URLs en las respuestas
+#         sub_filter_once off;
+
+#         sub_filter 'src="/' 'src="/api/';
+
+#         sub_filter "href='/api/api-docs/'" "href='/api/api/api-docs/'";
+
+#         sub_filter "href='/" "href='/api/";
+#         sub_filter "src='/" "src='/api/";
+#         sub_filter "action='/" "action='/api/";
+#         sub_filter "'/api-docs'" "'/api/api-docs'";  # Específico para Swagger
+#     }
+
+#     location /apisApp/ {
+#         # Redirige la solicitud al backend
+#         proxy_pass http://apis-app:3000/apisApp/;
+
+#         # Encabezados para la solicitud al backend
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+
+#         # Ajustar las rutas en las respuestas del backend 
+#         sub_filter_once off;
+#         sub_filter "href='/" "href='/apisApp/";
+#         sub_filter "src='/" "src='/apisApp/";
+#         sub_filter "action='/" "action='/apisApp/";
+#         sub_filter "url='/" "url='/apisApp/";
+#     }
+# """
+
+
+
+
 # def append_minioBucket():
 #     return \
 # """
@@ -427,12 +518,12 @@ def generate_nginx_config(exclude_containers=None):
     if 'subs-control-app' in active_services:
         config += append_subscontrolapp()
         print("SubsControlApp configurado")
-    if 'minio-bucket' in active_services:
-        config += append_minioBucket()
-        print("MinioBucket configurado")
     if 'apis-app' in active_services:
         config += append_apisApp()
         print("ApisApp configurado")    
+    if 'minio-bucket' in active_services:
+        config += append_minioBucket()
+        print("MinioBucket configurado")
     # Configuracion final
     config += nginx_config_end()
 

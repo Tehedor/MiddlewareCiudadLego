@@ -86,18 +86,18 @@ sequelize.sync().then(() => {
     
         server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
         server.use('/', indexRouter);
+        server.use('/', continuoRouter);
         // server.use('/', sensoresRouter);
         // server.use('/', tempRouter);
         // server.use('/', humRouter);
         // server.use('/', InfrarrojosRouter);
         // server.use('/', ultrasonidoRouter);
         // server.use('/', tiempoRealRouter);
-        server.use('/', continuoRouter);
-    
+        
         // // // // // // // // // // // // // // // // // // // // // // // 
         // // Nuevas rutas
         // // // // // // // // // // // // // // // // // // // // // // // 
-    // Context Api routes
+        // Context Api routes
         server.use('/api', apiKeyMiddleware);
 
         server.use('/api',apiLegoCityContext);

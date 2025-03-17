@@ -34,6 +34,7 @@ const checkIfIsActuator = (value) => {
 };
 
 const checkIfIsLegoCity = (value) => {
+
   if (Array.isArray(value)) {
     return false;
   }

@@ -99,11 +99,13 @@ const servmotorChange = async (stateServmotor) => {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 // Camera
-const cameraChange = async (stateCamera) => {
+const cameraChange = async (on, mediaURL, startDataTime) => {
     const camera = `urn:ngsi-ld:Camera:${device_number || '002'}`;
     try {
         const response = await app.patch(`/${camera}/attrs`, {
-            "stateCamera": stateCamera
+            "on": on,
+            "mediaURL": mediaURL,
+            // "startDataTime": startDataTime
         });
         console.log(response.data);
         return response.data;
@@ -112,7 +114,6 @@ const cameraChange = async (stateCamera) => {
         throw error;
     }
 };
-
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // Toll

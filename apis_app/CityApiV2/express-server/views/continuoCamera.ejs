@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    
+    <title>Continuo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <h3 style="text-align: center;  font-family: Kanit, sans-serif;">
+        Monitor de Cámara
+    </h3>
+    <h4 style="text-align: center; font-family: Kanit, sans-serif;">
+        Datos en iteración de la cámara <p style="color: mediumorchid; display: inline;">
+            <%= ngsiID.replace('urn:ngsi-ld:', '').replace(/:/g, '') %>
+        </p>
+    </h4>
+    <table id="cameraDataTable" class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Momento de la medición</th>
+                <th>Dirección de la foto</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var ngsiID = '<%= ngsiID.replace('urn:ngsi-ld:', '').replace(/:/g, '') %>';
+        var apiKey = '<%= apiKey %>';
+        var style = '<%= style %>';
+        var deviceType = 'cameras'; // Asumiendo que el tipo de dispositivo es 'cameras'
+        var mode_container = '<%= mode_container %>';
+        console.log('mode_container:', mode_container);
+        var url1 = 'localhost:3001/api'
+        var url2 = 'localhost/api'
+        <!-- var url2 = '138.4.22.12/api' -->
+        // Función para obtener datos de la cámara
+        function obtenerDatosCamara() {
+            var url = `http://${ mode_container == "true" ? url2: url1}/${deviceType}/${ngsiID}?apiKey=${apiKey}&style=${style}`;
+            console.log('url:', url);   
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function (data) {
+                    console.log(data);
+
+                    var tableBody = document.getElementById('cameraDataTable').getElementsByTagName('tbody')[0];
+                    var row = tableBody.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+
+                    cell1.innerHTML = new Date(data.startDataTime).toLocaleString();
+                    cell2.innerHTML = `<a href="${data.mediaURL}" target="_blank">${data.mediaURL}</a>`;
+                    cell3.innerHTML = `<img src="${data.mediaURL}" alt="Foto de la cámara" style="max-width: 300px; max-height: 300px;">`;
+                },
+                error: function (error) {
+                    console.error('Error al obtener datos de la cámara:', error);
+                }
+            });
+        }
+
+        // Obtén el intervalo de la URL, o usa un valor predeterminado si no se proporciona
+        var urlParams = new URLSearchParams(window.location.search);
+        var interval = urlParams.get('interval') || 5; // Usa 5 como valor predeterminado si no se proporciona un intervalo
+        interval = parseInt(interval) * 1000; // Convierte el intervalo a milisegundos
+
+        // Obtener datos de la cámara cada 'interval' segundos
+        setInterval(obtenerDatosCamara, interval);
+    </script>
+</body>
+
+</html>

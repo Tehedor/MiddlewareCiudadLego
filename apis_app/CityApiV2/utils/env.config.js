@@ -18,7 +18,7 @@ const {
     DB_USER             :db_user,
     DB_PASSWORD         :db_password,
 
-    REDIS_HOST          :redis_host = localhost,
+    REDIS_HOST          :redis_host = 'localhost',
     REDIS_PORT          :redis_port = 6379,
     // REDIS_PASSWORD      :redis_password = "12345678",
     

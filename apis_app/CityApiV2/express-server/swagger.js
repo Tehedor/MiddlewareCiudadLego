@@ -407,9 +407,9 @@ const options = {
         },
       },
     },
-    // apis: ['./rutes/*.js'],
-    // apis: ['./routes/context_apis/*.js'],
-    apis: ['./express-server/routes/context_apis/*.js'],
+    // apis: ['./express-server/routes/context_apis/*.js'],
+    // apis: ['./express-server/routes/continuo.js']
+    apis: ['./express-server/routes/context_apis/*.js', './express-server/routes/mongo_apis/*.js','./express-server/routes/continuo.js'],
   };
   // apis: ['./routes/*.js'],
   

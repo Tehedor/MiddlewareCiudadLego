@@ -1,0 +1,48 @@
+{
+    "development": {
+      "username": "${DB_USER}",
+      "password": "${DB_PASSWORD}",
+      "database": "app_apis_database",
+      "host": "${DB_HOST}",
+      "dialect": "mysql",
+      "port": 3306,
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "acquire": 30000,
+        "idle": 10000
+      },
+      "retry": {
+        "max": 1000
+      },
+      "logging": console.log
+    },
+    "test": {
+      "username": "${DB_USER}",
+      "password": "${DB_PASSWORD}",
+      "database": "app_apis_database_test",
+      "host": "${DB_HOST}",
+      "dialect": "mysql",
+      "port": 3306,
+      "logging": false
+    },
+    "production": {
+      "username": "${DB_USER}",
+      "password": "${DB_PASSWORD}",
+      "database": "app_apis_database",
+      "host": "${DB_HOST}",
+      "dialect": "mysql",
+      "port": 3306,
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "acquire": 30000,
+        "idle": 10000
+      },
+      "retry": {
+        "max": 1000
+      },
+      "logging": false
+    }
+  }
+  

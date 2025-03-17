@@ -18,22 +18,23 @@ let ctrl_lightActuator = undefined; // "OFF"
 let state_lightAtuator = undefined; // "OFF"
 let velocityEngine_engineDCAtuator = undefined; // 0
 let state_servmotorAtuator = undefined; // "0" / "1"
+
 async function iniciarActuadores() {
     try {
         const entities = await actuatorsController.getActuatros();
-        console.log(entities);
-
+        // console.log(entities);
+        
         let entitiesById = {};
         entities.forEach(entity => {
             entitiesById[entity.id] = entity;
         });
-
+        
         state_ledDetectionActuator = entitiesById[`urn:ngsi-ld:LedDetection:${device_number}`].value;
         ctrl_lightActuator = entitiesById[`urn:ngsi-ld:LedDetection:${device_number}`].value;
         state_lightAtuator = entitiesById[`urn:ngsi-ld:Light:${device_number}`].value;
         velocityEngine_engineDCAtuator = entitiesById[`urn:ngsi-ld:EngineDC:${device_number}`].value;
         state_servmotorAtuator = entitiesById[`urn:ngsi-ld:Servmotor:${device_number}`].value;
-
+        
     } catch (err) {
         console.error(err);
         // res.status(500).send(err);
@@ -49,7 +50,6 @@ async function iniciarActuadores() {
 let medidaURL_camera = undefined; // "http://"
 let on_camera = undefined; // "false"
 let startDataTime_camera = undefined; // "2021-06-01T00:00:00Z"
-
 
 async function iniciarCamera() {
     try {
@@ -251,67 +251,38 @@ async function simulateServmotorActuator(data) {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // urn:ngsi-ld:Camera:002
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+let lastMediaURL = 0; 
 async function simulateCameraActuator(data) {
     if (on_camera == undefined) {
-        iniciarCamera();
+        await iniciarCamera();
     }
 
-    // data:
-    // {
-    //     id: 'urn:ngsi-ld:InfraredSensor:002',
-    //     type: 'InfraredSensor',
-    //     category: { type: 'Property', value: 'sensor' },
-    //     controlledAsset: { type: 'Relationship', object: 'urn:ngsi-ld:LegoRadar:002' },
-    //     presence: { type: 'Property', value: 'LOW' }
-    //   }
-
-    // SOCKET_IO.emit('update_camera',foto_camera);
-
-
-    // if (data.id === 'urn:ngsi-ld:InfraredSensor:002') {
-    //     if (data.presence.value === 'HIGH' && on_camera === false) {
-    //         on_camera = true;
-    //         // ActuatorsService.cameraChange(on_camera, medidaURL_camera, startDataTime_camera);
-            
-    
-    //         // console.log('Encendido');
-    //     } else if (data.presence.value === 'LOW' && on_camera === true) {
-        //         state_cameraAtuator = false;
-        //         ActuatorsService.cameraChange(state_cameraAtuator);
-        //         SOCKET_IO.emit('update_cameraActuator', state_cameraAtuator);
-        //         // console.log('Apagado');
-        //     }
-        // }
-    SOCKET_IO.emit('update_cameraActuator',on_camera, medidaURL_camera, startDataTime_camera);
-    
-
-    // {
-    //     "id":"urn:ngsi-ld:Notification:699697c8-2aa7-11ef-819b-0242ac120104",
-    //     "type":"Notification",
-    //     "subscriptionId":"urn:ngsi-ld:subscription:61dec2a0-2aa5-11ef-aba8-0242ac120104",
-    //     "notifiedAt":"2024-06-14T23:39:59.114Z",
-    //     "data":[
-    //        {
-    //           "id":"urn:ngsi-ld:InfraredSensor:002",
-    //           "type":"InfraredSensor",
-    //           "category":{
-    //              "type":"Property",
-    //              "value":"sensor"
-    //           },
-    //           "controlledAsset":{
-    //              "type":"Relationship",
-    //              "object":"urn:ngsi-ld:LegoRadar:002"
-    //           },
-    //           "presence":{
-    //              "type":"Property",
-    //              "value":"HIGH"
-    //           }
-    //        }
-    //     ]
-    //  }
-    // debug(`Received ${req.method} request on ${req.path}`);
-    // debug('Headers:', req.headers);
-    // debug('Body:', req.body);
+    if (data.id === `urn:ngsi-ld:InfraredSensor:${device_number}`) {
+        if (data.presence.value === 'HIGH' && on_camera === false) {
+            on_camera = true;
+            if (lastMediaURL === 0) {
+                mediaURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWFwFsbONWRBpBJo8rucnZZmRq-hsb1_xFMPKALIkjRr9IX8pkHsJAsVuAH1fyn33JWsg&usqp=CAU";
+                lastMediaURL = 1;
+            } else {
+                mediaURL = "https://media.gettyimages.com/id/165764784/es/vector/tren-de-historieta.jpg?s=612x612&w=0&k=20&c=m-vcEvoDGYHOKPyTBgVzA4rAXu4Dosi8CGJ9ZfwFuhs=";
+                lastMediaURL = 0;
+            }
+            try {
+                await ActuatorsService.cameraChange(on_camera, mediaURL, startDataTime_camera);
+            } catch (error) {
+                console.error('Error in cameraChange:', error.message);
+            }
+        } else if (data.presence.value === 'LOW' && on_camera === true) {
+            on_camera = false;
+            // mediaURL = "http://";
+            try {
+                await ActuatorsService.cameraChange(on_camera, mediaURL, startDataTime_camera);
+            } catch (error) {
+                console.error('Error in cameraChange:', error.message);
+            }
+        }
+    }
+    SOCKET_IO.emit('update_cameraActuator', on_camera, mediaURL, startDataTime_camera);
 }
 
 
@@ -334,5 +305,6 @@ module.exports = {
     simulateEngineDCActuator,
     simulateServmotorActuator,
     simulateCameraActuator,
-    iniActuatorsClient
+    iniActuatorsClient,
+    iniciarCamera,
 };

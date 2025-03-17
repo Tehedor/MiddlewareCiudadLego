@@ -142,10 +142,9 @@ async function simulateInfraredSensor(time) {
     if (presence_infraredSensor == undefined) {
         await iniciarSimulacion();
     }
-    // console.log('Simulating Infrared Sensor');
     const aux = presence_infraredSensor;
     presence_infraredSensor = randomRadar.simulatePresenceRadar(presence_infraredSensor);
-
+    
     if (aux != presence_infraredSensor) {
         try {
             await SensorService.infraredSensorChange(presence_infraredSensor);

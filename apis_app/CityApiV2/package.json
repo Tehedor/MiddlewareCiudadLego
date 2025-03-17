@@ -7,43 +7,45 @@
     "build": "next build",
     "start": "concurrently \"next start\" \"node express-server/server.js\"",
     "server": "node express-server/server.js",
-    "dev-all": "concurrently \"next dev\" \"node express-server/server.js\"",
-    "init-admin": "node init_admin_user.js"
+    "dev-all": "concurrently \"next dev\" \"node express-server/server.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^9.3.0",
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "concurrently": "^9.1.2",
+    "cookie-parser": "~1.4.7",
+    "debug": "~4.4.0",
     "dotenv": "^16.4.7",
+    "ejs": "~3.1.10",
     "express": "~4.21.2",
+    "faker": "^5.5.3",
+    "http-errors": "~2.0.0",
     "install": "^0.13.0",
     "ioredis": "^5.4.2",
     "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "mongoose": "^8.9.4",
+    "morgan": "~1.10.0",
+    "mqtt": "^5.10.3",
     "mysql2": "^3.12.0",
     "next": "^15.1.3",
     "npm": "^11.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sequelize": "^6.37.5",
-    "@faker-js/faker": "^9.3.0",
-    "cookie-parser": "~1.4.7",
-    "debug": "~4.4.0",
-    "ejs": "~3.1.10",
-    "faker": "^5.5.3",
-    "http-errors": "~2.0.0",
-    "moment": "^2.30.1",
-    "mongoose": "^8.9.4",
-    "morgan": "~1.10.0",
-    "mqtt": "^5.10.3",
     "socket.io": "^4.8.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
   "engines": {
     "node": "=22.12"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
   }
 }

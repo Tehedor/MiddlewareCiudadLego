@@ -1,27 +1,28 @@
 var express = require('express');
 var router = express.Router();
-const axios = require('axios')
-
 
 const formatNgsiID = require("../../utils/formatNgsiID");
 
-const { remapDataModeID,remapDataModeInfo, remapDataModeDetails} = require("../../utils/remapModes");
-
-const {checkIfIsSensor, checkIfIsLegoBuilding, checkIfIsActuator} = require("../../utils/checkIfIsXXX");
-
-const EnvConfig = require('../../../utils/env.config');
-const { mode_container } = EnvConfig();
-
-
-
-const basePath = mode_container ? 'fiware-orion' : 'localhost';
-const url = `http://${basePath}:1026/ngsi-ld/v1/entities`;
-const headers = {
-    'Accept': 'application/ld+json',
-    'Link': '<http://context/datamodels.context-ngsi.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
-};
+const { 
+  getRemapFunction, 
+  handleAxiosError, 
+  fetchData,
+  fetchDataWithId
+} = require("../../utils/requestUtils");
 
 
+const  {
+  checkType,
+  sendToBlackList,
+  controlCheckIfIsSensor,
+  controlCheckIfIsActuator,
+  controlCheckIfIsCamera,
+  controlCheckIfIsLegoBuilding,
+  controlCheckIfIsLegoCity
+} = require("../../utils/controlCheckIfIsXXX")
+
+// Styles sensors
+const styles = ["info", "relations", "details", "value"];
 
 /**
  * @swagger
@@ -29,131 +30,25 @@ const headers = {
  *   get:
  *     tags:
  *       - Sensors
- *     summary: Devuelve todas las "Buildings".
- *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
+ *     summary: Devuelve todas las "Sensors".
+ *     description: Obtiene todas las entidades de tipo "Sensor" desde el Context Broker.
  *     parameters:
  *       - in: query
  *         name: apiKey
  *         required: false
  *         schema:
  *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *     responses:
- *       200:
- *         description: Una lista de todas las "Buildings".
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: string
- *                     example: "PirSensor001"
- *                   Relationship:
- *                     type: string
- *                     example: "LegoStreetLight001"
- */
-router.get("/sensors", async (req, res) => {
-  try {
-    const response = await axios.get(`${url}?q=category==%22sensor%22`, {headers: headers});
-    const filteredData = remapDataModeID(response.data);
-    res.json(filteredData);
-  } catch (error) {
-    console.error("Error fetching sensors:", error);
-    res.status(500).send("Error fetching sensors");
-  }
-});
-
-/**
- * @swagger
- * /api/sensors/info:
- *   get:
- *     tags:
- *       - Sensors
- *     summary: Devuelve todas las "Buildings".
- *     description: Obtiene todas las entidades de tipo "LegoBuilding" desde el Context Broker.
- *     parameters:
+ *         description: API Key para autenticar la petición. También se puede añadir en body (apiKey) o en headers (['x-api-key']).
  *       - in: query
- *         name: apiKey
+ *         name: style
  *         required: false
  *         schema:
  *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
+ *           enum: [info, relations, details, value]
+ *         description: Tipo de formato de respuesta (normal por defecto).
  *     responses:
  *       200:
- *         description: Una lista de todas las "Buildings".
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: string
- *                     example: "PirSensor001"
- *                   type:
- *                     type: string
- *                     example: "PirSensor"
- *                   category:
- *                     type: string
- *                     example: "sensor"
- *                   presence:
- *                     type: string
- *                     example: "LOW"
- *                   controlledAsset:
- *                     type: string
- *                     example: "LegoStreetLight001"
- */
-router.get("/sensors/info", async (req, res) => {
-  try {
-    const response = await axios.get(`${url}?q=category==%22sensor%22&options=keyValues`, {headers: headers});
-    const remappedData = remapDataModeInfo(response.data);
-    res.json(remappedData);
-  } catch (error) {
-    console.error("Error fetching sensors:", error);
-    res.status(500).send("Error fetching sensors");
-  }
-});
-
-/**
- * @swagger
- * /api/sensors/details:
- *   get:
- *     tags:
- *       - Sensors
- *     summary: Devuelve todos los datos de los sensores.
- *     description: Obtiene todos los datos de los sensores desde el Context Broker.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *     responses:
- *       200:
- *         description: Una lista de todos los sensores.
+ *         description: Una lista de sensores con el formato especificado.
  *         content:
  *           application/json:
  *             schema:
@@ -195,12 +90,23 @@ router.get("/sensors/info", async (req, res) => {
  *                         type: string
  *                         example: "LegoStreetLight001"
  */
-router.get("/sensors/details", async (req, res) => {
+router.get("/sensors", async (req, res) => {
   try {
-    const response = await axios.get(`${url}?q=category==%22sensor%22`, 
-      {headers: headers});
-    const remappedData = remapDataModeDetails(response.data);
-    res.json(remappedData);
+    //style
+    const style = req.query.style || "info";
+    if (!styles.includes(style)) {
+      return res.status(400).send("Invalid style");
+    }
+    
+    // Fetch to context
+    const urlQuery = `?q=category==%22sensor%22${style === "info" ? "&options=keyValues" : ""}`;
+    const response = await fetchData(urlQuery);
+    
+    
+    // Response
+    const remapFunction = getRemapFunction(style);
+    const filteredData = remapFunction(response.data);
+    res.json(filteredData);
   } catch (error) {
     console.error("Error fetching sensors:", error);
     res.status(500).send("Error fetching sensors");
@@ -213,30 +119,31 @@ router.get("/sensors/details", async (req, res) => {
  *   get:
  *     tags:
  *       - Sensors
- *     summary: Devuelve una "Building" específica.
- *     description: Obtiene una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
+ *     summary: Devuelve un "Sensor" específico.
+ *     description: Obtiene una entidad de tipo "Sensor" desde el Context Broker usando su ngsiID.
  *     parameters:
  *       - in: query
  *         name: apiKey
  *         required: false
  *         schema:
  *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
+ *         description: API Key para autenticar la petición. También se puede añadir en body (apiKey) o en headers (['x-api-key']).
  *       - in: path
  *         name: ngsiID
  *         required: true
  *         schema:
  *           type: string
- *         description: Identificador NGSI de la "Building".
+ *         description: Identificador NGSI de la "Sensor".
+ *       - in: query
+ *         name: style
+ *         required: false
+ *         schema:
+ *           type: string
+ *           enum: [info, relations, details, value]
+ *         description: Tipo de formato de respuesta (normal por defecto).
  *     responses:
  *       200:
- *         description: Una "Building" específica.
+ *         description: Un "Sensor" específico con el formato solicitado.
  *         content:
  *           application/json:
  *             schema:
@@ -244,123 +151,7 @@ router.get("/sensors/details", async (req, res) => {
  *               properties:
  *                 id:
  *                   type: string
- *                   example: "urn:ngsi-ld:PirSensor:001"
- */
-router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
-  try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-    const response = await axios.get(`${url}/${ngsiID}`, 
-      {headers: headers});
-
-    if (!checkIfIsSensor(response.data)) {
-      return res.status(404).send("No is a sensor");
-    }
-
-    const filteredData = remapDataModeID(response.data);
-    res.json(filteredData);
-  } catch (error) {
-    console.error("Error fetching building:", error);
-    res.status(500).send("Error fetching building");
-  }
-});
-
-
-/**
- * @swagger
- * /api/sensors/{ngsiID}/info:
- *   get:
- *     tags:
- *       - Sensors
- *     summary: Devuelve una "Building" específica.
- *     description: Obtiene una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: path
- *         name: ngsiID
- *         required: true
- *         schema:
- *           type: string
- *         description: Identificador NGSI de la "Building".
- *     responses:
- *       200:
- *         description: Una "Building" específica.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: string
- *                   example: "urn:ngsi-ld:PirSensor:001"
- */
-router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
-  try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-    const response = await axios.get(`${url}/${ngsiID}?options=keyValues`, 
-      {headers: headers});
-
-    if (!checkIfIsSensor(response.data)) {
-      return res.status(404).send("No is a sensor");
-    }
-
-    const remappedData = remapDataModeInfo(response.data);
-    res.json(remappedData);
-  } catch (error) {
-    console.error("Error fetching building:", error);
-    res.status(500).send("Error fetching building");
-  }
-});
-
-
-/**
- * @swagger
- * /api/sensors/{ngsiID}/details:
- *   get:
- *     tags:
- *       - Sensors
- *     summary: Devuelve los detalles de una "Building" específica.
- *     description: Obtiene los detalles de una entidad de tipo "LegoBuilding" desde el Context Broker usando su ngsiID.
- *     parameters:
- *       - in: query
- *         name: apiKey
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: header
- *         name: x-api-key
- *         required: false
- *         schema:
- *           type: string
- *         description: API Key para autenticar la petición.
- *       - in: path
- *         name: ngsiID
- *         required: true
- *         schema:
- *           type: string
- *         description: Identificador NGSI de la "Building".
- *     responses:
- *       200:
- *         description: Los detalles de una "Building" específica.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: string
- *                   example: "urn:ngsi-ld:PirSensor:001"
+ *                   example: "PirSensor001"
  *                 type:
  *                   type: string
  *                   example: "PirSensor"
@@ -381,7 +172,7 @@ router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *                       example: "Property"
  *                     value:
  *                       type: string
- *                       example: "HIGH"
+ *                       example: "LOW"
  *                 controlledAsset:
  *                   type: object
  *                   properties:
@@ -390,24 +181,49 @@ router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
  *                       example: "Relationship"
  *                     object:
  *                       type: string
- *                       example: "urn:ngsi-ld:LegoStreetLight:001"
+ *                       example: "LegoStreetLight001"
  */
-router.get("/sensors/:ngsiID([\\w:-]+)/details", async (req, res) => {
+router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
+  const ngsiID = formatNgsiID(req.params.ngsiID);
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
-    const response = await axios.get(`${url}/${ngsiID}`, {
-      headers: headers
-    });
-
-    if (!checkIfIsSensor(response.data)) {
-      return res.status(404).send("No is a sensor");
+    // ngsiID
+    if (!ngsiID) {
+      return res.status(400).send("Invalid ngsiID format");
     }
 
-    const remappedData = remapDataModeDetails(response.data);
-    res.json(remappedData);
+    // Check if is sensor
+    const check = controlCheckIfIsSensor(ngsiID); 
+    
+    if (check == "notSensor") {
+      return res.status(404).send("No is a sensor");
+    }
+    
+    // Style
+    const style = req.query.style || "info";
+    if (!styles.includes(style)) {
+      return res.status(400).send("Invalid style");
+    }
+    
+    // Fetch to context
+    const urlQuery = `${style === "info" ? "?options=keyValues" : ""}`;
+    const response = await fetchDataWithId(ngsiID, urlQuery);
+    
+    // No registred
+    if (check == "notRegistred") {
+      checkType(response.data);
+      const check = controlCheckIfIsSensor(ngsiID); 
+      if (check == 'notSensor') {
+        return res.status(404).send("No is a sensor");
+      }    
+    }
+
+    // Response
+    const remapFunction = getRemapFunction(style);
+    const filteredData = remapFunction(response.data);
+    res.json(filteredData);
+
   } catch (error) {
-    console.error("Error fetching building details:", error);
-    res.status(500).send("Error fetching building details");
+    handleAxiosError(error, ngsiID, res);
   }
 });
 

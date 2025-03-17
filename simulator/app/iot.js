@@ -102,7 +102,7 @@ iotRouter.post('/servmotorActuator', function (req, res) {
 // urn:ngsi-ld:Camera:002
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 iotRouter.post('/cameraActuator', function (req, res) {
-    
+    console.log("cameraActuator")
     const data = JSON.parse(req.body).data[0]; 
 
     SimulateActuators.simulateCameraActuator(data);
