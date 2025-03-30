@@ -132,7 +132,7 @@ router.get("/cameras", async (req, res) => {
  */
 router.get("/cameras/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     
     const style = req.query.style || "normal";
     let urlQuery = "";

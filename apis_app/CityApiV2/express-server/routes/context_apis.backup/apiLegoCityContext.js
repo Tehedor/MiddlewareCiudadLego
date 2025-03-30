@@ -152,7 +152,7 @@ router.get("/cities", async (req, res) => {
 router.get("/cities/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
     // Reformatear el ngsiID
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
 
     const style = req.query.style || "normal";
     let urlQuery = "";
@@ -235,7 +235,7 @@ router.get("/cities/:ngsiID([\\w:-]+)", async (req, res) => {
 router.get("/cities/:ngsiID([\\w:-]+)/components", async (req, res) => {
   try {
     // Reformatear el ngsiID
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
 
     console.log("Reformatted ngsiID:", ngsiID);
 

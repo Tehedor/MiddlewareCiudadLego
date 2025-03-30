@@ -91,7 +91,7 @@ const headers = {
  *                         example: "urn:ngsi-ld:LegoCity:001"
  */
 router.get("/actuators/data/:ngsiID([\\w:-]+)", async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
   try {
     if (!ngsiID) {
       return res.status(400).send("Invalid ngsiID format");

@@ -195,7 +195,7 @@ router.get("/cameras/details", async (req, res) => {
  */
 router.get("/cameras/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, 
       {headers: headers});
 
@@ -241,7 +241,7 @@ router.get("/cameras/:ngsiID([\\w:-]+)", async (req, res) => {
  */
 router.get("/cameras/:ngsiID([\\w:-]+)/info", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}?options=keyValues`, 
       {headers: headers});
 
@@ -317,7 +317,7 @@ router.get("/cameras/:ngsiID([\\w:-]+)/info", async (req, res) => {
  */
 router.get("/cameras/:ngsiID([\\w:-]+)/details", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, {
       headers: headers
     });

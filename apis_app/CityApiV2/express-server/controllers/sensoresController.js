@@ -1,158 +1,168 @@
 // Propósito: Realizar las operaciones de los sensores
 var createError = require('http-errors');
+const mongoose = require('mongoose');
+
+
+
+const { sensorDict,actuatorDict} = require('../utils/controlCheckIfIsXXX');
+
+const formatNgsiID = require("../utils/formatNgsiID");
+const formatNgsiIDToMongo = require('../utils/formatNgsiIDToMongo')
+
+
+const { 
+  getRemapFunction, 
+  handleAxiosError, 
+  fetchData,
+  fetchDataWithId
+} = require("../utils/requestUtils");
+
+
+const  {
+  checkType,
+  sendToBlackList,
+  controlCheckIfIsSensor,
+  controlCheckIfIsActuator,
+  controlCheckIfIsCamera,
+  controlCheckIfIsLegoBuilding,
+  controlCheckIfIsLegoCity
+} = require("../utils/controlCheckIfIsXXX")
+
 
 //importar las funciones de ayuda
-const indexHelper = require('../helpers/index');
-const dateHelper = require('../helpers/dateHelper');
-const ordenHelper = require('../helpers/ordenHelper');
-const rangoHelper = require('../helpers/rangoHelper');
-const estadoHelper = require('../helpers/estadoHelper');
-const edificioHelper = require('../helpers/edificioHelper');
+// const indexHelper = require('../helpers/index');
+// const dateHelper = require('../helpers/dateHelper');
+// const {filterByOrden} = require('../helpers/ordenHelper');
+// const rangoHelper = require('../helpers/rangoHelper');
+// const estadoHelper = require('../helpers/estadoHelper');
+// const edificioHelper = require('../helpers/edificioHelper');
 
 //importar el modelo de los sensores
-const Sensores = require('../models/Sensores');
+const sensorSchema  = require('../models/generalSchema');
 
-//función para obtener los datos de los sensores
-exports.getSensoresData = async (req, res, next) => {
+
+const  controlParamsQueryMongo = require("../utils/controlParamsQueryMongo.js");
+
+const formatHistoricalMongo = require('../utils/formatHistoricalMongo.js');
+
+const getSensoresDataMongo = async (numidMongo, req, res, next, params) => {
     try {
-        const sensoresData = await Sensores.find({});
-        res.json(sensoresData);
-    } catch (err) {
-        next(err); // Llama a `next` con el error para que Express maneje el error
-    }
-};
-
-const sensorMapping = {
-    1: {
-        numid: "urn:ngsi-ld:TemperatureSensor:001",
-        collectionName: "sth_urn_ngsi-ld_TemperatureSensor_001",
-        allowed_params: [],
-    },
-    2: {
-        numid: "urn:ngsi-ld:HumiditySensor:001",
-        collectionName: "sth_urn_ngsi-ld_HumiditySensor_001",
-        allowed_params: [],
-    },
-    3: {
-        numid: "urn:ngsi-ld:EngineDC:001",
-        collectionName: "sth_urn_ngsi-ld_EngineDC_001",
-        allowed_params: ["mayorque", "menorque", "igualque"],
-    },
-    4: {
-        numid: "urn:ngsi-ld:UltrasoundSensor:001",
-        collectionName: "sth_urn_ngsi-ld_UltrasoundSensor_001",
-        allowed_params: [],
-    },
-    5: {
-        numid: "urn:ngsi-ld:PhotoresistorSensor:001",
-        collectionName: "sth_urn_ngsi-ld_PhotoresistorSensor_001",
-        allowed_params: [],
-    },
-    6: {
-        numid: "urn:ngsi-ld:PirSensor:001",
-        collectionName: "sth_urn_ngsi-ld_PirSensor_001",
-        allowed_params: [],
-    },
-    7: {
-        numid: "urn:ngsi-ld:PotentiometerSensor:001",
-        collectionName: "sth_urn_ngsi-ld_PotentiometerSensor_001",
-        allowed_params: [],
-    },
-    8: {
-        numid: "urn:ngsi-ld:InfraredSensor:001",
-        collectionName: "sth_urn_ngsi-ld_InfraredSensor_001",
-        allowed_params: [],
-    },
-    9: {
-        numid: "urn:ngsi-ld:Light:001",
-        collectionName: "sth_urn_ngsi-ld_Light_001",
-        allowed_params: [],
-    },
-    10: {
-        numid: "urn:ngsi-ld:RfidSensor:001",
-        collectionName: "sth_urn_ngsi-ld_RfidSensor_001",
-        allowed_params: [],
-    },
-    11: {
-        numid: "urn:ngsi-ld:LedDetection:001",
-        collectionName: "sth_urn_ngsi-ld_LedDetection_001",
-        allowed_params: [],
-    },
-    12: {
-        numid: "urn:ngsi-ld:Servmotor:001",
-        collectionName: "sth_urn_ngsi-ld_Servmotor_001",
-        allowed_params: [],
-    },
-    13: {
-        numid: "urn:ngsi-ld:SwitchSensor:001",
-        collectionName: "sth_urn_ngsi-ld_SwitchSensor_001",
-        allowed_params: [],
-    }
-};
-
-exports.getSensorData = async function (req, res, next) {
-    try {
-        const { numid, edificio } = req.params;
-
-        if (edificio) {
-            const responseData = await edificioHelper.filterByEdificio(edificio);
-            res.json(responseData);
-        } else if (numid) {
-            const sensorId = parseInt(numid); // Asegúrate de que numid es un número
-            const sensorInfo = sensorMapping[sensorId];
-
-            if (!sensorInfo) {
-                throw createError(404, 'Sensor no encontrado');
-            }
-
-            const collectionName = sensorInfo.collectionName;
-            const allowedParams = sensorInfo.allowed_params;
-
-            console.log('Sensor ID:', sensorId);
-            console.log('Sensor Info:', sensorInfo);
-            console.log('Query Params:', req.query);
-
-            let responseData;
-
-            // Si no hay parámetros en la consulta, busca el sensor
-            if (Object.keys(req.query).length === 0) {
-                const sensor = await Sensores.findOne({numid: sensorInfo.numid});
-                if (!sensor) {
-                    throw createError(404, 'Sensor no encontrado');
-                }
-                responseData = sensor;
-            } else if (req.query.desde && req.query.hasta) {
-                responseData = await dateHelper.filterByDate(collectionName, req.query.desde, req.query.hasta);
-            } else if (req.query.orden) {
-                responseData = await ordenHelper.filterByOrden(collectionName, req.query.orden);
-            } else if (req.query.min && req.query.max) {
-                responseData = await rangoHelper.filterByRango(collectionName, req.query.min, req.query.max);
-            } else if (req.query.estado) {
-                responseData = await estadoHelper.filterByEstado(collectionName, req.query.estado);
-            } else if (req.query.edificio) {
-                responseData = await edificioHelper.filterByEdificio(collectionName, req.query.edificio);
-            }
-            // Si hay otros parámetros, llama a indexHelper.getCollection
-            else {
-                for (let param in req.query) {
-                    if (!allowedParams.includes(param)) {
-                        throw new Error(`El parámetro '${param}' no está permitido`);
-                    }
-                }
-                console.log('Obteniendo colección con parámetros:', req.query);
-                responseData = await indexHelper.getCollection(collectionName, sensorId, req.query);
-            }
-
-            if (!responseData) {
-                responseData = "Algo has hecho mal, revisa los parámetros de la consulta";
-            }
-            res.json(responseData);
-        } else {
-            throw createError(404, 'Sensor o edificio no encontrado');
+        // Crear el modelo dinámicamente utilizando la variable numidMongo
+        const Sensores = mongoose.models[numidMongo] || mongoose.model(numidMongo, sensorSchema, numidMongo);
+        
+        let filter = {};
+    
+        // Control rangos:  desde, hasta
+        if (params.desde || params.hasta) {
+            filter.notifiedAt = {};
+            if (params.desde !== undefined && params.desde !== null) filter.notifiedAt.$gte = params.desde;
+            if (params.hasta !== undefined && params.hasta !== null) filter.notifiedAt.$lte = params.hasta;            
+            if (Object.keys(filter.notifiedAt).length === 0) delete filter.notifiedAt; // Eliminar notifiedAt si está vacío
         }
+        
+        // Control estado:  true, false, HIGH, LOW
+        if (params.estado !== undefined && params.estado !== null) {
+            if (params.estado === "true" || params.estado.toUpperCase() === "HIGH") {
+                filter["data.presence.value"] = { $in: ["HIGH", "true"] };
+            } else if (params.estado === "false" || params.estado.toUpperCase() === "LOW") {
+                filter["data.presence.value"] = { $in: ["LOW", "false"] };
+            }
+        }
+
+        // Control min, max
+        if (params.min !== undefined && params.min !== null || params.max !== undefined && params.max !== null) {
+            filter["data.value"] = {};
+            if (params.min !== undefined && params.min !== null) filter["data.value"].$gte = Number(params.min);
+            if (params.max !== undefined && params.max !== null) filter["data.value"].$lte = Number(params.max);
+            if (Object.keys(filter["data.value"]).length === 0) delete filter["data.value"]; // Eliminar data.value si está vacío
+        }
+
+        if (params.identifier !== undefined && params.identifier !== null) {
+            filter["data.id"] = params.identifier;
+        }
+        
+        console.log('filter:', filter);
+
+        // Buscar los datos con los filtros aplicados
+        const sensoresData = await Sensores.find(filter)
+            .sort({ notifiedAt: params.orden === 'ascendente' ? 1 : -1 })
+            .limit(parseInt(params.cantidad));
+
+        if (sensoresData.length === 0) {
+            return res.status(404).json({ error: `No se encontraron datos en la colección ${numidMongo}` });
+        }
+
+        const transformedData = formatHistoricalMongo(sensoresData, orden = params.orden);
+
+        res.json(transformedData);
     } catch (err) {
-        console.error('Error al obtener datos del sensor o edificio:', err);
+        console.error(`Error al obtener datos de la colección ${numidMongo}:`, err);
         next(err);
     }
 };
 
+// ["PirSensor", "PhotoresistorSensor", "PotentiometerSensor", "InfraredSensor", "SwitchSensor", "RfidSensor", "UltrasoundSensor" , "TemperatureSensor" ,"HumiditySensor"], 
+
+
+// const getSensorData = async function (req, res, next) {
+const getSensorData = async function (req, res, next) {
+    console.log('req.params.ngsiID:', req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
+    console.log('ngsiID:', ngsiID);
+    
+    try {
+        if (!ngsiID) {
+            return res.status(400).json({ error: "Invalid ngsiID format" });
+        }
+    
+        const check = controlCheckIfIsSensor(ngsiID);
+        if (check === "notSensor") {
+            return res.status(404).json({ error: "Not a sensor" });
+        }
+    
+        const response = await fetchDataWithId(ngsiID, "");
+        
+        if (check === "notRegistred") {
+            checkType(response.data);
+            const reCheck = controlCheckIfIsSensor(ngsiID);
+            if (reCheck === 'notSensor') {
+                return res.status(404).json({ error: "Not a sensor" });
+            }    
+        }
+    
+        const type = sensorDict[ngsiID];
+        console.log('type:', type);
+
+    
+        const numidMongo = formatNgsiIDToMongo(ngsiID);
+        console.log('numidMongo:', numidMongo);
+    
+        // Control params
+        const params = controlParamsQueryMongo(req, res, type);
+        if (params.error) {
+            return res.status(400).json(params);
+        }
+        console.log(params);
+
+        const sensoresData = await getSensoresDataMongo(numidMongo, req, res, next, params);
+        
+        console.log('sensoresData:', sensoresData);
+
+        if (!sensoresData || sensoresData.length === 0) {
+            return res.status(404).json({ error: "Sensor data not found" });
+        }
+    
+        res.json(sensoresData);
+
+    } catch (err) {
+        console.error('Error fetching sensor data:', err);
+        next(err);
+    }
+};
+
+
+
+module.exports = {
+    getSensoresDataMongo,
+    getSensorData,   
+}

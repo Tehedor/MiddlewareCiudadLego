@@ -196,7 +196,7 @@ router.get("/sensors/details", async (req, res) => {
  */
 router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, 
       {headers: headers});
 
@@ -242,7 +242,7 @@ router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
  */
 router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}?options=keyValues`, 
       {headers: headers});
 
@@ -318,7 +318,7 @@ router.get("/sensors/:ngsiID([\\w:-]+)/info", async (req, res) => {
  */
 router.get("/sensors/:ngsiID([\\w:-]+)/details", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, {
       headers: headers
     });

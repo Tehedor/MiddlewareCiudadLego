@@ -1,0 +1,44 @@
+req.params.ngsiID: undefined
+ngsiID: urn:ngsi-ld:PirSensor:001
+Cities: []
+Buildings: []
+Actuators: []
+Sensors: []
+Cameras: []
+BlackList: []
+Sensor Dictionary: {}
+Actuator Dictionary: {}
+http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:PirSensor:001
+Checking type of: urn:ngsi-ld:PirSensor:001
+Cities: []
+Buildings: []
+Actuators: []
+Sensors: [ 'urn:ngsi-ld:PirSensor:001' ]
+Cameras: []
+BlackList: []
+Sensor Dictionary: { 'urn:ngsi-ld:PirSensor:001': 'PirSensor' }
+Actuator Dictionary: {}
+type: PirSensor
+numidMongo: sth_urn_ngsi-ld_PirSensor_001
+{
+  cantidad: 5,
+  desde: '2025-03-24T16:16:45',
+  orden: 'descendente',
+  hasta: '2025-03-24T20:26:45',
+  min: null,
+  max: null,
+  estado: null
+}
+🔍 INICIANDO NUEVAS PRUEBAS DE DEPURACIÓN...
+📌 Datos encontrados: []
+Response data: {
+  "data": [
+    {
+      "perro": "gato"
+    }
+  ]
+}
+sensoresData: undefined
+Response data: {
+  "error": "Sensor data not found"
+}

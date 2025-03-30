@@ -187,7 +187,7 @@ router.get("/actuators", async (req, res) => {
  *                       example: "LegoStreetLight001"
  */
 router.get("/actuators/:ngsiID([\\w:-]+)", async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
   try {
     // ngsiID
     if (!ngsiID) {

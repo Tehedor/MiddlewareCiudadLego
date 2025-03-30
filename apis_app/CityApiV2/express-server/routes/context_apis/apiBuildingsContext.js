@@ -170,7 +170,7 @@ router.get("/buildings", async (req, res) => {
  *                       example: "LegoCity001"
  */
 router.get("/buildings/:ngsiID([\\w:-]+)", async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
   try {
     // ngsiID
     if (!ngsiID) {
@@ -287,7 +287,7 @@ const stylesComponents = ["info", "relations", "details","value"];
  *                         example: "LegoStreetLight001"
  */
 router.get("/buildings/:ngsiID([\\w:-]+)/components", async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
   try {
 
     // ngsiID

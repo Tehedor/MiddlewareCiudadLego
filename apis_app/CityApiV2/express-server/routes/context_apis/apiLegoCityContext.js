@@ -187,7 +187,7 @@ router.get("/cities", async (req, res) => {
  *                           example: "Av. Complutense, 30"
  */
 router.get("/cities/:ngsiID([\\w:-]+)", async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
   try {
 
     // ngsiID
@@ -294,7 +294,7 @@ router.get("/cities/:ngsiID([\\w:-]+)", async (req, res) => {
  */
 router.get("/cities/:ngsiID([\\w:-]+)/components", async (req, res) => {
   // Reformatear el ngsiID
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
   try {
 
     // ngsiID

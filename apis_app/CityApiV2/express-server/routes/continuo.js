@@ -57,7 +57,7 @@ const {mode_container} = EnvConfig();
  *         description: Sensor no encontrado con el numid proporcionado.
  */
 router.get('/continuo/:ngsiID([\\w:-]+)', async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
 
   try {
     if (!ngsiID) {
@@ -132,7 +132,7 @@ router.get('/continuo/:ngsiID([\\w:-]+)', async (req, res) => {
  *         description: Camera no encontrado con el numid proporcionado.
  */
 router.get('/continuo/camera/:ngsiID([\\w:-]+)', async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
 
   try {
     if (!ngsiID) {

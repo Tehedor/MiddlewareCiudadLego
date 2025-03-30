@@ -204,7 +204,7 @@ router.get("/cameras", async (req, res) => {
  *                       example: "LegoRadar001"
  */
 router.get("/cameras/:ngsiID([\\w:-]+)", async (req, res) => {
-  const ngsiID = formatNgsiID(req.params.ngsiID);
+  const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
   try {
     
     // ngsiID

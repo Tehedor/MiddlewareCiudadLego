@@ -1,0 +1,256 @@
+{
+  "_id": {
+    "$oid": "67d9bb5d812ec777272d0949"
+  },
+  "id": "urn:ngsi-ld:Notification:d3ddfadc-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b809a-0425-11f0-8668-027913026369",
+  "notifiedAt": "2025-03-18T18:28:45.825Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:Camera:001",
+      "type": "Camera",
+      "startDataTime": {
+        "type": "Property",
+        "value": "2025-03-18T18:16:35.474Z"
+      },
+      "on": {
+        "type": "Property",
+        "value": true
+      },
+      "mediaURL": {
+        "type": "Property",
+        "value": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWFwFsbONWRBpBJo8rucnZZmRq-hsb1_xFMPKALIkjRr9IX8pkHsJAsVuAH1fyn33JWsg&usqp=CAU"
+      }
+    }
+  ]
+}
+
+
+{
+  "_id": {
+    "$oid": "67d9bb5a812ec777272d0943"
+  },
+  "id": "urn:ngsi-ld:Notification:d1c2829a-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208d2e72-0425-11f0-9478-027913026369",
+  "notifiedAt": "2025-03-18T18:28:42.292Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:EngineDC:001",
+      "type": "EngineDC",
+      "velocityEngine": {
+        "type": "Property",
+        "value": 34
+      }
+    }
+  ]
+}
+
+{
+  "_id": {
+    "$oid": "67d9bb5a812ec777272d0945"
+  },
+  "id": "urn:ngsi-ld:Notification:d1e15472-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b693e-0425-11f0-b91d-027913026369",
+  "notifiedAt": "2025-03-18T18:28:42.494Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:HumiditySensor:001",
+      "type": "HumiditySensor",
+      "humidity": {
+        "type": "Property",
+        "value": 92,
+        "unitCode": "P1"
+      }
+    }
+  ]
+}
+
+{
+  "_id": {
+    "$oid": "67d9bb5d812ec777272d0948"
+  },
+  "id": "urn:ngsi-ld:Notification:d3d98cd6-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b422e-0425-11f0-9e53-027913026369",
+  "notifiedAt": "2025-03-18T18:28:45.792Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:InfraredSensor:001",
+      "type": "InfraredSensor",
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+}
+
+{
+  "_id": {
+    "$oid": "67d9bb5e812ec777272d094b"
+  },
+  "id": "urn:ngsi-ld:Notification:d4259cb6-0426-11f0-8d5a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208d2d78-0425-11f0-8236-027913026369",
+  "notifiedAt": "2025-03-18T18:28:46.297Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:LedDetection:001",
+      "type": "LedDetection",
+      "stateLed": {
+        "type": "Property",
+        "value": "ON"
+      }
+    }
+  ]
+}
+
+
+{
+  "_id": {
+    "$oid": "67d9bb5e812ec777272d094c"
+  },
+  "id": "urn:ngsi-ld:Notification:d4259cb6-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b94d6-0425-11f0-83ae-027913026369",
+  "notifiedAt": "2025-03-18T18:28:46.296Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:Light:001",
+      "type": "Light",
+      "stateLight": {
+        "type": "Property",
+        "value": "OFF"
+      }
+    }
+  ]
+}
+{
+  "_id": {
+    "$oid": "67d9bbc3812ec777272d09aa"
+  },
+  "id": "urn:ngsi-ld:Notification:1051d8b2-0427-11f0-b9d3-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b2780-0425-11f0-8cc1-027913026369",
+  "notifiedAt": "2025-03-18T18:30:27.250Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PhotoresistorSensor:001",
+      "type": "PhotoresistorSensor",
+      "light": {
+        "type": "Property",
+        "value": 10
+      }
+    }
+  ]
+}
+{
+  "_id": {
+    "$oid": "67d9bb5e812ec777272d094a"
+  },
+  "id": "urn:ngsi-ld:Notification:d4237ba2-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b2050-0425-11f0-9bc8-027913026369",
+  "notifiedAt": "2025-03-18T18:28:46.282Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PirSensor:001",
+      "type": "PirSensor",
+      "presence": {
+        "type": "Property",
+        "value": "HIGH"
+      }
+    }
+  ]
+}
+{
+  "_id": {
+    "$oid": "67d9bb5a812ec777272d0944"
+  },
+  "id": "urn:ngsi-ld:Notification:d1b3bb70-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b3338-0425-11f0-a492-027913026369",
+  "notifiedAt": "2025-03-18T18:28:42.187Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:PotentiometerSensor:001",
+      "type": "PotentiometerSensor",
+      "velocityControl": {
+        "type": "Property",
+        "value": 34
+      }
+    }
+  ]
+}
+{
+  "_id": {
+    "$oid": "67d9bb5a812ec777272d0946"
+  },
+  "id": "urn:ngsi-ld:Notification:d1b3a1da-0426-11f0-b78f-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b6510-0425-11f0-a9d0-027913026369",
+  "notifiedAt": "2025-03-18T18:28:42.187Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:RfidSensor:001",
+      "type": "RfidSensor",
+      "uiddcode": {
+        "type": "Property",
+        "value": "7bfc7daa"
+      }
+    }
+  ]
+}
+
+{
+  "_id": {
+    "$oid": "67d9bb5a812ec777272d0947"
+  },
+  "id": "urn:ngsi-ld:Notification:d1dfe678-0426-11f0-b33a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b7078-0425-11f0-b438-027913026369",
+  "notifiedAt": "2025-03-18T18:28:42.485Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:TemperatureSensor:001",
+      "type": "TemperatureSensor",
+      "temperature": {
+        "type": "Property",
+        "value": 10.22,
+        "unitCode": "CEL"
+      }
+    }
+  ]
+}
+{
+  "_id": {
+    "$oid": "67d9bb5a812ec777272d0942"
+  },
+  "id": "urn:ngsi-ld:Notification:d1b3a158-0426-11f0-8d5a-027913026369",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:208b8518-0425-11f0-b7f4-027913026369",
+  "notifiedAt": "2025-03-18T18:28:42.187Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:UltrasoundSensor:001",
+      "type": "UltrasoundSensor",
+      "distance": {
+        "type": "Property",
+        "value": 29,
+        "unitCode": "CMT"
+      }
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+w

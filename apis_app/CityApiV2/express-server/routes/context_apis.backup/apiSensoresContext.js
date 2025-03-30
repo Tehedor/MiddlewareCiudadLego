@@ -120,7 +120,7 @@ router.get("/sensors", async (req, res) => {
  */
 router.get("/sensors/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const style = req.query.style || "normal";
     let urlQuery = "";
     let remapFunction;

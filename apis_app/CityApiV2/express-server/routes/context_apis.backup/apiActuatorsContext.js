@@ -132,7 +132,7 @@ router.get("/actuators", async (req, res) => {
  */
 router.get("/actuators/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const style = req.query.style || "normal";
     let urlQuery = "";
     let remapFunction;

@@ -30,12 +30,17 @@ function Dashboard() {
             } catch (error) {
                 console.error('Error fetching keys or limit:', error);
                 if (error.response && error.response.status === 401) {
+                    localStorage.removeItem('token');
                     router.push('/login');
                 }
             }
         };
 
         fetchKeysAndLimit();
+
+        const intervalId = setInterval(fetchKeysAndLimit, 1000); // Actualiza cada 5 segundos
+
+        return () => clearInterval(intervalId); // Limpia el intervalo al desmontar el componente
     }, [router]);
 
     const handleGenerateKey = async () => {

@@ -279,7 +279,7 @@ router.get("/buildings/details", async (req, res) => {
 router.get("/buildings/:ngsiID([\\w:-]+)", async (req, res) => {
   try {
     // Reformatear el ngsiID
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}`, 
       {headers: headers});
 
@@ -347,7 +347,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)", async (req, res) => {
 router.get("/buildings/:ngsiID([\\w:-]+)/info", async (req, res) => {
   try {
 
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     const response = await axios.get(`${url}/${ngsiID}?options=keyValues`, 
       {headers: headers});
 
@@ -425,7 +425,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/info", async (req, res) => {
  */
 router.get("/buildings/:ngsiID([\\w:-]+)/details", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     console.log("Reformatted ngsiID:", ngsiID);
 
     const response = await axios.get(`${url}/${ngsiID}`, 
@@ -490,7 +490,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/details", async (req, res) => {
 router.get("/buildings/:ngsiID([\\w:-]+)/components", async (req, res) => {
   try {
     // Reformatear el ngsiID
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
 
     console.log("Reformatted ngsiID:", ngsiID);
 
@@ -575,7 +575,7 @@ router.get("/buildings/:ngsiID([\\w:-]+)/components", async (req, res) => {
  */
 router.get("/buildings/:ngsiID([\\w:-]+)/components/info", async (req, res) => {
   try {
-    const ngsiID = formatNgsiID(req.params.ngsiID);
+    const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
 
     console.log("Reformatted ngsiID:", ngsiID);
 
@@ -671,7 +671,7 @@ router.get(
   "/buildings/:ngsiID([\\w:-]+)/components/details",
   async (req, res) => {
     try {
-      const ngsiID = formatNgsiID(req.params.ngsiID);
+      const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
 
       const response = await axios.get(`${url}/?q=controlledAsset==%22${ngsiID}%22`, {
         headers: headers,
