@@ -3,43 +3,20 @@ var createError = require('http-errors');
 const mongoose = require('mongoose');
 
 
-
 const { sensorDict,actuatorDict} = require('../utils/controlCheckIfIsXXX');
 
 const formatNgsiID = require("../utils/formatNgsiID");
 const formatNgsiIDToMongo = require('../utils/formatNgsiIDToMongo')
 
 
-const { 
-  getRemapFunction, 
-  handleAxiosError, 
-  fetchData,
-  fetchDataWithId
-} = require("../utils/requestUtils");
-
+const { fetchDataWithId } = require("../utils/requestUtils");
 
 const  {
   checkType,
-  sendToBlackList,
-  controlCheckIfIsSensor,
   controlCheckIfIsActuator,
-  controlCheckIfIsCamera,
-  controlCheckIfIsLegoBuilding,
-  controlCheckIfIsLegoCity
 } = require("../utils/controlCheckIfIsXXX")
 
-
-//importar las funciones de ayuda
-// const indexHelper = require('../helpers/index');
-// const dateHelper = require('../helpers/dateHelper');
-// const {filterByOrden} = require('../helpers/ordenHelper');
-// const rangoHelper = require('../helpers/rangoHelper');
-// const estadoHelper = require('../helpers/estadoHelper');
-// const edificioHelper = require('../helpers/edificioHelper');
-
-//importar el modelo de los sensores
-const sensorSchema  = require('../models/generalSchema');
-
+const generalSchema  = require('../models/generalSchema');
 
 const  controlParamsQueryMongo = require("../utils/controlParamsQueryMongo.js");
 
@@ -55,7 +32,7 @@ const propertyMap = {
 const getActuatorsDataMongo = async (numidMongo, req, res, next, params, type) => {
     try {
         // Crear el modelo dinámicamente utilizando la variable numidMongo
-        const Actuators = mongoose.models[numidMongo] || mongoose.model(numidMongo, sensorSchema, numidMongo);
+        const Actuators = mongoose.models[numidMongo] || mongoose.model(numidMongo, generalSchema, numidMongo);
         
         let filter = {};
     
@@ -90,10 +67,6 @@ const getActuatorsDataMongo = async (numidMongo, req, res, next, params, type) =
             if (params.min !== undefined && params.min !== null) filter[propertyPath].$gte = Number(params.min);
             if (params.max !== undefined && params.max !== null) filter[propertyPath].$lte = Number(params.max);
             if (Object.keys(filter[propertyPath]).length === 0) delete filter[`data.${propertyKey}.value`]; // Eliminar data.value si está vacío
-        }
-
-        if (params.identifier !== undefined && params.identifier !== null) {
-            filter["data.id"] = params.identifier;
         }
         
         console.log('filter:', filter);
@@ -174,8 +147,6 @@ const getActuatorData = async function (req, res, next) {
 };
 
 
-
 module.exports = {
-    getActuatorsDataMongo,
     getActuatorData,   
 }

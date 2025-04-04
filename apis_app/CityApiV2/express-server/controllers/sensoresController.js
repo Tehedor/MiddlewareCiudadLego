@@ -9,37 +9,15 @@ const { sensorDict,actuatorDict} = require('../utils/controlCheckIfIsXXX');
 const formatNgsiID = require("../utils/formatNgsiID");
 const formatNgsiIDToMongo = require('../utils/formatNgsiIDToMongo')
 
-
-const { 
-  getRemapFunction, 
-  handleAxiosError, 
-  fetchData,
-  fetchDataWithId
-} = require("../utils/requestUtils");
-
+const { fetchDataWithId} = require("../utils/requestUtils");
 
 const  {
   checkType,
-  sendToBlackList,
   controlCheckIfIsSensor,
-  controlCheckIfIsActuator,
-  controlCheckIfIsCamera,
-  controlCheckIfIsLegoBuilding,
-  controlCheckIfIsLegoCity
 } = require("../utils/controlCheckIfIsXXX")
 
-
-//importar las funciones de ayuda
-// const indexHelper = require('../helpers/index');
-// const dateHelper = require('../helpers/dateHelper');
-// const {filterByOrden} = require('../helpers/ordenHelper');
-// const rangoHelper = require('../helpers/rangoHelper');
-// const estadoHelper = require('../helpers/estadoHelper');
-// const edificioHelper = require('../helpers/edificioHelper');
-
 //importar el modelo de los sensores
-const sensorSchema  = require('../models/generalSchema');
-
+const generalSchema  = require('../models/generalSchema');
 
 const  controlParamsQueryMongo = require("../utils/controlParamsQueryMongo.js");
 
@@ -60,7 +38,7 @@ const propertyMap = {
 const getSensoresDataMongo = async (numidMongo, req, res, next, params, type) => {
     try {
         // Crear el modelo dinámicamente utilizando la variable numidMongo
-        const Sensores = mongoose.models[numidMongo] || mongoose.model(numidMongo, sensorSchema, numidMongo);
+        const Sensores = mongoose.models[numidMongo] || mongoose.model(numidMongo, generalSchema, numidMongo);
         
         let filter = {};
     
@@ -97,6 +75,7 @@ const getSensoresDataMongo = async (numidMongo, req, res, next, params, type) =>
             if (Object.keys(filter[propertyPath]).length === 0) delete filter[`data.${propertyKey}.value`]; // Eliminar data.value si está vacío
         }
         
+        // Control id:  id
         if (params.id !== undefined && params.id !== null) {
             const propertyKey = propertyMap[type] || "uiddcode"; 
             const propertyPath = `data.${propertyKey}.value`;
@@ -182,9 +161,6 @@ const getSensorData = async function (req, res, next) {
     }
 };
 
-
-
 module.exports = {
-    getSensoresDataMongo,
     getSensorData,   
 }
