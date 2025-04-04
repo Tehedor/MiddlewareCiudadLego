@@ -1,0 +1,52 @@
+[
+  {
+    "id": "Camera001",
+    "type": "Camera",
+    "mediaURL": "https://media.gettyimages.com/id/165764784/es/vector/tren-de-historieta.jpg?s=612x612&w=0&k=20&c=m-vcEvoDGYHOKPyTBgVzA4rAXu4Dosi8CGJ9ZfwFuhs=",
+    "on": false,
+    "startDataTime": "2025-03-30T11:50:09.484Z",
+    "controlledAsset": "LegoRadar001"
+  }
+]
+
+
+[
+  {
+    "id": "Camera001",
+    "type": "Camera",
+    "mediaURL": "https://media.gettyimages.com/id/165764784/es/vector/tren-de-historieta.jpg?s=612x612&w=0&k=20&c=m-vcEvoDGYHOKPyTBgVzA4rAXu4Dosi8CGJ9ZfwFuhs=",
+    "on": true,
+    "startDataTime": "2025-03-29T17:49:40.984Z",
+    "controlledAsset": "LegoRadar001"
+  }
+]
+
+
+
+{
+  "_id": {
+    "$oid": "67eec830e5cae601d668d4cd"
+  },
+  "id": "urn:ngsi-ld:Notification:d11f75d0-10b2-11f0-ba32-163acfdd75a5",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:subscription:d106ae74-10b2-11f0-aef4-163acfdd75a5",
+  "notifiedAt": "2025-04-03T17:41:04.718Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:Camera:001",
+      "type": "Camera",
+      "mediaURL": {
+        "type": "Property",
+        "value": "http://"
+      },
+      "on": {
+        "type": "Property",
+        "value": false
+      },
+      "startDataTime": {
+        "type": "Property",
+        "value": "2025-04-03T17:41:04.576Z"
+      }
+    }
+  ]
+}

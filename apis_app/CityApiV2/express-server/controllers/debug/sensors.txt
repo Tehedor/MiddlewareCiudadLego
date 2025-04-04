@@ -1,0 +1,65 @@
+[
+  {
+    "id": "PirSensor001",
+    "type": "PirSensor",
+    "category": "sensor",
+    "presence": "LOW",
+    "controlledAsset": "LegoStreetLight001"
+  },
+  {
+    "id": "PhotoresistorSensor001",
+    "type": "PhotoresistorSensor",
+    "category": "sensor",
+    "light": 9,
+    "controlledAsset": "LegoStreetLight001"
+  },
+  {
+    "id": "PotentiometerSensor001",
+    "type": "PotentiometerSensor",
+    "category": "sensor",
+    "velocityControl": 65,
+    "controlledAsset": "LegoTrain001"
+  },
+  {
+    "id": "InfraredSensor001",
+    "type": "InfraredSensor",
+    "category": "sensor",
+    "presence": "HIGH",
+    "controlledAsset": "LegoRadar001"
+  },
+  {
+    "id": "SwitchSensor001",
+    "type": "SwitchSensor",
+    "category": "sensor",
+    "state": "OFF",
+    "controlledAsset": "LegoRailoadSwitch001"
+  },
+  {
+    "id": "RfidSensor001",
+    "type": "RfidSensor",
+    "category": "sensor",
+    "uiddcode": "82c576d2",
+    "controlledAsset": "LegoToll001"
+  },
+  {
+    "id": "UltrasoundSensor001",
+    "type": "UltrasoundSensor",
+    "category": "sensor",
+    "distance": 23,
+    "controlledAsset": "LegoCrane001"
+  },
+  {
+    "id": "TemperatureSensor001",
+    "type": "TemperatureSensor",
+    "category": "sensor",
+    "temperature": 13.73,
+    "controlledAsset": "LegoWheaterStation001"
+  },
+  {
+    "id": "HumiditySensor001",
+    "type": "HumiditySensor",
+    "category": "sensor",
+    "humidity": 32,
+    "controlledAsset": "LegoWheaterStation001"
+  }
+]

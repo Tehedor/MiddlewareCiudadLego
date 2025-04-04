@@ -43,9 +43,21 @@ const sensorSchema  = require('../models/generalSchema');
 
 const  controlParamsQueryMongo = require("../utils/controlParamsQueryMongo.js");
 
-const formatHistoricalMongo = require('../utils/formatHistoricalMongo.js');
+const {formatHistoricalMongo} = require('../utils/formatHistoricalMongo.js');
 
-const getSensoresDataMongo = async (numidMongo, req, res, next, params) => {
+const propertyMap = {
+    PirSensor: "presence",               // Propiedad relevante para PirSensor
+    PhotoresistorSensor: "light",        // Propiedad relevante para PhotoresistorSensor
+    PotentiometerSensor: "velocityControl", // Propiedad relevante para PotentiometerSensor
+    InfraredSensor: "presence",          // Propiedad relevante para InfraredSensor
+    SwitchSensor: "state",               // Propiedad relevante para SwitchSensor
+    RfidSensor: "uiddcode",              // Propiedad relevante para RfidSensor
+    UltrasoundSensor: "distance",        // Propiedad relevante para UltrasoundSensor
+    TemperatureSensor: "temperature",    // Propiedad relevante para TemperatureSensor
+    HumiditySensor: "humidity"           // Propiedad relevante para HumiditySensor
+};
+
+const getSensoresDataMongo = async (numidMongo, req, res, next, params, type) => {
     try {
         // Crear el modelo dinámicamente utilizando la variable numidMongo
         const Sensores = mongoose.models[numidMongo] || mongoose.model(numidMongo, sensorSchema, numidMongo);
@@ -62,23 +74,33 @@ const getSensoresDataMongo = async (numidMongo, req, res, next, params) => {
         
         // Control estado:  true, false, HIGH, LOW
         if (params.estado !== undefined && params.estado !== null) {
-            if (params.estado === "true" || params.estado.toUpperCase() === "HIGH") {
-                filter["data.presence.value"] = { $in: ["HIGH", "true"] };
-            } else if (params.estado === "false" || params.estado.toUpperCase() === "LOW") {
-                filter["data.presence.value"] = { $in: ["LOW", "false"] };
+            const estado = params.estado.toString().toUpperCase();
+            const propertyKey = propertyMap[type] || "state"; 
+            const propertyPath = `data.${propertyKey}.value`;
+            if (params.estado === "true" || params.estado.toUpperCase() === "HIGH" || params.estado.toUpperCase() === "ON" || 
+            params.estado === "1" || params.estado === true) 
+            {
+                filter[propertyPath] = { $in: ["HIGH", "true", "ON", "1", 1, true] };
+            } else if ( params.estado === "false" || params.estado.toUpperCase() === "LOW" || params.estado.toUpperCase() === "OFF" || 
+            params.estado === "0" || params.estado === false ) {
+                filter[propertyPath] = { $in: ["LOW", "false", "OFF","0", 0, false] };
             }
         }
-
+        
         // Control min, max
-        if (params.min !== undefined && params.min !== null || params.max !== undefined && params.max !== null) {
-            filter["data.value"] = {};
-            if (params.min !== undefined && params.min !== null) filter["data.value"].$gte = Number(params.min);
-            if (params.max !== undefined && params.max !== null) filter["data.value"].$lte = Number(params.max);
-            if (Object.keys(filter["data.value"]).length === 0) delete filter["data.value"]; // Eliminar data.value si está vacío
+        if (params.min || params.max) {
+            const propertyKey = propertyMap[type] || "state"; 
+            const propertyPath = `data.${propertyKey}.value`;
+            if (!filter[propertyPath]) filter[propertyPath] = {};
+            if (params.min !== undefined && params.min !== null) filter[propertyPath].$gte = Number(params.min);
+            if (params.max !== undefined && params.max !== null) filter[propertyPath].$lte = Number(params.max);
+            if (Object.keys(filter[propertyPath]).length === 0) delete filter[`data.${propertyKey}.value`]; // Eliminar data.value si está vacío
         }
-
-        if (params.identifier !== undefined && params.identifier !== null) {
-            filter["data.id"] = params.identifier;
+        
+        if (params.id !== undefined && params.id !== null) {
+            const propertyKey = propertyMap[type] || "uiddcode"; 
+            const propertyPath = `data.${propertyKey}.value`;
+            filter[propertyPath] = params.id;
         }
         
         console.log('filter:', filter);
@@ -144,7 +166,7 @@ const getSensorData = async function (req, res, next) {
         }
         console.log(params);
 
-        const sensoresData = await getSensoresDataMongo(numidMongo, req, res, next, params);
+        const sensoresData = await getSensoresDataMongo(numidMongo, req, res, next, params, type);
         
         console.log('sensoresData:', sensoresData);
 

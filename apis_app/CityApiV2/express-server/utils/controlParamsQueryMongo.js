@@ -1,19 +1,27 @@
+// controlParamsQueryMongo.js
 const sensorsTypeBoolean = ["PirSensor", "InfraredSensor", "SwitchSensor"];
 const sensorsTypeNumber = ["PhotoresistorSensor", "PotentiometerSensor", "UltrasoundSensor", "TemperatureSensor", "HumiditySensor"];
 const sensorsTypeID = ["RfidSensor"];
 
+
+const cameraType = ["Camera"];
+const actuatorsTypeBoolean = ["LedDetection", "Light", "Servmotor"] + cameraType;
+const actuatorsTypeNumber = ["EngineDC"];
+
+
+
 const paramsTypeBoolean = ["orden", "cantidad", "desde", "hasta", "estado"];
 const paramsTypeNumber = ["orden", "cantidad", "desde", "hasta", "min", "max"];
-const paramsTypeID = ["orden", "cantidad", "desde", "hasta", "identificador"];
+const paramsTypeID = ["orden", "cantidad", "desde", "hasta", "id"];
 
 
 const  controlParams = require("./controlParams");
 const controlParamsQueryMongo = (req, res, type) => {
     let allowedParams = [];
 
-    if (sensorsTypeBoolean.includes(type)) {
+    if (sensorsTypeBoolean.includes(type) || actuatorsTypeBoolean.includes(type)) {
         allowedParams = paramsTypeBoolean;
-    } else if (sensorsTypeNumber.includes(type)) {
+    } else if (sensorsTypeNumber.includes(type) || actuatorsTypeNumber.includes(type)) {
         allowedParams = paramsTypeNumber;
     } else if (sensorsTypeID.includes(type)) {
         allowedParams = paramsTypeID;
@@ -71,8 +79,9 @@ const controlParamsQueryMongo = (req, res, type) => {
         }
     }
     
-    console.log('finalParams.desde:', finalParams.desde);
-    console.log('finalParams.hasta:', finalParams.hasta);
+    // Control desde, hasta
+    // console.log('finalParams.desde:', finalParams.desde);
+    // console.log('finalParams.hasta:', finalParams.hasta);
     finalParams.hasta = controlParams.setDefaultHastaIfNeeded(finalParams.desde, finalParams.hasta);
     if (finalParams.desde === undefined || finalParams.hasta === undefined || finalParams.desde === null || finalParams.hasta === null) {
         finalParams.desde = null;
@@ -98,13 +107,20 @@ const controlParamsQueryMongo = (req, res, type) => {
 
 
     // Control estado
-    const validStates = ["HIGH", "LOW", "true", "false"];
+    const validStates = ["HIGH", "LOW", "true", "false", "ON", "OFF", "1", "0", true, false];
     if (finalParams.estado === undefined || finalParams.estado === null) {
         finalParams.estado = null;
     } else if (!validStates.includes(finalParams.estado)) {
         return { error: "Invalid estado parameter" };
     }
 
+
+    // Control id
+    if (finalParams.id === undefined || finalParams.id === null) {
+        finalParams.id = null;
+    } else if (typeof finalParams.id !== "string") {
+        return { error: "Invalid id parameter" };
+    }
 
     // Control parameters
     if (invalidParams.length > 0) {

@@ -1,61 +1,33 @@
-// Propósito: Realizar las operaciones de los actuators
+// Propósito: Realizar las operaciones de los Camera
 var createError = require('http-errors');
 const mongoose = require('mongoose');
-
-
-
-const { sensorDict,actuatorDict} = require('../utils/controlCheckIfIsXXX');
 
 const formatNgsiID = require("../utils/formatNgsiID");
 const formatNgsiIDToMongo = require('../utils/formatNgsiIDToMongo')
 
-
 const { 
-  getRemapFunction, 
-  handleAxiosError, 
-  fetchData,
   fetchDataWithId
 } = require("../utils/requestUtils");
 
-
 const  {
   checkType,
-  sendToBlackList,
-  controlCheckIfIsSensor,
-  controlCheckIfIsActuator,
   controlCheckIfIsCamera,
-  controlCheckIfIsLegoBuilding,
-  controlCheckIfIsLegoCity
 } = require("../utils/controlCheckIfIsXXX")
 
-
-//importar las funciones de ayuda
-// const indexHelper = require('../helpers/index');
-// const dateHelper = require('../helpers/dateHelper');
-// const {filterByOrden} = require('../helpers/ordenHelper');
-// const rangoHelper = require('../helpers/rangoHelper');
-// const estadoHelper = require('../helpers/estadoHelper');
-// const edificioHelper = require('../helpers/edificioHelper');
-
 //importar el modelo de los sensores
-const sensorSchema  = require('../models/generalSchema');
-
+const generalSchema  = require('../models/generalSchema');
 
 const  controlParamsQueryMongo = require("../utils/controlParamsQueryMongo.js");
-
-const {formatHistoricalMongo} = require('../utils/formatHistoricalMongo.js');
+const {formatHistoricalCameraMongo} = require('../utils/formatHistoricalMongo.js');
 
 const propertyMap = {
-    LedDetection: "stateLed", // Propiedad relevante para LedDetection
-    Light: "stateLight",      // Propiedad relevante para Light
-    EngineDC: "velocityEngine", // Propiedad relevante para EngineDC
-    Servmotor: "stateMotor"   // Propiedad relevante para Servmotor
+    Camera: "on", 
 };
 
-const getActuatorsDataMongo = async (numidMongo, req, res, next, params, type) => {
+const getCameraDataMongo = async (numidMongo, req, res, next, params, type) => {
     try {
         // Crear el modelo dinámicamente utilizando la variable numidMongo
-        const Actuators = mongoose.models[numidMongo] || mongoose.model(numidMongo, sensorSchema, numidMongo);
+        const Camera = mongoose.models[numidMongo] || mongoose.model(numidMongo, generalSchema, numidMongo);
         
         let filter = {};
     
@@ -82,32 +54,19 @@ const getActuatorsDataMongo = async (numidMongo, req, res, next, params, type) =
             }
         }
         
-        // Control min, max
-        if (params.min || params.max) {
-            const propertyKey = propertyMap[type] || "state"; 
-            const propertyPath = `data.${propertyKey}.value`;
-            if (!filter[propertyPath]) filter[propertyPath] = {};
-            if (params.min !== undefined && params.min !== null) filter[propertyPath].$gte = Number(params.min);
-            if (params.max !== undefined && params.max !== null) filter[propertyPath].$lte = Number(params.max);
-            if (Object.keys(filter[propertyPath]).length === 0) delete filter[`data.${propertyKey}.value`]; // Eliminar data.value si está vacío
-        }
-
-        if (params.identifier !== undefined && params.identifier !== null) {
-            filter["data.id"] = params.identifier;
-        }
         
         console.log('filter:', filter);
 
         // Buscar los datos con los filtros aplicados
-        const actuatorsData = await Actuators.find(filter)
+        const CameraData = await Camera.find(filter)
             .sort({ notifiedAt: params.orden === 'ascendente' ? 1 : -1 })
             .limit(parseInt(params.cantidad));
 
-        if (actuatorsData.length === 0) {
+        if (CameraData.length === 0) {
             return res.status(404).json({ error: `No se encontraron datos en la colección ${numidMongo}` });
         }
 
-        const transformedData = formatHistoricalMongo(actuatorsData, orden = params.orden);
+        const transformedData = formatHistoricalCameraMongo(CameraData, orden = params.orden);
 
         res.json(transformedData);
     } catch (err) {
@@ -118,7 +77,7 @@ const getActuatorsDataMongo = async (numidMongo, req, res, next, params, type) =
 
 
 
-const getActuatorData = async function (req, res, next) {
+const getCameraData = async function (req, res, next) {
     console.log('req.params.ngsiID:', req.params.ngsiID);
     const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
     console.log('ngsiID:', ngsiID);
@@ -128,28 +87,26 @@ const getActuatorData = async function (req, res, next) {
             return res.status(400).json({ error: "Invalid ngsiID format" });
         }
     
-        const check = controlCheckIfIsActuator(ngsiID);
-        if (check == "notActuator") {
-            return res.status(404).send("No is a actuator");
+        const check = controlCheckIfIsCamera(ngsiID);
+        if (check == "notCamera") {
+            return res.status(404).send("No is a Camera");
         }
     
         const response = await fetchDataWithId(ngsiID, "");
         
         if (check === "notRegistred") {
             checkType(response.data);
-            const reCheck = controlCheckIfIsActuator(ngsiID);
-            if (reCheck === 'notActuator') {
-                return res.status(404).json({ error: "Not an actuator" });
+            const reCheck = controlCheckIfIsCamera(ngsiID);
+            if (reCheck === 'notCamera') {
+                return res.status(404).json({ error: "Not an Camera" });
             }    
         }
     
-        const type = actuatorDict[ngsiID];
-        console.log('type:', type);
+        type = 'Camera'
 
-    
         const numidMongo = formatNgsiIDToMongo(ngsiID);
         console.log('numidMongo:', numidMongo);
-    
+        
         // Control params
         const params = controlParamsQueryMongo(req, res, type);
         if (params.error) {
@@ -157,25 +114,22 @@ const getActuatorData = async function (req, res, next) {
         }
         console.log(params);
 
-        const actuatorsData = await getActuatorsDataMongo(numidMongo, req, res, next, params, type);
+        const CameraData = await getCameraDataMongo(numidMongo, req, res, next, params, type);
         
-        console.log('actuatorsData:', actuatorsData);
+        console.log('CameraData:', CameraData);
 
-        if (!actuatorsData || actuatorsData.length === 0) {
-            return res.status(404).json({ error: "Actuator data not found" });
+        if (!CameraData || CameraData.length === 0) {
+            return res.status(404).json({ error: "Camera data not found" });
         }
     
-        res.json(actuatorsData);
+        res.json(CameraData);
 
     } catch (err) {
-        console.error('Error fetching actuator data:', err);
+        console.error('Error fetching Camera data:', err);
         next(err);
     }
 };
 
-
-
 module.exports = {
-    getActuatorsDataMongo,
-    getActuatorData,   
+    getCameraData,   
 }

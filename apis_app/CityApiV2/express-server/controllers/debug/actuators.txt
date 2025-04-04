@@ -1,0 +1,43 @@
+[
+  {
+    "id": "LedDetection001",
+    "type": "LedDetection",
+    "category": "actuator",
+    "stateLed": "ON",
+    "controlledAsset": "LegoStreetLight001"
+  },
+  {
+    "id": "Light001",
+    "type": "Light",
+    "category": "actuator",
+    "stateLight": "ON",
+    "controlledAsset": "LegoStreetLight001"
+  },
+  {
+    "id": "EngineDC001",
+    "type": "EngineDC",
+    "category": "actuator",
+    "velocityEngine": 76,
+    "controlledAsset": "LegoTrain001"
+  },
+  {
+    "id": "Servmotor001",
+    "type": "Servmotor",
+    "category": "actuator",
+    "stateMotor": 0,
+    "controlledAsset": "LegoRailoadSwitch001"
+  }
+]
+
+
+
+[
+  {
+    "id": "Camera001",
+    "type": "Camera",
+    "mediaURL": "https://media.gettyimages.com/id/165764784/es/vector/tren-de-historieta.jpg?s=612x612&w=0&k=20&c=m-vcEvoDGYHOKPyTBgVzA4rAXu4Dosi8CGJ9ZfwFuhs=",
+    "on": true,
+    "startDataTime": "2025-03-29T17:49:40.984Z",
+    "controlledAsset": "LegoRadar001"
+  }
+]
