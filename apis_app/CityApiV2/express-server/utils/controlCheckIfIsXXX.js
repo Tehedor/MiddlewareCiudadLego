@@ -89,7 +89,6 @@ const controlCheckIfIsActuator = (entity) => {
 const controlCheckIfIsCamera = (entity) => {
   if (cameras.has(entity)) return "isCamera";
   if (blackList.has(entity) || cities.has(entity) || buildings.has(entity) ||  actuators.has(entity) || sensors.has(entity) ) return "notCamera";
-
   return "notRegistred";
 };
 
@@ -126,7 +125,7 @@ const controlCheckIfIsEntity = (entity) => {
 setInterval(() => {
   blackList.clear();
   console.log("BlackList cleared");
-}, 5 * 60 * 1000); // 5 minutos en milisegundos
+}, 2 * 60 * 1000); // 5 minutos en milisegundos
 
 module.exports = {
   checkType,

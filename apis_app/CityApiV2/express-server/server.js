@@ -50,6 +50,8 @@ const apiCameraContext = require('./routes/context_apis/apiCameraContext')
 
 // const apiActuatorsMongo = require('./routes/mongo_apis/apiActuatorsMongo')
 // const apiSensorsMongo = require('./routes/mongo_apis/apiSensorsMongo.js')
+const apiHistoricalMongo = require('./routes/mongo_apis/apiHistoricalMongo.js')
+
 
 const apiKeyMiddleware = require('./middleware/apiKeyMiddelware.js')
 // router.use('/api', apiKeyMiddleware);
@@ -106,6 +108,9 @@ sequelize.sync().then(() => {
         server.use('/api',apiSensorsContext);
         server.use('/api',apiEntitiesContext);
         server.use('/api',apiCameraContext);
+
+
+        server.use('/api',apiHistoricalMongo);
     
     // Mongo Api routes
         // server.use('/api',apiActuatorsMongo);

@@ -35,7 +35,7 @@ const propertyMap = {
     HumiditySensor: "humidity"           // Propiedad relevante para HumiditySensor
 };
 
-const getSensoresDataMongo = async (numidMongo, req, res, next, params, type) => {
+const getSensoresDataMongo = async (numidMongo, req, res, params, type) => {
     try {
         // Crear el modelo dinámicamente utilizando la variable numidMongo
         const Sensores = mongoose.models[numidMongo] || mongoose.model(numidMongo, generalSchema, numidMongo);
@@ -82,7 +82,7 @@ const getSensoresDataMongo = async (numidMongo, req, res, next, params, type) =>
             filter[propertyPath] = params.id;
         }
         
-        console.log('filter:', filter);
+        // console.log('filter:', filter);
 
         // Buscar los datos con los filtros aplicados
         const sensoresData = await Sensores.find(filter)
@@ -93,12 +93,24 @@ const getSensoresDataMongo = async (numidMongo, req, res, next, params, type) =>
             return res.status(404).json({ error: `No se encontraron datos en la colección ${numidMongo}` });
         }
 
-        const transformedData = formatHistoricalMongo(sensoresData, orden = params.orden);
+        return transformedData = formatHistoricalMongo(sensoresData, orden = params.orden);
 
-        res.json(transformedData);
+        // res.json(transformedData);
+
     } catch (err) {
-        console.error(`Error al obtener datos de la colección ${numidMongo}:`, err);
-        next(err);
+        if (err.name === 'MongoError' || err.name === 'CastError') {
+            return res.status(404).json({ 
+                error: `El componente ${numidMongo} no existe en la base de datos`,
+                details: err.message
+            });
+        }
+
+        // console.error(`Error al obtener datos de la colección ${numidMongo}:`, err);
+        // Enviar un error genérico si ocurre otro problema
+        return res.status(500).json({ 
+            error: "Error al obtener datos de la colección",
+            details: err.message
+        });
     }
 };
 
@@ -107,9 +119,9 @@ const getSensoresDataMongo = async (numidMongo, req, res, next, params, type) =>
 
 // const getSensorData = async function (req, res, next) {
 const getSensorData = async function (req, res, next) {
-    console.log('req.params.ngsiID:', req.params.ngsiID);
+    // console.log('req.params.ngsiID:', req.params.ngsiID);
     const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
-    console.log('ngsiID:', ngsiID);
+    // console.log('ngsiID:', ngsiID);
     
     try {
         if (!ngsiID) {
@@ -121,33 +133,44 @@ const getSensorData = async function (req, res, next) {
             return res.status(404).json({ error: "Not a sensor" });
         }
     
-        const response = await fetchDataWithId(ngsiID, "");
         
         if (check === "notRegistred") {
-            checkType(response.data);
-            const reCheck = controlCheckIfIsSensor(ngsiID);
-            if (reCheck === 'notSensor') {
-                return res.status(404).json({ error: "Not a sensor" });
-            }    
+            try {
+                const response = await fetchDataWithId(ngsiID, "");
+                checkType(response.data);
+                const reCheck = controlCheckIfIsSensor(ngsiID);
+                if (reCheck === 'notSensor') {
+                    return res.status(404).json({ error: "Not a sensor" });
+                }
+            } catch (error) {    
+                const response = {
+                    id: ngsiID,
+                    type: 'Notype',
+                }
+                checkType(response);
+                return res.status(500).json({ 
+                    message: `ngsiID: ${ngsiID} no existe o error con el context broker` 
+                });
+            }
         }
     
         const type = sensorDict[ngsiID];
-        console.log('type:', type);
+        // console.log('type:', type);
 
     
         const numidMongo = formatNgsiIDToMongo(ngsiID);
-        console.log('numidMongo:', numidMongo);
+        // console.log('numidMongo:', numidMongo);
     
         // Control params
         const params = controlParamsQueryMongo(req, res, type);
         if (params.error) {
             return res.status(400).json(params);
         }
-        console.log(params);
+        // console.log(params);
 
-        const sensoresData = await getSensoresDataMongo(numidMongo, req, res, next, params, type);
+        const sensoresData = await getSensoresDataMongo(numidMongo, req, res, params, type);
         
-        console.log('sensoresData:', sensoresData);
+        // console.log('sensoresData:', sensoresData);
 
         if (!sensoresData || sensoresData.length === 0) {
             return res.status(404).json({ error: "Sensor data not found" });
@@ -156,8 +179,9 @@ const getSensorData = async function (req, res, next) {
         res.json(sensoresData);
 
     } catch (err) {
-        console.error('Error fetching sensor data:', err);
-        next(err);
+        if (!res.headersSent) { // Check if headers have already been sent
+            return res.status(500).json({ error: "Internal server error" });
+        }
     }
 };
 

@@ -34,8 +34,7 @@ const controlParamsQueryMongo = (req, res, type) => {
     const invalidParams = [];
 
     for (const key in receivedParams) {
-        if (key === "ngsiID") continue; // Ignorar el parámetro "ngsiID"
-
+        if (key === "ngsiID" || key === "apiKey") continue; // Ignorar los parámetros "ngsiID" y "apiKey"
         if (allowedParams.includes(key)) {
             finalParams[key] = receivedParams[key];
         } else {

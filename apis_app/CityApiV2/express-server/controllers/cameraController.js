@@ -24,7 +24,7 @@ const propertyMap = {
     Camera: "on", 
 };
 
-const getCameraDataMongo = async (numidMongo, req, res, next, params, type) => {
+const getCameraDataMongo = async (numidMongo, req, res, params, type) => {
     try {
         // Crear el modelo dinámicamente utilizando la variable numidMongo
         const Camera = mongoose.models[numidMongo] || mongoose.model(numidMongo, generalSchema, numidMongo);
@@ -55,7 +55,7 @@ const getCameraDataMongo = async (numidMongo, req, res, next, params, type) => {
         }
         
         
-        console.log('filter:', filter);
+        // console.log('filter:', filter);
 
         // Buscar los datos con los filtros aplicados
         const CameraData = await Camera.find(filter)
@@ -66,21 +66,31 @@ const getCameraDataMongo = async (numidMongo, req, res, next, params, type) => {
             return res.status(404).json({ error: `No se encontraron datos en la colección ${numidMongo}` });
         }
 
-        const transformedData = formatHistoricalCameraMongo(CameraData, orden = params.orden);
+        return transformedData = formatHistoricalCameraMongo(CameraData, orden = params.orden);
 
-        res.json(transformedData);
     } catch (err) {
-        console.error(`Error al obtener datos de la colección ${numidMongo}:`, err);
-        next(err);
+        if (err.name === 'MongoError' || err.name === 'CastError') {
+            return res.status(404).json({ 
+                error: `El componente ${numidMongo} no existe en la base de datos`,
+                details: err.message
+            });
+        }
+
+        // console.error(`Error al obtener datos de la colección ${numidMongo}:`, err);
+        // Enviar un error genérico si ocurre otro problema
+        return res.status(500).json({ 
+            error: "Error al obtener datos de la colección",
+            details: err.message
+        });
     }
 };
 
 
 
 const getCameraData = async function (req, res, next) {
-    console.log('req.params.ngsiID:', req.params.ngsiID);
+    // console.log('req.params.ngsiID:', req.params.ngsiID);
     const ngsiID = formatNgsiID(req.params.ngsiID || req.query.ngsiID);
-    console.log('ngsiID:', ngsiID);
+    // console.log('ngsiID:', ngsiID);
     
     try {
         if (!ngsiID) {
@@ -92,32 +102,45 @@ const getCameraData = async function (req, res, next) {
             return res.status(404).send("No is a Camera");
         }
     
-        const response = await fetchDataWithId(ngsiID, "");
         
         if (check === "notRegistred") {
-            checkType(response.data);
-            const reCheck = controlCheckIfIsCamera(ngsiID);
-            if (reCheck === 'notCamera') {
-                return res.status(404).json({ error: "Not an Camera" });
-            }    
+            try {
+                const response = await fetchDataWithId(ngsiID, "");
+                // console.log('response:', response.data);
+                checkType(response.data);
+                const reCheck = controlCheckIfIsCamera(ngsiID);
+                
+                if (reCheck === 'notCamera') {
+                    return res.status(404).json({ error: "Not an Camera" });
+                }    
+            }catch (error) {
+                const response = {
+                    id: ngsiID,
+                    type: 'Notype',
+                }
+                checkType(response);
+                return res.status(500).json({ 
+                    message: `ngsiID: ${ngsiID} no existe o error con el context broker` 
+                });
+            }
         }
     
         type = 'Camera'
 
         const numidMongo = formatNgsiIDToMongo(ngsiID);
-        console.log('numidMongo:', numidMongo);
+        // console.log('numidMongo:', numidMongo);
         
         // Control params
         const params = controlParamsQueryMongo(req, res, type);
         if (params.error) {
             return res.status(400).json(params);
         }
-        console.log(params);
+        // console.log(params);
 
-        const CameraData = await getCameraDataMongo(numidMongo, req, res, next, params, type);
         
-        console.log('CameraData:', CameraData);
-
+        const CameraData = await getCameraDataMongo(numidMongo, req, res, params, type);
+        // console.log('CameraData:', CameraData);
+        
         if (!CameraData || CameraData.length === 0) {
             return res.status(404).json({ error: "Camera data not found" });
         }
@@ -125,8 +148,10 @@ const getCameraData = async function (req, res, next) {
         res.json(CameraData);
 
     } catch (err) {
-        console.error('Error fetching Camera data:', err);
-        next(err);
+        if (!res.headersSent) { // Check if headers have already been sent
+            return res.status(500).json({ error: "Internal server error" });
+        }
+        // return res.status(500).json({ error: "Internal server error" });
     }
 };
 
