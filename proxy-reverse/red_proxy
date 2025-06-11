@@ -22,7 +22,8 @@ if ! docker images --format '{{.Repository}}' | grep -q "^${IMAGE_NAME}$"; then
     echo "La imagen ${IMAGE_NAME} no existe. Construyendo la imagen..."
     # docker build -t $IMAGE_NAME .
     pushd proxy-reverse > /dev/null
-    docker build -t $IMAGE_NAME .
+    # docker build -t $IMAGE_NAME .
+    docker compose -f nginx-reverse.yml pull
     # docker compose -f nginx-reverse.yml build
     if [ $? -ne 0 ]; then
         echo "Error al construir la imagen ${IMAGE_NAME}."
@@ -46,7 +47,8 @@ if [ "$1" == "down" ]; then
     # Configuración de cero NGSI Proxy
     # Copiar el archivo de configuración al contenedor
     pushd proxy-reverse > /dev/null
-    docker cp $CONFIG_FILE_ZERO $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+    # docker cp $CONFIG_FILE_ZERO $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+    cp $CONFIG_FILE_ZERO $CONFIG_FILE
 
     # Recargar la configuración de Nginx dentro del contenedor
     docker exec $CONTAINER_NAME nginx -s reload
@@ -67,7 +69,7 @@ elif [ "$1" == "up" ]; then
 
     # Nueva configuración
     # Copiar el archivo de configuración al contenedor
-    docker cp $CONFIG_FILE $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+    # docker cp $CONFIG_FILE $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
 
 
     # Recargar la configuración de Nginx dentro del contenedor
@@ -81,8 +83,10 @@ elif [ "$1" == "default" ]; then
     
     pushd proxy-reverse > /dev/null
         # docker cp default_minio-bucket.conf $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
-        docker cp default_completo.conf $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+        # docker cp default_completo.conf $CONTAINER_NAME:$CONTAINER_CONFIG_PATH
+        cp default_minio-bucket.conf $CONFIG_FILE
         # Recargar la configuración de Nginx dentro del contenedor
+        docker exec $CONTAINER_NAME nginx -t
         docker exec $CONTAINER_NAME nginx -s reload
     popd > /dev/null
     echo "Configuración de Nginx actualizada y recargada correctamente."

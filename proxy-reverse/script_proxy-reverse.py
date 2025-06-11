@@ -50,6 +50,11 @@ def append_orion():
         proxy_set_header X-Forwarded-Proto $scheme;
     }
     
+"""
+
+def append_orion_express():
+    return \
+"""
     location /mongoOrion/ {
         rewrite ^/mongoOrion/(.*)$ /$1 break;
         proxy_pass http://mongo-express-orion:8081/;
@@ -107,8 +112,11 @@ def append_draco():
     location ~* ^/draco/?$ {
         return 301 $scheme://$host/draco/nifi/;
     }
-    
-    
+"""
+
+def append_draco_express():
+    return \
+"""
     location /mongoDraco/ {
         rewrite ^/mongoDraco/(.*)$ /$1 break;
         proxy_pass http://mongo-express-draco:8081/;
@@ -122,10 +130,8 @@ def append_draco():
         sub_filter 'src="/' 'src="/mongoDraco/';
         sub_filter_once off;
     }
-    
-    
-
 """
+
     
     
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
@@ -138,20 +144,16 @@ def append_subscontrolapp():
     # ### ### SubsControlApp 
     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
     location /subsControlApp/ {
-        # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
-        rewrite ^/subsControlApp/(.*)$ /$1 break;
+        # Eliminamos el rewrite y ajustamos proxy_pass.
+        # Nginx quita /subsControlApp/ de la petición entrante antes de mandarla a http://subsControlApp:4040/
+        proxy_pass http://subsControlApp:4040/; 
 
-        # Redirige la solicitud al backend
-        proxy_pass http://subsControlApp:4040/;
-
-        # Encabezados para la solicitud al backend
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
 
         # Ajustar las rutas en las respuestas del backend
-        # Asegura que las rutas devueltas sean relativas a /subsControlApp
         sub_filter 'href="/' 'href="/subsControlApp/';
         sub_filter 'src="/' 'src="/subsControlApp/';
         sub_filter_once off;
@@ -159,6 +161,31 @@ def append_subscontrolapp():
 
 """
 
+# """
+#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+#     # ### ### SubsControlApp 
+#     # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+#     location /subsControlApp/ {
+#         # Reescribe las rutas entrantes eliminando el prefijo /subsControlApp/
+#         rewrite ^/subsControlApp/(.*)$ /$1 break;
+
+#         # Redirige la solicitud al backend
+#         proxy_pass http://subsControlApp:4040/;
+
+#         # Encabezados para la solicitud al backend
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+
+#         # Ajustar las rutas en las respuestas del backend
+#         # Asegura que las rutas devueltas sean relativas a /subsControlApp
+#         sub_filter 'href="/' 'href="/subsControlApp/';
+#         sub_filter 'src="/' 'src="/subsControlApp/';
+#         sub_filter_once off;
+#     }
+
+# """
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
 ## ----- # Simulator Config
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
@@ -238,26 +265,33 @@ def append_minioBucket():
 
         proxy_pass http://minioBucket:9000;
     }
-
+    
     location /minioConsole/ {
-        rewrite ^/minioConsole/(.*) /$1 break;
+        rewrite ^/minioConsole/(.*)$ /$1 break;
+
+        proxy_pass http://minioBucket:9001/;
+
+        proxy_http_version 1.1;
         proxy_set_header Host $http_host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-NginX-Proxy true;
-
-        # This is necessary to pass the correct IP to be hashed
-        real_ip_header X-Real-IP;
-        proxy_connect_timeout 300;
-
-        # To support websockets in MinIO versions released after January 2023
-        proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
+        proxy_set_header X-NginX-Proxy true;
+        real_ip_header X-Real-IP;
 
         chunked_transfer_encoding off;
-        proxy_pass http://minioBucket:9001;
+
+        sub_filter 'href="/' 'href="/minioConsole/';
+        sub_filter 'src="/' 'src="/minioConsole/';
+        sub_filter_once off;
+    }
+
+    
+    location = /index.html {
+        root /etc/nginx/html; 
+        try_files /index.html =404;
     }
 
 """
@@ -489,6 +523,10 @@ def get_active_containers():
             active_services.append("minio-bucket")
         if "apis-app" == container_name:
             active_services.append("apis-app")
+        if "mongo-express-orion" == container_name:
+            active_services.append("fiware-orion-express")
+        if "mongo-express-draco" == container_name:
+            active_services.append("draco-express")
     
     return active_services
 
@@ -524,6 +562,13 @@ def generate_nginx_config(exclude_containers=None):
     if 'minio-bucket' in active_services:
         config += append_minioBucket()
         print("MinioBucket configurado")
+    if 'fiware-orion-express' in active_services:
+        config += append_orion_express()
+        print("Fiware Orion Express configurado")
+    if 'draco-express' in active_services:
+        config += append_draco_express()
+        print("Draco Express configurado")    
+    
     # Configuracion final
     config += nginx_config_end()
 
