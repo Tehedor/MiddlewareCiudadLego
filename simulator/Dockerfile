@@ -40,19 +40,16 @@ ENV SUBSCONROLLERAPP_HOST='subs-control-app'
 # # SUBSCONROLLERAPP_PORT= 4040
 # # # SUBSCONROLLERAPP_HOST='subs-control-app',
 
-
 # Clave api de openweather
 ENV WEATHER_API_KEY=d9cde8b16d65f14446e43bd0c7e7dffd
 
-WORKDIR /opt
+WORKDIR /app
 
-COPY app/package*.json ./app/
+COPY app/package*.json .
 
-WORKDIR /opt/app
+RUN npm ci
 
-RUN npm install
-
-COPY app .
+COPY app/ .
 
 CMD ["npm", "start"]
 # CMD ["npm", "run", "debug"]
