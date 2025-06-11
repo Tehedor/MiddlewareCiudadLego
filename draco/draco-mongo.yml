@@ -1,13 +1,12 @@
-version: '3.8'
-
 services:
   draco:
     labels:
       org.fiware: 'draco'
     # image: apache/nifi
-    image: apache/nifi:1.28.1
+    # image: apache/nifi:1.28.1
     # image: ging/fiware-draco:2.1.0
     # image: ging/fiware-draco:latest
+    image: ${IMAGE_DRACO_VERSION:-apache/nifi:1.28.1}
     hostname: draco
     container_name: draco
     environment:
@@ -21,12 +20,27 @@ services:
     healthcheck:
       test: curl -k --fail -s http://draco:9090/nifi/login || exit 1
       interval: 5s
+  
+  draco-init:
+    image: alpine:3.20
+    depends_on:
+      - draco
+    volumes:
+      - ./draco-ld-template:/draco-ld-template:ro
+      - ./init-draco.sh:/init-draco.sh:ro
+    entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && ls && /init-draco.sh" ]
+    environment:
+      - NIFI_HOST=http://draco:9090
+    networks:
+      - default
+
 
   mongo-db-draco:
     labels:
         org.fiware: 'draco'
     # image: mongo:${MONGO_DB_VERSION}
-    image: mongo:4.4
+    # image: mongo:4.4
+    image: ${IMAGE_MONGO_DB_VERSION:-mongo:4.4}
     container_name: mongo-db-draco
     restart: always
     ports:
@@ -43,26 +57,23 @@ services:
       interval: 5s
 
 
-  mongo-express-draco:
-    image: mongo-express
-    container_name: mongo-express-draco
-    restart: always
-    # ports:
-    #   - 8081:8081
-    environment:
-      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_BASICAUTH_USERNAME=admin
-      - ME_CONFIG_BASICAUTH_PASSWORD=pass123
-      - ME_CONFIG_MONGODB_SERVER=mongo-db-draco
-      - ME_CONFIG_MONGODB_PORT=27017
-      - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-draco:27017/
-    depends_on:
-      - mongo-db-draco
-
+  # mongo-express-draco:
+  #   # image: mongo-express
+  #   image: ${IMAGE_MONGO_EXPRESS_VERSION:-mongo-express:1.0.2}
+  #   container_name: mongo-express-draco
+  #   restart: always
+  #   environment:
+  #     - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+  #     - ME_CONFIG_BASICAUTH_USERNAME=admin
+  #     - ME_CONFIG_BASICAUTH_PASSWORD=pass123
+  #     - ME_CONFIG_MONGODB_SERVER=mongo-db-draco
+  #     - ME_CONFIG_MONGODB_PORT=27017
+  #     - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-draco:27017/
+  #   depends_on:
+  #     - mongo-db-draco
 
 
 networks:
-
   default:
     labels:
       org.fiware: 'orion'

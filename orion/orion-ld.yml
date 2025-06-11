@@ -16,7 +16,6 @@
 # 
 # see: https://github.com/FIWARE/helm-charts/
 #
-version: "3.8"
 services:
   # @context file is served from here
   ld-context:
@@ -27,12 +26,12 @@ services:
     container_name: fiware-ld-context
     networks:
       - default
-    # ports:
-    #     - "3004:80"
+    ports:
+        - "3004:80"
     volumes:
         - data-models:/usr/local/apache2/htdocs/
         - type: bind
-          source: ${PWD}/conf/mime.types
+          source: ${PWD}/orion/conf/mime.types
           target: /usr/local/apache2/conf/mime.types
           read_only: true
     healthcheck:
@@ -42,78 +41,62 @@ services:
   mongo-db-orion:
     labels:
       org.fiware: 'orion'
-    image: mongo:${MONGO_DB_VERSION}
+    # image: mongo:${MONGO_DB_VERSION}
+    # image: mongo:4.4
+    image: ${IMAGE_MONGO_DB_VERSION:-mongo:4.4}
     hostname: mongo-db-orion
     container_name: mongo-db-orion  
-    # expose:
-    #   - "27017"
     ports:
-      - "${MONGO_DB_PORT}:27017" # localhost:27017
+      - "${MONGO_DB_PORT}:27017" 
     networks:
       - default
     volumes:
       - mongo-db-orion:/data/db
       - mongo-config-orion:/data/configdb
     healthcheck:
+      # test: |
+      #   host=`hostname --ip-address || echo '127.0.0.1'`; 
+      #   mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
       test: |
-        host=`hostname --ip-address || echo '127.0.0.1'`; 
-        mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1    
+        mongo --quiet localhost/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1
       interval: 5s
 
-    
-  # mongo-express:
-  #   image: mongo-express
-  #   container_name: mongo-express
+
+  # mongo-express-orion:
+  #   image: ${IMAGE_MONGO_EXPRESS_VERSION:-mongo-express:1.0.2}
+  #   container_name: mongo-express-orion
   #   restart: always
-  #   # ports:
-  #   #   - 8081:8081
   #   environment:
   #     - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-  #     # - ME_CONFIG_MONGODB_ADMINUSERNAME=root
-  #     # - ME_CONFIG_MONGODB_ADMINPASSWORD=example
-  #     - ME_CONFIG_MONGODB_SERVER=mongo-db-draco
+  #     - ME_CONFIG_BASICAUTH_USERNAME=admin
+  #     - ME_CONFIG_BASICAUTH_PASSWORD=pass123
+  #     - ME_CONFIG_MONGODB_SERVER=mongo-db-orion
   #     - ME_CONFIG_MONGODB_PORT=27017
-  #     - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-draco:27017/
+  #     - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-orion:27017/
+  #     # - ME_CONFIG_MONGODB_AUTH_USERNAME = admin123
+  #     # - ME_CONFIG_MONGODB_AUTH_PASSWORD = admin123
   #   depends_on:
-  #     - mongo-db-draco
-
-  mongo-express-orion:
-    image: mongo-express
-    container_name: mongo-express-orion
-    restart: always
-    environment:
-      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_BASICAUTH_USERNAME=admin
-      - ME_CONFIG_BASICAUTH_PASSWORD=pass123
-      - ME_CONFIG_MONGODB_SERVER=mongo-db-orion
-      - ME_CONFIG_MONGODB_PORT=27017
-      - ME_CONFIG_MONGODB_URL=mongodb://@mongo-db-orion:27017/
-      # - ME_CONFIG_MONGODB_AUTH_USERNAME = admin123
-      # - ME_CONFIG_MONGODB_AUTH_PASSWORD = admin123
-    depends_on:
-      - mongo-db-orion
-
-# ME_CONFIG_MONGODB_AUTH_USERNAME | 'admin'         | Database username
-# ME_CONFIG_MONGODB_AUTH_PASSWORD | 'pass'          | Database password
+  #     - mongo-db-orion
 
 
   # Orion is the context broker
   orion:
     labels:
       org.fiware: 'orion'
-    image: quay.io/fiware/orion-ld:${ORION_LD_VERSION}
+    # image: quay.io/fiware/orion-ld:1.5.1
+    image: ${IMAGE_ORION_LD_VERSION:-quay.io/fiware/orion-ld:1.5.1}
+    # image: quay.io/fiware/orion-ld:${ORION_LD_VERSION}
     hostname: orion
     container_name: fiware-orion
     depends_on:
       - mongo-db-orion
     networks:
       - default
-    expose:
-      - ${ORION_LD_PORT:-1026} 
     ports:
-      - ${EXPOSED_PORT:-1026}:${ORION_LD_PORT:-1026}
+      - ${ORION_LD_PORT:-1026}:1026
     command: -dbhost mongo-db-orion -logLevel DEBUG -forwarding  -experimental
     healthcheck:
+      # test: curl --fail -s http://localhost:${ORION_LD_PORT}/version || exit 1
       test: curl --fail -s http://orion:${ORION_LD_PORT}/version || exit 1
       interval: 5s
 
@@ -124,7 +107,7 @@ networks:
       org.fiware: 'orion'
     ipam:
       config:
-        - subnet: 172.18.1.0/24        
+        - subnet: 172.18.1.0/24
 
 volumes:
   mongo-db-orion: 
@@ -138,7 +121,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ${PWD}/data-models
+      device: ${PWD}/orion/data-models
     labels:
       - "project=orion"
 

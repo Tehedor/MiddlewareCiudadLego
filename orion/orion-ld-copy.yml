@@ -42,7 +42,7 @@ services:
       org.fiware: 'orion'
     image: mongo:${MONGO_DB_VERSION}
     hostname: mongo-db-orion
-    container_name: db-mongo-orion
+    container_name: mongo-db-orion
     expose:
       - "27017"
     ports:
