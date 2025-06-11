@@ -9,8 +9,15 @@ fi
 
 export COMPOSE_PROJECT_NAME=fiware
 
-docker compose -f ${ruta}bucket_minio_photo.yaml build
-docker compose -f ${ruta}bucket_minio_photo.yaml up -d
+
+source ./zz_env_services/config_env_files.sh
+echo -e "\033[1;33masdfadsfadsf: ${envFileBucketMinio}\033[0m"
+echo ${MINIO_BROWSER_REDIRECT_URL}
+
+docker compose ${envFileBucketMinio} -f ${ruta}bucket_minio_photo.yaml build
+docker compose ${envFileBucketMinio} -f ${ruta}bucket_minio_photo.yaml up -d
+
+# docker compose --env-file ../zz_env_services/bucket_minio.env -f $bucket_minio_photo.yaml up -d
 
 # Esperar hasta que el contenedor minio esté saludable
 CONTAINER_NAME=$(docker compose -f ${ruta}bucket_minio_photo.yaml ps -q minio)

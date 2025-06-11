@@ -1,8 +1,8 @@
 FROM minio/minio:RELEASE.2024-11-07T00-52-20Z-cpuv1
 
 # Establecer las variables de entorno
-ENV MINIO_ROOT_USER=admin
-ENV MINIO_ROOT_PASSWORD=admin123
+# ENV MINIO_ROOT_USER=admin
+# ENV MINIO_ROOT_PASSWORD=admin123
 
 # Crear el directorio de datos
 RUN mkdir -p /data
