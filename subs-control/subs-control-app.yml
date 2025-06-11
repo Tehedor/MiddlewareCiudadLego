@@ -1,8 +1,8 @@
 services:
-  # @context file is served from here
   subs-control-app:
     labels:
       org.fiware: 'subs-control_app'
+    build: .
     image: subs-control-app:latest
     container_name: subs-control-app
     hostname: subsControlApp
@@ -10,8 +10,8 @@ services:
       - subs-control-app:/usr/src/app
     networks:
       - default
-    ports:
-      - "4040:4040"
+    # ports:
+    #   - "4040:4040"
     environment:
       - WEB_APP_PORT=4040
       - MODE_CONTAINERS=true

@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   apis-app:
     build: .
+    image: ${IMAGE_APIS_APP_VERSION:-apis-app:v1}
     container_name: apis-app
     networks:
       - default
@@ -34,7 +33,8 @@ services:
 
 
   mysql:
-    image: mysql:latest
+    # image: mysql:
+    image: ${IMAGE_MYSQL_VERSION:-mysql:9.3.0}
     container_name: myql_apis-app
     networks:
       - default
@@ -45,7 +45,8 @@ services:
       MYSQL_DATABASE: app_apis_database
 
   redis:
-    image: redis:latest
+    # image: redis:latest
+    image: ${IMAGE_REDIS_VERSION:-redis:8.0.2}
     networks:
       - default
     container_name: redis_apis-app
@@ -55,12 +56,8 @@ services:
     #   - redis-data:/data
 
 
-
-
 volumes:
   db-data:
-
-
 
 networks:
   default:
