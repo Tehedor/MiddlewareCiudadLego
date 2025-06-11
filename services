@@ -15,21 +15,25 @@
 
 set -e
 
+# export $(grep -v '^#' .env | grep -v '^$' | xargs)
+export $(cat .env | grep "#" -v)
+
+
+
 ORION="http://orion:1026/version"
+# ORION="http://localhost:1026/version"
 CONTEXT="https://github.com/Tehedor/smart-LEGO-data-models/blob/main/schemas/datamodels.context-ngsi.jsonld"
 CORE_CONTEXT="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 # Models
 # https://app.swaggerhub.com/apis-docs/SergioTejedor/Lego_Models/1.0.0
 
 
-# dockerCmd="docker compose"
 dockerCmd="docker compose"
-# if (( $# == 2 )); then
-# fi
+
 
 if (( $# < 1 )); then
 	echo "Illegal number of parameters"
-	echo "usage: services [create|orion|scorpio|stellio|stop]"
+	echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
 	exit 1
 fi
 
@@ -46,378 +50,220 @@ pause(){
 	echo ""
 }
 
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### Orion LD
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+# Load environment file variables for services
+source ./zz_env_services/config_env_files.sh
 
-
-getHeartbeat(){
-	eval "response=$(docker run --network fiware_default --rm quay.io/curl/curl:${CURL_VERSION} -s -o /dev/null -w "%{http_code}" "$1")"
-}
-
-waitForOrion () {
-	echo -e "\n⏳ Waiting for \033[1;34mOrion-LD\033[0m to be available\n"
-	
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' fiware-orion` == "healthy" ]
-	do
-		echo -e "\nContext Broker HTTP state: ${response} (waiting for 200)"
-		pause 6
-		getHeartbeat "${ORION}"
-	done
-}
-
-
-waitForCoreContext () {
-	echo -e "\n⏳ Checking availability of \033[1m core @context\033[0m from ETSI\n"
-	eval "response=$(docker run --rm quay.io/curl/curl:${CURL_VERSION} -s -o /dev/null -w "%{http_code}" "$CORE_CONTEXT")"
-	while [ "${response}" -eq 000 ]
-	do
-		echo -e "\n@context HTTP state: ${response} (waiting for 200)"
-		pause 3
-		eval "response=$(docker run --rm quay.io/curl/curl:${CURL_VERSION} -s -o /dev/null -w "%{http_code}" "$CORE_CONTEXT")"
-	done
-}
-
-waitForUserContext () {
-	echo -e "\n⏳ Waiting for user \033[1m@context\033[0m to be available\n"
-	getHeartbeat "${CONTEXT}"
-	while [ "${response}" -eq 000 ]
-	do
-		echo -e "\n@context HTTP state: ${response} (waiting for 200)"
-		pause 3
-		getHeartbeat "${CONTEXT}"
-	done
-}
-
-# waitForIoTAgent () {
-# 	echo -e "\n⏳ Waiting for \033[1;36mIoT-Agent\033[0m to be available\n"
-# 	while ! [ `docker inspect --format='{{.State.Health.Status}}' fiware-iot-agent` == "healthy" ]
-# 	do
-# 		echo -e "\nIoT Agent HTTP state: ${response} (waiting for 200)"
-# 		pause 3
-# 		getHeartbeat "${IOT_AGENT}"
-# 	done
-# }
-
-waitForMongoOrion () {
-	echo -e "\n⏳ Waiting for \033[1mMongoDB Orion\033[0m to be available\n"
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mongo-orion` == "healthy" ]
-	do 
-		sleep 1
-	done
-}
-
-
-
-
-stoppingContainersOrion () {
-	CONTAINERS=$(docker ps --filter "label=org.fiware=orion" -aq)
-	if [[ -n $CONTAINERS ]]; then 
-		echo "Stopping containers"
-		docker rm -f $CONTAINERS || true
-	fi
-	VOLUMES=$(docker volume ls -qf "label=org.fiware=orion") 
-	if [[ -n $VOLUMES ]]; then 
-		echo "Removing old volumes"
-		docker volume rm $VOLUMES || true
-	fi
-	NETWORKS=$(docker network ls  --filter "label=org.fiware=orion" -q) 
-	if [[ -n $NETWORKS ]]; then 
-		echo "Removing orion networks"
-		docker network rm $NETWORKS || true
-	fi
-}
-
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### Draco
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-
-# Draco
-stoppingContainersDraco () {
-	CONTAINERS=$(docker ps --filter "label=org.fiware=draco" -aq)
-	if [[ -n $CONTAINERS ]]; then 
-		echo "Stopping containers"
-		docker rm -f $CONTAINERS || true
-	fi
-	VOLUMES=$(docker volume ls -qf "label=org.fiware=draco") 
-	if [[ -n $VOLUMES ]]; then 
-		echo "Removing old volumes"
-		docker volume rm $VOLUMES || true
-	fi
-	NETWORKS=$(docker network ls  --filter "label=org.fiware=draco" -q) 
-	if [[ -n $NETWORKS ]]; then 
-		echo "Removing draco networks"
-		docker network rm $NETWORKS || true
-	fi
-}
-
-waitForDraco () {
-	echo -e "\n⏳ Waiting for \033[1;34mDraco\033[0m to be available\n"
-	
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' draco` == "healthy" ]
-	do
-		sleep 1
-	done
-}
-
-# BD
-waitForMysql () {
-	echo -e "\n⏳ Waiting for \033[1mMySQL draco\033[0m to be available\n"
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mysql-draco` == "healthy" ]
-	do 
-		sleep 1
-	done
-}
-
-waitForMongoDraco () {
-	echo -e "\n⏳ Waiting for \033[1mMongoDB\033[0m to be available\n"
-	# while ! [ `docker inspect --format='{{.State.Health.Status}}' db-mongo` == "healthy" ]
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' draco-mongo-db` == "healthy" ]
-	do 
-		sleep 1
-	done
-}
-
-waitForPostgres () {
-	echo -e "\n⏳ Waiting for \033[1mPostgreSQL\033[0m to be available\n"
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' db-postgres-draco` == "healthy" ]
-	do 
-		sleep 1
-	done
-}
-
-
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### Simulator
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-
-stoppingContainerAppSimulator() {
-	CONTAINERS=$(docker ps --filter "name=simulator-app" -aq)
-	if [[ -n $CONTAINERS ]]; then 
-		echo "Stopping containers"
-		docker rm -f $CONTAINERS || true
-	fi
-}
-
-
-waitForSimulatorApp() {
-	echo -e "\n⏳ Waiting for \033[1mSimulator App\033[0m to be available\n"
-
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' simulator-app` == "healthy" ]
-	do 
-		sleep 1
-	done
-}
-
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### subs-control-app
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-
-stoppingContainerAppSubsControl() {
-	CONTAINERS=$(docker ps --filter "name=subs-control-app" -aq)
-	if [[ -n $CONTAINERS ]]; then 
-		echo "Stopping containers"
-		docker rm -f $CONTAINERS || true
-	fi
-}
-
-
-waitForSubsControlApp() {
-
-	echo -e "\n⏳ Waiting for \033[1mSubs Control App\033[0m to be available\n"
-
-	while ! [ `docker inspect --format='{{.State.Health.Status}}' subs-control-app` == "healthy" ]
-	do 
-		sleep 1
-	done
-}
-
+# wait & stop functions
+source ./services_aux_functions.sh
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### Run
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-
 displayServices () {
 	echo ""
 	docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" --filter name="$1"
 	echo ""
 }
 
+
+# if [[ $proxyReverse == true ]]; then
+# 	./proxy-reverse/red_proxy down
+# fi
+
+
 command="$1"
 argument="$2"
 case "${command}" in
 	"help")
-		echo "usage: services [create|start|orion|draco|stop]"
+		echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
 		;;
+	"build")
+        echo "Descargando y construyendo todas las imágenes necesarias..."
+        ${dockerCmd} ${envFileOrion} -f orion/orion-ld.yml pull
+        ${dockerCmd} ${envFileDraco} -f draco/draco-mongo.yml pull
+        ${dockerCmd} ${envFileProxyReverse} -f proxy-reverse/nginx-reverse.yml pull
+        ${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml pull
+		docker pull -q node:22.12.0
+		docker pull -q redis
+		docker pull -q mysql
+		docker pull -q minio/minio:RELEASE.2024-11-07T00-52-20Z-cpuv1
+		docker pull -q node:20.14.0
+		exit 0
+        ;;
 	"orion")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersOrion
 		waitForCoreContext
 		echo -e "Starting containers:  \033[1;34mOrion\033[0m, \033[1;36mIoT-Agent\033[0m, \033[1mTutorial\033[0m, a linked data \033[1mContext\033[0m and a \033[1mMongoDB\033[0m database."
 		echo -e "- \033[1;34mOrion\033[0m is the context broker"
-		# echo -e "- \033[1;36mIoT-Agent\033[0m is configured for the UltraLight Protocol"
-		# echo -e "- \033[1mTutorial\033[0m acts as a series of dummy IoT Sensors over HTTP"
-		echo -e "- Data models \033[1m@context\033[0m (Smart Lego City) is supplied externally"
+		echo -e "- Data models \033[1m@context\033[0m (Smart Lego City) is supplied externally"		
 		echo ""
-		# ${dockerCmd} -f docker compose/common.yml -f docker compose/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
-		# ${dockerCmd} -f orion/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
-		${dockerCmd} -f orion/orion-ld.yml up -d --renew-anon-volumes
 
-		# displayServices "orion|fiware"
+		${dockerCmd} ${envFileOrion} -f orion/orion-ld.yml up -d --renew-anon-volumes
+
 		displayServices "orion|context"
-		# displayServices "orion"
 		waitForMongoOrion
-		# addDatabaseIndex
-		# addIoTDatabaseIndex
 		waitForOrion
-		export CONTEXT_BROKER=orion:1026
-		# loadData
-		# waitForIoTAgent
+		./services subs-control-app 
 
 		echo -e "\033[1;34m${command}\033[0m is now running and exposed on localhost:${EXPOSED_PORT}"
 		;;
 	
 	"draco")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersDraco
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mMySQL\033[0m database."
 		echo ""
-		${dockerCmd} -f draco/draco-mysql.yml up -d --renew-anon-volumes
-		# ${dockerCmd} -f draco/draco-mongo.yml up -d --renew-anon-volumes
+		${dockerCmd}  ${envFileDraco} -f draco/draco-mongo.yml up -d --renew-anon-volumes
+		docker rm fiware-draco-init-1 >/dev/null 2>&1 || true
 		
 		displayServices "draco"
-
-		waitForMysql
-		# waitForMongoDraco
+		waitForMongoDraco
 		waitForDraco
 		;;
 	"draco-mysql")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersDraco
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mMySQL\033[0m database."
 		echo ""
-		${dockerCmd} -f draco/draco-mysql.yml up -d --renew-anon-volumes
+		${dockerCmd} ${envFileDraco} -f draco/draco-mysql.yml up -d --renew-anon-volumes
 		displayServices "draco"
 		waitForMysql
 		waitForDraco
 		;;
 	"draco-mongo")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersDraco
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mMongoDB\033[0m database."
 		echo ""
-		${dockerCmd} -f draco/draco-mongo.yml up -d --renew-anon-volumes
+		${dockerCmd}  ${envFileDraco} -f draco/draco-mongo.yml up -d --renew-anon-volumes
+
+		docker rm fiware-draco-init-1 >/dev/null 2>&1 || true
+
 		displayServices "draco"
 		waitForMongoDraco
 		waitForDraco
 		;;
 	"draco-postgres")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersDraco
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mPostgreSQL\033[0m database."
 		echo ""
-		${dockerCmd} -f draco/draco-postgres.yml up -d --renew-anon-volumes
+		${dockerCmd}  ${envFileDraco} -f draco/draco-postgres.yml up -d --renew-anon-volumes
 		displayServices "draco"
 		waitForPostgres
 		waitForDraco
 		;;
+	"nginx")
+		echo "Starting Nginx"
+		${dockerCmd} ${envFileProxyReverse} -f proxy-reverse/nginx-reverse.yml up -d
+		displayServices "nginx-reverse"
+		waitForProxyReverse
+		;;
 	"stop-orion")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersOrion
 		;;
 
 	"stop-draco")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersDraco
 		;;
 	"stop-simulator")
-		export $(cat .env | grep "#" -v)
 		stoppingContainerAppSimulator
 		;;
-
+	"stop-subs-control-app")
+		stoppingContainerAppSubsControl
+		;;
+	"stop-apis-app")
+		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml down
+		stopContainerApisApp
+		;;
 	"stop")
-		export $(cat .env | grep "#" -v)
 		stoppingContainersOrion
 		stoppingContainersDraco
 		stoppingContainerAppSimulator
+		stoppingContainerAppSubsControl
 		;;
-	"start")
-		export $(cat .env | grep "#" -v) 
-		./services orion 
+	"start1")
+		./services  orion 
 		
 		if [[ $argument == "mysql" ]]; then
-			./services draco-mysql
+			./services  draco-mysql
 		elif [[ $argument == "postgres" ]]; then
-			./services draco-postgres
+			./services  draco-postgres
 		else
-			./services draco-mongo
+			./services  draco-mongo
 		fi
+		
+		./services  minio-bucket
 
 		;;
-	"create")
-		export $(cat .env | grep "#" -v)
-		echo "Pulling Docker images"
-		docker pull -q quay.io/curl/curl:${CURL_VERSION}
-		${dockerCmd} -f orion/orion-ld.yml pull
+	"start2")
+		./services simulator
+		;;
+	"start3")
+		./services apis-app
+		;;
+	"start-all")
+		./services start1
+		./services start2
+		./services start3
 		;;
 	"simulator")
-		export $(cat .env | grep "#" -v)
-		python3 scripts/simulatorDocker/iniciarSimulator.py
+		# python3 scripts/simulatorDocker/iniciarSimulator.py
 		stoppingContainerAppSimulator
 		echo -e "Starting containers:  \033[1mSimulator app .\033[0m"
 		echo ""
-
-		docker build -t simulator_app ./simulator
 		
-		${dockerCmd} -f simulator/simulator-app.yml up -d 
-		# ${dockerCmd} -f simulator/simulator-app.yml up 
-		displayServices "simulator-app"
-		waitForSimulatorApp		
-		;;
-	"simulator-marta")
-		export $(cat .env | grep "#" -v)
-		python scripts/simulatorMarta/iniciarSimulator.py
-		stoppingContainerAppSimulator
-		echo -e "Starting containers:  \033[1mSimulator app .\033[0m"
-		echo ""
-
-		docker build -t simulator_app ./simulator
-		
-		# ${dockerCmd} -f simulator/simulator-app.yml up -d 
-		${dockerCmd} -f simulator/simulator-app.yml up 
+		${dockerCmd} ${envFileSimulator} -f simulator/simulator-app.yml up -d 
 		displayServices "simulator-app"
 		waitForSimulatorApp		
 		;;
 	"subs-control-app")
-		export $(cat .env | grep "#" -v)
 		stoppingContainerAppSubsControl
 		echo -e "Starting containers:  \033[1mSubs Control app .\033[0m"
 		echo ""
 
-		docker build -t subs-control-app ./subs-control
-
-		${dockerCmd} -f subs-control/subs-control-app.yml up -d
+		${dockerCmd} ${envFileSubsControl} -f subs-control/subs-control-app.yml up -d
 		displayServices "subs-control-app"
 		waitForSubsControlApp
-		# echo "Building Docker image"
-		# docker image build -t subs-control-app .
+
+		;;
+	"minio-bucket")
+		echo "Starting Minio"
+		echo ""
+		bash ./bucket_minio/start_bucket.sh service
+		displayServices "minio-bucket"
+		waitForMinioBucket
+		;;
+	"apis-app")
+		echo "Starting Apis App"
+		echo ""
+		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml up -d
+		displayServices "apis-app"
+		waitForApisApp
+		;;
+	"stop-apis-app")
+		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml down
+		stopContainerApisApp
+		;;
+	"prune")
+		echo "Pruning unused Docker resources"
+		docker system prune -f
+		docker volume prune -f
+		docker network prune -f
 		;;
 	*)
 		echo "Command not Found."
-		echo "usage: services [create|start|orion|draco|stop]"
+		echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
 		exit 127;
 		;;
 esac
 
+if [[ $proxyReverse == true ]]; then
+	./proxy-reverse/red_proxy up
+	# ./proxy-reverse/red_proxy default
+fi
 
 
+# Verificar si proxy-reverse/base.conf es igual a default.conf y eliminar el contenedor proxy-reverse si es así
+if cmp -s "./proxy-reverse/base.conf" "./proxy-reverse/default.conf"; then
+	echo "Eliminando el contenedor proxy-reverse."
+	stoppingContainerProxyReverse
+fi
