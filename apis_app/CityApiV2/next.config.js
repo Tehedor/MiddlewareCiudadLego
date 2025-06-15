@@ -1,16 +1,6 @@
-// next.config.js
-// // next.config.js
-// module.exports = {
-//     reactStrictMode: true,
-// };
-
-const EnvConfig = require('./utils/env.config');
-
-const {mode_container} = EnvConfig();
-
 module.exports = {
     reactStrictMode: true,
-    basePath: mode_container  ? '/apisApp' : '',
+    basePath: process.env.NEXT_PUBLIC_API_BASE_PATH || '', 
     async headers() {
         return [
             {
@@ -25,8 +15,3 @@ module.exports = {
         ]
     }
 };
-// next.config.js
-// // next.config.js
-// module.exports = {
-//     reactStrictMode: true,
-// };

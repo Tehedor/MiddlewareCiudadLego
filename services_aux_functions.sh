@@ -8,7 +8,7 @@
 
 
 getHeartbeat(){
-	eval "response=$(docker run --network fiware_default --rm quay.io/curl/curl:${CURL_VERSION} -s -o /dev/null -w "%{http_code}" "$1")"
+	eval "response=$(docker run --network fiware_default --rm quay.io/curl/curl:8.4.0 -s -o /dev/null -w "%{http_code}" "$1")"
 }
 
 waitForOrion () {
@@ -25,12 +25,12 @@ waitForOrion () {
 
 waitForCoreContext () {
 	echo -e "\n⏳ Checking availability of \033[1m core @context\033[0m from ETSI\n"
-	eval "response=$(docker run --rm quay.io/curl/curl:${CURL_VERSION} -s -o /dev/null -w "%{http_code}" "$CORE_CONTEXT")"
+	eval "response=$(docker run --rm quay.io/curl/curl:8.4.0 -s -o /dev/null -w "%{http_code}" "$CORE_CONTEXT")"
 	while [ "${response}" -eq 000 ]
 	do
 		echo -e "\n@context HTTP state: ${response} (waiting for 200)"
 		pause 3
-		eval "response=$(docker run --rm quay.io/curl/curl:${CURL_VERSION} -s -o /dev/null -w "%{http_code}" "$CORE_CONTEXT")"
+		eval "response=$(docker run --rm quay.io/curl/curl:8.4.0 -s -o /dev/null -w "%{http_code}" "$CORE_CONTEXT")"
 	done
 }
 
@@ -130,6 +130,31 @@ waitForPostgres () {
 	do 
 		sleep 1
 	done
+}
+
+
+waitForDracoInit() {
+  echo -e "\n⏳ Esperando a que \033[1mDraco Init\033[0m termine..."
+
+  while docker ps -a --format '{{.Names}}' | grep -q "^fiware-draco-init-1$"; do
+    status=$(docker inspect --format='{{.State.Status}}' fiware-draco-init-1 2>/dev/null)
+
+    if [ "$status" = "exited" ]; then
+      exit_code=$(docker inspect --format='{{.State.ExitCode}}' fiware-draco-init-1)
+      if [ "$exit_code" -eq 0 ]; then
+        echo -e "\n✅ \033[1mDraco Init finalizado correctamente\033[0m"
+      else
+        echo -e "\n❌ \033[1mDraco Init terminó con errores (exit code $exit_code)\033[0m"
+      fi
+      break
+    fi
+
+    echo -n "."
+    sleep 1
+  done
+
+  echo -e "\n🧹 Eliminando contenedor fiware-draco-init-1"
+  docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
 }
 
 

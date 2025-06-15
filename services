@@ -71,6 +71,9 @@ displayServices () {
 # if [[ $proxyReverse == true ]]; then
 # 	./proxy-reverse/red_proxy down
 # fi
+# Esperar a que el contenedor fiware-draco-init-1 termine
+
+
 
 
 command="$1"
@@ -84,12 +87,11 @@ case "${command}" in
         ${dockerCmd} ${envFileOrion} -f orion/orion-ld.yml pull
         ${dockerCmd} ${envFileDraco} -f draco/draco-mongo.yml pull
         ${dockerCmd} ${envFileProxyReverse} -f proxy-reverse/nginx-reverse.yml pull
-        ${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml pull
 		docker pull -q node:22.12.0
-		docker pull -q redis
-		docker pull -q mysql
-		docker pull -q minio/minio:RELEASE.2024-11-07T00-52-20Z-cpuv1
 		docker pull -q node:20.14.0
+		docker pull -q redis:8.0.2
+		docker pull -q mysql:9.3.0
+		docker pull -q minio/minio:RELEASE.2024-11-07T00-52-20Z-cpuv1
 		exit 0
         ;;
 	"orion")
@@ -115,11 +117,12 @@ case "${command}" in
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mMySQL\033[0m database."
 		echo ""
 		${dockerCmd}  ${envFileDraco} -f draco/draco-mongo.yml up -d --renew-anon-volumes
-		docker rm fiware-draco-init-1 >/dev/null 2>&1 || true
 		
 		displayServices "draco"
 		waitForMongoDraco
 		waitForDraco
+		waitForDracoInit
+		docker rm fiware-draco-init-1 
 		;;
 	"draco-mysql")
 		stoppingContainersDraco
@@ -136,11 +139,12 @@ case "${command}" in
 		echo ""
 		${dockerCmd}  ${envFileDraco} -f draco/draco-mongo.yml up -d --renew-anon-volumes
 
-		docker rm fiware-draco-init-1 >/dev/null 2>&1 || true
-
+		
 		displayServices "draco"
 		waitForMongoDraco
 		waitForDraco
+		waitForDracoInit
+
 		;;
 	"draco-postgres")
 		stoppingContainersDraco
@@ -199,11 +203,6 @@ case "${command}" in
 		;;
 	"start3")
 		./services apis-app
-		;;
-	"start-all")
-		./services start1
-		./services start2
-		./services start3
 		;;
 	"simulator")
 		# python3 scripts/simulatorDocker/iniciarSimulator.py

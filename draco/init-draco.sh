@@ -37,3 +37,7 @@ GROUP_ID=$(curl -s "$NIFI_HOST/nifi-api/flow/process-groups/root/status" | jq -r
 curl -X PUT "$NIFI_HOST/nifi-api/flow/process-groups/$GROUP_ID" \
   -H "Content-Type: application/json" \
   -d '{"id":"'"$GROUP_ID"'","state":"RUNNING"}'
+
+
+echo "Flujo iniciado correctamente."
+touch /tmp/draco-init.done

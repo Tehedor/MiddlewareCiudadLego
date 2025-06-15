@@ -78,8 +78,6 @@ mixin devicesForWeatherStation(id)
             });
 
             socket.on('update_simulate', function(simulate) {
-                console.log("aaaaaa");
-                console.log(simulate[7]);
                 state_watherStation = simulate[7];
                 updateWeatherStationButton(state_watherStation);
             });

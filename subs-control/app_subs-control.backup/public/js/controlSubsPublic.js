@@ -31,9 +31,6 @@ async function updateSubscriptionsTo(state,basePath) {
     // const response = await fetch(`/subsControlApp/requests/updateSubscriptionsTo${state}`, {
     console.log(`${basePath}/requests/changeState?mode=${state}`);
     // const response = await fetch(`${basePath}/requests/updateSubscriptionsTo${state}`, {
-      console.log('aaaaaaas')
-      console.log(state)
-      console.log('aaaaaaas')
       // const response = await fetch(`http://localhost/subsControlApp/requests/changeState?mode=${state}`, {
     const response = await fetch(`${basePath}/requests/changeState?mode=${state}`, {
       method: "POST",

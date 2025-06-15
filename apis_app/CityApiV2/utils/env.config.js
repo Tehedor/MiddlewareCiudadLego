@@ -1,7 +1,11 @@
 require('dotenv').config();
 
 function convertToBoolean(envVar) {
-    return envVar ? envVar === 'true' : false;
+    if (typeof envVar === 'boolean') return envVar;
+    if (typeof envVar === 'string') {
+        return envVar.trim().toLowerCase() === 'true';
+    }
+    return false;
 }
 
 const {
@@ -18,6 +22,10 @@ const {
     DB_USER             :db_user,
     DB_PASSWORD         :db_password,
 
+    MONGODB_HOST        :mongodb_host = 'localhost',
+    MONGODB_PORT        :mongodb_port = 27017,
+    MONGODB_NAME        :mongodb_name = 'sth_openiot',
+
     REDIS_HOST          :redis_host = 'localhost',
     REDIS_PORT          :redis_port = 6379,
     // REDIS_PASSWORD      :redis_password = "12345678",
@@ -25,9 +33,8 @@ const {
     LIMIT_API_KEY       :limit_api_key = 1000,
     TIME_LIMIT_API_KEY_M:time_limit_api_key = 5, // En minutos
 
-    MODE_CONTAINER     :mode_container = "false",    
-    NEXT_PUBLIC_API_BASE_URL :next_public_api_base_url = "http://localhost/apisApp"
-
+    // MODE_CONTAINER     :mode_container = "false",   
+    MODE_CONTAINER    :mode_container = "true",   
 } = process.env;
 
 const EnvConfig = () => ({ 
@@ -43,13 +50,12 @@ const EnvConfig = () => ({
     db_host,
     db_user,
     db_password,
+    mongodb_host,
+    mongodb_port,
+    mongodb_name,
     redis_host,
     redis_port,
     mode_container  :   convertToBoolean(mode_container),
-    next_public_api_base_url
-    
 });
 
 module.exports = EnvConfig;
-
-// validar  tipos con zod (no lo voy a hacer)

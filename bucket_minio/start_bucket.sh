@@ -11,8 +11,6 @@ export COMPOSE_PROJECT_NAME=fiware
 
 
 source ./zz_env_services/config_env_files.sh
-echo -e "\033[1;33masdfadsfadsf: ${envFileBucketMinio}\033[0m"
-echo ${MINIO_BROWSER_REDIRECT_URL}
 
 docker compose ${envFileBucketMinio} -f ${ruta}bucket_minio_photo.yaml build
 docker compose ${envFileBucketMinio} -f ${ruta}bucket_minio_photo.yaml up -d

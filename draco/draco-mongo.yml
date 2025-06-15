@@ -28,11 +28,17 @@ services:
     volumes:
       - ./draco-ld-template:/draco-ld-template:ro
       - ./init-draco.sh:/init-draco.sh:ro
-    entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && ls && /init-draco.sh" ]
+    # entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && ls && /init-draco.sh" ]
+    # entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && /init-draco.sh && touch /tmp/draco-init.done && tail -f /dev/null" ]
+    entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && /init-draco.sh && touch /tmp/draco-init.done" ]
     environment:
       - NIFI_HOST=http://draco:9090
     networks:
       - default
+    healthcheck:
+      test: ["CMD", "test", "-f", "/tmp/draco-init.done"]
+      interval: 2s
+      retries: 10
 
 
   mongo-db-draco:

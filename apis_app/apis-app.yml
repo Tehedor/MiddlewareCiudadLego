@@ -1,13 +1,19 @@
 services:
   apis-app:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MODE_CONTAINER: true
+        NEXT_PUBLIC_API_BASE_PATH: /apisApp
+        NEXT_PUBLIC_SWAGGER_URL: /api/api-docs
     image: ${IMAGE_APIS_APP_VERSION:-apis-app:v1}
     container_name: apis-app
     networks:
       - default
-    ports:
-      - "3000:3000"
-      - "3001:3001"
+    # ports:
+    #   - "3000:3000"
+    #   - "3001:3001"
     environment:
       SERVER_PORT: 3001
       JWT_SECRET_KEY: ypb7SBzJ+3E6wXVy0dXQvAsyj7EYzFAhLBZ+CVmpdsCFK90OmwrU1VMykEl5hjHnKg/fjnjAsUCiQ+FMyYCkeg==
@@ -16,12 +22,20 @@ services:
       DB_HOST: myql_apis-app
       DB_USER: root
       DB_PASSWORD: 12345678
+      MONGODB_HOST: mongo-db-draco
+      MONGODB_PORT: 27017
+      MONGODB_NAME: sth_openiot
       REDIS_HOST: redis_apis-app
       REDIS_PORT: 6379
       LIMIT_API_KEY: 10
       TIME_LIMIT_API_KEY_M: 1
-      MODE_CONTAINTER: true
-      NEXT_PUBLIC_API_BASE_URL: http://localhost:3000/apisApp
+      MODE_CONTAINER: true
+      NEXT_PUBLIC_MODE_CONTAINER: true
+
+      # NEXT_PUBLIC_API_BASE_PATH: http://localhost:3000/apisApp
+      API_BASE_URL : /apisApp
+      NEXT_PUBLIC_API_BASE_PATH: /apisApp
+      NEXT_PUBLIC_SWAGGER_URL: http://localhost/api/
     # volumes:
     #   - ./CityApiV3:/usr/src/app
     healthcheck:

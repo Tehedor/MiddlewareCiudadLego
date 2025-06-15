@@ -323,11 +323,11 @@ def append_apisApp():
         proxy_set_header X-Forwarded-Proto $scheme;
 
         # Ajustar las rutas en las respuestas del backend 
-        sub_filter_once off;
-        sub_filter "href='/" "href='/apisApp/";
-        sub_filter "src='/" "src='/apisApp/";
-        sub_filter "action='/" "action='/apisApp/";
-        sub_filter "url='/" "url='/apisApp/";
+        # sub_filter_once off;
+        # sub_filter "href='/" "href='/apisApp/";
+        # sub_filter "src='/" "src='/apisApp/";
+        # sub_filter "action='/" "action='/apisApp/";
+        # sub_filter "url='/" "url='/apisApp/";
     }
     
     # // // // // // // // // // // // // // // // // // // // // // // // 

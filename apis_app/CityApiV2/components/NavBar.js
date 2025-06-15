@@ -3,24 +3,19 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import jwt from 'jsonwebtoken';
 
-import { mode_container } from '../utils/env.config';
 
 // const simulatorLink = mode_container ? 'http://simulatorApp:3030/monitor' : 'http://localhost/simulatorApp/monitor';
-const swaggerLink = mode_container ? 
-    'http://localhost/apisApp/'
-    : 
-    'http://localhost:3001/';
-
-
-
+// const swaggerLink = process.env.NEXT_PUBLIC_SWAGGER_URL || 'http://localhost:3001/api-docs'; 
+const swaggerLink = process.env.NEXT_PUBLIC_SWAGGER_URL || 'http://localhost:3000/api-docs'; 
 
 
 const NavBar = () => {
   const router = useRouter();
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
+  
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -58,12 +53,12 @@ const NavBar = () => {
         {!isLoggedIn && (
           <>
             <li>
-              <Link href="/login" legacyBehavior>
+              <Link href={`/login`} legacyBehavior>
                 <a>Login</a>
               </Link>
             </li>
             <li>
-              <Link href="/register" legacyBehavior>
+              <Link href={`/register`} legacyBehavior>
                 <a>Registro</a>
               </Link>
             </li>
@@ -72,19 +67,19 @@ const NavBar = () => {
         {isLoggedIn && (
           <>
             <li>
-              <Link href="/dashboard" legacyBehavior>
+              <Link href={`/dashboard`} legacyBehavior>
                 <a>Dashboard</a>
               </Link>
             </li>
             {isAdmin && (
               <>
                 <li>
-                  <Link href="/subscontroller" legacyBehavior>
+                  <Link href={`/subscontroller`} legacyBehavior>
                     <a>SubsControl</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/simulator" legacyBehavior>
+                  <Link href={`/simulator`} legacyBehavior>
                     <a>Simulator</a>
                   </Link>
                 </li>
@@ -96,7 +91,7 @@ const NavBar = () => {
           </>
         )}
       </ul>
-           <style jsx>{`
+      <style jsx>{`
         .navbar {
           font-family: Arial, sans-serif;
           background-color: #0070f3;

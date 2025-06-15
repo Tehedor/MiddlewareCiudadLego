@@ -4,6 +4,7 @@ import axios from '../utils/axiosConfig';
 
 import NavBar from '../components/NavBar';
 
+
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,7 +14,7 @@ export default function Login() {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            router.push('/dashboard');
+            router.push(`/dashboard`);
         }
     }, []);
 
@@ -32,7 +33,7 @@ export default function Login() {
             const res = await axios.post('/api/auth/login', { email, password });
 
             localStorage.setItem('token', res.data.token);
-            router.push('/dashboard');
+            router.push(`/dashboard`);
         } catch (error) {
             if (error.response && error.response.status === 401) {
                 setErrorMessage('Invalid credentials. Please try again.');

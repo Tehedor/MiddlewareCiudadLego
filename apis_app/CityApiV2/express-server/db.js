@@ -2,16 +2,19 @@ const mongoose = require('mongoose');
 const process = require('process');
 require('dotenv').config();
 
-const dbname = "sth_openiot";
-let dbURI = 'mongodb://localhost:27017/' + dbname;
+// const dbname = "sth_openiot";
 
 
 const EnvConfig = require('../utils/env.config');
-const { mode_container } = EnvConfig();
+const { mongodb_host, mongodb_port, mongodb_name } = EnvConfig();
 
-if (mode_container ) {
-  dbURI = 'mongodb://mongo-db-draco:27017/' + dbname;
-}
+// let dbURI = 'mongodb://localhost:27017/' + dbname;
+// if (mode_container) {
+//   dbURI = 'mongodb://mongo-db-draco:27017/' + dbname;
+// }
+
+dbURI = `mongodb://${mongodb_host}:${mongodb_port}/${mongodb_name}`;
+
 
 const connectDB = async () => {
   while (true) {
