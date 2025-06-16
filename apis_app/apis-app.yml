@@ -6,7 +6,7 @@ services:
       args:
         MODE_CONTAINER: true
         NEXT_PUBLIC_API_BASE_PATH: /apisApp
-        NEXT_PUBLIC_SWAGGER_URL: /api/api-docs
+        NEXT_PUBLIC_SWAGGER_URL: /api
     image: ${IMAGE_APIS_APP_VERSION:-apis-app:v1}
     container_name: apis-app
     networks:
@@ -35,7 +35,7 @@ services:
       # NEXT_PUBLIC_API_BASE_PATH: http://localhost:3000/apisApp
       API_BASE_URL : /apisApp
       NEXT_PUBLIC_API_BASE_PATH: /apisApp
-      NEXT_PUBLIC_SWAGGER_URL: http://localhost/api/
+      NEXT_PUBLIC_SWAGGER_URL: /api
     # volumes:
     #   - ./CityApiV3:/usr/src/app
     healthcheck:

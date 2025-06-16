@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 // const simulatorLink = mode_container ? 'http://simulatorApp:3030/monitor' : 'http://localhost/simulatorApp/monitor';
 // const swaggerLink = process.env.NEXT_PUBLIC_SWAGGER_URL || 'http://localhost:3001/api-docs'; 
-const swaggerLink = process.env.NEXT_PUBLIC_SWAGGER_URL || 'http://localhost:3000/api-docs'; 
+const swaggerLink = process.env.NEXT_PUBLIC_SWAGGER_URL || 'http://localhost:3001/api-docs'; 
 
 
 const NavBar = () => {

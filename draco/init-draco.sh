@@ -19,6 +19,7 @@ fi
 echo "Esperando a que NiFi esté disponible..."
 until curl -s "$NIFI_HOST/nifi" > /dev/null; do
   sleep 1
+  echo -n "."
 done
 
 echo "NiFi disponible. Subiendo plantilla..."

@@ -1,0 +1,12 @@
+FROM alpine:3.20
+
+RUN apk add --no-cache curl jq
+
+# Copiamos el script a /usr/local/bin
+COPY ./init-draco.sh /usr/local/bin/init-draco.sh
+
+# Damos permisos de ejecución
+RUN chmod +x /usr/local/bin/init-draco.sh
+
+# Ejecutamos usando la ruta absoluta
+ENTRYPOINT ["sh", "-c", "/usr/local/bin/init-draco.sh && touch /tmp/draco-init.done"]

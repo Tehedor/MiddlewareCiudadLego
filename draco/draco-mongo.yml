@@ -15,22 +15,20 @@ services:
       - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
     networks:
       - default
-    # ports:
-    #   - "9090:9090"
+    ports:
+      - "9090:9090"
     healthcheck:
       test: curl -k --fail -s http://draco:9090/nifi/login || exit 1
       interval: 5s
-  
+
   draco-init:
-    image: alpine:3.20
+    build:
+      context: .
+      dockerfile: Dockerfile.draco-init
     depends_on:
       - draco
     volumes:
       - ./draco-ld-template:/draco-ld-template:ro
-      - ./init-draco.sh:/init-draco.sh:ro
-    # entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && ls && /init-draco.sh" ]
-    # entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && /init-draco.sh && touch /tmp/draco-init.done && tail -f /dev/null" ]
-    entrypoint: [ "sh", "-c", "apk add --no-cache curl jq && /init-draco.sh && touch /tmp/draco-init.done" ]
     environment:
       - NIFI_HOST=http://draco:9090
     networks:
@@ -39,7 +37,6 @@ services:
       test: ["CMD", "test", "-f", "/tmp/draco-init.done"]
       interval: 2s
       retries: 10
-
 
   mongo-db-draco:
     labels:

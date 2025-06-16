@@ -153,7 +153,6 @@ waitForDracoInit() {
     sleep 1
   done
 
-  echo -e "\n🧹 Eliminando contenedor fiware-draco-init-1"
 }
 
 
