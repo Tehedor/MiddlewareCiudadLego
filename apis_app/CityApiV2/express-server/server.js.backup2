@@ -1,5 +1,6 @@
 // express-server/server.js
 const express = require("express");
+// const next = require("next");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
@@ -10,8 +11,8 @@ const connectDB = require("./db.js");
 
 const { server_port } = require("../utils/env.config")();
 
-// Cornometro
-const startResetApiKeyJob = require("./utils/scheduler"); // <- Añade esta línea
+// const app = next({ dev: process.env.NODE_ENV !== "production" });
+// const handle = app.getRequestHandler();
 
 const server = express();
 
@@ -27,8 +28,7 @@ const server = express();
     await syncDb(); // Sincronización o migración inicial
     console.log("Database sync completed");
     
-    startResetApiKeyJob(); // Iniciar el cron interno de Node
-    console.log("API key reset scheduler iniciado");
+    // await app.prepare(); // Prepara Next.js
 
     // Middlewares comunes
     server.use(logger("dev"));

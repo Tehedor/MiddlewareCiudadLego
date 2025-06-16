@@ -49,9 +49,25 @@ const apiKeyMiddleware = async (req, res, next) => {
         const currentTime = Date.now();
 
         // Verificar si el tiempo límite ha expirado
+        // if (currentTime > apiData.resetTime) {
+        //     apiData.remaining_requests = apiData.request_count_limit; // Restablecer solicitudes disponibles
+        //     apiData.resetTime = currentTime + apiData.time_limit_api_key * 60 * 1000;
+        // }
         if (currentTime > apiData.resetTime) {
-            apiData.remaining_requests = apiData.request_count_limit; // Restablecer solicitudes disponibles
+            
+            apiData.remaining_requests = apiData.request_count_limit;
+            apiData.request_count = 0;
             apiData.resetTime = currentTime + apiData.time_limit_api_key * 60 * 1000;
+
+            // Guardar también en la base de datos
+            await User.update(
+                {
+                    remaining_requests: apiData.remaining_requests,
+                    request_count: 0,
+                    last_date_period: new Date(), // se reinicia ahora
+                },
+                { where: { api_key: apiKey } }
+            );
         }
 
         // // Verificar si quedan solicitudes disponibles

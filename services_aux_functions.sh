@@ -154,7 +154,6 @@ waitForDracoInit() {
   done
 
   echo -e "\n🧹 Eliminando contenedor fiware-draco-init-1"
-  docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
 }
 
 

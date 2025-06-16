@@ -115,6 +115,7 @@ case "${command}" in
 	"draco")
 		stoppingContainersDraco
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mMySQL\033[0m database."
+		chmod +x draco/init-draco.sh
 		echo ""
 		${dockerCmd}  ${envFileDraco} -f draco/draco-mongo.yml up -d --renew-anon-volumes
 		
@@ -122,7 +123,8 @@ case "${command}" in
 		waitForMongoDraco
 		waitForDraco
 		waitForDracoInit
-		docker rm fiware-draco-init-1 
+  		docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
+
 		;;
 	"draco-mysql")
 		stoppingContainersDraco
@@ -136,6 +138,7 @@ case "${command}" in
 	"draco-mongo")
 		stoppingContainersDraco
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mMongoDB\033[0m database."
+		chmod +x draco/init-draco.sh
 		echo ""
 		${dockerCmd}  ${envFileDraco} -f draco/draco-mongo.yml up -d --renew-anon-volumes
 
@@ -144,6 +147,7 @@ case "${command}" in
 		waitForMongoDraco
 		waitForDraco
 		waitForDracoInit
+  		docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
 
 		;;
 	"draco-postgres")
@@ -231,9 +235,15 @@ case "${command}" in
 		displayServices "minio-bucket"
 		waitForMinioBucket
 		;;
+	"apis-app-build")
+		echo "Building Apis App"
+		echo ""
+		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml build
+		;;
 	"apis-app")
 		echo "Starting Apis App"
 		echo ""
+		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml build
 		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml up -d
 		displayServices "apis-app"
 		waitForApisApp
