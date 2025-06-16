@@ -14,10 +14,6 @@ def nginx_config():
 
     resolver 127.0.0.11 valid=30s;
 
-    # location / {
-    #     root   /usr/share/nginx/html;
-    #     index  index.html index.htm;
-    # }
 """
 
 ## ----- # ----- # ----- # ----- # ----- # ----- # ----- ##
@@ -322,12 +318,6 @@ def append_apisApp():
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
 
-        # Ajustar las rutas en las respuestas del backend 
-        # sub_filter_once off;
-        # sub_filter "href='/" "href='/apisApp/";
-        # sub_filter "src='/" "src='/apisApp/";
-        # sub_filter "action='/" "action='/apisApp/";
-        # sub_filter "url='/" "url='/apisApp/";
     }
     
     # // // // // // // // // // // // // // // // // // // // // // // // 

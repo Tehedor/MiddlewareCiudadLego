@@ -102,6 +102,9 @@ case "${command}" in
 
 		echo -e "\033[1;34m${command}\033[0m is now running and exposed on localhost:${EXPOSED_PORT}"
 		;;
+	"stop-orion")
+		stoppingContainersOrion
+		;;
 	"draco")
 		stoppingContainersDraco
 		echo -e "Starting containers:  \033[1mDraco and a \033[1mMySQL\033[0m database."
@@ -114,86 +117,14 @@ case "${command}" in
 		waitForDracoInit
   		docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
 		;;
-	"draco-mysql")
+	"stop-draco")
 		stoppingContainersDraco
-		echo -e "Starting containers:  \033[1mDraco and a \033[1mMySQL\033[0m database."
-		echo ""
-		${dockerCmd} ${envFileDraco} -f draco/draco-mysql.yml up -d --renew-anon-volumes
-		displayServices "draco"
-		waitForMysql
-		waitForDraco
-		;;
-	"draco-mongo")
-		stoppingContainersDraco
-		echo -e "Starting containers:  \033[1mDraco and a \033[1mMongoDB\033[0m database."
-		echo ""
-		${dockerCmd}  ${envFileDraco} -f draco/draco-mongo.yml up -d --renew-anon-volumes
-
-		
-		displayServices "draco"
-		waitForMongoDraco
-		waitForDraco
-		waitForDracoInit
-  		docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
-
-		;;
-	"draco-postgres")
-		stoppingContainersDraco
-		echo -e "Starting containers:  \033[1mDraco and a \033[1mPostgreSQL\033[0m database."
-		echo ""
-		${dockerCmd}  ${envFileDraco} -f draco/draco-postgres.yml up -d --renew-anon-volumes
-		displayServices "draco"
-		waitForPostgres
-		waitForDraco
 		;;
 	"nginx")
 		echo "Starting Nginx"
 		${dockerCmd} ${envFileProxyReverse} -f proxy-reverse/nginx-reverse.yml up -d
 		displayServices "nginx-reverse"
 		waitForProxyReverse
-		;;
-	"stop-orion")
-		stoppingContainersOrion
-		;;
-
-	"stop-draco")
-		stoppingContainersDraco
-		;;
-	"stop-simulator")
-		stoppingContainerAppSimulator
-		;;
-	"stop-subs-control-app")
-		stoppingContainerAppSubsControl
-		;;
-	"stop-apis-app")
-		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml down
-		stopContainerApisApp
-		;;
-	"stop")
-		stoppingContainersOrion
-		stoppingContainersDraco
-		stoppingContainerAppSimulator
-		stoppingContainerAppSubsControl
-		;;
-	"start1")
-		./services  orion 
-		
-		if [[ $argument == "mysql" ]]; then
-			./services  draco-mysql
-		elif [[ $argument == "postgres" ]]; then
-			./services  draco-postgres
-		else
-			./services  draco-mongo
-		fi
-		
-		./services  minio-bucket
-
-		;;
-	"start2")
-		./services simulator
-		;;
-	"start3")
-		./services apis-app
 		;;
 	"simulator")
 		# python3 scripts/simulatorDocker/iniciarSimulator.py
@@ -205,32 +136,36 @@ case "${command}" in
 		displayServices "simulator-app"
 		waitForSimulatorApp		
 		;;
+	"stop-simulator")
+		stoppingContainerAppSimulator
+		;;
 	"subs-control-app")
 		stoppingContainerAppSubsControl
 		echo -e "Starting containers:  \033[1mSubs Control app .\033[0m"
 		echo ""
-
 		${dockerCmd} ${envFileSubsControl} -f subs-control/subs-control-app.yml up -d
 		displayServices "subs-control-app"
 		waitForSubsControlApp
-
+		;;
+	"stop-subs-control-app")
+		stoppingContainerAppSubsControl
 		;;
 	"minio-bucket")
 		echo "Starting Minio"
 		echo ""
-		bash ./bucket_minio/start_bucket.sh service
-		displayServices "minio-bucket"
+		docker compose ${envFileBucketMinio} -f bucket_minio/bucket_minio_photo.yaml up -d
 		waitForMinioBucket
+		CONTAINER_NAME_MINIO=$(docker compose -f ${ruta}bucket_minio_photo.yaml ps -q minio)
+		docker exec -it $CONTAINER_NAME_MINIO /bin/sh /usr/local/bin/init.sh
+		displayServices "minio-bucket"
 		;;
-	"apis-app-build")
-		echo "Building Apis App"
-		echo ""
-		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml build
+	"stop-minio-bucket")
+		docker compose ${envFileBucketMinio} -f bucket_minio/bucket_minio_photo.yaml down
+		stoppingContainerMinioBucket
 		;;
 	"apis-app")
 		echo "Starting Apis App"
 		echo ""
-		# ${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml build
 		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml up -d
 		displayServices "apis-app"
 		waitForApisApp
@@ -238,6 +173,37 @@ case "${command}" in
 	"stop-apis-app")
 		${dockerCmd} ${envFileApisApp} -f apis_app/apis-app.yml down
 		stopContainerApisApp
+		;;
+	"start1")
+		./services  orion 
+		./services  draco-mongo
+		./services  minio-bucket
+		;;
+	"stop1")
+		./services stop-orion
+		./services stop-subs-control-app
+		./services stop-draco
+		./services stop-minio-bucket
+		;;
+	"start2")
+		./services simulator
+		;;
+	"stop2")
+		./services stop-simulator
+		;;
+	"start3")
+		./services apis-app
+		;;
+	"stop3")
+		./services stop-apis-app
+		;;
+	"stop-all")
+		./services stop-orion
+		./services stop-subs-control-app
+		./services stop-draco
+		./services stop-minio-bucket
+		./services stop-simulator
+		./services stop-apis-app
 		;;
 	"prune")
 		echo "Pruning unused Docker resources"
