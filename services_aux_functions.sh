@@ -284,3 +284,46 @@ waitForApisApp() {
 		sleep 1
 	done
 }
+
+
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### Comando Help
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+displayHelp() {
+	echo -e "\n\033[1;4m🔧 Tutorial Service Manager Help\033[0m\n"
+	echo -e "Usage:\n  \033[1m./services <command> [subcommand]\033[0m\n"
+
+	echo -e "\033[1;36mMain Commands:\033[0m"
+	echo -e "  \033[1mcreate\033[0m             Inicializa todos los recursos (sin ejecutar contenedores)."
+	echo -e "  \033[1mstart[1|2|3]\033[0m       Inicia grupos de servicios definidos:"
+	echo -e "                         \033[1mstart1\033[0m → Orion, Draco, MinIO"
+	echo -e "                         \033[1mstart2\033[0m → Simulador"
+	echo -e "                         \033[1mstart3\033[0m → APIs App"
+	echo -e "  \033[1mstop[1|2|3]\033[0m        Detiene los grupos respectivos."
+	echo -e "  \033[1mstop-all\033[0m           Detiene todos los servicios."
+	echo -e "  \033[1mbuild\033[0m              Descarga las imágenes necesarias."
+	echo -e "  \033[1mprune\033[0m              Limpia recursos Docker no utilizados.\n"
+
+	echo -e "\033[1;36mServicios individuales:\033[0m"
+	echo -e "  \033[1morion\033[0m              Inicia Orion-LD, Mongo, IoT-Agent y contexto."
+	echo -e "  \033[1mstop-orion\033[0m         Detiene Orion y servicios asociados."
+	echo -e "  \033[1mdraco\033[0m              Inicia Draco (Mongo) para persistencia."
+	echo -e "  \033[1mstop-draco\033[0m         Detiene Draco."
+	echo -e "  \033[1msimulator\033[0m          Inicia la app simuladora de sensores."
+	echo -e "  \033[1mstop-simulator\033[0m     Detiene el simulador."
+	echo -e "  \033[1msubs-control-app\033[0m   Inicia el gestor de suscripciones."
+	echo -e "  \033[1mstop-subs-control-app\033[0m Detiene el gestor de suscripciones."
+	echo -e "  \033[1mminio-bucket\033[0m       Inicia MinIO y crea el bucket."
+	echo -e "  \033[1mstop-minio-bucket\033[0m  Detiene el servicio MinIO."
+	echo -e "  \033[1mapis-app\033[0m           Inicia la app de APIs externas."
+	echo -e "  \033[1mstop-apis-app\033[0m      Detiene la app de APIs externas.\n"
+
+	echo -e "\033[1;36mExtras:\033[0m"
+	echo -e "  \033[1mhelp\033[0m               Muestra esta ayuda."
+	echo -e "  \033[1m⚠️  Algunos comandos requieren que el archivo .env esté presente y bien configurado.\033[0m\n"
+
+	echo -e "\033[3mEjemplo:\033[0m"
+	echo -e "  \033[0;33m./services start1\033[0m   → Levanta el stack básico Orion, Draco y MinIO\n"
+}

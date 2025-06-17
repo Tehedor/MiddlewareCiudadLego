@@ -71,7 +71,8 @@ command="$1"
 argument="$2"
 case "${command}" in
 	"help")
-		echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
+		displayHelp
+		exit 0
 		;;
 	"build")
         echo "Descargando y construyendo todas las imágenes necesarias..."
@@ -176,7 +177,7 @@ case "${command}" in
 		;;
 	"start1")
 		./services  orion 
-		./services  draco-mongo
+		./services  draco
 		./services  minio-bucket
 		;;
 	"stop1")
@@ -212,8 +213,11 @@ case "${command}" in
 		docker network prune -f
 		;;
 	*)
-		echo "Command not Found."
-		echo -e "usage: ./services [create|start|stop\n\t\torion|stop-orion\n\t\tdraco|draco-mysql|draco-mongo|draco-postgres|stop-draco\n\t\tsimulator|simulator-marta]"
+		echo -e "#############################################"
+		echo -e "######        \033[1;31mInvalid command:\033[0m         ######"
+		echo -e "#############################################"
+		echo  ""
+		displayHelp
 		exit 127;
 		;;
 esac
