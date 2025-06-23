@@ -363,25 +363,25 @@ def append_apisApp():
     }
 
     # Redirección de /api/ al índice del backend (indexRouter)
-    location = /api/ {
-        proxy_pass http://apis-app:3001/;  # La barra final es clave aquí
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+    # location = /api/ {
+    #     proxy_pass http://apis-app:3001/;  # La barra final es clave aquí
+    #     proxy_set_header Host $host;
+    #     proxy_set_header X-Real-IP $remote_addr;
+    #     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    #     proxy_set_header X-Forwarded-Proto $scheme;
 
-        # Reescribir URLs en el HTML para que apunten a /api/
-        sub_filter_once off;
+    #     # Reescribir URLs en el HTML para que apunten a /api/
+    #     sub_filter_once off;
 
-        sub_filter 'src="/' 'src="/api/';
+    #     sub_filter 'src="/' 'src="/api/';
 
-        sub_filter "href='/api/api-docs/'" "href='/api/api/api-docs/'";
+    #     sub_filter "href='/api/api-docs/'" "href='/api/api/api-docs/'";
 
-        sub_filter "href='/" "href='/api/";
-        sub_filter "src='/" "src='/api/";
-        sub_filter "action='/" "action='/api/";
-        sub_filter "'/api-docs'" "'/api/api-docs'";  # Específico para Swagger
-    }
+    #     sub_filter "href='/" "href='/api/";
+    #     sub_filter "src='/" "src='/api/";
+    #     sub_filter "action='/" "action='/api/";
+    #     sub_filter "'/api-docs'" "'/api/api-docs'";  # Específico para Swagger
+    # }
 
     # Manejo de los endpoints bajo /api/*
     location /api/ {
