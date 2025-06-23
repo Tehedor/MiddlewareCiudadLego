@@ -1,52 +1,5 @@
 const Entity = require('../models/entidades');
 
-// {
-//     "_id": {
-//       "id": "urn:ngsi-ld:Camera:002",
-//       "type": "https://uri.fiware.org/ns/data-models#Camera",
-//       "servicePath": "/"
-//     },
-//     "attrNames": [
-//       "https://uri.fiware.org/ns/data-models#mediaURL",
-//       "https://uri.fiware.org/ns/data-models#on",
-//       "https://uri.etsi.org/ngsi-ld/default-context/startDataTime",
-//       "https://uri.fiware.org/ns/data-models#controlledAsset"
-//     ],
-//     "attrs": {
-//       "https://uri=fiware=org/ns/data-models#mediaURL": {
-//         "type": "Property",
-//         "creDate": 1718486265.894161,
-//         "modDate": 1718486265.894161,
-//         "value": "http://",
-//         "mdNames": []
-//       },
-//       "https://uri=fiware=org/ns/data-models#on": {
-//         "type": "Property",
-//         "creDate": 1718486265.894161,
-//         "modDate": 1718486265.894161,
-//         "value": "false",
-//         "mdNames": []
-//       },
-//       "https://uri=etsi=org/ngsi-ld/default-context/startDataTime": {
-//         "type": "Property",
-//         "creDate": 1718486265.894161,
-//         "modDate": 1718486265.894161,
-//         "value": "2021-06-01T00:00:00Z",
-//         "mdNames": []
-//       },
-//       "https://uri=fiware=org/ns/data-models#controlledAsset": {
-//         "type": "Relationship",
-//         "creDate": 1718486265.894161,
-//         "modDate": 1718486265.894161,
-//         "value": "urn:ngsi-ld:LegoRadar:002",
-//         "mdNames": []
-//       }
-//     },
-//     "creDate": 1718486265.894161,
-//     "modDate": 1718486265.894161,
-//     "lastCorrelator": ""
-//   }
-
 const EnvConfig = require('../utils/env.config');
 const { device_number } = EnvConfig();
 

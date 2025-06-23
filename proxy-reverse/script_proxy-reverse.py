@@ -391,6 +391,25 @@ def append_apisApp():
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
+    
+    
+    
+    location /continuo/ {
+        proxy_pass http://apis-app:3001/continuo/;  # Barra final para preservar la ruta
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Si usas WebSocket o Server-Sent Events (SSE)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        # Desactiva el buffer para streaming en tiempo real
+        proxy_buffering off;
+        proxy_cache off;
+    }
 """
 # def append_apisApp():
 #     return \
