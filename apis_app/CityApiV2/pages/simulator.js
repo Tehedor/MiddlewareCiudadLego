@@ -6,10 +6,12 @@ import { mode_container, url_simulator } from '../utils/env.config';
 
 
 // const simulatorLink = mode_container ? 'http://simulatorApp:3030/monitor' : 'http://localhost/simulatorApp/monitor';
-const simulatorLink = mode_container ? 
-    url_simulator    
-    : 
-    'http://localhost/simulatorApp/monitor';
+// const simulatorLink = mode_container ? 
+//     url_simulator    
+//     : 
+//     'http://localhost/simulatorApp/monitor';
+
+const simulatorLink = process.env.URL_EXTERNA_SUBSCONTROLAPP || "asc.com"
 
 function Simulator() {
     return (
