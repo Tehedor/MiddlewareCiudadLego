@@ -3,10 +3,13 @@ import NavBar from '../components/NavBar';
 import withAuth from '../utils/withAuth';
 
 import { mode_container,url_subcontrolapp } from '../utils/env.config';
-const simulatorLink = mode_container ? 
-    url_subcontrolapp 
-    : 
-    'http://localhost/subsControlApp/all';
+// const simulatorLink = mode_container ? 
+//     url_subcontrolapp 
+//     : 
+//     'http://localhost/subsControlApp/all';
+
+const subsAppLink = process.env.NEXT_PUBLIC_URL_EXTERNA_SUBSCONTROLAPP || 'http://localhost/simulatorApp/monitor';
+
 
 function Simulator() {
     return (
@@ -14,7 +17,7 @@ function Simulator() {
             <NavBar />
             <div className="form-container">
                 <iframe 
-                    src={simulatorLink}  
+                    src={subsAppLink}  
                     className="simulator-iframe"
                 ></iframe> 
             </div>
