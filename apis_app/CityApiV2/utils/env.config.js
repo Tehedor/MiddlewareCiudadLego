@@ -36,8 +36,8 @@ const {
     // MODE_CONTAINER     :mode_container = "false",   
     MODE_CONTAINER    :mode_container = "true",   
 
-    URL_EXTERNA_SIMULATOR        :url_simulator = "http://localhost/simulatorApp/monitor",
-    URL_EXTERNA_SUBSCONTROLAPP   :url_subcontrolapp = "http://localhost/subsControlApp/all",
+    NEXT_PUBLIC_URL_EXTERNA_SIMULATOR        :url_simulator = "http://localhost/simulatorApp/monitor",
+    NEXT_PUBLIC_URL_EXTERNA_SUBSCONTROLAPP   :url_subcontrolapp = "http://localhost/subsControlApp/all",
 } = process.env;
 
 const EnvConfig = () => ({ 
