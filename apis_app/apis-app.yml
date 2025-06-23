@@ -38,6 +38,9 @@ services:
       API_BASE_URL : /apisApp
       NEXT_PUBLIC_API_BASE_PATH: /apisApp
       NEXT_PUBLIC_SWAGGER_URL: /api
+      URL_EXTERNA_SIMULATOR: http://138.4.22.12/simulatorApp/
+      URL_EXTERNA_SUBSCONTROLAPP: http://138.4.22.12/subsControlApp/
+    
     # volumes:
     #   - ./CityApiV3:/usr/src/app
     healthcheck:
