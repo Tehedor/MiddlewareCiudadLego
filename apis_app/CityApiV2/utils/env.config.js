@@ -35,6 +35,9 @@ const {
 
     // MODE_CONTAINER     :mode_container = "false",   
     MODE_CONTAINER    :mode_container = "true",   
+
+    URL_EXTERNA_SIMULATOR        :url_simulator = "http://localhost/simulatorApp/monitor",
+    URL_EXTERNA_SUBSCONTROLAPP   :url_subcontrolapp = "http://localhost/subsControlApp/all",
 } = process.env;
 
 const EnvConfig = () => ({ 
@@ -56,6 +59,8 @@ const EnvConfig = () => ({
     redis_host,
     redis_port,
     mode_container  :   convertToBoolean(mode_container),
+    url_simulator,
+    url_subcontrolapp,
 });
 
 module.exports = EnvConfig;

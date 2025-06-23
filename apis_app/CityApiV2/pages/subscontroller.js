@@ -2,9 +2,9 @@ import NavBar from '../components/NavBar';
 
 import withAuth from '../utils/withAuth';
 
-import { mode_container } from '../utils/env.config';
+import { mode_container,url_subcontrolapp } from '../utils/env.config';
 const simulatorLink = mode_container ? 
-    'http://localhost/subsControlApp/all' 
+    url_subcontrolapp 
     : 
     'http://localhost/subsControlApp/all';
 

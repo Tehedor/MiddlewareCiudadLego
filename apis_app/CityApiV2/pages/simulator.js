@@ -2,12 +2,12 @@ import NavBar from '../components/NavBar';
 
 import withAuth from '../utils/withAuth';
 
-import { mode_container } from '../utils/env.config';
+import { mode_container, url_simulator } from '../utils/env.config';
 
 
 // const simulatorLink = mode_container ? 'http://simulatorApp:3030/monitor' : 'http://localhost/simulatorApp/monitor';
 const simulatorLink = mode_container ? 
-    'http://localhost/simulatorApp/monitor'
+    url_simulator    
     : 
     'http://localhost/simulatorApp/monitor';
 
