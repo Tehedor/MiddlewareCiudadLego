@@ -122,76 +122,81 @@ async function simulateLedDetectionActuator(data) {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 const intensityThreshold = Number(intensity_threshold) || 70;
 async function simulateLightActuator(data) {
-    if (state_lightAtuator == undefined || ctrl_lightActuator == undefined) {
-        iniciarActuadores();
-    }
 
-    if (data.id === `urn:ngsi-ld:PhotoresistorSensor:${device_number}`) {
-        console.log(data.light.value);
-        if (data.light.value > intensityThreshold) {
-            ctrl_lightActuator = 'ON';
-            // console.log('Lus');
-            if (state_lightAtuator === 'OFF') {
+    try {
+
+        if (state_lightAtuator == undefined || ctrl_lightActuator == undefined) {
+            iniciarActuadores();
+        }
+
+        if (data.id === `urn:ngsi-ld:PhotoresistorSensor:${device_number}`) {
+            // console.log(data.light.value);
+            if (data.light.value > intensityThreshold) {
+                ctrl_lightActuator = 'ON';
+                // console.log('Lus');
+                if (state_lightAtuator === 'OFF') {
+                    state_lightAtuator = 'ON';
+                    // console.log('Encendido');
+                    try {
+                        await ActuatorsService.lightChange(state_lightAtuator);
+                    } catch (error) {
+                        console.error('Error in lightChange:', error.message);
+                    }
+                        SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
+                }
+            } else if (data.light.value <= intensityThreshold){
+                ctrl_lightActuator = 'OFF';
+                // console.log('No hay gente');
+                if (state_lightAtuator === 'ON') {
+                    state_lightAtuator = 'OFF';
+                    // console.log('Apagado'); 
+                    try {
+                        await ActuatorsService.lightChange(state_lightAtuator);
+                    }catch (error) {
+                        console.error('Error in lightChange:', error.message);
+                    }
+                    SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
+                    // console.log('Apagado');
+                }
+            }
+        }
+        
+        // state_lightAtuator
+        if (data.id === `urn:ngsi-ld:PirSensor:${device_number}`) {
+            if (data.presence.value === 'HIGH' && ctrl_lightActuator === 'ON' && state_lightAtuator === 'OFF') {
                 state_lightAtuator = 'ON';
-                // console.log('Encendido');
                 try {
                     await ActuatorsService.lightChange(state_lightAtuator);
                 } catch (error) {
                     console.error('Error in lightChange:', error.message);
                 }
-                    SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
-            }
-        } else if (data.light.value <= intensityThreshold){
-            ctrl_lightActuator = 'OFF';
-            // console.log('No hay gente');
-            if (state_lightAtuator === 'ON') {
+                SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
+                // console.log('Encendido');
+            } else if (data.presence.value === 'LOW' && state_lightAtuator === 'ON') {
                 state_lightAtuator = 'OFF';
-                // console.log('Apagado'); 
+                try {
+                    await ActuatorsService.lightChange(state_lightAtuator);
+                } catch (error) {
+                    console.error('Error in lightChange:', error.message);  
+                }
+                SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
+                // console.log('Apagado');
+            } else if (ctrl_lightActuator === 'OFF'){
+                state_lightAtuator = 'OFF';
                 try {
                     await ActuatorsService.lightChange(state_lightAtuator);
                 }catch (error) {
                     console.error('Error in lightChange:', error.message);
                 }
+
                 SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
                 // console.log('Apagado');
             }
         }
+    
+    } catch (error) {
+        console.error('Error in simulateLightActuator:', error.message);
     }
-    
-       // state_lightAtuator
-    if (data.id === `urn:ngsi-ld:PirSensor:${device_number}`) {
-        if (data.presence.value === 'HIGH' && ctrl_lightActuator === 'ON' && state_lightAtuator === 'OFF') {
-            state_lightAtuator = 'ON';
-            try {
-                await ActuatorsService.lightChange(state_lightAtuator);
-            } catch (error) {
-                console.error('Error in lightChange:', error.message);
-            }
-            SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
-            // console.log('Encendido');
-        } else if (data.presence.value === 'LOW' && state_lightAtuator === 'ON') {
-            state_lightAtuator = 'OFF';
-            try {
-                await ActuatorsService.lightChange(state_lightAtuator);
-            } catch (error) {
-                console.error('Error in lightChange:', error.message);  
-            }
-            SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
-            // console.log('Apagado');
-        } else if (ctrl_lightActuator === 'OFF'){
-            state_lightAtuator = 'OFF';
-            try {
-                await ActuatorsService.lightChange(state_lightAtuator);
-            }catch (error) {
-                console.error('Error in lightChange:', error.message);
-            }
-
-            SOCKET_IO.emit('update_lightActuator', state_lightAtuator);
-            // console.log('Apagado');
-        }
-    }
-    
-    
     
     // debug(`Received ${req.method} request on ${req.path}`);
     // debug('Headers:', req.headers);
