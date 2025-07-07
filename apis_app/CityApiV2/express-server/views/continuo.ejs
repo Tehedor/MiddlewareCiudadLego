@@ -46,6 +46,11 @@
         var server_ip = '<%= server_ip %>';    
         var url2 = server_ip + '/api';
         
+        // Añade los console.log solicitados
+        console.log('mode_container:', mode_container);
+        console.log('url2:', url2);
+
+
         // Función para obtener datos del sensor
         function obtenerDatosSensor() {
             var url = `http://${ mode_container == "true" ? url2: url1}/${deviceType}/${ngsiID}?apiKey=${apiKey}&style=${style}`;
