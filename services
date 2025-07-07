@@ -135,7 +135,7 @@ case "${command}" in
 		waitForMongoDraco
 		waitForDraco
 		waitForDracoInit
-  		docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
+		docker rm fiware-draco-init-1 > /dev/null 2>&1 || echo "⚠️ No se pudo eliminar el contenedor"
 		;;
 	"stop-draco")
 		stoppingContainersDraco

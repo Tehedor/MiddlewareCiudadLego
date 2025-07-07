@@ -42,8 +42,9 @@
         var deviceType = '<%= deviceType %>';
         var mode_container = '<%= mode_container %>';
         var url1 = 'localhost:3001/api'
-        var url2 = 'localhost/api'
-        <!-- var url2 = '138.4.22.12/api' -->
+        <!-- var url2 = 'localhost/api' -->
+        var server_ip = '<%= server_ip %>';    
+        var url2 = server_ip + '/api';
         
         // Función para obtener datos del sensor
         function obtenerDatosSensor() {

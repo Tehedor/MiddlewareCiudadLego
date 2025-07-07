@@ -35,7 +35,7 @@ const {
 
     // MODE_CONTAINER     :mode_container = "false",   
     MODE_CONTAINER    :mode_container = "true",   
-
+    SERVER_IP            :server_ip = "localhost",
     NEXT_PUBLIC_URL_EXTERNA_SIMULATOR        :url_simulator = "http://localhost/simulatorApp/monitor",
     NEXT_PUBLIC_URL_EXTERNA_SUBSCONTROLAPP   :url_subcontrolapp = "http://localhost/subsControlApp/all",
 } = process.env;
@@ -61,6 +61,7 @@ const EnvConfig = () => ({
     mode_container  :   convertToBoolean(mode_container),
     url_simulator,
     url_subcontrolapp,
+    server_ip,
 });
 
 module.exports = EnvConfig;

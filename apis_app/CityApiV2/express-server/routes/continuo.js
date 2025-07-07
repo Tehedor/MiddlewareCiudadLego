@@ -18,7 +18,7 @@ const {
 } = require("../utils/requestUtils");
 
 const EnvConfig = require('../../utils/env.config');
-const {mode_container} = EnvConfig();
+const {mode_container, server_ip} = EnvConfig();
 
 
 
@@ -89,7 +89,7 @@ router.get('/continuo/:ngsiID([\\w:-]+)', async (req, res) => {
       return res.status(400).send('Missing required parameters');
     }
 
-    res.render('continuo', { ngsiID, style, apiKey, deviceType, mode_container });
+    res.render('continuo', { ngsiID, style, apiKey, deviceType, mode_container, server_ip });
     
   } catch (error) {
     res.send(`<html><head><title>Continuo</title></head><body><h1>No es ni Sensor ni Actuador, o dato mal metido</h1></body></html>`);
@@ -162,7 +162,7 @@ router.get('/continuo/camera/:ngsiID([\\w:-]+)', async (req, res) => {
       return res.status(400).send('Missing required parameters');
     }
 
-    res.render('continuoCamera', { ngsiID, style, apiKey, deviceType, mode_container });
+    res.render('continuoCamera', { ngsiID, style, apiKey, deviceType, mode_container, server_ip });
     
   } catch (error) {
     res.send(`<html><head><title>Continuo</title></head><body><h1>No es una Camara, o dato mal metido</h1></body></html>`);
